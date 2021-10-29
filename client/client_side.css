@@ -406,8 +406,8 @@ body{
     position: relative;
     font-family: 'Montserrat', sans-serif;
     background-color: white;
-    width: 30%;
-    height: 30%;
+    width: 50%;
+    height: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -430,6 +430,10 @@ body{
       border: none;
       font-family: 'Montserrat', sans-serif;
       cursor: pointer;
+  }
+
+  #datepicker{
+    position: relative;
   }
 
   .modal-close{
