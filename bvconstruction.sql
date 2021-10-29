@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2021 at 05:13 PM
+-- Generation Time: Oct 29, 2021 at 05:18 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -59,7 +59,8 @@ CREATE TABLE `project` (
   `UID` int(255) NOT NULL,
   `Pdate` int(255) NOT NULL,
   `ptype` varchar(50) NOT NULL,
-  `pupdates` varchar(50) NOT NULL
+  `pupdates` varchar(50) NOT NULL,
+  `remarks` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
