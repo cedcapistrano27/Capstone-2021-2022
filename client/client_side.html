@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BV Construction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="client_side.css">
+    
 </head>
 <body>
     
@@ -50,16 +52,22 @@
     <!--sidebar end-->
 
     <div class="content">
+        <h2>Create an appointment</h2>
+        <button class="modal-btn">Create</button>
+    </div>
 
-      <section id="dashboard">
-        
-      </section>
-<!----- Dashboard Area end----->
-
-
-
-  </div>
-
+    <div class="modal-bg">
+        <div class="modal">
+            <h2>Appointment form</h2>
+            <label for="name">Name: </label>
+            <input type="text" name="name">
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="">
+            <button>Submit</button>
+            <span class="modal-close">X</span>
+        </div>
+    </div>
+    <script src="client-side.js"></script>
   <footer>
      <span><p><b>&copy; 2020 Copyrights Reserved</b> By <i>BV Construction Industries.</i></p></span>
   </footer>
