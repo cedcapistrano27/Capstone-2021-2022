@@ -5,7 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BV Construction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="client_side.css">
+    
 </head>
 <body>
     
@@ -50,16 +57,28 @@
     <!--sidebar end-->
 
     <div class="content">
+        <h2>Create an appointment</h2>
+        <button class="modal-btn">Create</button>
+    </div>
 
-      <section id="dashboard">
-        
-      </section>
-<!----- Dashboard Area end----->
+    <div class="modal-bg">
+        <form method="post" class="modal">
+            <label for="name">Name: </label>
+            <input type="text" name="" id="">
+            <label for="email">Email: </label>
+            <input type="email" name="" id="">
+            <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                <input class="form-control" type="text" name="">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+            <button type="submit">OK</button>
+            <span class="modal-close">X</span>
+        </form>
 
-
-
-  </div>
-
+    </div>
+    <script src="client-side.js"></script>
+    
+    
   <footer>
      <span><p><b>&copy; 2020 Copyrights Reserved</b> By <i>BV Construction Industries.</i></p></span>
   </footer>
