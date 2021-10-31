@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2021 at 05:18 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Oct 31, 2021 at 08:09 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,9 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `appointment` (
   `APPID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
-  `date` int(255) NOT NULL,
+  `date` date NOT NULL,
   `a_type` varchar(50) NOT NULL,
-  `a_details` varchar(50) NOT NULL
+  `a_details` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -45,7 +44,8 @@ CREATE TABLE `appointment` (
 CREATE TABLE `payment` (
   `PayID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
-  `payment` int(255) NOT NULL
+  `payment_amount` decimal(10,2) NOT NULL,
+  `payment_issued` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -73,7 +73,7 @@ CREATE TABLE `project_request` (
   `PRID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
   `Rtype` varchar(50) NOT NULL,
-  `PR_details` varchar(50) NOT NULL
+  `PR_details` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
