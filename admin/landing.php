@@ -9,7 +9,7 @@ $username = $_POST["uname"];
 $password = $_POST["psw"];
 
 $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
-$result = $db->query($sql);
+$result = $conn->query($sql);
 if ($result->num_rows > 0)
   {
     while ($row = $result->fetch_assoc())
@@ -32,7 +32,7 @@ if ($result->num_rows > 0)
         exit;
       }
     }
-  $db->close();
+  $conn->close();
   }
 
 }
