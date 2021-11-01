@@ -1,4 +1,45 @@
 <<<<<<< HEAD:admin/landing.html
+<?php
+include 'connection.php';
+
+
+if(isset($_POST["login-btn"]))
+{
+$username = $_POST["uname"];
+$password = $_POST["psw"];
+
+$sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+$result = $db->query($sql);
+if ($result->num_rows > 0)
+  {
+    while ($row = $result->fetch_assoc())
+    {
+      if($row["usertype"] == 'admin')
+      {
+        echo "<script> window.location.href='http://localhost/THESIS/Capstone-2021-2022/admin/admin-index.php' </script>  ";
+        header("Location: {$url}");
+        exit;
+      }
+      else if($row["usertype"] == 'common')
+      {
+        echo "<script> window.location.href='http://localhost/THESIS/Capstone-2021-2022/admin/client_side.php' </script>  ";
+        header("Location: {$url}");
+        exit;
+      }
+      else
+      {
+        echo "<script>alert('Invalid user account. Contact your Administrator!')</script>";
+        exit;
+      }
+    }
+  $db->close();
+  }
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -210,7 +251,7 @@ class="close" title="Close Modal">&times;</span>
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
+      <button type="submit" name="login-btn">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
@@ -646,7 +687,7 @@ class="close" title="Close Modal">&times;</span>
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
+      <button type="submit" name="login-btn">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
