@@ -52,7 +52,7 @@
       </div>
         <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
         <a href="#"><i class="fas fa-cogs"></i><span>Appointments</span></a>
-        <a href="#"><i class="fas fa-sliders-h"></i><span>Account Settings</span></a>
+        <a href="client_update.php"><i class="fas fa-sliders-h"></i><span>Account Settings</span></a>
     </div>
     <!--sidebar end-->
 
@@ -78,8 +78,11 @@
 
     </div>
     <script src="client-side.js"></script>
+
     
-    
+
+
+    <!-- footer -->
   <footer>
      <span><p><b>&copy; 2020 Copyrights Reserved</b> By <i>BV Construction Industries.</i></p></span>
   </footer>

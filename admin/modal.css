@@ -37,7 +37,7 @@ form {
     margin-right: 5px;
     border: none;
     cursor: pointer;
-    width: 100px;
+    width: 500px;
     border-radius: 20px;
   }
   #signup{
@@ -58,7 +58,7 @@ form {
   
   /* Extra style for the cancel button (red) */
   .cancelbtn {
-    width: auto;
+    width: 100%;
     padding: 10px 18px;
     background-color: #f44336;
   }
@@ -129,7 +129,7 @@ form {
   }
   
   /* Float cancel and signup buttons and add an equal width */
-  .cancelbtnsignup, .signupbtn2 {
+  .cancelbtnsignup, .signup-btn {
     float: left;
     width: 35%;
   }

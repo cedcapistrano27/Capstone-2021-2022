@@ -1,4 +1,4 @@
-<<<<<<< HEAD:admin/landing.html
+<!-- /*<<<<<<< HEAD:admin/landing.html*/ -->
 <?php
 include 'connection.php';
 
@@ -35,6 +35,23 @@ if ($result->num_rows > 0)
   $conn->close();
   }
 
+}
+
+if(isset($_POST['signup-btn'])){
+  $Username=$_POST['username']; 
+  $Password = $_POST['psw'];
+  $Password2=$_POST['psw2']; 
+  $User_type = "common";
+
+
+  
+    $user_insert= "INSERT into user (username, password, usertype) VALUES ('$Username', '$Password2', '$User_type');"; 
+    $user_product= mysqli_query($conn, $user_insert); 
+    
+      Echo"<script>alert('User has been created!')</script>";     
+    
+  
+  
 }
 
 ?>
@@ -281,7 +298,7 @@ class="close" title="Close Modal">&times;</span>
     <div class="container">
       
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Username" name="username" required>
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
@@ -296,7 +313,7 @@ class="close" title="Close Modal">&times;</span>
       <div class="clearfix">
         <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
         <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtnsignup">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
+        <button type="submit" class="signup-btn">Sign Up</button>
       </div>
   </form>
 </div>
