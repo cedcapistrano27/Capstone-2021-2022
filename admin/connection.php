@@ -4,7 +4,7 @@
 	$dbhost ='localhost';
 	$dbuser ='root';
 	$dbpass ='';
-	$dbname ='bvconstruction.sql';
+	$dbname ='bvconstruction';
 
 
 	$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);

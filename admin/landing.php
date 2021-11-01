@@ -287,7 +287,7 @@ class="close" title="Close Modal">&times;</span>
       <input type="password" placeholder="Enter Password" name="psw" required>
 
       <label for="psw"><b>Confirm password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="psw2" required>
 
     </div>
 
@@ -295,8 +295,8 @@ class="close" title="Close Modal">&times;</span>
 
       <div class="clearfix">
         <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtnsignup">Cancel</button>
-        <button type="submit" class="signupbtn2">Sign Up</button>
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtnsignup">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
       </div>
   </form>
 </div>

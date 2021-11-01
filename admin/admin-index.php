@@ -544,7 +544,7 @@ footer{
         <h3>BV <span>Construction</span></h3>
       </div>
       <div class="right_area">
-        <a href="#" class="logout_btn">Logout</a>
+        <a href="landing.php" class="logout_btn">Logout</a>
       </div>
     </header>
     <!--header area end-->
