@@ -155,14 +155,6 @@ label #sidebar_btn:hover{
   width: 100%;
 }
 
-.content{
-  width: 100% - 250px;
-  margin-top: 60px;
-  padding: 20px;
-  margin-left: 250px;
-  height: 100vh;
-  transition: 0.5s;
-}
 
 #check:checked ~ .content{
   margin-left: 60px;
@@ -181,28 +173,172 @@ label #sidebar_btn:hover{
 }
 
 
-/*Section Area*/
+/*content area*/
+
+.content{
+  width: 100% - 250px;
+  margin-top: 60px;
+  padding: 20px;
+  margin-left: 250px;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+.calendar{
+  background: rgb(2,0,36);
+  background: linear-gradient(41deg, rgba(2,0,36,1) 0%, rgba(106,106,175,0.9084676106770834) 37%, rgba(0,212,255,1) 100%);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+.appointment-area{
+  margin: 10px auto auto auto;
+  background: rgb(142,142,142);
+background: linear-gradient(144deg, rgba(142,142,142,.6) 32%, rgba(0,5,11,.6) 79%);
+  height: 90vh;
+  overflow: hidden; 
+  border-radius: 10px;
+}
+.appointment-area .header{
+  background: rgb(2,0,36);
+background: linear-gradient(41deg, rgba(2,0,36,1) 0%, rgba(174,106,175,0.7375992633381477) 37%, rgba(0,212,255,1) 100%);
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  padding: 4px;
+
+}
+.appointments{
+  width: 80% - 250px;
+  display: flex;
+  padding: 10px 10px;
 
 
+}
 
 
+.appointment-col{
+  flex: 1.5;
+   border: 5px black double;
+   display: flex;
+   flex-direction: column;
+   overflow: scroll;
+   height: 70vh;
+   overflow-x: hidden;
+   padding-bottom: 20px;
+   padding-right: 20px;
+   padding-left: 20px;
+   background: rgb(142,142,142);
+background: linear-gradient(144deg, rgba(142,142,142,.5) 0%, rgba(255,255,255,1) 38%);
+   border-radius: 5px;
+
+}
+.appointment-col::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.appointment-col::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.appointment-col::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+.appointment-col::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.single-appointment{
+  border: 10px black double;
+  height: 15vh - 100%;
+  width: 80% - 50px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
 
 
-    
-    footer{
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    background: rgba(0, 0, 0, 0.79);
-    border-radius: 5px 5px 0px 0px;
-    padding: 5px;
+}
+hr{
+  display: none;
+}
+details{
+  border-top: 1px green solid;
+  padding: 5px 10px;
+  margin-bottom: 20px;
 
-    }  
-    footer p{
-      color: white;
-      text-align: center;
-      font-size: 13px;
-    }
+
+}
+summary, p{
+  font-size: 18px;
+
+}
+
+.title h4{
+  background: rgba(112, 68, 96, 0.8);
+  padding: 10px;
+text-align: left;
+  color: white;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  width: 60%;
+  font-family: Century Gothic;
+}
+
+.appointment-col-1{
+  flex: .5;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+/*----widgdet----*/
+
+.card-body{
+    font-family: "Roboto", sans-serif;
+    margin: 10px;
+    padding: 20px;
+    width: 270px;
+    height: 60vh;
+    color: #fff;
+    border-radius: 5px;
+    background: rgba(138, 226, 149, 0.73);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.card-body h3{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.currency, .count{
+    font-size: 40px;
+    font-weight: 500;
+}
+.card-body .info p{
+    font-size: 25px;
+    margin-top: 5px;
+    font-family: cursive;
+    text-decoration-line: underline;
+    text-decoration-style: double;
+
+}
+.card-body .icon{
+    font-size: 95px;
+    opacity: 1;
+}
+
+
 
 
 /* Responsive CSS */
@@ -303,12 +439,6 @@ label #sidebar_btn:hover{
     
   }
 
-
-
-footer{
-  display: block;
-}
-
 }
       
     </style>
@@ -363,14 +493,158 @@ footer{
 
     <div class="content">
 
+      <div class="calendar">
+      <div class="calendar-body">
+        <span class="month-name">Month</span>
+        <span class="day-name">Day</span>
+        <span class="date-number">00</span>
+        <span class="year">0000</span>
+      </div>
+    </div>
+
+    <div class="appointment-area">
+
+        <div class="header">
+        <span><h2>Appointments</h2></span>
+        </div>
+
+      <div class="appointments">
+
+        <section class="appointment-col">
+
+          <div class="single-appointment">
+          <div class="title">
+            <span><h4>Appointment Date</h4></span>
+             
+          </div>
+          <div class="information">
+            <details>
+            <summary>clientID : clients name</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </details>
+          </div>  
+        </div>
+
+        <div class="single-appointment">
+          <div class="title">
+            <span><h4>Appointment Date</h4></span>
+            <hr>            
+          </div>
+          <div class="information">
+            <details>
+            <summary>clientID : clients name</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </details>
+          </div>  
+        </div>
+
+        <div class="single-appointment">
+          <div class="title">
+            <span><h4>Appointment Date</h4></span>
+            <hr>            
+          </div>
+          <div class="information">
+            <details>
+            <summary>clientID : clients name</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </details>
+          </div>  
+        </div>
+
+        <div class="single-appointment">
+          <div class="title">
+            <span><h4>Appointment Date</h4></span>
+            <hr>            
+          </div>
+          <div class="information">
+            <details>
+            <summary>clientID : clients name</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </details>
+          </div>  
+        </div>
+
+        <div class="single-appointment">
+          <div class="title">
+            <span><h4>Appointment Date</h4></span>
+            <hr>            
+          </div>
+          <div class="information">
+            <details>
+            <summary>clientID : clients name</summary>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </details>
+          </div>  
+        </div>
+
+      </section>
+
+        <div class="appointment-col-1">
+
+           <!--Widget Start-->
+
+        <div class="card-body">
+
+          <div class="icon">
+                <i class="fas fa-handshake"></i>
+            </div>
+
+            <div class="info">
+                <h3>
+                    <span class="count">191</span>
+                </h3>
+                <p>Appointments</p>
+            </div>
+            
+        </div>
+        <!--Widget End-->
+          
+        </div>
+          
+     
+        
+        
+      </div>
+
+     
+        
+   
+ 
+    </div>
+
          
 
       </div>
-<!----- Table Area end----->
+<!----- Content Area end----->
 
 
 
-  </div>
+ 
 
  
 
