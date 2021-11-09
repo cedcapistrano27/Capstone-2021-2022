@@ -10,10 +10,14 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(assets/images/agency/Capture4.jpg);
+  background-image: url('assets/images/agency/Capture4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
+
+
+/* signup */
 .wrapper{
   position: relative;
   max-width: 430px;
