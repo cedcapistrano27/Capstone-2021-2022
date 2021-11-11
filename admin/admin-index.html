@@ -208,7 +208,7 @@ section{
   width: 100% - 250px;
   height: 100vh;
   align-items: center;
-  border: 2px red solid;
+
 
   
 }
@@ -216,11 +216,9 @@ section{
 section .widget{
   display: flex;
   flex-direction: row;
-  border: 1px blue solid;
   margin-top: 20px;
 }
 section .calendar{
-  border: 1px green solid;
   max-width: 100% - 250px;
 
 }
@@ -290,14 +288,15 @@ section .calendar{
 }
 
 .calendar .calendar-body{
-  width: 35%;
-  border: 3px yellow solid;
+  width: 50%;
+  background: rgba(141, 140, 140, 0.8);
   margin-top: 20px;
   margin-left: 20px;
   margin-bottom: 10px;
   padding: 10px;
   color: white;
   font-family: monospace;
+  border-radius: 10px;
 }
 
 .calendar .calendar-body .month-name{
@@ -335,12 +334,11 @@ section .calendar{
 }
 .top-content{
   width: 600px;
-  border: 2px orange solid;
   flex: 1;
   padding: 10px;
-
-
-
+  background: rgba(0, 5, 52, 0.7);
+  margin-right: 10px;
+  border-radius: 10px;
 }
 .header-content{
   display: flex;
@@ -349,19 +347,21 @@ section .calendar{
   background: rgba(60, 60, 60, 0.8);
   color: white;
   width: 100%;
+  font-family: monospace;
+   border-radius: 10px;
 }
 
 .header-left{
-  border: 2px green solid;
+
   width: auto;
   padding: 10px;
   flex: 1.25;
+  font-size: 1.2rem;
 }
 
 table{
   margin-top: 10px;
   width: 100%;
-  border: 2px yellow solid;
   text-align: center;
   background: white;
   border-collapse: collapse;
@@ -376,11 +376,24 @@ th, td{
 }
 
 .see-all{
-  border: 2px green solid;
-  width: 35%;
-  flex: 1;
-  text-align: right;
-  padding-right: 20px;
+ 
+  width: 25%;
+  flex: .75;
+  text-align: center;
+  padding: 10px;
+  height: auto;
+
+}
+
+.see-all a{
+  font-size: 20px;
+  background: black;
+  padding:10px;
+  text-decoration: none;
+  border-radius: 5px;
+  color: white;
+ 
+
 }
 
 .sale-content{
@@ -388,18 +401,23 @@ th, td{
   padding: 10px;
   display: flex;
   flex-direction: column;
+  background: rgba(0, 5, 52, 0.7);
+  border-radius: 10px;
+
 }
 
 .sale-content .donut{
-  width: 100% - 250px;
-  border: 2px green solid;
+  width: 350px;
+  border: 5px black double;
   border-radius: 15px;
   overflow: hidden;
-  border-width: 70%;
   background: white;
   display: block;
   margin-top: 10px;
   text-align: center;
+  position: relative;
+margin-left: auto;
+margin-right: auto;
 
 }
 
@@ -798,7 +816,7 @@ footer{
 
  <div class="header-content">
      <div class="header-left">
-    <span><h3>Sales</h3></span>   
+    <span><h3>Projects</h3></span>   
    </div>
 
    <div class="see-all">
