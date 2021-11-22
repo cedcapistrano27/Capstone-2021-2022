@@ -72,13 +72,13 @@
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="signup.html">
+						<a class="txt2" href="signup.php">
 							Create your Account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 						<br>
-						<a class="txt2" href="index_agency.html">
-							Go back
+						<a class="txt2" href="index_agency.php">
+							Go to homepage
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>	

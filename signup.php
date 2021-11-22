@@ -35,7 +35,12 @@
         <input type="Submit" value="Register Now">
       </div>
       <div class="text">
-        <h3>Already have an account? <a href="login.html">Login now</a></h3>
+        <h3>Already have an account? <a href="login.php">Login now</a></h3>
+        <br>
+						<a class="txt2" href="index_agency.php">
+							 Go to homepage
+							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
+						</a>
       </div>
     </form>
   </div>

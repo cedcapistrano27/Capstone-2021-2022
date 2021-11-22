@@ -66,7 +66,7 @@
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
               
-              <li class="dropdown"><a href="index_agency.html" >Logout</a>
+              <li class="dropdown"><a href="index_agency.php">Logout</a>
                  
               </li>
               
@@ -80,8 +80,8 @@
           <div class="col-sm-2">
             <img class="col-sm-12" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;">
             <h1 class="col-sm-12">Welcome </h1>
-            <a class="col-sm-12">Project</a>
-            <a class="col-sm-12">Appointment</a>
+            <a class="col-sm-12">Appointment/s</a>
+            <a class="col-sm-12">User Profile</a>
             
           </div>
           <div class="col-sm-10">
