@@ -27,6 +27,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="client.css">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -102,6 +103,27 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias nam explicabo sapiente libero rer
             um nihil quod itaque quaerat numquam, dicta nisi quisquam reprehenderit iusto minima dolores obcaecati provident magni natus?
             </div>    
+            <div class="content">
+              <h2>Create an appointment</h2>
+              <button class="modal-btn">Create</button>
+            </div>
+
+            <div class="modal-bg">
+                <form method="post" class="modal">
+                    <label for="name">Name: </label>
+                    <input type="text" name="" id="">
+                    <label for="email">Email: </label>
+                    <input type="email" name="" id="">
+                    <label for="Date">Date of Appointment: </label>
+                    <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy">
+                      <input class="form-control" type="text" name="">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                    <button type="submit">OK</button>
+                    <span class="modal-close">X</span>
+                </form>
+            </div>
+            <script src="client-side.js"></script>
 
           </div>
         </div>
