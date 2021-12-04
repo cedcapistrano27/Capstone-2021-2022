@@ -91,28 +91,12 @@
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora soluta commodi minus accusamus, 
             dolor eum necessitatibus aliquam dolorum velit nam hic aspernatur excepturi fuga laborum nisi. Consecteturlaborum itaque accusantium?
               <div class="content">
-                <h2>Create an appointment</h2>
-                <form action="" method="post">
-                First Name: <input type="text" name="" id=""> 
-                  Middle Name: <input type="text" name="" id=""> 
-                  Last Name: <input type="text" name="" id=""><br>
-                  Address: <input type="text" name="" id=""> 
-                  Email: <input type="email" name="" id=""> 
-                  Contact Number: <input type="text" name="" id=""><br>
-                  Proof of Identification: 
-                  <select name="" id="">
-                    <option value=""> ----- </option>
-                    <option value="">SSS ID</option>
-                    <option value="">Passport</option>
-                    <option value="">Driver's License</option>
-                    <option value="">Barangay ID</option>
-                    <option value="">TIN ID</option>
-                    <option value="">Police Clearance</option>
-                    <option value="">NBI Clearance</option>
-                  </select> <br>
-                  Date of Appointment: <input type="date" name="" id=""> <br>
-                  <button type="submit">OK</button>
-                </form>
+                <h2>List of Appointments</h2>
+                <table>
+                  <td>
+                    hahaha
+                  </td>
+                </table>
               </div>
             </div>    
           </div>

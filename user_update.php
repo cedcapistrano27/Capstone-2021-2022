@@ -91,9 +91,9 @@
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora soluta commodi minus accusamus, 
             dolor eum necessitatibus aliquam dolorum velit nam hic aspernatur excepturi fuga laborum nisi. Consecteturlaborum itaque accusantium?
               <div class="content">
-                <h2>Create an appointment</h2>
+                <h2>Update Profile</h2>
                 <form action="" method="post">
-                First Name: <input type="text" name="" id=""> 
+                  First Name: <input type="text" name="" id=""> 
                   Middle Name: <input type="text" name="" id=""> 
                   Last Name: <input type="text" name="" id=""><br>
                   Address: <input type="text" name="" id=""> 
@@ -110,7 +110,10 @@
                     <option value="">Police Clearance</option>
                     <option value="">NBI Clearance</option>
                   </select> <br>
-                  Date of Appointment: <input type="date" name="" id=""> <br>
+                  Username: <input type="text" name="" id=""> 
+                  Password: <input type="password" name="" id=""><br>
+                  Confirm Password: <input type="password" name="" id=""><br>
+
                   <button type="submit">OK</button>
                 </form>
               </div>

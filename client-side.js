@@ -1,15 +1,10 @@
-var modalBtn = document.querySelector('.modal-btn');
-var modalBg = document.querySelector('.modal-bg');
-var modalClose = document.querySelector('.modal-close');
-
-modalBtn.addEventListener('click', function(){
-    modalBg.classList.add('bg-active');
-});
-
-modalClose.addEventListener('click', function(){
-    modalBg.classList.remove('bg-active');
-});
-
+var mod = document.getElementById('id01');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == mod) {
+    mod.style.display = "none";
+  }
+}
 
 $(function () {
     $('#datepicker').datepicker({
@@ -24,3 +19,5 @@ $(function () {
         orientation: "button"
     }).datepicker('update', new Date());
 });
+
+
