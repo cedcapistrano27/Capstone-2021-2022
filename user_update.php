@@ -1,3 +1,30 @@
+<?php 
+
+include 'connection.php';
+session_start();
+
+// diko ma specific ung user. inaayos ko pa.
+
+$sql = "SELECT * FROM user ";
+$result = $conn->query($sql);
+if ($result->num_rows>0)
+{
+    while($row=$result->fetch_assoc())
+    {
+      $Firstname = $row['fname'];
+      $Midname = $row['mname'];
+      $Lastname = $row['lname'];
+      $Address = $row['address'];
+      $Email = $row['email'];
+      $Contact = $row['cnumber'];
+      $ID = $row['ID_proof'];
+      $Username = $row['username'];
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
@@ -80,7 +107,7 @@
         <div class="row">
           <div class="col-sm-2">
             <img class="col-sm-12" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;">
-            <h1 class="col-sm-12">Welcome </h1>
+            <h1 class="col-sm-12">Welcome  <?php echo($_SESSION['username']) ?></h1>
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
             <a class="col-sm-12"href="user_update.php">User Profile</a>
@@ -93,15 +120,15 @@
               <div class="content">
                 <h2>Update Profile</h2>
                 <form action="" method="post">
-                  First Name: <input type="text" name="" id=""> 
-                  Middle Name: <input type="text" name="" id=""> 
-                  Last Name: <input type="text" name="" id=""><br>
-                  Address: <input type="text" name="" id=""> 
-                  Email: <input type="email" name="" id=""> 
-                  Contact Number: <input type="text" name="" id=""><br>
+                  First Name: <input type="text" name="" id="" value="<?php echo $Firstname ?>"> 
+                  Middle Name: <input type="text" name="" id="" value="<?php echo $Midname ?>"> 
+                  Last Name: <input type="text" name="" id="" value="<?php echo $Lastname ?>"><br>
+                  Address: <input type="text" name="" id="" value="<?php echo $Address ?>"> 
+                  Email: <input type="email" name="" id="" value="<?php echo $Email ?>"> 
+                  Contact Number: <input type="text" name="" id="" value="<?php echo $Contact ?>"><br>
                   Proof of Identification: 
-                  <select name="" id="">
-                    <option value=""> ----- </option>
+                  <select name="" id="" value="" >
+                    <option value=""><?php echo $ID ?></option>
                     <option value="">SSS ID</option>
                     <option value="">Passport</option>
                     <option value="">Driver's License</option>
@@ -110,7 +137,7 @@
                     <option value="">Police Clearance</option>
                     <option value="">NBI Clearance</option>
                   </select> <br>
-                  Username: <input type="text" name="" id=""> 
+                  Username: <input type="text" name="" id="" value="<?php echo $Username ?>"> 
                   Password: <input type="password" name="" id=""><br>
                   Confirm Password: <input type="password" name="" id=""><br>
 

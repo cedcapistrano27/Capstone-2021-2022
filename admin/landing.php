@@ -760,7 +760,7 @@ class="close" title="Close Modal">&times;</span>
       <div class="clearfix">
         <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtnsignup">Cancel</button>
-        <button type="submit" class="signupbtn2">Sign Up</button>
+        <button type="submit" class="signupbtn2" name="signupbtn2">Sign Up</button>
       </div>
   </form>
 </div>

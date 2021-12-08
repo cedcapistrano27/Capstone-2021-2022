@@ -1,3 +1,44 @@
+<?php
+include 'connection.php';
+session_start();
+
+if(isset($_POST["login-btn"]))
+{
+$username = $_POST["uname"];
+$password = $_POST["pass"];
+
+$sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+$result = $conn->query($sql);
+if ($result->num_rows > 0)
+  {
+    while ($row = $result->fetch_assoc())
+    {
+      if($row["usertype"] == 'admin')
+      {
+		$_SESSION["username"] = $username;
+        echo "<script> window.location.href='http://localhost/Capstone-2021-2022/client.php' </script>  ";
+        header("Location: {$url}");
+        exit;
+      }
+      else if($row["usertype"] == 'common')
+      {
+		$_SESSION["username"] = $username;
+        echo "<script> window.location.href='http://localhost/Capstone-2021-2022/user_update.php' </script>  ";
+        header("Location: {$url}");
+        exit;
+      }
+      else
+      {
+        echo "<script>alert('Invalid user account. Contact your Administrator!')</script>";
+        exit;
+      }
+    }
+  $conn->close();
+  }
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,13 +76,13 @@
 					<img src="assets/images/agency/img-01.png" alt="IMG">
 				</div>
 				
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title">
 						User Login
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email" required>
+					<div class="wrap-input100 validate-input" data-validate = "Username is required">
+						<input class="input100" type="text" name="uname" placeholder="Username" required>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -57,7 +98,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" type="submit" name="login-btn">
 							Login
 						</button>
 					</div>
