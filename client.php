@@ -94,6 +94,8 @@ session_start();
             <h1 class="col-sm-12">Welcome <?php echo($_SESSION['username']) ?></h1>
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
+            <a class="col-sm-12" href="#">Project/s</a>
+            <!-- project timeline ang gagawin sa project!!!!!! pababa -->
             <a class="col-sm-12"href="user_update.php">User Profile</a>
             
           </div>
@@ -104,23 +106,13 @@ session_start();
               <div class="content">
                 <h2>Create an appointment</h2>
                 <form action="" method="post">
+                  <!-- gagawin ng label tong pangalan!!!!!  -->
                 First Name: <input type="text" name="" id=""> 
                   Middle Name: <input type="text" name="" id=""> 
                   Last Name: <input type="text" name="" id=""><br>
-                  Address: <input type="text" name="" id=""> 
-                  Email: <input type="email" name="" id=""> 
-                  Contact Number: <input type="text" name="" id=""><br>
-                  Proof of Identification: 
-                  <select name="" id="">
-                    <option value=""> ----- </option>
-                    <option value="">SSS ID</option>
-                    <option value="">Passport</option>
-                    <option value="">Driver's License</option>
-                    <option value="">Barangay ID</option>
-                    <option value="">TIN ID</option>
-                    <option value="">Police Clearance</option>
-                    <option value="">NBI Clearance</option>
-                  </select> <br>
+                  <!-- Desired Project -->
+                  <!-- dropdown:  design, renovate, demolish, estimate -->
+                  <!-- under ng design interior saka exterior -->
                   Date of Appointment: <input type="date" name="" id=""> <br>
                   <button type="submit">OK</button>
                 </form>
