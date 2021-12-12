@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2021 at 07:05 AM
+-- Generation Time: Dec 12, 2021 at 08:21 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -102,7 +102,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumber`, `ID_proof`, `username`, `password`, `usertype`) VALUES
 (3005, 'chris', 'g', 'cullados', 'tanzang luma 6', 'gogo@gmail.com', 922278489, 'sss id, umid id, philhealth id, national id', 'xtianpuh', '12345678', 'admin'),
-(3007, '', '', '', '', '', 0, '', 'haha', 'xd', 'common');
+(3007, '', '', '', '', '', 0, '', 'haha', 'xd', 'common'),
+(3009, '', '', '', '', 'afdy@gmail.com', 0, '', 'newuser2', '87654321', 'common'),
+(3010, 'mang', 'g', 'tomas', 'none', 'maosdu@gmail.com', 102884, 'SSS', 'user3', 'qwerty', 'common'),
+(3022, 'asdgeee', 'qwrrrt', 'sddf', 'afdd2', 'bagong@email.com', 456456, '', 'bagonguser', '12345678', 'common');
 
 --
 -- Indexes for dumped tables
@@ -158,7 +161,7 @@ ALTER TABLE `project_request`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3008;
+  MODIFY `UID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3023;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

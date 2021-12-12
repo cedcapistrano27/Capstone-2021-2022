@@ -7,6 +7,25 @@ if(isset($_POST["login-btn"]))
 $username = $_POST["uname"];
 $password = $_POST["pass"];
 
+$sql1 = "SELECT * FROM user WHERE username = '$username' ;";
+$result1 = $conn->query($sql1);
+if ($result1->num_rows>0)
+{
+    while($row=$result1->fetch_assoc())
+    {
+      $Firstname = $row['fname'];
+      $Midname = $row['mname'];
+      $Lastname = $row['lname'];
+      $Address = $row['address'];
+      $Email = $row['email'];
+      $Contact = $row['cnumber'];
+      $ID = $row['ID_proof'];
+      $Username = $row['username'];
+	  $Password = $row['password'];
+	  
+    }
+}
+
 $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0)
@@ -16,13 +35,21 @@ if ($result->num_rows > 0)
       if($row["usertype"] == 'admin')
       {
 		$_SESSION["username"] = $username;
-        echo "<script> window.location.href='http://localhost/Capstone-2021-2022/client.php' </script>  ";
+        echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/admin-index.html' </script>  ";
         header("Location: {$url}");
         exit;
       }
       else if($row["usertype"] == 'common')
       {
 		$_SESSION["username"] = $username;
+		$_SESSION["fname"] = $Firstname;
+		$_SESSION["mname"] = $Midname;
+		$_SESSION["lname"] = $Lastname;
+		$_SESSION["address"] = $Address;
+		$_SESSION["email"] = $Email;
+		$_SESSION["cnumber"] = $Contact;
+		$_SESSION["ID_proof"] = $ID;
+		$_SESSION["password"] = $password;
         echo "<script> window.location.href='http://localhost/Capstone-2021-2022/user_update.php' </script>  ";
         header("Location: {$url}");
         exit;
