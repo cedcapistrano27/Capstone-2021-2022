@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2021 at 08:21 AM
+-- Generation Time: Dec 12, 2021 at 11:06 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -44,8 +44,10 @@ CREATE TABLE `appointment` (
 CREATE TABLE `payment` (
   `PayID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
-  `payment_amount` decimal(10,2) NOT NULL,
-  `payment_issued` datetime NOT NULL DEFAULT current_timestamp()
+  `total_amount` decimal(10,2) NOT NULL,
+  `payment_issued` datetime NOT NULL DEFAULT current_timestamp(),
+  `project_name` text NOT NULL,
+  `receipt_details` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -57,23 +59,11 @@ CREATE TABLE `payment` (
 CREATE TABLE `project` (
   `PID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
-  `Pdate` int(255) NOT NULL,
+  `Pdate` date NOT NULL,
   `ptype` varchar(50) NOT NULL,
-  `pupdates` varchar(50) NOT NULL,
-  `remarks` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `project_request`
---
-
-CREATE TABLE `project_request` (
-  `PRID` int(255) NOT NULL,
-  `UID` int(255) NOT NULL,
-  `Rtype` varchar(50) NOT NULL,
-  `PR_details` text NOT NULL
+  `project_info` text NOT NULL,
+  `p_percentage` varchar(255) NOT NULL,
+  `remarks` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -105,7 +95,8 @@ INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumb
 (3007, '', '', '', '', '', 0, '', 'haha', 'xd', 'common'),
 (3009, '', '', '', '', 'afdy@gmail.com', 0, '', 'newuser2', '87654321', 'common'),
 (3010, 'mang', 'g', 'tomas', 'none', 'maosdu@gmail.com', 102884, 'SSS', 'user3', 'qwerty', 'common'),
-(3022, 'asdgeee', 'qwrrrt', 'sddf', 'afdd2', 'bagong@email.com', 456456, '', 'bagonguser', '12345678', 'common');
+(3022, 'asdgeee', 'qwrrrt', 'sddf', 'afdd2', 'bagong@email.com', 456456, '', 'bagonguser', '12345678', 'common'),
+(3023, '', '', '', '', 'christiancullados73@gmail.com', 0, '', 'newuser2', '12345678', 'common');
 
 --
 -- Indexes for dumped tables
@@ -122,12 +113,6 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `project`
   ADD PRIMARY KEY (`PID`);
-
---
--- Indexes for table `project_request`
---
-ALTER TABLE `project_request`
-  ADD PRIMARY KEY (`PRID`);
 
 --
 -- Indexes for table `user`
@@ -152,16 +137,10 @@ ALTER TABLE `project`
   MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `project_request`
---
-ALTER TABLE `project_request`
-  MODIFY `PRID` int(255) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3023;
+  MODIFY `UID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3024;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
