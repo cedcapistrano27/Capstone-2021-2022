@@ -134,7 +134,7 @@ if (isset($_POST['update'])) {
                   Last Name: <input type="text" name="lname" id="" value="<?php echo($_SESSION['lname']) ?>"><br>
                   Address: <input type="text" name="address" id="" value="<?php echo($_SESSION['address']) ?>"> 
                   Email: <input type="email" name="email" id="" value="<?php echo($_SESSION['email']) ?>"> 
-                  Contact Number: <input type="text" name="cnumber" id="" value="<?php echo($_SESSION['cnumber']) ?>"><br>
+                  Contact Number: <input type="number" name="cnumber" id="" value="<?php echo($_SESSION['cnumber']) ?>"><br>
                   Proof of Identification: 
                   <select name="proof_id" id="" value="" >
                     <option value=""><?php echo($_SESSION['ID_proof']) ?></option>
