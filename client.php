@@ -1,7 +1,26 @@
 <?php
 include 'connection.php';
 session_start();
+//insert appointment baby.
 
+
+if (isset($_POST['request'])) {
+
+  $project = $_POST['project'];
+  $appoint = $_POST['appointment'];
+  $request = $_POST['request1'];
+  
+  
+
+  $sql = "INSERT into appointment (date,a_type,a_details) VALUES ('$appoint','$project','$request')  ";
+  $result = mysqli_query($conn, $sql);
+  if ($result) {
+   echo " <script>alert('Appointment Created!') </script>";
+   echo "<script> window.location.href='http://localhost/Capstone-2021-2022/client.php' </script>  ";
+        header("Location: {$url}");
+  }
+
+ }
 
 
 
@@ -94,7 +113,7 @@ session_start();
             <h1 class="col-sm-12">Welcome <?php echo($_SESSION['username']) ?></h1>
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-            <a class="col-sm-12" href="#">Project/s</a>
+            <a class="col-sm-12" href="projects.php">Project/s</a>
             <!-- project timeline ang gagawin sa project!!!!!! pababa -->
             <a class="col-sm-12"href="user_update.php">User Profile</a>
             
@@ -106,15 +125,25 @@ session_start();
               <div class="content">
                 <h2>Create an appointment</h2>
                 <form action="" method="post">
-                  <!-- gagawin ng label tong pangalan!!!!!  -->
-                First Name: <input type="text" name="" id=""> 
-                  Middle Name: <input type="text" name="" id=""> 
-                  Last Name: <input type="text" name="" id=""><br>
+                  <!-- label tong pangalan!!!!!  -->
+                   <label for="name">Hello, <?php echo($_SESSION['fname'])?> <?php echo($_SESSION['mname']) ?>. <?php echo($_SESSION['lname']) ?></label> <br>
+                  <label>What project would you like to coordinate with us?</label>
+                  <select name="project" id="" style="margin-left:10px;">
+                    <option value="">-------</option>
+                    <optgroup label="Design">
+                      <option value="Interior Design">Interior </option>
+                      <option value="Exterior Design">Exterior </option>
+                    </optgroup>
+                    <option value="Renovate">Renovate</option>
+                    <option value="Demolish">Demolish</option>
+                    <option value="Estimate">Estimate</option>
+                  </select> <br>
                   <!-- Desired Project -->
                   <!-- dropdown:  design, renovate, demolish, estimate -->
-                  <!-- under ng design interior saka exterior -->
-                  Date of Appointment: <input type="date" name="" id=""> <br>
-                  <button type="submit">OK</button>
+                  <!-- under ng design interior saka exterior --> 
+                  <label for="">Date of Appointment:  </label> <input type="datetime-local" name="appointment" id="" style="margin-left:10px;"><br>
+                  <label for="">Requests: </label><br> <input type="text" name="request1" id="" style="width:600px; height:150px; margin-bottom:10px;"> <br>
+                  <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
                 </form>
               </div>
             </div>    

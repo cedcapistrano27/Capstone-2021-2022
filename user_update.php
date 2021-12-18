@@ -119,6 +119,7 @@ if (isset($_POST['update'])) {
             <h1 class="col-sm-12">Welcome <?php echo($_SESSION['username']) ?></h1>
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
+            <a class="col-sm-12" href="projects.php">Project/s</a>
             <a class="col-sm-12"href="user_update.php">User Profile</a>
             
           </div>
