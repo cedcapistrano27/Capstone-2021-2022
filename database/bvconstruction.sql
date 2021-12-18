@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2021 at 11:06 AM
+-- Generation Time: Dec 18, 2021 at 02:37 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -32,7 +32,8 @@ CREATE TABLE `appointment` (
   `UID` int(255) NOT NULL,
   `date` date NOT NULL,
   `a_type` varchar(50) NOT NULL,
-  `a_details` text NOT NULL
+  `a_details` text NOT NULL,
+  `Status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -83,20 +84,21 @@ CREATE TABLE `user` (
   `ID_proof` varchar(255) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `usertype` varchar(255) NOT NULL
+  `usertype` varchar(255) NOT NULL,
+  `ImageID` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumber`, `ID_proof`, `username`, `password`, `usertype`) VALUES
-(3005, 'chris', 'g', 'cullados', 'tanzang luma 6', 'gogo@gmail.com', 922278489, 'sss id, umid id, philhealth id, national id', 'xtianpuh', '12345678', 'admin'),
-(3007, '', '', '', '', '', 0, '', 'haha', 'xd', 'common'),
-(3009, '', '', '', '', 'afdy@gmail.com', 0, '', 'newuser2', '87654321', 'common'),
-(3010, 'mang', 'g', 'tomas', 'none', 'maosdu@gmail.com', 102884, 'SSS', 'user3', 'qwerty', 'common'),
-(3022, 'asdgeee', 'qwrrrt', 'sddf', 'afdd2', 'bagong@email.com', 456456, '', 'bagonguser', '12345678', 'common'),
-(3023, '', '', '', '', 'christiancullados73@gmail.com', 0, '', 'newuser2', '12345678', 'common');
+INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumber`, `ID_proof`, `username`, `password`, `usertype`, `ImageID`) VALUES
+(3005, 'chris', 'g', 'cullados', 'tanzang luma 6', 'gogo@gmail.com', 922278489, 'sss id, umid id, philhealth id, national id', 'xtianpuh', '12345678', 'admin', ''),
+(3007, '', '', '', '', '', 0, '', 'haha', 'xd', 'common', ''),
+(3009, '', '', '', '', 'afdy@gmail.com', 0, '', 'newuser2', '87654321', 'common', ''),
+(3010, 'mang', 'g', 'tomas', 'none', 'maosdu@gmail.com', 102884, 'SSS', 'user3', 'qwerty', 'common', ''),
+(3022, 'asdgeee', 'qwrrrt', 'sddf', 'afdd2', 'bagong@email.com', 456456, '', 'bagonguser', '12345678', 'common', ''),
+(3023, '', '', '', '', 'christiancullados73@gmail.com', 0, '', 'newuser2', '12345678', 'common', '');
 
 --
 -- Indexes for dumped tables
