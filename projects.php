@@ -1,6 +1,13 @@
 <?php
+include 'connection.php';
 session_start();
+//project timeline here..
+
+
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
@@ -65,7 +72,7 @@ session_start();
       <nav class="navbar navbar-custom navbar-fixed-top navbar-dark" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index_agency.html">BV Contruction</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index_agency.php">BV Contruction</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -87,6 +94,7 @@ session_start();
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
             <a class="col-sm-12" href="projects.php">Project/s</a>
+            <!-- project timeline ang gagawin sa project!!!!!! pababa -->
             <a class="col-sm-12"href="user_update.php">User Profile</a>
             
           </div>
@@ -95,12 +103,8 @@ session_start();
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora soluta commodi minus accusamus, 
             dolor eum necessitatibus aliquam dolorum velit nam hic aspernatur excepturi fuga laborum nisi. Consecteturlaborum itaque accusantium?
               <div class="content">
-                <h2>List of Appointments</h2>
-                <table>
-                  <td>
-                    hahaha
-                  </td>
-                </table>
+                <h2>Project Timeline</h2>
+                
               </div>
             </div>    
           </div>
