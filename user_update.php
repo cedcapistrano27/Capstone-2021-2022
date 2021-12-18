@@ -130,14 +130,14 @@ if (isset($_POST['update'])) {
               <div class="content">
                 <h2>Update Profile</h2>
                 <form method="post">
-                  First Name: <input type="text" name="fname" id="" value="<?php echo($_SESSION['fname']) ?>"> 
-                  Middle Name: <input type="text" name="mname" id="" value="<?php echo($_SESSION['mname']) ?>"> 
-                  Last Name: <input type="text" name="lname" id="" value="<?php echo($_SESSION['lname']) ?>"><br>
-                  Address: <input type="text" name="address" id="" value="<?php echo($_SESSION['address']) ?>"> 
-                  Email: <input type="email" name="email" id="" value="<?php echo($_SESSION['email']) ?>"> 
-                  Contact Number: <input type="number" name="cnumber" id="" value="<?php echo($_SESSION['cnumber']) ?>"><br>
-                  Proof of Identification: 
-                  <select name="proof_id" id="" value="" >
+                  <label for="" style="font-size:14px">First Name:</label>  <input type="text" name="fname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['fname']) ?>"> 
+                  <label for="" style="font-size:14px">Middle Name:</label> <input type="text" name="mname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:50px;" value="<?php echo($_SESSION['mname']) ?>"> 
+                  <label for="" style="font-size:14px">Last Name:</label> <input type="text" name="lname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['lname']) ?>"><br>
+                  <label for="" style="font-size:14px; margin-left:20px;">Address:</label> <input type="text" name="address" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['address']) ?>"> 
+                  <label for="" style="font-size:14px; margin-left:55px;" >Email:</label> <input type="email" name="email" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['email']) ?>"> <br>
+                  <label for="" style="font-size:14px; margin-left:10px;">Contact #:</label> <input type="number" name="cnumber" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['cnumber']) ?>">
+                  <label for="" style="font-size:14px; margin-left:10px;">Proof of Identification:</label>
+                  <select name="proof_id" id="" value="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:120px;" >
                     <option value=""><?php echo($_SESSION['ID_proof']) ?></option>
                     <option value="SSS ID">SSS ID</option>
                     <option value="Passport">Passport</option>
@@ -147,11 +147,10 @@ if (isset($_POST['update'])) {
                     <option value="Police Clearance">Police Clearance</option>
                     <option value="NBI Clearance">NBI Clearance</option>
                   </select> <br>
-                  Username: <input type="text" name="user" id="" value="<?php echo($_SESSION['username']) ?>" readonly> 
-                  Password: <input type="password" name="" id="" value="<?php echo($_SESSION['password']) ?>" readonly> <button href="#">Reset Password</button><br>
-                  
-
-                  <button type="submit" name="update">Update</button>
+                  <label for="" style="font-size:14px; margin-left:6px;">Username:</label> <input type="text" name="user" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['username']) ?>" readonly> 
+                  <label for="" style="font-size:14px; margin-left:10px;">Password:</label> <input type="password" name="" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['password']) ?>" readonly> <button href="#" style="margin-bottom:10px; margin-left:5px; width:150px; background-color:#CD5C5C;color:white;" >Reset Password</button><br>
+            
+                  <button type="submit" name="update" style="margin-bottom:10px; margin-left:15px; width:85px; background-color:#68BBE3;color:white;" >Update</button>
                 </form>
               </div>
             </div>    
