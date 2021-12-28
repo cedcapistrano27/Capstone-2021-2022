@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BV CONSTRUCTION | Administrators : Dashboards</title>
+    <title>BV CONSTRUCTION | Administrators : Account</title>
     <link rel="icon" type="images/x-icon" href="images/logo.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -555,11 +555,11 @@ footer{
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
-        <a href="admin-index.html"><i class="fas fa-home"></i><span>HOME</span></a>
-        <a href="admin-table.html"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
-        <a href="admin-project.html"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
-        <a href="admin-sales.html"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="admin-account.html"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
+        <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
+        <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
+        <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
+        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->
@@ -569,11 +569,11 @@ footer{
         <img src="../images/profic1.jpg" class="profile_image" alt="">
         <h4>Danielle</h4>
       </div>
-      <a href="admin-index.html"><i class="fas fa-home"></i><span>HOME</span></a>
-      <a href="admin-table.html"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
-      <a href="admin-project.html"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
-      <a href="admin-sales.html"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-      <a href="admin-account.html"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+      <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
+        <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
+        <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
+        <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
+        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
     </div>
     <!--sidebar end-->
 

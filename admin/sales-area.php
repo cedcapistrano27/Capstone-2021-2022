@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BV CONSTRUCTION | Administrators : Dashboards</title>
+    <title>BV CONSTRUCTION | Administrators : Sale Management</title>
     <link rel="icon" type="images/x-icon" href="images/logo.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -191,138 +191,7 @@ section{
   
 }
 
-section .widget{
-  flex: 1.5;
-  padding: auto;
-  text-align: center;
-  
 
-
-}
-section .calendar{
-  flex: 0.5;
-  
-}
-
-/*widget css*/
-
-.color1{
-    background: #00C292;
-}
-.color2{
-    background: #03A9F3;
-}
-.color3{
-    background: #FB7146;
-}
-
-.color4{
-    background: #07D052;
-}
-.color5{
-    background: #FF3AC6;
-}
-.color6{
-    background: #FF526D;
-}
-.card-body{
-    display: inline-block;
-    font-family: "Roboto", sans-serif;
-    margin: 10px;
-    padding: 20px;
-    width: 270px;
-    height: 90px;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-.float-left{
-    float: left;
-}
-.float-right{
-    float: right;
-}
-.card-body h3{
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-.currency, .count{
-    font-size: 30px;
-    font-weight: 500;
-}
-.card-body p{
-    font-size: 16px;
-    margin-top: 0;
-}
-.card-body i{
-    font-size: 95px;
-    opacity: 0.5;
-}
-
-/*Calendar*/
-
-.calendar{
-  position: relative;
-  max-width: 100%;
-
-}
-
-.calendar:before{
-  content: '';
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-
-.calendar .calendar-body{
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border-bottom: 6px solid #4285F4;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  box-shadow: 0 5px 25px rgb(1 1 1 / 15%);
-  width: 60%;
-}
-
-.calendar .calendar-body .month-name{
-  color: #fff;
-  background: #4285F4;
-  width: 100%;
-  font-size: 1.6em;
-  text-align: center;
-  font-weight: 400;
-  padding: 5px 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.calendar .calendar-body .day-name{
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-top: 20px;
-}
-
-.calendar .calendar-body .date-number{
-  color: #fff;
-  font-size: 6em;
-  font-weight: 600;
-  line-height: 1.2em;
-}
-
-.calendar .calendar-body .year{
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
     
     footer{
     width: 60%;
@@ -433,7 +302,7 @@ section .calendar{
   }
 
   section{
-    max-width: 90%;
+    width: auto;
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
@@ -442,86 +311,7 @@ section .calendar{
     flex-direction: column-reverse;
   }
 
-  .calendar, .widget{
-    width: 100%;
-    padding-bottom: 20px;
-  }
-/*widget*/
-  .color1{
-    grid-area: first;
-  }
-  .color2{
-    grid-area: second;
-  }
-  .color3{
-    grid-area: third;
-  }
-  .color4{
-    grid-area: fourth;
-  }
-  .color5{
-    grid-area: fifth;
-  }
-  .color6{
-    grid-area: sixth;
-  }
 
-  .widget{
-    display: grid;
-    grid-template-areas: 'first second' 'third fourth' 'fifth sixth';
-  }
-
-
-
-  /*calendar*/
-
-
-.calendar .calendar-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border-bottom: 6px solid #4285F4;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  box-shadow: 0 5px 25px rgb(1 1 1 / 15%);
-  width: 50%;
-}
-
-.calendar .calendar-body .month-name{
-  color: #fff;
-  background: #4285F4;
-  width: 100%;
-  font-size: 1.2em;
-  text-align: center;
-  font-weight: 400;
-  padding: 5px 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.calendar .calendar-body .day-name{
-  color: #fff;
-  font-size: 1em;
-  font-weight: 400;
-  margin-top: 10px;
-}
-
-.calendar .calendar-body .date-number{
-  color: #fff;
-  font-size: 4em;
-  font-weight: 600;
-  line-height: 1.2em;
-}
-
-.calendar .calendar-body .year{
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
 
 footer{
   display: block;
@@ -555,11 +345,11 @@ footer{
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
-        <a href="admin-index.html"><i class="fas fa-home"></i><span>HOME</span></a>
-        <a href="admin-table.html"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
-        <a href="admin-project.html"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
-        <a href="admin-sales.html"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="admin-account.html"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
+        <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
+        <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
+        <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
+        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->
@@ -569,51 +359,107 @@ footer{
         <img src="../images/profic1.jpg" class="profile_image" alt="">
         <h4>Danielle</h4>
       </div>
-      <a href="admin-index.html"><i class="fas fa-home"></i><span>HOME</span></a>
-      <a href="admin-table.html"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
-      <a href="admin-project.html"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
-      <a href="admin-sales.html"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-      <a href="admin-account.html"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+      <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
+        <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
+        <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
+        <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
+        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
     </div>
     <!--sidebar end-->
 
     <div class="content">
 
-      <section id="dashboard">
+      <section style="display: flex; flex-direction: column; padding: 10px;">
         
-        <div class="widget">
+        <div class="first-container"  style=" margin: auto; width: 100%; border-radius: 5px; margin-bottom: 20px;">
+          <div class="calendar" style="width:100%; padding:7px; margin-bottom:15px; font-size: 2rem; color:white; font-weight: 700;-webkit-text-stroke: 2px black;">
+            <span><label class="day-name"></label></span>,
+            <span><label class="month-name"></label></span>
+            <span><label class="date-number"></label></span>
+            <span><label class="year"></label></span>
+            
+          </div>
 
-        <!--Widget Start-->
+          <div class="header-total" style="display:flex; text-align: center; align-items: center; background:rgba(255, 255, 255, 0.86); overflow: visible; height:25vh;">
+            <div class="amount" style="flex: 1; font-size: 4rem; font-weight: 600; border-right: 10px grey double;">
+              <span>Php</span>
+              <span class="count"> 17777</span>
+            </div>
+            <div class="image" style="flex: 1;">
+              <img src="images/money-bag.png" width="180" height="180" style="">
+            </div>
+          </div>
 
-        <div class="card-body color6">
-            <div class="float-left">
-                <h3>
-                    <span class="count"> 225 </span>
-                </h3>
-                <p>Staffs</p>
-            </div>
-            <div class="float-right">
-                <i class="fas fa-user-tie"></i>
-            </div>
+
+      </div>
+
+      <div class="second-container" style="width:100%; height: 80vh; ">
+
+        <div class="date-area" style="width:100%; background: white; height:20vh; margin-top: 20px; display: flex; text-align:center; align-items:center; font-weight:600; border-radius: 10px;">
+
+
+          <div class="date-old" style="flex:1;">
+            <label>Select Old Transaction</label>
+           <input type="date" name="selectOld" style="height: 5vh; width: 70%; font-size:1.20rem;">
+          </div>
+
+
+
+          <div class="mid" style="flex:.25;">TO</div>
+        
+
+
+          <div class="date-new" style="flex:1;">
+            <label>Select Recent Transaction</label>
+             <input type="date" name="selectNew" style="height: 5vh; width: 70%; font-size:1.20rem;">
+          </div>
+
+  
+
+        <div class="totalAmount" style="flex:1;">
+           <label>Total Amount Transaction:</label>
+          <input type="text" name="totalAmount" style="height: 5vh; width: 70%; font-size:1.20rem;">
         </div>
-      </div>
-        <!--Widget End-->
+
+        </div>
+
+        <div class="header-table" style="color: white;">
+          <h1>TRANSACTION</h1>
+        </div>
+
+        <div class="content-table" style="width:100%;">
+
+          <table style="background: whitesmoke; width:100%; text-align: center;  border-collapse: collapse;">
+            <thead style="background:black; color: white; font-size: 25px; font-family: monospace;">
+              <tr>
+                <th>Name</th>
+                 <th>Date Issued</th>
+                  <th>Amount</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Danielle Capistrano</td>
+                <td>january 27, 2022</td>
+                <td>Php 20,299.00</td>
+              </tr>
+              <tr>
+                <td>Danielle Capistrano</td>
+                <td>january 27, 2022</td>
+                <td>Php 20,299.00</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+
 
         
-
-<!-----Calendar Area----->
-
-    <div class="calendar">
-      <div class="calendar-body">
-        <span class="month-name">Month</span>
-        <span class="day-name">Day</span>
-        <span class="date-number">00</span>
-        <span class="year">0000</span>
       </div>
-    </div>
-<!----- Calendar Area end----->
+
       </section>
-<!----- Dashboard Area end----->
+
 
 
 
