@@ -184,145 +184,11 @@ label #sidebar_btn:hover{
 /*Section Area*/
 section{
   
-  width: 100% - 250px;
-  height: 80vh;
-  display: flex;
-  align-items: center;
+
   
 }
 
-section .widget{
-  flex: 1.5;
-  padding: auto;
-  text-align: center;
-  
 
-
-}
-section .calendar{
-  flex: 0.5;
-  
-}
-
-/*widget css*/
-
-.color1{
-    background: #00C292;
-}
-.color2{
-    background: #03A9F3;
-}
-.color3{
-    background: #FB7146;
-}
-
-.color4{
-    background: #07D052;
-}
-.color5{
-    background: #FF3AC6;
-}
-.color6{
-    background: #FF526D;
-}
-.card-body{
-    display: inline-block;
-    font-family: "Roboto", sans-serif;
-    margin: 10px;
-    padding: 20px;
-    width: 270px;
-    height: 90px;
-    color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-.float-left{
-    float: left;
-}
-.float-right{
-    float: right;
-}
-.card-body h3{
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-.currency, .count{
-    font-size: 30px;
-    font-weight: 500;
-}
-.card-body p{
-    font-size: 16px;
-    margin-top: 0;
-}
-.card-body i{
-    font-size: 95px;
-    opacity: 0.5;
-}
-
-/*Calendar*/
-
-.calendar{
-  position: relative;
-  max-width: 100%;
-
-}
-
-.calendar:before{
-  content: '';
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-
-.calendar .calendar-body{
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border-bottom: 6px solid #4285F4;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  box-shadow: 0 5px 25px rgb(1 1 1 / 15%);
-  width: 60%;
-}
-
-.calendar .calendar-body .month-name{
-  color: #fff;
-  background: #4285F4;
-  width: 100%;
-  font-size: 1.6em;
-  text-align: center;
-  font-weight: 400;
-  padding: 5px 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.calendar .calendar-body .day-name{
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-top: 20px;
-}
-
-.calendar .calendar-body .date-number{
-  color: #fff;
-  font-size: 6em;
-  font-weight: 600;
-  line-height: 1.2em;
-}
-
-.calendar .calendar-body .year{
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
     
     footer{
     width: 60%;
@@ -579,41 +445,59 @@ footer{
 
     <div class="content">
 
-      <section id="dashboard">
-        
-        <div class="widget">
+      <section>
 
-        <!--Widget Start-->
-
-        <div class="card-body color6">
-            <div class="float-left">
-                <h3>
-                    <span class="count"> 225 </span>
-                </h3>
-                <p>Staffs</p>
-            </div>
-            <div class="float-right">
-                <i class="fas fa-user-tie"></i>
-            </div>
+        <div class="header-table" style="display: flex; color: white; background: blue; width: 80%; margin: auto; align-items: center; text-align: center;padding: 10px; border-radius: 10px;">
+          <div class="title-table" style="flex:1;">
+            <h1>Client Accounts</h1>
+          </div>
+          <div class="searchBar" style="flex: 1;">
+            <span>Search :</span>
+            <span><input type="text" name="search" id="search" style="height: 5vh;"></span>
+          </div>
         </div>
-      </div>
-        <!--Widget End-->
+
+        <div class="body-table" style="background: white; width:80%;margin: 20px auto;">
+
+          <table style="border-collapse: collapse; width:100%; font-size: 1.2rem; text-align:center;">
+            <thead>
+              <tr>
+                <th>Client ID</th>
+                <th>Client Name</th>
+                <th>E-mail Address</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Danielle Capistrano</td>
+                <td>cedcapistrano@gmail.com</td>
+                <td><a href="" style="background:black; text-decoration: none; padding: 5px; border-radius:5px;color:white; margin: 5px; display: block;">Remove</a></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Yommy Capistrano</td>
+                <td>cedcapistrano@gmail.com</td>
+                <td><a href="" style="background:black; text-decoration: none; padding: 5px; border-radius:5px;color:white; margin: 5px; display: block;">Remove</a></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Moy Capistrano</td>
+                <td>moycapistrano@gmail.com</td>
+                <td><a href="" style="background:black; text-decoration: none; padding: 5px; border-radius:5px;color:white; margin: 5px; display: block;">Remove</a></td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+        
 
         
 
-<!-----Calendar Area----->
 
-    <div class="calendar">
-      <div class="calendar-body">
-        <span class="month-name">Month</span>
-        <span class="day-name">Day</span>
-        <span class="date-number">00</span>
-        <span class="year">0000</span>
-      </div>
-    </div>
-<!----- Calendar Area end----->
       </section>
-<!----- Dashboard Area end----->
+
 
 
 

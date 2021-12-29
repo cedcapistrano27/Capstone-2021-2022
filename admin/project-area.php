@@ -175,162 +175,36 @@ label #sidebar_btn:hover{
 }
 
 .content{
-  width: 100% - 250px;
+  max- width: 70%;
   margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
   height: 100vh;
   transition: 0.5s;
-  display: flex;
 }
 
 
-/*Section Area*/
 
-.project-info{
-    width: 90%;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 60px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    height: 90vh;
-    padding: 0px 10px 0px 10px;
-    flex: 1;
-    border-radius: 10px 10px;
-     overflow: scroll;
-     overflow-x: hidden;
-     background: RGBA(113,140,148,0.39);
-     box-shadow: -8px -10px 20px 3px rgba(0,0,0,0.56);
-    -webkit-box-shadow: -8px -10px 20px 3px rgba(0,0,0,0.56);
-    -moz-box-shadow: -8px -10px 20px 3px rgba(0,0,0,0.56);
-   
-
-
-}
-
-
-.single-project{
-    width: 90%;
-    height: 45vh;
-    margin-top: 20px;
-    margin-right: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    background: rgba(228, 228, 228, 0.8);
-
-   
-}
-.single-project .title{
-    background: black;
-    text-align: center;
-  color: white;
-  font-variant: small-caps;
-    
-}
-.single-project .body{
-   
-    text-align: center;
-    
-}
-.single-project .title, .single-project .body{
-    padding: 5px;
-    width: auto;
-}
-
-.project-section{
-
-  flex: 1;
-  width: 100%;
-  margin: auto 20px auto 20px;
-  height: 90vh;
-  overflow: hidden;
-  scroll-behavior: smooth;
-}
 section{
-
- height: 90vh;
- max-width: 80%;
- margin-bottom: 10px;
+ width: 100%;
  scroll-snap-align: center;
- margin-right: auto;
- margin-left: auto;
  box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
 -webkit-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
 -moz-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
+display: flex;
+flex-direction: column;
 
     
 }
-.information{
-  max-width: 100%;
-  background: white;
-  margin: auto;
-  height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  background: rgba(174,58,180,0.6);
-  background: linear-gradient(90deg, rgba(174,58,180,0.8) 6%, rgba(253,29,29,0.7) 57%, rgba(252,176,69,0.6) 100%);
-}
-.single-title{
-  background: black;
-  color: white;
-  padding: 5px;
-  text-align: center;
-}
-.statement{
-  width: 80%;
-  margin: 20px auto auto auto;
-  padding: 5px;
-  height: 50vh;
-  background: ;
-  border-radius: 5px;
-  overflow: scroll;
-  overflow-x: hidden;
-  text-align: left;
-  border-bottom: 2px solid transparent;
-  border-top: 1px solid transparent;
-  border-left: 2px solid transparent;
-  background: white;
+table{
 
+  border-collapse: collapse;
 
 
 }
-.intro-statement{
-  width: 80%;
-  margin: 10px auto auto auto;
-  padding: 5px;
-  height: 60vh;
-  justify-items: center;
-  text-align: center;
-  align-items: center;
-  display: flex;
-
+td, th{
+  padding: 10px;
 }
-h4{
-  margin: auto;
-}
-
-   
-
-
-    .button{
-     
-       text-align: center;
-        padding: 10px 0px 10px 0px;
-         width: 50% - 250px;
-          margin-top: 20px;
-          margin-left: auto;
-          margin-right: auto;
-    } 
-    .btn{
-      background: black;
-      color: white;
-      text-decoration: none;
-      margin: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      transition: 0.5s;
-    }
 
     .btn:hover{
       background: white;
@@ -485,260 +359,79 @@ footer{
 
     <div class="content">
 
-        <div class="project-info">
+      
+        <section>
+          <div class="header-table" style="margin: auto; color:white;font-variant: small-caps; padding:10px;background:rgba(0, 0, 0, 0.49); width: auto;-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); width:60%;text-align: center;">
+            <span><h1 style="">Project Management</h1></span>
+          </div>
 
-            <div class="single-project">
+          <div class="body-table" style="height: 80vh; padding: 10px; display: flex; flex-direction: column;">
 
-                <div class="title">
-                    <h3>projectID</h3>
-
-                </div>
-                <div class="body">
-                    <span><p>Client's name : moymooy</p></span>
-                    <span><p>Project type : mecha</p></span>
-                 <span></i><a href="#1"> See more details </a><i class="fas fa-arrow-circle-right"></i></span>
-                </div>
-            </div> 
-
-            <div class="single-project">
-
-                <div class="title">
-                    <h3>projectID</h3>
-
-                </div>
-                <div class="body">
-                    <span><p>Client's name : moymooy</p></span>
-                    <span><p>Project type : mecha</p></span>
-                 <span></i><a href="#2"> See more details </a><i class="fas fa-arrow-circle-right"></i></span>
-                </div>
-            </div> 
-
-           <div class="single-project">
-
-                <div class="title">
-                    <h3>projectID</h3>
-
-                </div>
-                <div class="body">
-                    <span><p>Client's name : moymooy</p></span>
-                    <span><p>Project type : mecha</p></span>
-                 <span></i><a href="#3"> See more details </a><i class="fas fa-arrow-circle-right"></i></span>
-                </div>
-            </div> 
-
-           <div class="single-project">
-
-                <div class="title">
-                    <h3>projectID</h3>
-
-                </div>
-                <div class="body">
-                    <span><p>Client's name : moymooy</p></span>
-                    <span><p>Project type : mecha</p></span>
-                 <span></i><a href="#4"> See more details </a><i class="fas fa-arrow-circle-right"></i></span>
-                </div>
-            </div> 
-
-             <div class="single-project">
-
-                <div class="title">
-                    <h3>projectID</h3>
-
-                </div>
-                <div class="body">
-                    <span><p>Client's name : moymooy</p></span>
-                    <span><p>Project type : mecha</p></span>
-                 <span></i><a href="#4"> See more details </a><i class="fas fa-arrow-circle-right"></i></span>
-                </div>
-            </div> 
-
-             <div class="single-project">
-
-                <div class="title">
-                    <h3>projectID</h3>
-
-                </div>
-                <div class="body">
-                    <span><p>Client's name : moymooy</p></span>
-                    <span><p>Project type : mecha</p></span>
-                 <span></i><a href="#4"> See more details </a><i class="fas fa-arrow-circle-right"></i></span>
-                </div>
-            </div> 
-
-             <div class="single-project">
-
-                <div class="title">
-                    <h3>projectID</h3>
-
-                </div>
-                <div class="body">
-                    <span><p>Client's name : moymooy</p></span>
-                    <span><p>Project type : mecha</p></span>
-                 <span></i><a href="#4"> See more details </a><i class="fas fa-arrow-circle-right"></i></span>
-                </div>
-            </div> 
-
-             <div class="single-project">
-
-                <div class="title">
-                    <h3>projectID</h3>
-
-                </div>
-                <div class="body">
-                    <span><p>Client's name : moymooy</p></span>
-                    <span><p>Project type : mecha</p></span>
-                 <span></i><a href="#4"> See more details </a><i class="fas fa-arrow-circle-right"></i></span>
-                </div>
-            </div> 
-
-             <div class="single-project">
-
-                <div class="title">
-                    <h3>projectID</h3>
-
-                </div>
-                <div class="body">
-                    <span><p>Client's name : moymooy</p></span>
-                    <span><p>Project type : mecha</p></span>
-                 <span></i><a href="#4"> See more details </a><i class="fas fa-arrow-circle-right"></i></span>
-                </div>
-            </div> 
-
-        </div>
-
-        <div class="project-section">
-
-          <section id="intro">
-
-            <div class="information">
-
-              <div class="single-title">
-                <h3>Project Details</h3>
-              </div>
-
-              <div class="intro-statement"> 
-
-                <h4>"Click Any Details To Be Able To See The Information"</h4>
-              </div>
+            <div class="search-bar" style="margin: 20px 10px; text-align:right;">
+              <span><label style="color: white; font-weight: bold; font-size:15px;">Search Client's Name : </label></span>
+              <input type="text" name="search" style="height: 5vh;">
               
             </div>
-            
-          </section>
 
-          <section id="1">
+            <div class="table-area" style=" height: 70vh; background:white; overflow-y: scroll;">
 
-            <div class="information">
+              <table style="width: 100%; background: white; text-align:center;">
+                <thead style="background: black; color: white; font-size: 1.2rem;">
+                  <tr>
+                    <th>Project ID</th>
+                    <th>Client ID</th>
+                    <th>Client Name</th>
+                    <th>Project Name</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
 
-              <div class="single-title">
-                <h3>Sample1</h3>
-              </div>
+                <tbody>
+                  <tr>
+                    <td>01</td>
+                     <td>1</td>
+                      <td>Danielle Capistrano</td>
+                       <td>Project Name</td>
+                        <td><a href="">See more</a></td>
+                  </tr>
 
-              <div class="statement"> 
+                  <tr>
+                    <td>02</td>
+                     <td>2</td>
+                      <td>Yommy Capistrano</td>
+                       <td>Project Name</td>
+                        <td><a href="">See more</a></td>
+                  </tr>
 
-                <span><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p></span>
-              </div>
+                  <tr>
+                    <td>03</td>
+                     <td>3</td>
+                      <td>Moy Capistrano</td>
+                       <td>Project Name</td>
+                        <td><a href="">See more</a></td>
+                  </tr>
 
-              <div class="button">
+
+                </tbody>
+              </table>
+
+             
+            </div>
+
+             <div class="createBtn">
+                <a href="" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width:20% ; margin:20px auto; text-align: center;">Create New Project</a>
                 
-                <span><a href="" class="btn">UPDATE</a></span>
-                <span><a href="" class="btn">CHECK PROGRESS</a></span>
-
               </div>
-              
-            </div>
+
+
             
-          </section>
-
-           <section id="2">
-
-            <div class="information">
-
-              <div class="single-title">
-                <h3>Sample2</h3>
-              </div>
-
-              <div class="statement"> 
-
-                <span><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span>
-              </div>
-              
-            </div>
-            
-          </section>
-
-           <section id="3">
-
-            <div class="information">
-
-              <div class="single-title">
-                <h3>Sample3</h3>
-              </div>
-
-              <div class="statement"> 
-
-                <span><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span>
-              </div>
-              
-            </div>
-            
-          </section>
-
-           <section id="4">
-
-            <div class="information">
-
-              <div class="single-title">
-                <h3>Sample4</h3>
-              </div>
-
-              <div class="statement"> 
-
-                <span><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span>
-              </div>
-              
-            </div>
-            
-          </section>
-
-
+          </div>
+          
+        </section>
 
         </div>
 
-     
-
-
-<!----- Project Area end----->
-
-
-
-  </div>
+       
 
 </body>
 </html>

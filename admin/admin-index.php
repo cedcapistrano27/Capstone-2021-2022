@@ -781,7 +781,7 @@ footer{
 
    <div class="see-all">
       <span>
-        <a href="">See all</a>
+        <a href="sales-area.php">See all</a>
       </span>     
    </div>
   </div>
@@ -821,7 +821,7 @@ footer{
 
    <div class="see-all">
       <span>
-        <a href="">See all</a>
+        <a href="project-area.php">See all</a>
       </span>     
    </div>
 

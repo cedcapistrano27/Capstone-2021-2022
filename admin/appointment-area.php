@@ -526,6 +526,7 @@ text-align: left;
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+               <a href="" style="background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;">Accept Appointment</a>
             </details>
           </div>  
         </div>
@@ -533,7 +534,7 @@ text-align: left;
         <div class="single-appointment">
           <div class="title">
             <span><h4>Appointment Date</h4></span>
-            <hr>            
+             
           </div>
           <div class="information">
             <details>
@@ -544,14 +545,15 @@ text-align: left;
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+               <a href="" style="background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;">Accept Appointment</a>
             </details>
           </div>  
         </div>
 
-        <div class="single-appointment">
+       <div class="single-appointment">
           <div class="title">
             <span><h4>Appointment Date</h4></span>
-            <hr>            
+             
           </div>
           <div class="information">
             <details>
@@ -562,46 +564,11 @@ text-align: left;
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+               <a href="" style="background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;">Accept Appointment</a>
             </details>
           </div>  
         </div>
-
-        <div class="single-appointment">
-          <div class="title">
-            <span><h4>Appointment Date</h4></span>
-            <hr>            
-          </div>
-          <div class="information">
-            <details>
-            <summary>clientID : clients name</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </details>
-          </div>  
-        </div>
-
-        <div class="single-appointment">
-          <div class="title">
-            <span><h4>Appointment Date</h4></span>
-            <hr>            
-          </div>
-          <div class="information">
-            <details>
-            <summary>clients name</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </details>
-          </div>  
-        </div>
-
+        
       </section>
 
         <div class="appointment-col-1">
