@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BV CONSTRUCTION | Administrators : Project Management</title>
+    <title>BV CONSTRUCTION | Administrators : Account</title>
     <link rel="icon" type="images/x-icon" href="images/logo.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -156,7 +156,14 @@ label #sidebar_btn:hover{
   width: 100%;
 }
 
-
+.content{
+  width: 100% - 250px;
+  margin-top: 60px;
+  padding: 20px;
+  margin-left: 250px;
+  height: 100vh;
+  transition: 0.5s;
+}
 
 #check:checked ~ .content{
   margin-left: 60px;
@@ -174,44 +181,34 @@ label #sidebar_btn:hover{
   display: none;
 }
 
-.content{
-  max- width: 70%;
-  margin-top: 60px;
-  padding: 20px;
-  margin-left: 250px;
-  height: 100vh;
-  transition: 0.5s;
+
+/*Section Area*/
+section{
+  
+
+  
 }
 
-
-
-section{
- width: 100%;
- scroll-snap-align: center;
- box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
--webkit-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
--moz-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
-display: flex;
-flex-direction: column;
 
     
-}
-table{
+    footer{
+    width: 60%;
+    position: fixed;
+    left: 20%;
+    right: 20%;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.79);
+    bottom: 0;
+    border-radius: 5px 5px 0px 0px;
 
-  border-collapse: collapse;
+    }  
+    footer span{
+      color: white;
+      text-align: center;
+      font-size: 10px;
 
-
-}
-td, th{
-  padding: 10px;
-}
-
-    .btn:hover{
-      background: white;
-      color: black;
-      border: 2px black solid;
-      font-weight: bolder;
     }
+
 
 /* Responsive CSS */
 
@@ -302,6 +299,96 @@ td, th{
     display: block;
   }
 
+  section{
+    max-width: 90%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .calendar, .widget{
+    width: 100%;
+    padding-bottom: 20px;
+  }
+/*widget*/
+  .color1{
+    grid-area: first;
+  }
+  .color2{
+    grid-area: second;
+  }
+  .color3{
+    grid-area: third;
+  }
+  .color4{
+    grid-area: fourth;
+  }
+  .color5{
+    grid-area: fifth;
+  }
+  .color6{
+    grid-area: sixth;
+  }
+
+  .widget{
+    display: grid;
+    grid-template-areas: 'first second' 'third fourth' 'fifth sixth';
+  }
+
+
+
+  /*calendar*/
+
+
+.calendar .calendar-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-bottom: 6px solid #4285F4;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgb(1 1 1 / 15%);
+  width: 50%;
+}
+
+.calendar .calendar-body .month-name{
+  color: #fff;
+  background: #4285F4;
+  width: 100%;
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: 400;
+  padding: 5px 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.calendar .calendar-body .day-name{
+  color: #fff;
+  font-size: 1em;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.calendar .calendar-body .date-number{
+  color: #fff;
+  font-size: 4em;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+.calendar .calendar-body .year{
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
 
 footer{
   display: block;
@@ -359,79 +446,118 @@ footer{
 
     <div class="content">
 
-      
-        <section>
-          <div class="header-table" style="margin: auto; color:white;font-variant: small-caps; padding:10px;background:rgba(0, 0, 0, 0.49); width: auto;-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); width:60%;text-align: center;">
-            <span><h1 style="">Project Management</h1></span>
-          </div>
+      <section>
 
-          <div class="body-table" style="height: 80vh; padding: 10px; display: flex; flex-direction: column;">
+      	<form> 
 
-            <div class="search-bar" style="margin: 20px 10px; text-align:right;">
-              <span><label style="color: white; font-weight: bold; font-size:15px;">Search Client's Name : </label></span>
-              <input type="text" name="search" style="height: 5vh;">
-              
-            </div>
+      		<div class="form-container" style="width: 50%; background: skyblue; height: 90vh; padding: 10px; margin: auto;">
+      			<div class="header-form">
 
-            <div class="table-area" style=" height: 70vh; background:white; overflow-y: scroll;">
+      				<span>
+      					<h3>Client's Profile</h3>
+      				</span>
+      				
+      			</div>
 
-              <table style="width: 100%; background: white; text-align:center;">
-                <thead style="background: black; color: white; font-size: 1.2rem;">
-                  <tr>
-                    <th>Project ID</th>
-                    <th>Client ID</th>
-                    <th>Client Name</th>
-                    <th>Project Name</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
+      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px; padding: 10px 0px 10px 0px; display: flex;text-align: center;">
 
-                <tbody>
-                  <tr>
-                    <td>01</td>
-                     <td>1</td>
-                      <td>Danielle Capistrano</td>
-                       <td>Project Name</td>
-                        <td><a href="project-info.php">See more</a></td>
-                  </tr>
+      				<div class="label" style="flex: 1;">
+      					<label>Client's Name </label>
+      				</div>
+      				<div class="label" style="flex: .5;">
+      					<span>:</span>
+      				</div>
+      			
+      				<div class="label" style="flex: 1.5;">
+      					<input type="text" name="">
+      				</div>
+      			
+      	
+      					
+      			
+      				
+      			</div>
+      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px;padding: 10px 0px 10px 0px; display: flex;text-align: center;">
+      				<div class="label" style="flex: 1;">
+      					<label>Client's Address :</label>
+      				</div>
+      			<div class="label" style="flex: .5;">
+      					<span>:</span>
+      				</div>
+      			
+      				<div class="label" style="flex: 1.5;">
+      					<input type="text" name="">
+      				</div>
+      				
+      			</div>
+      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px;padding: 10px 0px 10px 0px;display: flex;text-align: center; ">
+      			<div class="label" style="flex: 1;">
+      					<label>Client's E-mail :</label>
+      				</div>
+      			
+      				<div class="label" style="flex: .5;">
+      					<span>:</span>
+      				</div>
+      			
+      				<div class="label" style="flex: 1.5;">
+      					<input type="text" name="">
+      				</div>
+      				
+      			</div>
+      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px;padding: 10px 0px 10px 0px;display: flex; text-align: center;">
+      				<div class="label" style="flex: 1;">
+      					<label>Client's Contact :</label>
+      				</div>
+      			
+      				<div class="label" style="flex: .5;">
+      					<span>:</span>
+      				</div>
+      			
+      				<div class="label" style="flex: 1.5;">
+      					<input type="text" name="">
+      				</div>
+      				
+      			</div>
 
-                  <tr>
-                    <td>02</td>
-                     <td>2</td>
-                      <td>Yommy Capistrano</td>
-                       <td>Project Name</td>
-                        <td><a href="">See more</a></td>
-                  </tr>
+      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px;padding: 10px 0px 10px 0px;display: flex; text-align: center; ">
+      				<div class="label" style="flex: 1;">
+      					<label>Client's Username :</label>
+      				</div>
+      			
+      				<div class="label" style="flex: .5;">
+      					<span>:</span>
+      				</div>
+      			
+      				<div class="label" style="flex: 1.5;">
+      					<input type="text" name="">
+      				</div>
+      				
+      			</div>
 
-                  <tr>
-                    <td>03</td>
-                     <td>3</td>
-                      <td>Moy Capistrano</td>
-                       <td>Project Name</td>
-                        <td><a href="">See more</a></td>
-                  </tr>
+      			<div class="createBtn">
+                <a href="account-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Update Info</a>
 
-
-                </tbody>
-              </table>
-
-             
-            </div>
-
-             <div class="createBtn">
-                <a href="project-create.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width:20% ; margin:20px auto; text-align: center;">Create New Project</a>
+                <a href="account-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Cancel</a>
                 
               </div>
 
+      		</div>
 
-            
-          </div>
-          
-        </section>
 
-        </div>
+      		
+      	</form>
 
-       
+        
+
+
+      </section>
+
+
+
+
+  </div>
+
+
 
 </body>
 </html>

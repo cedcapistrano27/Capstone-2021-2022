@@ -359,75 +359,75 @@ footer{
 
     <div class="content">
 
-      
-        <section>
-          <div class="header-table" style="margin: auto; color:white;font-variant: small-caps; padding:10px;background:rgba(0, 0, 0, 0.49); width: auto;-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); width:60%;text-align: center;">
-            <span><h1 style="">Project Management</h1></span>
-          </div>
+      <form>
+        
+     
+      <div class="form-container" style="width: 500px; height: 90vh;background: skyblue; margin: auto;">
+       <div class="header-form" style="text-align: center; padding: 10px; border: 2px green solid;">
 
-          <div class="body-table" style="height: 80vh; padding: 10px; display: flex; flex-direction: column;">
+        <h3>Updating Current Contract/Project</h3> 
+       </div>
+<hr>
+       <div class="body-form">
 
-            <div class="search-bar" style="margin: 20px 10px; text-align:right;">
-              <span><label style="color: white; font-weight: bold; font-size:15px;">Search Client's Name : </label></span>
-              <input type="text" name="search" style="height: 5vh;">
-              
+        <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
+        margin-top: 10px;">
+            
+            <div class="label" style="flex: 1;">
+              <span><label>Project Name</label></span> 
             </div>
 
-            <div class="table-area" style=" height: 70vh; background:white; overflow-y: scroll;">
-
-              <table style="width: 100%; background: white; text-align:center;">
-                <thead style="background: black; color: white; font-size: 1.2rem;">
-                  <tr>
-                    <th>Project ID</th>
-                    <th>Client ID</th>
-                    <th>Client Name</th>
-                    <th>Project Name</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>01</td>
-                     <td>1</td>
-                      <td>Danielle Capistrano</td>
-                       <td>Project Name</td>
-                        <td><a href="project-info.php">See more</a></td>
-                  </tr>
-
-                  <tr>
-                    <td>02</td>
-                     <td>2</td>
-                      <td>Yommy Capistrano</td>
-                       <td>Project Name</td>
-                        <td><a href="">See more</a></td>
-                  </tr>
-
-                  <tr>
-                    <td>03</td>
-                     <td>3</td>
-                      <td>Moy Capistrano</td>
-                       <td>Project Name</td>
-                        <td><a href="">See more</a></td>
-                  </tr>
-
-
-                </tbody>
-              </table>
-
-             
+            <div class="label" style="flex:.5;">
+              <span>:</span> 
             </div>
 
-             <div class="createBtn">
-                <a href="project-create.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width:20% ; margin:20px auto; text-align: center;">Create New Project</a>
+             <div class="label" style="flex: 1.5;">
+              <span><input type="text" name="" readonly></span> 
+            </div>
+
+        </div>
+
+        <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
+        margin-top: 10px;">
+            
+            <div class="label" style="flex: 1;">
+              <span><label>Date Issued</label></span> 
+            </div>
+
+            <div class="label" style="flex:.5;">
+              <span>:</span> 
+            </div>
+
+             <div class="label" style="flex: 1.5;">
+              <span><input type="datetime-local" name=""></span> 
+            </div>
+
+        </div>
+
+
+      <div class="form-input" style="border: 2px red solid; display: block; text-align: center;padding: 5px;
+        margin-top: 10px;" id="totalpay">
+            
+            <div class="label">
+              <span><label>Contract Summary Information</label></span> 
+            </div>
+
+             <div class="label" >
+              <textarea cols="50" rows="10" style="resize: none;"></textarea>
+            </div>
+
+        
+      </div>
+
+         <div class="createBtn">
+                <a href="project-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Proceed Update</a>
+                <a href="project-info.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Cancel</a>
                 
               </div>
 
 
-            
-          </div>
-          
-        </section>
+
+       </form>
 
         </div>
 
@@ -464,6 +464,26 @@ footer{
     document.querySelector(".day-name").innerHTML = dayName;
     document.querySelector(".date-number").innerHTML = dayNumber;
     document.querySelector(".year").innerHTML = year;
+
+
+  function myFunction() {
+  // Get the checkbox
+
+  var checkBox = document.getElementById("downpayment");
+
+
+  // Get the output text
+  var text = document.getElementById("dpayment");
+  
+
+  //If the checkbox is checked, display the output text
+  if (checkBox.checked == true){
+    text.style.display = "flex";
+   
+  } else {
+    text.style.display = "none";
+  }
+}
     </script>
 
       
