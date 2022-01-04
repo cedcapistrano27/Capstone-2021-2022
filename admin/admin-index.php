@@ -225,35 +225,21 @@ section .calendar{
 
 /*widget css*/
 
-.color1{
-    background: #00C292;
-}
-.color2{
-    background: #03A9F3;
-}
-.color3{
-    background: #FB7146;
+.color1, .color2, .color4, .color5{
+  background: rgba(0, 0, 0, 0.54);
 }
 
-.color4{
-    background: #07D052;
-}
-.color5{
-    background: #FF3AC6;
-}
-.color6{
-    background: #FF526D;
-}
 .card-body{
-    display: inline-block;
+    
     font-family: "Roboto", sans-serif;
     margin: 10px;
     padding: 20px;
-    width: 25%;
+    width: 20%;
     height: 90px;
     color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border: 3px white solid;
 }
 .float-left{
     float: left;
@@ -274,7 +260,7 @@ section .calendar{
     margin-top: 0;
 }
 .card-body i{
-    font-size: 4rem;
+    font-size: 3.5rem;
     opacity: 0.5;
 }
 
@@ -289,7 +275,7 @@ section .calendar{
 
 .calendar .calendar-body{
   width: 50%;
-  background: rgba(141, 140, 140, 0.8);
+  background: rgba(0, 0, 0, 0.54);
   margin-top: 20px;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -297,6 +283,8 @@ section .calendar{
   color: white;
   font-family: monospace;
   border-radius: 10px;
+  text-align: center;
+  border: 2px white solid;
 }
 
 .calendar .calendar-body .month-name{
@@ -336,19 +324,22 @@ section .calendar{
   width: 600px;
   flex: 1;
   padding: 10px;
-  background: rgba(0, 5, 52, 0.7);
+  background: rgba(57, 57, 57, 0.65);
   margin-right: 10px;
   border-radius: 10px;
+  border: 2px white solid;
 }
 .header-content{
   display: flex;
   align-items: center;
   justify-self: center;
-  background: rgba(60, 60, 60, 0.8);
+  background: rgba(0, 0, 0, 0.54);
   color: white;
   width: 100%;
-  font-family: monospace;
+  text-align: center;
+  font-variant: small-caps;
    border-radius: 10px;
+   border: 2px white solid;
 }
 
 .header-left{
@@ -387,13 +378,19 @@ th, td{
 
 .see-all a{
   font-size: 20px;
-  background: black;
+  background: white;
+  border: 2px grey solid;
   padding:10px;
   text-decoration: none;
   border-radius: 5px;
-  color: white;
+  color: black;
  
 
+}
+
+.see-all a:hover{
+  background: black;
+  color: white;
 }
 
 .sale-content{
@@ -401,8 +398,9 @@ th, td{
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background: rgba(0, 5, 52, 0.7);
+  background: rgba(57, 57, 57, 0.65);
   border-radius: 10px;
+  border: 2px white solid;
 
 }
 
@@ -424,9 +422,9 @@ margin-right: auto;
     
   
 
-/* Responsive CSS 
+/*Responsive CSS */
 
-@media screen and (max-width: 780px){
+@media screen and (max-width: 600px){
   .sidebar{
     display: none;
   }
@@ -434,7 +432,13 @@ margin-right: auto;
   #sidebar_btn{
     display: none;
   }
-
+body{
+  max-width: 100%;
+  height: auto;
+}
+header{
+  width: 100%;
+}
   header .left_area span{
     font-size: 13px;
   }
@@ -453,12 +457,12 @@ margin-right: auto;
 
   .mobile_nav{
     display: block;
-    width: calc(100% - 0%);
+    max-width: 100%;
   }
 
   .nav_bar{
     background: #222;
-    width: 100% - 0px;
+    max-width: calc(100% - 0%);
     margin-top: 70px;
     display: flex;
     justify-content: space-between;
@@ -519,97 +523,86 @@ margin-right: auto;
     margin-left: auto;
     margin-right: auto;
     height: auto;
-    display: flex;
-    flex-direction: column-reverse;
-  }
 
- .widget{
-    width: 100%;
-    border: 2px red solid;
-    padding-bottom: 20px;
-  }
-
-  .color1{
-    grid-area: first;
-  }
-  .color2{
-    grid-area: second;
-  }
-  .color3{
-    grid-area: third;
-  }
-  .color4{
-    grid-area: fourth;
-  }
-  .color5{
-    grid-area: fifth;
-  }
-  .color6{
-    grid-area: sixth;
-  }
-
-  .widget{
-    display: flex;
     
   }
 
+/*Widget --- Start*/
 
 
+
+section .widget{
+  
+  width: 100%;
+  display:flex;
+  margin: auto;
+
+
+}
+section .widget .card-body{
+  height: 15vh;
+  flex: 1;
+  display: block;
+  text-align: center;
+
+
+}
+.float-left, .float-right{
+
+ text-align: center;
+ align-items: center;
+ justify-content: center;
+  
+}
+
+.card-body h3{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.currency, .count{
+    font-size: 14px;
+    font-weight: 500;
+}
+.card-body p{
+    font-size: 12px;
+    margin-top: 0;
+}
+.card-body i{
+
+    font-size: 2.5rem;
+    opacity: 0.5;
+}
+/*Widget --- End*/
 
 
 
 .calendar .calendar-body{
+  width: 80%;
+
+}
+
+
+.bot-content{
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border-bottom: 6px solid #4285F4;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  box-shadow: 0 5px 25px rgb(1 1 1 / 15%);
-  width: 50%;
+  width: 90%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  
+  
 }
 
-.calendar .calendar-body .month-name{
-  color: #fff;
-  background: #4285F4;
-  width: 100%;
-  font-size: 1.2em;
-  text-align: center;
-  font-weight: 400;
-  padding: 5px 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.calendar .calendar-body .day-name{
-  color: #fff;
-  font-size: 1em;
-  font-weight: 400;
-  margin-top: 10px;
-}
-
-.calendar .calendar-body .date-number{
-  color: #fff;
-  font-size: 4em;
-  font-weight: 600;
-  line-height: 1.2em;
-}
-
-.calendar .calendar-body .year{
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-
-footer{
+.top-content, .sale-content{
   display: block;
+  width: 90%;
+  margin: 10px auto;
 }
 
-*/
+
+
+
 
 }
       
@@ -635,7 +628,7 @@ footer{
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="../images/profic1.jpg" class="mobile_profile_image" alt="">
+        <img src="../images/avatar.png" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -650,8 +643,8 @@ footer{
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../images/profic1.jpg" class="profile_image" alt="">
-        <h4>Danielle</h4>
+        <img src="../images/avatar.png" class="profile_image" alt="">
+        <h4>Admin User</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
@@ -665,7 +658,7 @@ footer{
 
       <section id="dashboard">
         
-        <div class="widget">
+<div class="widget">
         <!--Widget Start-->
         <div class="card-body color1">
             <div class="float-left">
@@ -694,21 +687,6 @@ footer{
             </div>
         </div>
         <!--Widget End-->
-
-        <!--Widget Start
-        <div class="card-body color3">
-            <div class="float-left">
-                <h3>
-                    <span class="count">523</span>
-                </h3>
-                <p>Feedback Reports</p>
-            </div>
-            <div class="float-right">
-                <i class="fas fa-comment-dots"></i>
-            </div>
-        </div>---->
-
-         <!--Widget End-->
         
         <!--Widget Start-->
 
@@ -740,21 +718,10 @@ footer{
         </div>
         <!--Widget End-->
 
-        <!--Widget Start
 
-        <div class="card-body color6">
-            <div class="float-left">
-                <h3>
-                    <span class="count"> 225 </span>
-                </h3>
-                <p>Staffs</p>
-            </div>
-            <div class="float-right">
-                <i class="fas fa-user-tie"></i>
-            </div>
-        </div>-->
+     
       </div>
-        <!--Widget End-->
+       
 
         
 
@@ -781,7 +748,7 @@ footer{
 
    <div class="see-all">
       <span>
-        <a href="sales-area.php">See all</a>
+        <a href="sales-area.php">View More</a>
       </span>     
    </div>
   </div>
@@ -821,7 +788,7 @@ footer{
 
    <div class="see-all">
       <span>
-        <a href="project-area.php">See all</a>
+        <a href="project-area.php">View More</a>
       </span>     
    </div>
 
