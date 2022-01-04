@@ -695,68 +695,71 @@ summary, p{
         <span><h2>Appointments</h2></span>
         </div>
 
-      <div class="appointments">
+      <div class="appointments"> 
+
+        <form method="POST">
 
         <section class="appointment-col">
 
-          <div class="single-appointment">
-          <div class="title">
-            <span><h4>Appointment Date</h4></span>
-             
-          </div>
-          <div class="information">
-            <details>
-            <summary>clientID : clients name</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <a href="" style="background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;">Accept Appointment</a>
-            </details>
-          </div>  
-        </div>
+          <?php 
 
-        <div class="single-appointment">
-          <div class="title">
-            <span><h4>Appointment Date</h4></span>
-             
-          </div>
-          <div class="information">
-            <details>
-            <summary>clientID : clients name</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <a href="" style="background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;">Accept Appointment</a>
-            </details>
-          </div>  
-        </div>
 
-       <div class="single-appointment">
-          <div class="title">
-            <span><h4>Appointment Date</h4></span>
+
+
+          $appoint_sql = "SELECT * FROM   appointment WHERE status='pending'";
+
+          $appointment_result = mysqli_query($conn, $appoint_sql);
+
+          if ($appointment_result->num_rows > 0) {
+            while ($row = mysqli_fetch_assoc($appointment_result)) {
+              
+              $app_id = $row['APPID'];
+              $user_id = $row['UID'];
+              $app_date = $row['date'];
+              $app_info = $row['a_details'];
+              $app_status = $row['status'];
+
+            $name = "SELECT * FROM user WHERE UID = '$user_id'"; 
+
+                  $result = mysqli_query($conn, $name);
+                   if ($result->num_rows > 0) {
+                    while ($row_name = mysqli_fetch_assoc($result)) {
+                      $clientF = $row_name['fname'];
+                      $clientM = $row_name['mname'];
+                      $clientL = $row_name['lname'];
+
+                       echo "
+              <div class='single-appointment' id='$app_id'>
+          <div class='title'>
+            <span><h4>$app_date</h4></span>
              
           </div>
-          <div class="information">
+          <div class='information'>
             <details>
-            <summary>clientID : clients name</summary>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <a href="" style="background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;">Accept Appointment</a>
+            <summary> Client's ID : $user_id | Client's Name : $clientF $clientM $clientL</summary>
+            <p>$app_info</p>
+               <a href='appointment-status.php?app_id=$app_id' name='update' style='background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;''>Accept Appointment</a>
             </details>
           </div>  
         </div>
+              ";
+                    }
+                   }
+  
+
+             
+
+            }
+          }
+          
+
+
+           ?>
+      
         
       </section>
+
+      </form>
 
         <div class="appointment-col-1">
 
@@ -769,9 +772,23 @@ summary, p{
             </div>
 
             <div class="info">
-                <h3>
-                    <span class="count">23</span>
+
+              <?php 
+
+
+              $sql = "SELECT COUNT(APPID) AS total FROM appointment WHERE status = 'pending' AND UID > 3000";
+          $result = mysqli_query($conn, $sql);
+          while ($count_r = mysqli_fetch_assoc($result)) {
+          $num_rows = $count_r['total'];
+          echo "
+
+          <h3>
+             <span class='count'>$num_rows</span>
                 </h3>
+
+          ";
+          }
+               ?>
                 <p>Appointments</p>
             </div>
             
