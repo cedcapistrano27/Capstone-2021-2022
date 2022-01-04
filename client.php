@@ -2,17 +2,27 @@
 include 'connection.php';
 session_start();
 //insert appointment baby.
-
+$fname = $_SESSION['fname'];
+$sql1 = "SELECT * FROM user WHERE fname = '$fname'  "  ;
+$result1 = $conn->query($sql1);
+if ($result1->num_rows>0)
+{
+    while($row=$result1->fetch_assoc())
+    {
+      $uid = $row['UID'];
+	  
+    }
+}
 
 if (isset($_POST['request'])) {
 
-  $project = $_POST['project'];
-  $appoint = $_POST['appointment'];
-  $request = $_POST['request1'];
+ 
+  $appoint = $_POST['appointment1'];
+  $details = $_POST['details'];
   
   
 
-  $sql = "INSERT into appointment (date,a_type,a_details) VALUES ('$appoint','$project','$request')  ";
+  $sql = "INSERT into appointment (UID,date,a_details,status) VALUES ('$uid','$appoint','$details', 'pending')  ";
   $result = mysqli_query($conn, $sql);
   if ($result) {
    echo " <script>alert('Appointment Created!') </script>";
@@ -127,7 +137,7 @@ if (isset($_POST['request'])) {
                 <form action="" method="post">
                   <!-- label tong pangalan!!!!!  -->
                    <label for="name">Hello, <?php echo($_SESSION['fname'])?> <?php echo($_SESSION['mname']) ?>. <?php echo($_SESSION['lname']) ?></label> <br>
-                  <label>What project would you like to coordinate with us?</label>
+                  <!-- <label>What project would you like to coordinate with us?</label>
                   <select name="project" id="" style="margin-left:10px;">
                     <option value="">-------</option>
                     <optgroup label="Design">
@@ -137,12 +147,12 @@ if (isset($_POST['request'])) {
                     <option value="Renovate">Renovate</option>
                     <option value="Demolish">Demolish</option>
                     <option value="Estimate">Estimate</option>
-                  </select> <br>
+                  </select> <br> -->
                   <!-- Desired Project -->
                   <!-- dropdown:  design, renovate, demolish, estimate -->
                   <!-- under ng design interior saka exterior --> 
-                  <label for="">Date of Appointment:  </label> <input type="datetime-local" name="appointment" id="" style="margin-left:10px;"><br>
-                  <label for="">Requests: </label><br> <input type="text" name="request1" id="" style="width:600px; height:150px; margin-bottom:10px;"> <br>
+                  <label for="">Date of Appointment:  </label> <input type="datetime-local" name="appointment1" id="" style="margin-left:10px;"><br>
+                  <label for="">Details: </label><br> <textarea name="details" id="" cols="30" rows="10" style="width:600px; height:150px; margin-bottom:10px;"></textarea> <br>
                   <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
                 </form>
               </div>
