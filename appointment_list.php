@@ -96,11 +96,74 @@ session_start();
             dolor eum necessitatibus aliquam dolorum velit nam hic aspernatur excepturi fuga laborum nisi. Consecteturlaborum itaque accusantium?
               <div class="content">
                 <h2>List of Appointments</h2>
-                <table>
-                  <td>
-                    hahaha
-                  </td>
-                </table>
+                <table   class="table table-hover my-1 caption-top table-borderless">
+                  <thead class="table-dark">
+                    <tr >
+                      <th class="fw-light">CustomerName</th>
+                      <th class="fw-light">Date Time</th>
+                      <th class="fw-light">Details</th>
+                      <th class="fw-light">Status</th>
+                      <th class="fw-light"></th>
+                    
+                      
+                    </tr>
+                  </thead>
+                      <tbody class="color">
+                      <?php
+        
+        include 'connection.php';
+       
+       $mname = $_SESSION['mname'];
+       $lname = $_SESSION['lname'];
+       $fname = $_SESSION['fname'];
+        $sql1 = "SELECT * FROM user WHERE fname = '$fname'  "  ;
+        $result1 = $conn->query($sql1);
+        if ($result1->num_rows>0)
+        {
+            while($row=$result1->fetch_assoc())
+            {
+              $uid = $row['UID'];
+            
+            }
+        }
+        $sql3 = "SELECT * FROM appointment WHERE UID = '$uid' ";
+
+        $result = $conn->query($sql3);
+        
+        if($result->num_rows>0)
+        {
+
+          // output data of each row
+
+         while($row=$result->fetch_assoc())
+            {
+
+          
+          $Date_time = $row["date"];
+          $Details =$row["a_details"];
+          $Status = $row["status"];
+         
+          
+         
+           echo 
+          
+          "<tr>"
+          ."<td>$fname"." $mname"." $lname</td>"
+          ."<td>$Date_time</td>"
+          ."<td>$Details</td>"
+          ."<td>$Status</td>";
+           
+
+              }
+            echo "</table>";
+          }else{
+              echo "0 results";}
+           $conn->close();
+        ?>
+
+
+                      </tbody>
+                    </table>
               </div>
             </div>    
           </div>
