@@ -476,9 +476,14 @@ summary, p{
   font-size: 1.5rem;
 
 }
+
+.appointments{
+  display: flex;
+  flex-direction: column-reverse;
+}
 .appointment-area{
   margin: 20px auto;
-  height: 90vh;
+  height: 100vh;
   overflow: hidden; 
   border-radius: 10px;
   width: 90%;
@@ -508,7 +513,7 @@ summary, p{
 
 
 .appointment-col{
-  flex: 2;
+ 
    border: 3px white solid;
    display: flex;
    flex-direction: column;

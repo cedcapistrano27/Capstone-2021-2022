@@ -1,4 +1,12 @@
+<?php 
+  session_start()
+ 
 
+
+
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -196,22 +204,29 @@ flex-direction: column;
 
     
 }
-table{
 
-  border-collapse: collapse;
-
-
-}
-td, th{
-  padding: 10px;
+.form-container{
+  width: 500px; 
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.57); 
+  margin: auto;
 }
 
-    .btn:hover{
-      background: white;
-      color: black;
-      border: 2px black solid;
-      font-weight: bolder;
-    }
+.form-input{
+  border: 2px red solid; 
+  display: flex; 
+  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.form-textarea{
+  border: 2px red solid; 
+  display: block; 
+  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+}
 
 /* Responsive CSS */
 
@@ -303,9 +318,7 @@ td, th{
   }
 
 
-footer{
-  display: block;
-}
+
 
 }
       
@@ -359,19 +372,48 @@ footer{
 
     <div class="content">
 
-      <form>
+      <form  method="POST">
+
+
+          <?php 
+
+          include_once 'connection.php';
+
+      if (isset($_POST['create'])) {
+       
+       $ProjectName = $_POST['projname'];
+       $clientName = $_POST['client'];
+      # $Payment = $_POST['down'];
+       #$Payment2 = $_POST['full'];
+       $DownpaymentAmount = $_POST['totaldown'];
+       $TotalAmount = $_POST['totalAmount'];
+      $SummayInfo = $_POST['info'];
+
+      $sql_create = "INSERT INTO project(clientname, project_info, remarks, Pdate) VALUES ('$clientName','$SummayInfo',
+      'Processed', current_timestamp())";
+
+      $result_insert = mysqli_query($conn, $sql_create);
+
+      if ($result_insert == true) {
+        echo "A New project has been processed";
+      }
+
+
+
+      }
+
+       ?>
         
      
-      <div class="form-container" style="width: 500px; height: 90vh;background: skyblue; margin: auto;">
-       <div class="header-form" style="text-align: center; padding: 10px; border: 2px green solid;">
+      <div class="form-container" style="">
+       <div class="header-form" style="text-align: center; padding: 10px;">
 
         <h3>Create New Contract/Project Form</h3> 
        </div>
 <hr>
        <div class="body-form">
 
-        <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
-        margin-top: 10px;">
+        <div class="form-input">
             
             <div class="label" style="flex: 1;">
               <span><label>Project Name</label></span> 
@@ -382,16 +424,15 @@ footer{
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="text" name=""></span> 
+              <span><input type="text" name="projname"></span> 
             </div>
 
         </div>
 
-        <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
-        margin-top: 10px;">
+        <div class="form-input">
             
             <div class="label" style="flex: 1;">
-              <span><label>Date Issued</label></span> 
+              <span><label for="client">Client's Name</label></span> 
             </div>
 
             <div class="label" style="flex:.5;">
@@ -399,14 +440,39 @@ footer{
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="datetime-local" name=""></span> 
+              <span><input list="clients" name="client" id="client">
+              <datalist id="clients">
+
+                       <?php 
+                       include 'connection.php';
+
+                $sql_client = "SELECT * FROM user";
+
+                $result=mysqli_query($conn, $sql_client);
+
+                if ($result->num_rows > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      $clientF = $row['fname'];
+                      $clientM = $row['mname'];
+                      $clientL = $row['lname'];
+                      $clientID = $row['UID'];
+
+                      echo "
+                      <option value='$clientID - $clientF $clientM $clientL'>$clientF $clientM $clientL</option>
+                      ";
+
+                  }
+                }
+                 ?>
+
+         
+              </datalist>
+            </span>
             </div>
 
         </div>
 
-         <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
-        margin-top: 10px;">
-            
+         <div class="form-input">
             <div class="label" style="flex: 1;">
               <span><label>Payment Type</label></span> 
             </div>
@@ -416,8 +482,8 @@ footer{
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="checkbox" name="" id="downpayment" onclick="myFunction()"> Downpayment</span>
-              <span><input type="checkbox" name="" id="fullpaid" onclick="myFunction()"> Fully-paid</span> 
+              <span><input type="checkbox" name="down" id="downpayment" onclick="myFunction()" value="Downpayment"> Downpayment</span>
+              <span><input type="checkbox" name="full" id="fullpaid" onclick="myFunction()" value="Fully-Paid"> Fully-Paid</span> 
             </div>
             
 
@@ -425,8 +491,7 @@ footer{
 
         </div>
 
-         <div class="form-input" style="border: 2px red solid; display: none; text-align: center;padding: 5px;
-        margin-top: 10px;" id="dpayment" >
+         <div class="form-input" id="dpayment" >
             
             <div class="label" style="flex: 1;">
               <span><label>Downpayment</label></span> 
@@ -437,14 +502,13 @@ footer{
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="texts" name=""></span> 
+              <span><input type="texts" name="totaldown" value="0"></span> 
             </div>
 
         </div>
 
 
-         <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
-        margin-top: 10px;" id="totalpay">
+         <div class="form-input" id="totalpay">
             
             <div class="label" style="flex: 1;">
               <span><label>Total</label></span> 
@@ -455,27 +519,29 @@ footer{
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="text" name=""></span> 
+              <span><input type="text" name="totalAmount" value="0"></span> 
             </div>
 
       </div>
 
-      <div class="form-input" style="border: 2px red solid; display: block; text-align: center;padding: 5px;
-        margin-top: 10px;" id="totalpay">
+      <div class="form-textarea" style="" id="totalpay">
             
             <div class="label">
               <span><label>Contract Summary Information</label></span> 
             </div>
 
              <div class="label" >
-              <textarea cols="50" rows="10" style="resize: none;"></textarea>
+              <textarea cols="50" rows="10" name="info" style="resize: none;"></textarea>
             </div>
 
         
       </div>
 
+    
+
          <div class="createBtn">
-                <a href="project-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Proceed</a>
+          <input type="submit" name="create" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">
+                <a href="project-create.php" name="create" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Proceed</a>
                 
               </div>
 

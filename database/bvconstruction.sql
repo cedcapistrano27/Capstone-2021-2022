@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2022 at 07:01 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: Jan 05, 2022 at 04:18 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,9 +46,9 @@ INSERT INTO `appointment` (`APPID`, `UID`, `date`, `a_details`, `status`) VALUES
 (4, 0, '0000-00-00 00:00:00', 'Gujasuuy  als;kdjuiy lorem lorem lored\r\n', 'pending'),
 (5, 0, '2022-01-07 02:35:00', 'hatdog hatdog hatdog hatdog', 'pending'),
 (6, 0, '2022-01-06 14:43:00', 'haha hatdog na bitin', 'pending'),
-(7, 3010, '2022-01-13 13:39:00', 'asfdggg', 'pending'),
-(8, 3022, '2022-01-17 17:40:00', 'hatfdog ajsjhhajdshadpoj ', 'pending'),
-(9, 3022, '2022-01-12 04:00:00', 'adksjhguyoiyu  m;alsfj missyou', 'pending'),
+(7, 3010, '2022-01-13 13:39:00', 'asfdggg', 'Approved'),
+(8, 3022, '2022-01-17 17:40:00', 'hatfdog ajsjhhajdshadpoj ', 'Approved'),
+(9, 3022, '2022-01-12 04:00:00', 'adksjhguyoiyu  m;alsfj missyou', 'Approved'),
 (10, 3010, '2022-01-16 17:00:00', 'for update of the ongoing project aka Payamansion 5.6', 'pending');
 
 -- --------------------------------------------------------
@@ -74,13 +74,36 @@ CREATE TABLE `payment` (
 
 CREATE TABLE `project` (
   `PID` int(255) NOT NULL,
-  `UID` int(255) NOT NULL,
-  `Pdate` date NOT NULL,
-  `ptype` varchar(50) NOT NULL,
+  `clientname` varchar(250) NOT NULL,
   `project_info` text NOT NULL,
-  `p_percentage` varchar(255) NOT NULL,
-  `remarks` text NOT NULL
+  `remarks` text NOT NULL,
+  `Pdate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`PID`, `clientname`, `project_info`, `remarks`, `Pdate`) VALUES
+(1, 'moy', 'samplesamplesamplesamplesamplesample', 'Processed', '2022-01-04 20:00:40'),
+(2, 'moy', 'samplesamplesamplesamplesamplesample', 'Processed', '2022-01-04 20:00:56'),
+(3, 'moy', 'samplesamplesamplesamplesamplesample', 'Processed', '2022-01-04 20:01:04'),
+(4, '3005 - chris g cullados', 'samplesamplesamplesamplesamplesample', 'Processed', '2022-01-04 20:03:44'),
+(5, '3022 - asdgeee qwrrrt sddf', 'SampleSampleSample', 'Processed', '2022-01-04 20:04:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timeline`
+--
+
+CREATE TABLE `timeline` (
+  `TimeID` int(11) NOT NULL,
+  `UID` int(11) NOT NULL,
+  `ProjectName` varchar(250) NOT NULL,
+  `ProjectInfo` text NOT NULL,
+  `DateIssued` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -137,6 +160,12 @@ ALTER TABLE `project`
   ADD PRIMARY KEY (`PID`);
 
 --
+-- Indexes for table `timeline`
+--
+ALTER TABLE `timeline`
+  ADD PRIMARY KEY (`TimeID`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -162,7 +191,13 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `timeline`
+--
+ALTER TABLE `timeline`
+  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
