@@ -92,9 +92,8 @@ session_start();
           </div>
           <div class="col-sm-10">
             <div class="col-sm-12" style="border-radius: 20px;box-shadow: 10px 10px 20px rgb(133, 131, 131);background-color:rgb(248, 245, 245);">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora soluta commodi minus accusamus, 
-            dolor eum necessitatibus aliquam dolorum velit nam hic aspernatur excepturi fuga laborum nisi. Consecteturlaborum itaque accusantium?
-              <div class="content">
+            
+            <div class="content">
                 <h2>List of Appointments</h2>
                 <table   class="table table-hover my-1 caption-top table-borderless">
                   <thead class="table-dark">
@@ -126,7 +125,7 @@ session_start();
             
             }
         }
-        $sql3 = "SELECT * FROM appointment WHERE UID = '$uid' ORDER BY date";
+        $sql3 = "SELECT * FROM appointment WHERE UID = '$uid' ORDER BY date ASC";
 
         $result = $conn->query($sql3);
         
