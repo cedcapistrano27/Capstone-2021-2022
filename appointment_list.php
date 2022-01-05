@@ -116,7 +116,7 @@ session_start();
        $mname = $_SESSION['mname'];
        $lname = $_SESSION['lname'];
        $fname = $_SESSION['fname'];
-        $sql1 = "SELECT * FROM user WHERE fname = '$fname'  "  ;
+        $sql1 = "SELECT * FROM user WHERE fname = '$fname'"  ;
         $result1 = $conn->query($sql1);
         if ($result1->num_rows>0)
         {
@@ -126,7 +126,7 @@ session_start();
             
             }
         }
-        $sql3 = "SELECT * FROM appointment WHERE UID = '$uid' ";
+        $sql3 = "SELECT * FROM appointment WHERE UID = '$uid' ORDER BY date";
 
         $result = $conn->query($sql3);
         
