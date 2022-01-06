@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2022 at 04:18 AM
+-- Generation Time: Jan 06, 2022 at 04:25 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -60,11 +60,20 @@ INSERT INTO `appointment` (`APPID`, `UID`, `date`, `a_details`, `status`) VALUES
 CREATE TABLE `payment` (
   `PayID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
-  `total_amount` decimal(10,2) NOT NULL,
+  `total_amount` decimal(12,2) NOT NULL,
   `payment_issued` datetime NOT NULL DEFAULT current_timestamp(),
   `project_name` text NOT NULL,
   `receipt_details` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`PayID`, `UID`, `total_amount`, `payment_issued`, `project_name`, `receipt_details`) VALUES
+(2, 3005, '120000.00', '2022-01-06 22:10:52', 'Reconstruction Of Bedroom', 'Payment-Type : Fully-Paid \n       Downpayment Cost : 0 \n       Total Cost : 120000'),
+(3, 3022, '32450.00', '2022-01-06 22:35:52', 'teres ni marites', 'Payment-Type : Downpayment \r\n       Downpayment Cost : 32450 \r\n       Total Cost : 32450'),
+(4, 3022, '77000.00', '2022-01-06 22:38:19', 'sample', 'Payment-Type : Downpayment \r\n       Downpayment Cost : 77000 \r\n       Total Cost : 77000');
 
 -- --------------------------------------------------------
 
@@ -74,22 +83,21 @@ CREATE TABLE `payment` (
 
 CREATE TABLE `project` (
   `PID` int(255) NOT NULL,
-  `clientname` varchar(250) NOT NULL,
+  `UID` int(11) NOT NULL,
+  `project_name` varchar(250) NOT NULL,
   `project_info` text NOT NULL,
   `remarks` text NOT NULL,
-  `Pdate` datetime NOT NULL DEFAULT current_timestamp()
+  `Pdate` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`PID`, `clientname`, `project_info`, `remarks`, `Pdate`) VALUES
-(1, 'moy', 'samplesamplesamplesamplesamplesample', 'Processed', '2022-01-04 20:00:40'),
-(2, 'moy', 'samplesamplesamplesamplesamplesample', 'Processed', '2022-01-04 20:00:56'),
-(3, 'moy', 'samplesamplesamplesamplesamplesample', 'Processed', '2022-01-04 20:01:04'),
-(4, '3005 - chris g cullados', 'samplesamplesamplesamplesamplesample', 'Processed', '2022-01-04 20:03:44'),
-(5, '3022 - asdgeee qwrrrt sddf', 'SampleSampleSample', 'Processed', '2022-01-04 20:04:39');
+INSERT INTO `project` (`PID`, `UID`, `project_name`, `project_info`, `remarks`, `Pdate`) VALUES
+(9, 3005, 'Reconstruction Of Bedroom', ' Project Name : Reconstruction Of Bedroom\n        Additional Request : - may sealing fan\n- mataas kama\n- d na alog kama\n', 'Processed', '2022-01-06'),
+(10, 3022, 'teres ni marites', ' Project Name : teres ni marites\r\n        Additional Request :\r\n         \r\n        - sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample', 'Processed', '2022-01-06'),
+(11, 3022, 'sample', 'Project Name : sample\nAdditional Request : \nsample\nsample\nsample\nsample\nsample\nsample\nsample', 'Processed', '2022-01-06');
 
 -- --------------------------------------------------------
 
@@ -104,6 +112,13 @@ CREATE TABLE `timeline` (
   `ProjectInfo` text NOT NULL,
   `DateIssued` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `timeline`
+--
+
+INSERT INTO `timeline` (`TimeID`, `UID`, `ProjectName`, `ProjectInfo`, `DateIssued`) VALUES
+(1, 3022, 'teres ni marites', 'Nalagyan na ang mga bakal sa pader', '2022-01-06');
 
 -- --------------------------------------------------------
 
@@ -185,19 +200,19 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `timeline`
 --
 ALTER TABLE `timeline`
-  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
