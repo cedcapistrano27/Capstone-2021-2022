@@ -304,10 +304,6 @@ td, th{
   }
 
 
-footer{
-  display: block;
-}
-
 }
       
     </style>
@@ -424,7 +420,7 @@ footer{
         
 
       }else{
-        
+    
       }
 
       $conn->close();

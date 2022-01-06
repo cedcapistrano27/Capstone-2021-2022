@@ -450,7 +450,7 @@ textarea{
               </div>
 
            <div class="createBtn" style="flex:1;">
-                <a href="project-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Check Timeline</a>
+                <a href="timeline-project.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Check Timeline</a>
                 
               </div>    
 
