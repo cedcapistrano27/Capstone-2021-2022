@@ -192,24 +192,12 @@ label #sidebar_btn:hover{
 }
 
 
-
-section{
- width: 100%;
- scroll-snap-align: center;
- box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
--webkit-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
--moz-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
-display: flex;
-flex-direction: column;
-
-    
-}
-
 .form-container{
-  width: 500px; 
+  width: 80%; 
   height: 100vh;
   background: rgba(255, 255, 255, 0.57); 
   margin: auto;
+
 }
 
 .form-input{
@@ -222,10 +210,26 @@ flex-direction: column;
 
 .form-textarea{
   border: 2px red solid; 
-  display: block; 
   text-align: center;
   padding: 5px;
-  margin-top: 10px;
+  margin: 10px 20px;
+  width: 50%;
+ float: left;
+}
+
+.createBtn{
+  width: 40%;
+  float: left;
+  text-align: center;
+  border: 2px red solid;
+ margin: 10px auto;
+}
+
+input, select{
+  width: 80%;
+  height: 4vh;
+  text-align: center;
+  font-size: 15px;
 }
 
 /* Responsive CSS */
@@ -383,19 +387,35 @@ flex-direction: column;
        
        $ProjectName = $_POST['projname'];
        $clientName = $_POST['client'];
-      # $Payment = $_POST['down'];
-       #$Payment2 = $_POST['full'];
-       $DownpaymentAmount = $_POST['totaldown'];
-       $TotalAmount = $_POST['totalAmount'];
+       $Paytype = $_POST['paymenttype'];
+       $DownpaymentAmount = $_POST['downpaid'];
+       $TotalAmount = $_POST['fullpaid'];
       $SummayInfo = $_POST['info'];
 
-      $sql_create = "INSERT INTO project(clientname, project_info, remarks, Pdate) VALUES ('$clientName','$SummayInfo',
+      $sql_create = "INSERT INTO project(UID, project_name, project_info, remarks, Pdate) VALUES (
+      '$clientName',
+      '$ProjectName',
+'Project Name : $ProjectName
+Additional Request : 
+$SummayInfo',
       'Processed', current_timestamp())";
 
+      $sql_payment = "INSERT INTO payment(UID, total_amount, payment_issued, project_name, receipt_details) 
+      VALUES (
+      '$clientName',
+      '$TotalAmount',
+       current_timestamp(),
+      '$ProjectName',
+'Payment-Type : $Paytype 
+Downpayment Cost : $DownpaymentAmount 
+Total Cost : $TotalAmount')";
+
       $result_insert = mysqli_query($conn, $sql_create);
+      $result_pay = mysqli_query($conn, $sql_payment);
 
       if ($result_insert == true) {
-        echo "A New project has been processed";
+        echo "<script> alert('You have Created a New Contract!') </script>";
+  echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/project-area.php' </script>";
       }
 
 
@@ -432,7 +452,7 @@ flex-direction: column;
         <div class="form-input">
             
             <div class="label" style="flex: 1;">
-              <span><label for="client">Client's Name</label></span> 
+              <span><label for="client">Client's ID</label></span> 
             </div>
 
             <div class="label" style="flex:.5;">
@@ -458,7 +478,7 @@ flex-direction: column;
                       $clientID = $row['UID'];
 
                       echo "
-                      <option value='$clientID - $clientF $clientM $clientL'>$clientF $clientM $clientL</option>
+                      <option value='$clientID'>$clientF $clientM $clientL</option>
                       ";
 
                   }
@@ -474,7 +494,7 @@ flex-direction: column;
 
          <div class="form-input">
             <div class="label" style="flex: 1;">
-              <span><label>Payment Type</label></span> 
+              <span><label for="payment">Payment Type</label></span> 
             </div>
 
             <div class="label" style="flex:.5;">
@@ -482,16 +502,16 @@ flex-direction: column;
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="checkbox" name="down" id="downpayment" onclick="myFunction()" value="Downpayment"> Downpayment</span>
-              <span><input type="checkbox" name="full" id="fullpaid" onclick="myFunction()" value="Fully-Paid"> Fully-Paid</span> 
-            </div>
-            
 
-<!---<p id="text" style="display:none">Checkbox is CHECKED!</p>--->
+            <select name="paymenttype" id="payment">
+              <option value="Downpayment">Downpayment</option>
+              <option value="Fully-Paid">Fully-Paid</option>
+            </select>
+            </div>
 
         </div>
 
-         <div class="form-input" id="dpayment" >
+         <div class="form-input">
             
             <div class="label" style="flex: 1;">
               <span><label>Downpayment</label></span> 
@@ -502,16 +522,15 @@ flex-direction: column;
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="texts" name="totaldown" value="0"></span> 
+              <span><input type="number" name="downpaid" min="0" value="0"></span> 
             </div>
 
         </div>
 
-
-         <div class="form-input" id="totalpay">
+        <div class="form-input">
             
             <div class="label" style="flex: 1;">
-              <span><label>Total</label></span> 
+              <span><label>Total Payment</label></span> 
             </div>
 
             <div class="label" style="flex:.5;">
@@ -519,15 +538,16 @@ flex-direction: column;
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="text" name="totalAmount" value="0"></span> 
+              <span><input type="number" name="fullpaid" min="0" value="0"></span> 
             </div>
 
-      </div>
+        </div>
+        
 
       <div class="form-textarea" style="" id="totalpay">
             
             <div class="label">
-              <span><label>Contract Summary Information</label></span> 
+              <span><label>Additional Request</label></span> 
             </div>
 
              <div class="label" >
@@ -536,14 +556,11 @@ flex-direction: column;
 
         
       </div>
+              
 
-    
-
-         <div class="createBtn">
-          <input type="submit" name="create" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">
-                <a href="project-create.php" name="create" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Proceed</a>
+               <div class="createBtn">
+          <input type="submit" name="create" style="border-radius: 5px;text-decoration: none; color:white;background: black; padding: 10px; width: 50% ; height: 10vh; margin:20px auto; text-align: center;" value="Create New Contract"></div>
                 
-              </div>
 
        </form>
 
@@ -584,24 +601,12 @@ flex-direction: column;
     document.querySelector(".year").innerHTML = year;
 
 
-  function myFunction() {
-  // Get the checkbox
-
-  var checkBox = document.getElementById("downpayment");
 
 
-  // Get the output text
-  var text = document.getElementById("dpayment");
-  
 
-  //If the checkbox is checked, display the output text
-  if (checkBox.checked == true){
-    text.style.display = "flex";
-   
-  } else {
-    text.style.display = "none";
-  }
-}
+
+
+
     </script>
 
       

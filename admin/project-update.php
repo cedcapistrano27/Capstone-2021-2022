@@ -359,13 +359,37 @@ footer{
 
     <div class="content">
 
-      <form>
+      <form method="POST">
+        <?php 
+
+        include 'connection.php';
+
+         $time = $_GET['time'];
+        $status_sql = "SELECT * FROM project WHERE PID = '$time'";
+
+        $res_p = mysqli_query($conn, $status_sql);
+
+        if ($res_p->num_rows > 0) {
+        
+        while ($row = mysqli_fetch_assoc($res_p)) {
+          $ProjectID = $row['PID'];
+          $ClientID = $row['UID'];
+          $ProjectName = $row['project_name'];
+          $ProjectInfo = $row['project_info'];
+          $Remarks = $row['remarks'];
+          $DateIssue = $row['Pdate'];
+
+        }
+
+        
+        }
+        ?>
         
      
       <div class="form-container" style="width: 500px; height: 90vh;background: skyblue; margin: auto;">
        <div class="header-form" style="text-align: center; padding: 10px; border: 2px green solid;">
 
-        <h3>Updating Current Contract/Project</h3> 
+        <h3>Project Progress</h3> 
        </div>
 <hr>
        <div class="body-form">
@@ -382,16 +406,16 @@ footer{
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="text" name="" readonly></span> 
+              <span><input type="text" name="projname" value="<?php echo $ProjectName; ?>" readonly></span> 
             </div>
 
         </div>
 
-        <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
+         <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
         margin-top: 10px;">
             
             <div class="label" style="flex: 1;">
-              <span><label>Date Issued</label></span> 
+              <span><label>Client ID</label></span> 
             </div>
 
             <div class="label" style="flex:.5;">
@@ -399,29 +423,55 @@ footer{
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="datetime-local" name=""></span> 
+              <span><input type="text" name="client" value="<?php echo $ClientID; ?>" readonly></span> 
             </div>
 
         </div>
+
+        <?php 
+
+        if (isset($_POST['update'])) {
+          $CID = $_POST['client'];
+          $proj = $_POST['projname'];
+          $info = $_POST['info'];
+
+            $sql_time ="INSERT INTO timeline(UID, ProjectName, ProjectInfo, DateIssued) VALUES ('$CID','$proj','$info',current_timestamp())"; 
+
+            $res_time = mysqli_query($conn, $sql_time);
+
+            if ($res_time == true) {
+               echo "<script> alert('You have Created a New Update in Timeline!') </script>";
+                echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/project-area.php' </script>";
+            }
+        }
+
+      
+
+
+
+
+
+        ?>
 
 
       <div class="form-input" style="border: 2px red solid; display: block; text-align: center;padding: 5px;
         margin-top: 10px;" id="totalpay">
             
             <div class="label">
-              <span><label>Contract Summary Information</label></span> 
+              <span><label>Progress And Accomplishments</label></span> 
             </div>
 
              <div class="label" >
-              <textarea cols="50" rows="10" style="resize: none;"></textarea>
+              <textarea name="info" cols="50" rows="10" style="resize: none;"></textarea>
             </div>
 
         
       </div>
 
          <div class="createBtn">
-                <a href="project-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Proceed Update</a>
-                <a href="project-info.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Cancel</a>
+                <input type="submit" name="update" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;" value="Proceed Update">
+                
+                <a href="project-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Cancel</a>
                 
               </div>
 

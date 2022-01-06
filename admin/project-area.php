@@ -204,6 +204,7 @@ table{
 }
 td, th{
   padding: 10px;
+  width: 20%;
 }
 
     .btn:hover{
@@ -310,6 +311,18 @@ footer{
 }
       
     </style>
+
+
+    <script>
+  $(document).ready(function(){
+    $('table tr').click(function(){
+      var id = $(this).attr('row_id');
+      window.location.replace("http://localhost/Capstone-2021-2022/admin/project-info.php?id="+ id);
+    });
+  });
+</script>
+
+
   </head>
   <body>
 
@@ -369,7 +382,7 @@ footer{
 
             <div class="search-bar" style="margin: 20px 10px; text-align:right;">
               <span><label style="color: white; font-weight: bold; font-size:15px;">Search Client's Name : </label></span>
-              <input type="text" name="search" style="height: 5vh;">
+              <input type="text" name="search" style="height: 5vh;" id="search" onkeyup="myFunction()">
               
             </div>
 
@@ -380,37 +393,44 @@ footer{
                   <tr>
                     <th>Project ID</th>
                     <th>Client ID</th>
-                    <th>Client Name</th>
                     <th>Project Name</th>
-                    <th>Action</th>
+                    <th>Remarks</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  <tr>
-                    <td>01</td>
-                     <td>1</td>
-                      <td>Danielle Capistrano</td>
-                       <td>Project Name</td>
-                        <td><a href="project-info.php">See more</a></td>
-                  </tr>
+                    <?php 
 
-                  <tr>
-                    <td>02</td>
-                     <td>2</td>
-                      <td>Yommy Capistrano</td>
-                       <td>Project Name</td>
-                        <td><a href="">See more</a></td>
-                  </tr>
+      include 'connection.php';
 
-                  <tr>
-                    <td>03</td>
-                     <td>3</td>
-                      <td>Moy Capistrano</td>
-                       <td>Project Name</td>
-                        <td><a href="">See more</a></td>
-                  </tr>
+      
 
+      
+ 
+      $result = mysqli_query($conn, "SELECT * FROM project");
+
+      if ($result->num_rows > 0) {
+        
+        while ($row = mysqli_fetch_assoc($result)) {
+
+          echo "<tr row_id='".$row['PID']. "'> 
+          <td data-label='Project ID :'>" .$row["PID"]. "</td>" 
+          ."<td data-label='Client ID :'>" .$row["UID"]. "</td>" 
+          ."<td data-label='Project Name :'>" .$row["project_name"]. "</td>"
+          ."<td data-label='Remarks :'>" .$row["remarks"]. "</td>"
+          ."</tr>";
+        }
+        echo "</table>";
+        
+
+      }else{
+        
+      }
+
+      $conn->close();
+
+
+       ?>
 
                 </tbody>
               </table>
@@ -464,6 +484,26 @@ footer{
     document.querySelector(".day-name").innerHTML = dayName;
     document.querySelector(".date-number").innerHTML = dayNumber;
     document.querySelector(".year").innerHTML = year;
+
+
+    function myFunction() {
+  var input, filter, table, table_row, table_data, i, txtValue;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("searcharea");
+  table_row = document.getElementsByTagName("tr");
+  for (i = 0; i < table_row.length; i++) {
+    table_data = table_row[i].getElementsByTagName("td")[1];
+    if (table_data) {
+      txtValue = table_data.textContent || table_data.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        table_row[i].style.display = "";
+      } else {
+        table_row[i].style.display = "none";
+      }
+    }       
+  }
+}
     </script>
 
       

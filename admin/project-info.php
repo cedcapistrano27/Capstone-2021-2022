@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -196,22 +198,18 @@ flex-direction: column;
 
     
 }
-table{
 
-  border-collapse: collapse;
-
-
+input{
+  width: 80%;
+  height: 5vh;
+  margin: auto;
+  text-align: center;
+  font-size: 15px;
 }
-td, th{
-  padding: 10px;
-}
 
-    .btn:hover{
-      background: white;
-      color: black;
-      border: 2px black solid;
-      font-weight: bolder;
-    }
+textarea{
+  font-size: 15px;
+}
 
 /* Responsive CSS */
 
@@ -303,9 +301,7 @@ td, th{
   }
 
 
-footer{
-  display: block;
-}
+
 
 }
       
@@ -359,7 +355,34 @@ footer{
 
     <div class="content">
 
-      <form>
+      <form method="POST">
+
+        <?php 
+        include 'connection.php'; 
+
+        $project = $_GET['id'];
+        $status_sql = "SELECT * FROM project WHERE PID = '$project'";
+
+        $res_p = mysqli_query($conn, $status_sql);
+
+        if ($res_p->num_rows > 0) {
+        
+        while ($row = mysqli_fetch_assoc($res_p)) {
+          $ProjectID = $row['PID'];
+          $ClientID = $row['UID'];
+          $ProjectName = $row['project_name'];
+          $ProjectInfo = $row['project_info'];
+          $Remarks = $row['remarks'];
+          $DateIssue = $row['Pdate'];
+
+        }
+
+        
+        }
+
+        ?>
+
+
         
      
       <div class="form-container" style="width: 500px; height: 90vh;background: skyblue; margin: auto;">
@@ -382,7 +405,7 @@ footer{
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="text" name="" readonly></span> 
+              <span><input type="text" name="projname" value="<?php echo $ProjectName; ?>" readonly></span> 
             </div>
 
         </div>
@@ -399,7 +422,7 @@ footer{
             </div>
 
              <div class="label" style="flex: 1.5;">
-              <span><input type="text" name="" readonly></span> 
+              <span><input type="date" name="text" value="<?php echo $DateIssue; ?>" readonly></span> 
             </div>
 
         </div>
@@ -413,7 +436,7 @@ footer{
             </div>
 
              <div class="label" >
-              <textarea cols="50" rows="10" style="resize: none;"></textarea>
+              <textarea cols="50" rows="10" style="resize: none; text-align: left;" readonly><?php echo $ProjectInfo; ?></textarea>
             </div>
 
         
@@ -422,7 +445,7 @@ footer{
       <div class="actionbtn" style="display: flex; width:100%; align-items: center; justify-content: center; border: 1px green solid; margin-top: 20px;">
 
          <div class="createBtn" style="flex:1; ">
-                <a href="project-update.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Update</a>
+                <a href="project-update.php?time=<?php echo $ProjectID; ?>" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Update</a>
                 
               </div>
 
