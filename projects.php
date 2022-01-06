@@ -2,6 +2,20 @@
 include 'connection.php';
 session_start();
 //project timeline here..
+include 'connection.php';
+$Uname = $_SESSION['username'];
+$sql1 = "SELECT * FROM user WHERE username = '$Uname'  "  ;
+$result1 = $conn->query($sql1);
+if ($result1->num_rows>0)
+{
+    while($row=$result1->fetch_assoc())
+    {
+      $uid = $row['UID'];
+    }
+}
+
+$query = "SELECT * FROM timeline WHERE UID = '$uid' ORDER BY DateIssued ASC";
+$result= $conn->query($query);
 
 
 ?>
@@ -60,6 +74,8 @@ session_start();
     <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
     <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
     <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    <link href="dist/css/timeline.min.css" rel="stylesheet" />
+
     <!-- Main stylesheet and color file-->
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
@@ -100,11 +116,35 @@ session_start();
           </div>
           <div class="col-sm-10">
             <div class="col-sm-12" style="border-radius: 20px;box-shadow: 10px 10px 20px rgb(133, 131, 131);background-color:rgb(248, 245, 245);">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora soluta commodi minus accusamus, 
-            dolor eum necessitatibus aliquam dolorum velit nam hic aspernatur excepturi fuga laborum nisi. Consecteturlaborum itaque accusantium?
+            
               <div class="content">
                 <h2>Project Timeline</h2>
-                
+                <div class="timeline">
+                  <div class="timeline__wrap">
+                    <div class="timeline__items">
+                    <?php
+                    foreach($result as $row)
+                    {
+                    ?>
+                      <div class="timeline__item">
+                        <div class="timeline__content">
+                          <h2>
+                            <?php echo $row["DateIssued"]; ?>
+                          </h2>
+                          <h3>
+                            <?php echo $row["ProjectName"] ?>
+                          </h3>
+                          <p>
+                            <?php echo $row["ProjectInfo"]; ?>
+                          </p>
+                        </div>
+                      </div>
+                    <?php
+                    }
+                    ?>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>    
           </div>
@@ -166,5 +206,9 @@ session_start();
     <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="dist/js/timeline.min.js"></script>
+    <script>
+      $('.timeline').timeline();
+    </script>
   </body>
 </html>
