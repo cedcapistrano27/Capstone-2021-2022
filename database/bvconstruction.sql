@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2022 at 04:25 PM
+-- Generation Time: Jan 07, 2022 at 10:49 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -118,7 +118,10 @@ CREATE TABLE `timeline` (
 --
 
 INSERT INTO `timeline` (`TimeID`, `UID`, `ProjectName`, `ProjectInfo`, `DateIssued`) VALUES
-(1, 3022, 'teres ni marites', 'Nalagyan na ang mga bakal sa pader', '2022-01-06');
+(1, 3022, 'teres ni marites', 'Nalagyan na ang mga bakal sa pader', '2022-01-06'),
+(2, 3022, 'sample', 'ASMASkasmdnasdA', '2022-01-07'),
+(3, 3022, 'sample', 'ASMASkasmdnasdAvvvASMASkasmdnasdAASMASkasmdnasdA', '2022-01-07'),
+(4, 3005, 'Reconstruction Of Bedroom', 'nasira yung double deck', '2022-01-07');
 
 -- --------------------------------------------------------
 
@@ -212,7 +215,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT for table `timeline`
 --
 ALTER TABLE `timeline`
-  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
