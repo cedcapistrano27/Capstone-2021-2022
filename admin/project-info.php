@@ -445,12 +445,12 @@ textarea{
       <div class="actionbtn" style="display: flex; width:100%; align-items: center; justify-content: center; border: 1px green solid; margin-top: 20px;">
 
          <div class="createBtn" style="flex:1; ">
-                <a href="project-update.php?time=<?php echo $ProjectID; ?>" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Update</a>
+                <a href="project-update.php?time=<?php echo $ProjectID; ?>" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Add Timeline</a>
                 
               </div>
 
            <div class="createBtn" style="flex:1;">
-                <a href="timeline-project.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Check Timeline</a>
+                <a href="vertical-timeline.php?timeId=<?php echo $ProjectName; ?>" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Preview Timeline</a>
                 
               </div>    
 

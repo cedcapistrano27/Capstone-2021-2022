@@ -7,37 +7,71 @@ $statement = $connect->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
 
+
+ include 'connection.php'; 
+
+$project = $_GET['timeId'];
+$status_sql = "SELECT * FROM timeline WHERE ProjectName = '$project'";
+
+        $res_p = mysqli_query($conn, $status_sql);
+
+         if ($res_p->num_rows > 0) {
+        
+        while ($row = mysqli_fetch_assoc($res_p)) {
+          $timeID = $row['TimeID'];
+          $ClientID = $row['UID'];
+          $ProjectName = $row['ProjectName'];
+          $ProjectInfo = $row['ProjectInfo'];
+          $date = $row['DateIssued'];
+        
+
+        }
+
+        
+        }
+
 ?>
 
 <html>  
     <head>  
-        <title>How to Create Dynamic Timeline in PHP</title>
+        <title>Preview</title>
+        <link rel="icon" type="images/x-icon" href="images/logo.jpg">
         <script src="js/jquery.js"></script>
         <script src="js/timeline.min.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/timeline.min.css" />
-		
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+                
+    
+ 
+ 
     </head>  
     <body>  
         <div class="container">
 			<br />
-			<h3 align="center"><a href="">How to Create Dynamic Timeline in PHP</a></a></h3><br />
+			<h3 align="center">Project Timeline : <?php echo $ProjectName; ?></h3>
+
 			<div class="panel panel-default">
 				<div class="panel-heading">
-                    <h3 class="panel-title">Our Journey</h3>
+                    <h3 class="panel-title">Project's Accomplishments</h3>
+
                 </div>
                 <div class="panel-body">
                 	<div class="timeline">
                         <div class="timeline__wrap">
                             <div class="timeline__items">
                             <?php
-                            foreach($result as $row)
+                            foreach($res_p as $row)
                             {
                             ?>
                             	<div class="timeline__item">
                                     <div class="timeline__content">
-                                    	<h2><?php echo $row["ProjectName"]; ?></h2>
-                                    	<p><?php echo $row["ProjectName"]; ?></p>
+                                    	<h2>Date : <?php echo $row["DateIssued"]; ?></h2>
+                                        <h4>Project Name : <?php echo $row["ProjectName"]; ?></h4>
+                                    	<p>Information : <?php echo $row["ProjectInfo"]; ?></p>
+
                                     </div>
                                 </div>
                             <?php
@@ -47,7 +81,11 @@ $result = $statement->fetchAll();
                         </div>
                     </div>
                 </div>
+
+
 			</div>
+
+            <span><a href="project-area.php"  style="font-size: 3vh; border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 20% ;text-align: center;"><i class="far fa-arrow-alt-circle-left"></i>  Go Back  </a></span>
 		</div>
     </body>  
 </html>
