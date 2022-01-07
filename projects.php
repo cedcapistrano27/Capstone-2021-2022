@@ -115,7 +115,7 @@ $result= $conn->query($query);
             
           </div>
           <div class="col-sm-10">
-            <div class="col-sm-12" style="border-radius: 20px;box-shadow: 10px 10px 20px rgb(133, 131, 131);background-color:rgb(248, 245, 245);">
+            <div class="col-sm-12" style="border-radius: 20px;box-shadow: 10px 10px 20px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;">
             
               <div class="content">
                 <h2>Project Timeline</h2>
@@ -128,13 +128,11 @@ $result= $conn->query($query);
                     ?>
                       <div class="timeline__item">
                         <div class="timeline__content">
-                          <h2>
-                            <?php echo $row["DateIssued"]; ?>
-                          </h2>
                           <h3>
-                            <?php echo $row["ProjectName"] ?>
+                            <strong><?php echo $row["DateIssued"]; ?> </strong>
                           </h3>
-                          <p>
+                          <p style="font-style:sans serif; font-size:21px;">
+                            <label for=""><?php echo $row["ProjectName"] ?></label> <br>
                             <?php echo $row["ProjectInfo"]; ?>
                           </p>
                         </div>

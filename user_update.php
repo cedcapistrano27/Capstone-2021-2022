@@ -124,7 +124,7 @@ if (isset($_POST['update'])) {
             
           </div>
           <div class="col-sm-10">
-            <div class="col-sm-12" style="border-radius: 20px;box-shadow: 10px 10px 20px rgb(133, 131, 131);background-color:rgb(248, 245, 245);">
+            <div class="col-sm-12" style="border-radius: 20px;box-shadow: 10px 10px 20px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;">
             
               <div class="content">
                 <h2>Update Profile</h2>
