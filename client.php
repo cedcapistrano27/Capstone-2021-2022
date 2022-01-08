@@ -2,15 +2,17 @@
 include 'connection.php';
 session_start();
 //insert appointment baby.
-$fname = $_SESSION['fname'];
-$sql1 = "SELECT * FROM user WHERE fname = '$fname'  "  ;
+$Uname = $_SESSION['username'];
+$sql1 = "SELECT * FROM user WHERE username = '$Uname'  "  ;
 $result1 = $conn->query($sql1);
 if ($result1->num_rows>0)
 {
     while($row=$result1->fetch_assoc())
     {
       $uid = $row['UID'];
-	  
+      $Firstname1 = $row['fname'];
+      $Midname1 = $row['mname'];
+      $Lastname1 = $row['lname'];
     }
 }
 
@@ -120,7 +122,7 @@ if (isset($_POST['request'])) {
         <div class="row">
           <div class="col-sm-2">
             <img class="col-sm-12" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;">
-            <h1 class="col-sm-12">Welcome <?php echo($_SESSION['username']) ?></h1>
+            <h1 class="col-sm-12">Welcome <?php echo $Uname ?></h1>
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
             <a class="col-sm-12" href="projects.php">Project/s</a>
@@ -135,7 +137,7 @@ if (isset($_POST['request'])) {
                 <h2>Create an appointment</h2>
                 <form action="" method="post">
                   <!-- label tong pangalan!!!!!  -->
-                   <label for="name">Hello, <?php echo($_SESSION['fname'])?> <?php echo($_SESSION['mname']) ?>. <?php echo($_SESSION['lname']) ?></label> <br>
+                   <label for="name">Hello, <?php echo $Firstname1 .' '.$Midname1 .'. '. $Lastname1  ?> </label> <br>
                   <!-- <label>What project would you like to coordinate with us?</label>
                   <select name="project" id="" style="margin-left:10px;">
                     <option value="">-------</option>

@@ -5,10 +5,28 @@ session_start();
 
 
 // updating...
+$Uname = $_SESSION['username'];
+$sql1 = "SELECT * FROM user WHERE username = '$Uname'  "  ;
+$result1 = $conn->query($sql1);
+if ($result1->num_rows>0)
+{
+    while($row=$result1->fetch_assoc())
+    {
+      $uid = $row['UID'];
+      $Firstname1 = $row['fname'];
+      $Midname1 = $row['mname'];
+      $Lastname1 = $row['lname'];
+      $Address1 = $row['address'];
+      $Email1 = $row['email'];
+      $Contact_number1 = $row['cnumber'];
+      $Proof_ID1 = $row['ID_proof'];
+      $pass = $row['password'];
+    }
+}
 
 if (isset($_POST['update'])) {
 
-  $Username = $_POST['user'];
+  
   $Firstname = $_POST['fname'];
   $Midname = $_POST['mname'];
   $Lastname = $_POST['lname'];
@@ -19,12 +37,13 @@ if (isset($_POST['update'])) {
   
   
 
-  $sql = "UPDATE user SET fname='$Firstname', mname='$Midname', lname='$Lastname', address='$Address', email='$Email', cnumber='$Contact_number', ID_proof='$Proof_ID' WHERE username = '$Username' ";
+  $sql = "UPDATE user SET fname='$Firstname', mname='$Midname', lname='$Lastname', address='$Address', email='$Email', cnumber='$Contact_number', ID_proof='$Proof_ID' WHERE username = '$Uname' ";
   $result = mysqli_query($conn, $sql);
   if ($result) {
    echo " <script>alert('User_Updated') </script>";
    echo "<script> window.location.href='http://localhost/Capstone-2021-2022/client.php' </script>  ";
         header("Location: {$url}");
+        
   }
 
  }
@@ -40,6 +59,7 @@ if (isset($_POST['update'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta http-equiv="refresh" content="5" > -->
     <!--  
     Document Title
     =============================================
@@ -89,6 +109,13 @@ if (isset($_POST['update'])) {
     <!-- Main stylesheet and color file-->
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+    <!-- <script>
+      $(document).ready(function(){
+        $('button').click(function(){
+          var id = $(this).attr('#uid');
+          window.open("http://localhost/Capstone-2021-2022/reset_pass.php?id="+ id);
+        });});
+      </script> -->
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60" bgcolor="#0000">
     <main>
@@ -116,7 +143,8 @@ if (isset($_POST['update'])) {
         <div class="row">
           <div class="col-sm-2">
             <img class="col-sm-12" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;">
-            <h1 class="col-sm-12">Welcome <?php echo($_SESSION['username']) ?></h1>
+            <h1 class="col-sm-12">Welcome <?php echo $Uname ?></h1>
+            <label for="" style="visibility:hidden;" id="uid"><?php echo $uid ?></label>
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
             <a class="col-sm-12" href="projects.php">Project/s</a>
@@ -129,27 +157,27 @@ if (isset($_POST['update'])) {
               <div class="content">
                 <h2>Update Profile</h2>
                 <form method="post">
-                  <label for="" style="font-size:14px">First Name:</label>  <input type="text" name="fname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['fname']) ?>"> 
-                  <label for="" style="font-size:14px">Middle Name:</label> <input type="text" name="mname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:50px;" value="<?php echo($_SESSION['mname']) ?>"> 
-                  <label for="" style="font-size:14px">Last Name:</label> <input type="text" name="lname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['lname']) ?>"><br>
-                  <label for="" style="font-size:14px; margin-left:20px;">Address:</label> <input type="text" name="address" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['address']) ?>"> 
-                  <label for="" style="font-size:14px; margin-left:55px;" >Email:</label> <input type="email" name="email" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['email']) ?>"> <br>
-                  <label for="" style="font-size:14px; margin-left:10px;">Contact #:</label> <input type="number" name="cnumber" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['cnumber']) ?>">
+                  <label for="" style="font-size:14px">First Name:</label>  <input type="text" name="fname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Firstname1 ?>"> 
+                  <label for="" style="font-size:14px">Middle Name:</label> <input type="text" name="mname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:50px;" value="<?php echo $Midname1 ?>"> 
+                  <label for="" style="font-size:14px">Last Name:</label> <input type="text" name="lname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Lastname1 ?>"><br>
+                  <label for="" style="font-size:14px; margin-left:20px;">Address:</label> <input type="text" name="address" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Address1 ?>"> 
+                  <label for="" style="font-size:14px; margin-left:55px;" >Email:</label> <input type="email" name="email" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Email1 ?>"> <br>
+                  <label for="" style="font-size:14px; margin-left:10px;">Contact #:</label> <input type="number" name="cnumber" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Contact_number1 ?>">
                   <label for="" style="font-size:14px; margin-left:10px;">Proof of Identification:</label>
                   <select name="proof_id" id="" value="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:120px;" >
-                    <option value=""><?php echo($_SESSION['ID_proof']) ?></option>
+                    <option value="<?php echo $Proof_ID1 ?>"></option>
                     <option value="SSS ID">SSS ID</option>
                     <option value="Passport">Passport</option>
-                    <option value="Driver's License">Driver's License</option>
+                    <option value="Drivers License">Driver's License</option>
                     <option value="Barangay ID">Barangay ID</option>
                     <option value="TIN ID">TIN ID</option>
                     <option value="Police Clearance">Police Clearance</option>
                     <option value="NBI Clearance">NBI Clearance</option>
                   </select> <br>
-                  <label for="" style="font-size:14px; margin-left:6px;">Username:</label> <input type="text" name="user" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['username']) ?>" readonly> 
-                  <label for="" style="font-size:14px; margin-left:10px;">Password:</label> <input type="password" name="" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo($_SESSION['password']) ?>" readonly> <button href="#" style="margin-bottom:10px; margin-left:5px; width:150px; background-color:#CD5C5C;color:white;" >Reset Password</button><br>
+                  <label for="" style="font-size:14px; margin-left:6px;">Username:</label> <input type="text" name="user" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Uname ?>" readonly> 
+                  <label for="" style="font-size:14px; margin-left:10px;">Password:</label> <input type="password" name="" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $pass ?>" readonly> <a href="reset_pass.php" id="reset_pass" style="text-decoration:none; color:white; border:solid 1px; padding:4px; margin-left:5px; background-color: #A52A2A;">Reset Password</a><br>
             
-                  <button type="submit" name="update" style="margin-bottom:10px; margin-left:15px; width:85px; background-color:#68BBE3;color:white;" >Update</button>
+                  <button type="submit" name="update" style="margin-bottom:10px; margin-left:15px; width:85px; background-color:#68BBE3;color:white;">Update</button>
                 </form>
               </div>
             </div>    
@@ -212,5 +240,6 @@ if (isset($_POST['update'])) {
     <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    
   </body>
 </html>

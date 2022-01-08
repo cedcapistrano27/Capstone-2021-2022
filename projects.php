@@ -106,7 +106,7 @@ $result= $conn->query($query);
         <div class="row">
           <div class="col-sm-2">
             <img class="col-sm-12" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;">
-            <h1 class="col-sm-12">Welcome <?php echo($_SESSION['username']) ?></h1>
+            <h1 class="col-sm-12">Welcome <?php echo $Uname ?></h1>
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
             <a class="col-sm-12" href="projects.php">Project/s</a>
@@ -118,7 +118,7 @@ $result= $conn->query($query);
             <div class="col-sm-12" style="border-radius: 20px;box-shadow: 10px 10px 20px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;">
             
               <div class="content">
-                <h2>Project Timeline</h2>
+                <h2>Timeline</h2>
                 <div class="timeline">
                   <div class="timeline__wrap">
                     <div class="timeline__items">

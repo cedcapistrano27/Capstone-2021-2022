@@ -1,5 +1,6 @@
 <?php
 session_start();
+$Uname = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
@@ -83,7 +84,7 @@ session_start();
         <div class="row">
           <div class="col-sm-2">
             <img class="col-sm-12" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;">
-            <h1 class="col-sm-12">Welcome <?php echo($_SESSION['username']) ?></h1>
+            <h1 class="col-sm-12">Welcome <?php echo $Uname ?></h1>
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
             <a class="col-sm-12" href="projects.php">Project/s</a>
@@ -112,16 +113,18 @@ session_start();
         
         include 'connection.php';
        
-       $mname = $_SESSION['mname'];
-       $lname = $_SESSION['lname'];
-       $fname = $_SESSION['fname'];
-        $sql1 = "SELECT * FROM user WHERE fname = '$fname'"  ;
+       $Uname = $_SESSION['username'];
+       
+        $sql1 = "SELECT * FROM user WHERE username = '$Uname'"  ;
         $result1 = $conn->query($sql1);
         if ($result1->num_rows>0)
         {
             while($row=$result1->fetch_assoc())
             {
               $uid = $row['UID'];
+              $Firstname1 = $row['fname'];
+              $Midname1 = $row['mname'];
+              $Lastname1 = $row['lname'];
             
             }
         }
@@ -147,7 +150,7 @@ session_start();
            echo 
           
           "<tr>"
-          ."<td>$fname"." $mname"." $lname</td>"
+          ."<td>$Firstname1"." $Midname1"." $Lastname1</td>"
           ."<td>$Date_time</td>"
           ."<td>$Details</td>"
           ."<td>$Status</td>";
