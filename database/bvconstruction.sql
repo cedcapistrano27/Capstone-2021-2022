@@ -121,7 +121,11 @@ INSERT INTO `timeline` (`TimeID`, `UID`, `ProjectName`, `ProjectInfo`, `DateIssu
 (1, 3022, 'teres ni marites', 'Nalagyan na ang mga bakal sa pader', '2022-01-06'),
 (2, 3022, 'sample', 'ASMASkasmdnasdA', '2022-01-07'),
 (3, 3022, 'sample', 'ASMASkasmdnasdAvvvASMASkasmdnasdAASMASkasmdnasdA', '2022-01-07'),
-(4, 3005, 'Reconstruction Of Bedroom', 'nasira yung double deck', '2022-01-07');
+(4, 3005, 'Reconstruction Of Bedroom', 'nasira yung double deck', '2022-01-07'),
+(29, 3010, 'Pag gawa ng bubong', 'nagawa po ng bubong ng bahay. lahat ng lumang yero tinunaw para makagawa ng bago at mas pinatibay na bubong.', '2022-01-05'),
+(30, 3010, 'Door Making', 'Puputol ng sampung puno galing sa Palawan para gawing pintuan.', '2022-01-05'),
+(31, 3022, 'Floor Polishing', 'Aarkila ng mga bata para magbunot ng sahig at ng kumintab ito.', '2022-01-05'),
+(32, 3010, 'Room Making', 'building new room from scratch', '2022-01-07');
 
 -- --------------------------------------------------------
 
