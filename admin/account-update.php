@@ -448,7 +448,37 @@ footer{
 
       <section>
 
-      	<form> 
+      	<form method="POST"> 
+
+            <?php 
+        include 'connection.php'; 
+
+        $project = $_GET['id'];
+        $status_sql = "SELECT * FROM user WHERE UID = '$project'";
+
+        $res_p = mysqli_query($conn, $status_sql);
+
+        if ($res_p->num_rows > 0) {
+        
+        while ($row = mysqli_fetch_assoc($res_p)) {
+          $ClientID = $row['UID'];
+          $fname = $row['fname'];
+          $mname = $row['mname'];
+          $lname = $row['lname'];
+          $full = "$lname, $fname $mname";
+          $address = $row['address'];
+          $email = $row['email'];
+          $contact = $row['cnumber'];
+          $Proof = $row['ID_proof'];
+          $uname = $row['username'];
+
+        }
+
+        
+        }
+
+        ?>
+
 
       		<div class="form-container" style="width: 50%; background: skyblue; height: 90vh; padding: 10px; margin: auto;">
       			<div class="header-form">
@@ -469,7 +499,7 @@ footer{
       				</div>
       			
       				<div class="label" style="flex: 1.5;">
-      					<input type="text" name="">
+      					<input type="text" name="clientname" value="<?php echo $full; ?>" readonly>
       				</div>
       			
       	
@@ -486,7 +516,7 @@ footer{
       				</div>
       			
       				<div class="label" style="flex: 1.5;">
-      					<input type="text" name="">
+      					<input type="text" name="address" value="<?php echo $address; ?>" readonly>
       				</div>
       				
       			</div>
@@ -500,7 +530,7 @@ footer{
       				</div>
       			
       				<div class="label" style="flex: 1.5;">
-      					<input type="text" name="">
+      					<input type="text" name="email" value="<?php echo $email; ?>" readonly>
       				</div>
       				
       			</div>
@@ -514,7 +544,7 @@ footer{
       				</div>
       			
       				<div class="label" style="flex: 1.5;">
-      					<input type="text" name="">
+      					<input type="text" name="contact" value="<?php echo $contact; ?>">
       				</div>
       				
       			</div>
@@ -529,13 +559,13 @@ footer{
       				</div>
       			
       				<div class="label" style="flex: 1.5;">
-      					<input type="text" name="">
+      					<input type="text" name="uname" value="<?php echo $uname; ?>" readonly>
       				</div>
       				
       			</div>
 
       			<div class="createBtn">
-                <a href="account-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Update Info</a>
+                <a href="delete-account.php?id=<?php echo  $ClientID; ?>" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Delete Account</a>
 
                 <a href="account-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Cancel</a>
                 
