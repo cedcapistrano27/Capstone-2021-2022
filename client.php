@@ -122,7 +122,8 @@ if (isset($_POST['request'])) {
         <div class="row">
           <div class="col-sm-2">
             <img class="col-sm-12" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;">
-            <h1 class="col-sm-12">Welcome <?php echo $Uname ?></h1>
+            <h1 class="col-sm-12" style="font-size: 26px;"><?php echo $Uname ?></h1>
+            <a class="col-sm-12" href="dashboard.php">Dashboard</a>
             <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
             <a class="col-sm-12" href="projects.php">Project/s</a>
