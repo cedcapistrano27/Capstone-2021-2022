@@ -163,7 +163,7 @@ $row3 = mysqli_fetch_array($project_result3);
                               
                           }
                         }
-                        $sql3 = "SELECT * FROM timeline WHERE UID = '$uid' ";
+                        $sql3 = "SELECT * FROM project WHERE UID = '$uid' ";
 
                           $result = $conn->query($sql3);
                           
@@ -176,10 +176,10 @@ $row3 = mysqli_fetch_array($project_result3);
                               {
 
                             
-                            $Project_Name = $row["ProjectName"];
-                            $Details =$row["ProjectInfo"];
-                            $Date = $row["DateIssued"];
-                            $Remarks = $row["Remarks"];
+                            $Project_Name = $row["project_name"];
+                            $Details =$row["project_info"];
+                            $Date = $row["Pdate"];
+                            $Remarks = $row["remarks"];
                           
                             
                           

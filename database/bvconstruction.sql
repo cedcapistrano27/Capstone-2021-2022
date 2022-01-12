@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2022 at 04:03 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Jan 12, 2022 at 08:30 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,16 +40,14 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`APPID`, `UID`, `date`, `a_details`, `status`) VALUES
-(1, 0, '0000-00-00 00:00:00', 'ahhahahahhahahaha hatdog', ''),
-(2, 0, '2021-12-27 00:00:00', 'hatdog talaga', ''),
-(3, 0, '2021-12-30 14:00:00', 'hatdog na hatdog ang usapan', ''),
-(4, 0, '0000-00-00 00:00:00', 'Gujasuuy  als;kdjuiy lorem lorem lored\r\n', 'pending'),
-(5, 0, '2022-01-07 02:35:00', 'hatdog hatdog hatdog hatdog', 'pending'),
-(6, 0, '2022-01-06 14:43:00', 'haha hatdog na bitin', 'pending'),
 (7, 3010, '2022-01-13 13:39:00', 'asfdggg', 'Approved'),
 (8, 3022, '2022-01-17 17:40:00', 'hatfdog ajsjhhajdshadpoj ', 'Approved'),
 (9, 3022, '2022-01-12 04:00:00', 'adksjhguyoiyu  m;alsfj missyou', 'Approved'),
-(10, 3010, '2022-01-16 17:00:00', 'for update of the ongoing project aka Payamansion 5.6', 'pending');
+(10, 3010, '2022-01-16 17:00:00', 'for update of the ongoing project aka Payamansion 5.6', 'pending'),
+(11, 3010, '2022-01-07 04:40:00', 'unang una dapat to', 'pending'),
+(12, 3010, '2022-01-14 04:40:00', 'kasunod ng 13 po', 'pending'),
+(13, 3010, '2022-01-20 02:08:00', 'Nasira ang double deck', 'pending'),
+(14, 3024, '2022-01-12 00:38:00', 'kakakakakakakakakakakakakkakaka\r\nlalalalalalalallalalala\r\nhahahahahhahaha\r\npapapappaa', 'pending');
 
 -- --------------------------------------------------------
 
@@ -60,7 +58,7 @@ INSERT INTO `appointment` (`APPID`, `UID`, `date`, `a_details`, `status`) VALUES
 CREATE TABLE `payment` (
   `PayID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
-  `total_amount` decimal(12,2) NOT NULL,
+  `total_amount` decimal(10,2) NOT NULL,
   `payment_issued` datetime NOT NULL DEFAULT current_timestamp(),
   `project_name` text NOT NULL,
   `receipt_details` text NOT NULL
@@ -110,18 +108,23 @@ CREATE TABLE `timeline` (
   `UID` int(11) NOT NULL,
   `ProjectName` varchar(250) NOT NULL,
   `ProjectInfo` text NOT NULL,
-  `DateIssued` date NOT NULL DEFAULT current_timestamp()
+  `DateIssued` date NOT NULL DEFAULT current_timestamp(),
+  `Remarks` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `timeline`
 --
 
-INSERT INTO `timeline` (`TimeID`, `UID`, `ProjectName`, `ProjectInfo`, `DateIssued`) VALUES
-(1, 3022, 'teres ni marites', 'Nalagyan na ang mga bakal sa pader', '2022-01-06'),
-(2, 3022, 'sample', 'ASMASkasmdnasdA', '2022-01-07'),
-(3, 3022, 'sample', 'ASMASkasmdnasdAvvvASMASkasmdnasdAASMASkasmdnasdA', '2022-01-07'),
-(4, 3005, 'Reconstruction Of Bedroom', 'nasira yung double deck', '2022-01-07');
+INSERT INTO `timeline` (`TimeID`, `UID`, `ProjectName`, `ProjectInfo`, `DateIssued`, `Remarks`) VALUES
+(1, 3022, 'teres ni marites', 'Nalagyan na ang mga bakal sa pader', '2022-01-06', ''),
+(2, 3022, 'sample', 'ASMASkasmdnasdA', '2022-01-07', ''),
+(3, 3022, 'sample', 'ASMASkasmdnasdAvvvASMASkasmdnasdAASMASkasmdnasdA', '2022-01-07', ''),
+(4, 3005, 'Reconstruction Of Bedroom', 'nasira yung double deck', '2022-01-07', ''),
+(29, 3010, 'Pag gawa ng bubong', 'nagawa po ng bubong ng bahay. lahat ng lumang yero tinunaw para makagawa ng bago at mas pinatibay na bubong.', '2022-01-05', 'Finished'),
+(30, 3010, 'Door Making', 'Puputol ng sampung puno galing sa Palawan para gawing pintuan.', '2022-01-05', 'Ongoing'),
+(31, 3022, 'Floor Polishing', 'Aarkila ng mga bata para magbunot ng sahig at ng kumintab ito.', '2022-01-05', ''),
+(32, 3010, 'Room Making', 'building new room from scratch', '2022-01-07', 'Ongoing');
 
 -- --------------------------------------------------------
 
@@ -149,8 +152,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumber`, `ID_proof`, `username`, `password`, `usertype`) VALUES
 (3005, 'chris', 'g', 'cullados', 'tanzang luma 6', 'gogo@gmail.com', 922278489, 'sss id, umid id, philhealth id, national id', 'xtianpuh', '12345678', 'admin'),
-(3010, 'mang', 'L', 'tomas', 'none', 'maosdu@gmail.com', 102884, '', 'user3', 'qwerty', 'common'),
-(3022, 'asdgeee', 'qwrrrt', 'sddf', 'afdd2', 'bagong@email.com', 456456, '', 'bagonguser', '12345678', 'common');
+(3010, 'Danielle', 'P', 'Capistrano', 'imus', 'maosdu@gmail.com', 102884, '', 'user3', 'qwerty', 'common'),
+(3022, 'Bagong', 'N', 'User', 'Bagumbayan', 'bagong@email', 34735678, 'Drivers License', 'bagonguser', 'qwerty123', 'common'),
+(3023, '', '', '', '', 'christiancullados73@gmail.com', 0, '', 'newuser2', '12345678', 'common'),
+(3024, 'Mukbang', 'H', 'Pamore', 'Imus meow', 'test@gmail.com', 977283731, 'SSS ID', 'newuser', 'Manila123', 'common');
 
 --
 -- Indexes for dumped tables
@@ -167,12 +172,6 @@ ALTER TABLE `appointment`
 --
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`PayID`);
-
---
--- Indexes for table `project`
---
-ALTER TABLE `project`
-  ADD PRIMARY KEY (`PID`);
 
 --
 -- Indexes for table `timeline`
@@ -194,7 +193,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `APPID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `APPID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -203,22 +202,16 @@ ALTER TABLE `payment`
   MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `project`
---
-ALTER TABLE `project`
-  MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
 -- AUTO_INCREMENT for table `timeline`
 --
 ALTER TABLE `timeline`
-  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3024;
+  MODIFY `UID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3025;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
