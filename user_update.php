@@ -130,7 +130,7 @@ if (isset($_POST['update'])) {
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
               
-              <li class="dropdown"><a href="index_agency.php">Logout</a>
+              <li class="dropdown"><a href="logout.php">Logout</a>
                  
               </li>
               
