@@ -35,7 +35,7 @@ if ($result->num_rows > 0)
       if($row["usertype"] == 'admin')
       {
 		$_SESSION["username"] = $username;
-        echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/admin-index.html' </script>  ";
+        echo "<script> window.location.href='admin/admin-index.html' </script>  ";
         header("Location: {$url}");
         exit;
       }
@@ -50,7 +50,7 @@ if ($result->num_rows > 0)
 		$_SESSION["cnumber"] = $Contact;
 		$_SESSION["ID_proof"] = $ID;
 		$_SESSION["password"] = $password;
-        echo "<script> window.location.href='http://localhost/Capstone-2021-2022/user_update.php' </script>  ";
+        echo "<script> window.location.href='dashboard.php' </script>  ";
         header("Location: {$url}");
         exit;
       }
