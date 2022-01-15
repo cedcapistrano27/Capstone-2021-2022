@@ -81,12 +81,23 @@ $Uname = $_SESSION['username'];
           <div class="rightpanel col-sm-10">
             <div class="header col-sm-12" style="margin: 50px 0 25px 0;padding: 0 0;">
               <div class="headername col-sm-12" style="border-radius: 20px;width:100%;height:300px;background-color:white;">
-                <div class="col-sm-5">
+                <div class="col-sm-5" >
                   <h5 style="font-size:30px">Paid Payments</h5> 
                   <h1 style="font-size:50px">P 12000</h1>
-
-                  <button type="button" class="btn btn-primary" style="border-radius:20px;padding-right: 15px;">View History
-                    <i class="material-icons" style="font-size:15px;padding-left: 60px;">chevron_right</i>
+                  <div class="col-sm-12" style="padding: 0 0;margin-top: 35px;">
+                    <div class="col-sm-6" style="padding: 0 0;">
+                      <label class="col-sm-6" style="padding: 0 0;font-size: 10px;"> All Balance </label>
+                      <label class="col-sm-6">5000</label>
+                      <div class="col-sm-9" style="height: 5px;background-color: lightskyblue;"></div>
+                    </div>
+                    <div class="col-sm-6" style="padding: 0 0;">
+                      <label class="col-sm-6" style="padding: 0 0;font-size: 10px;">All Project</label>
+                      <label class="col-sm-6">20000</label>
+                      <div class="col-sm-9" style="height: 5px;background-color: lightgreen;"></div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary col-sm-11" style="border-radius:20px;margin-top: 20px;padding: 8px 0 8px 10px;">View History
+                    <i class="material-icons" style="font-size:15px;padding-left: 70px;">chevron_right</i>
                   </button> 
                   
                 </div>
@@ -118,22 +129,22 @@ $Uname = $_SESSION['username'];
             </div>  
             <div class="col-sm-12" style="border-radius: 5px;box-shadow: 2px 2px 10px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;height: 900px;">
             <div class="content">
-                <h2 class="col-sm-9">My Appointments</h2>
-                <button type="button" class="btn btn-primary col-sm-3" style="margin-top:20px;border-radius:5px;">New Appointment</button>
+                <h2 class="col-sm-9">My Projects</h2>
+                
                 <table   class="table table-hover my-1 caption-top table-borderless">
                   <thead class="table-dark">
                     <tr >
-                      <th class="fw-light">CustomerName</th>
-                      <th class="fw-light">Date Time</th>
-                      <th class="fw-light">Details</th>
+                      <th class="fw-light">Project Name</th>
+                      <th class="fw-light">Scope</th>
+                      <th class="fw-light">Date</th>
                       <th class="fw-light">Status</th>
-                      <th class="fw-light"></th>
+                      <th class="fw-light" style="text-align: center;">Action</th>
                     
                       
                     </tr>
                   </thead>
                       <tbody class="color">
-                      <?php
+                      <!--<?php
                             
                             include 'connection.php';
                           
@@ -172,20 +183,29 @@ $Uname = $_SESSION['username'];
                               
                             
                               echo 
-                              
+                                -->
                               "<tr>"
-                              ."<td>$Firstname1"." $Midname1"." $Lastname1</td>"
-                              ."<td>$Date_time</td>"
-                              ."<td>$Details</td>"
-                              ."<td>$Status</td>";
+                              ."<td style="font-size: 18px;padding: 15px;">Ben House </td>"
+                              ."<td style="font-size: 18px;padding: 15px;">Design and Build</td>"
+                              ."<td style="font-size: 18px;padding: 15px;">12/30/22</td>"
+                              ."<td style="font-size: 18px;padding: 15px;">Ongoing</td>"
+                              ."<td class="col-sm-3" style="padding: 10px 0;">
+                                <button onclick="toproject()" class="btn btn-primary col-sm-6" style="border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;">
+                                  <i class="material-icons " style="font-size:10px;padding: 0 0;">open_in_new</i>
+                                  View
+                                </button>
+                                <button type="button" class="btn btn-primary col-sm-6" style="border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;margin-left: 10px;background-color:darkgreen;" id="formButton">
+                                  <i class="material-icons" style="font-size:10px;padding-top: 5px;">assignment</i>
+                                  Request</button>
+                                </td>";
                               
 
                                   }
                                 echo "</table>";
-                              }else{
+                             <!-- }else{
                                   echo "0 results";}
                               $conn->close();
-                            ?>
+                            ?>-->
 
 
                       </tbody>
@@ -203,6 +223,11 @@ $Uname = $_SESSION['username'];
       
       
       <script>
+
+        function toproject(){
+          window.location.href='projects.html'
+        }
+      
         var today = new Date();
       var day = today.getDay();
       var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
@@ -213,7 +238,8 @@ $Uname = $_SESSION['username'];
       
       document.getElementById("displayDateTime").innerHTML = dateTime ;
       document.getElementById("displayDateTime2").innerHTML = ' <br> Today is ' + daylist[day];
-
+      
+      
       </script>                            
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/js/main.js"></script>

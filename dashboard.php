@@ -146,14 +146,16 @@ $row3 = mysqli_fetch_array($project_result3);
             </div>
             <div class="col-sm-6">
               <span style="font-size: 30px;color: black;">My Project</span>
-              <div class="col-sm-12" style="max-width:100%;background-color:whitesmoke;border-radius: 20px;padding: 10px 10px;box-shadow: 5px 5px 10px grey;">
-                <h4 class="col-sm-12">completed : <?php echo $row1['finished_projects']?> </h4>
-                <div class="col-sm-8" style="background-color: rgb(186, 242, 186);height: 5px;margin-left: 15px;"></div>
-                <h4 class="col-sm-12">On - Ongoing : <?php echo $row2['ongoing_projects']?> </h4>
-                <div class="col-sm-8" style="background-color: yellow;height: 5px;margin-left: 15px;"></div>
-                <h4 class="col-sm-12">Canceled : <?php echo $row3['ongoing_projects']?> </h4>
-                <div class="col-sm-8" style="background-color: red;height: 5px;margin-left: 15px;"></div>
-              </div>
+              <a href="Project_list.html" style="color:black;">
+                <div class="col-sm-12" style="max-width:100%;background-color:whitesmoke;border-radius: 20px;padding: 10px 10px;box-shadow: 5px 5px 10px grey;">
+                  <h4 class="col-sm-12">completed : <?php echo $row1['finished_projects']?> </h4>
+                  <div class="col-sm-8" style="background-color: rgb(186, 242, 186);height: 5px;margin-left: 15px;"></div>
+                  <h4 class="col-sm-12">On - Ongoing : <?php echo $row2['ongoing_projects']?> </h4>
+                  <div class="col-sm-8" style="background-color: yellow;height: 5px;margin-left: 15px;"></div>
+                  <h4 class="col-sm-12">Canceled : <?php echo $row3['ongoing_projects']?> </h4>
+                  <div class="col-sm-8" style="background-color: red;height: 5px;margin-left: 15px;"></div>
+                </div>
+              </a>
             </div>
             <div class="col-sm-6">
               <span style="font-size: 30px;color: black;">My Appointment</span>
@@ -212,7 +214,7 @@ $row3 = mysqli_fetch_array($project_result3);
 
                             
                             $Project_Name = $row["project_name"];
-                            $scope =$row["project_info"];
+                            $scope =$row["scope"];
                             $Date = $row["Pdate"];
                             $Remarks = $row["remarks"];
                           
