@@ -62,6 +62,19 @@ if (isset($_POST['request'])) {
       background-position: 50% 50%;
       background-size: cover;
     }
+    /* form */
+    form {
+      padding: 15px;
+      border: 1px solid #666;
+      background: #fff;
+      display: none;
+    }
+
+    #formButton {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
   </style>
   
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60" bgcolor="#0000">
