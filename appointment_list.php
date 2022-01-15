@@ -1,6 +1,36 @@
 <?php
 session_start();
+include 'connection.php';
 $Uname = $_SESSION['username'];
+$sql1 = "SELECT * FROM user WHERE username = '$Uname'  "  ;
+$result1 = $conn->query($sql1);
+if ($result1->num_rows>0)
+{
+    while($row=$result1->fetch_assoc())
+    {
+      $uid = $row['UID'];
+      $Firstname1 = $row['fname'];
+      $Midname1 = $row['mname'];
+      $Lastname1 = $row['lname'];
+    }
+}
+if (isset($_POST['request'])) {
+
+ 
+  $appoint = $_POST['appointment1'];
+  $details = $_POST['details'];
+  
+  
+
+  $sql = "INSERT into appointment (UID,date,a_details,status) VALUES ('$uid','$appoint','$details', 'pending')  ";
+  $result = mysqli_query($conn, $sql);
+  if ($result) {
+   echo " <script>alert('Appointment Created!') </script>";
+   echo "<script> window.location.href='http://localhost/Capstone-2021-2022/appointment_list.php' </script>  ";
+        header("Location: {$url}");
+  }
+
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
@@ -81,7 +111,7 @@ $Uname = $_SESSION['username'];
               <div class="headername col-sm-6" style="border-radius: 20px;width:650px;height:200px;background-color:white;margin-right:20px;">
                 <div class="col-sm-6">
                   <h5 style="font-size:30px">Good Day</h5> 
-                  <h1 style="font-size:50px">Benedict</h1> 
+                  <h1 style="font-size:50px"><?php echo $Firstname1?></h1> 
                 </div>
                 <div class="col-sm-6" style="margin: -50px 0 0 0;">
                   <img src="images/Appoinmentcion.png" style="height:300px;margin-left:70px;">
@@ -96,7 +126,15 @@ $Uname = $_SESSION['username'];
             <div class="col-sm-12" style="border-radius: 5px;box-shadow: 2px 2px 10px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;height: 900px;">
             <div class="content">
                 <h2 class="col-sm-9">My Appointments</h2>
-                <button type="button" class="btn btn-primary col-sm-3" style="margin-top:20px;border-radius:5px;">New Appointment</button>
+                <button type="button" class="btn btn-primary col-sm-3" style="margin-top:20px;border-radius:5px;" id="formButton">New Appointment</button>
+                <form method="post" id="form1">
+                  <!-- label tong pangalan!!!!!  -->
+                  <label for="name" style="visibility:hidden;">Hey </label> <br>
+                  <label for="">Date of Appointment:</label> <input type="datetime-local" name="appointment1" id="" style="margin-top:10px;">
+                  <br>
+                  <label for="">Details: </label><br> <textarea name="details" id="" cols="30" rows="10" style="width:600px; height:150px; margin-bottom:10px;"></textarea> <br>
+                  <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
+                </form>
                 <table   class="table table-hover my-1 caption-top table-borderless">
                   <thead class="table-dark">
                     <tr >
@@ -190,9 +228,18 @@ $Uname = $_SESSION['username'];
       
       document.getElementById("displayDateTime").innerHTML = dateTime ;
       document.getElementById("displayDateTime2").innerHTML = ' <br> Today is ' + daylist[day];
+      
 
+              
       </script>                            
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      $(document).ready(function() {
+      $("#formButton").click(function() {
+        $("#form1").toggle();
+      });
+    });
+    </script>
   </body>
 </html>
