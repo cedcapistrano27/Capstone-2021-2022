@@ -1483,20 +1483,6 @@ General Styles - Owlcarousel
 .shop-page-header:before {
   background: rgba(34, 34, 34, 0.3);
 }
-/* form */
-form {
-  padding: 15px;
-  border: 1px solid #666;
-  background: #fff;
-  display: none;
-}
-
-#formButton {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 
 /*--------------------------------------------------------------
 	Footer
