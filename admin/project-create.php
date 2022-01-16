@@ -190,18 +190,29 @@ label #sidebar_btn:hover{
   height: 100vh;
   transition: 0.5s;
 }
+.form-input label{
+  font-size: 18px;
+  font-variant: small-caps;
+}
+
+.form-input .label{
+  flex: 1;
+
+}
 
 
 .form-container{
   width: 80%; 
   height: 100vh;
-  background: rgba(255, 255, 255, 0.57); 
+  background: rgba(0, 0, 0, 0.57); 
+  color: white;
   margin: auto;
+  border-radius: 10px;
 
 }
 
 .form-input{
-  border: 2px red solid; 
+
   display: flex; 
   text-align: center;
   padding: 5px;
@@ -209,7 +220,6 @@ label #sidebar_btn:hover{
 }
 
 .form-textarea{
-  border: 2px red solid; 
   text-align: center;
   padding: 5px;
   margin: 10px 20px;
@@ -221,15 +231,36 @@ label #sidebar_btn:hover{
   width: 40%;
   float: left;
   text-align: center;
-  border: 2px red solid;
  margin: 10px auto;
 }
 
 input, select{
   width: 80%;
-  height: 4vh;
+  height: 5vh;
   text-align: center;
   font-size: 15px;
+
+}
+
+.createBtn input[type=submit]{
+  border-radius: 5px;
+  text-decoration: none; 
+  color:white;
+  background: black; 
+  padding: 10px; 
+  width: 70% ; 
+  height: 10vh; 
+  margin:20px auto; 
+  text-align: center;
+  font-variant: small-caps;
+  font-size: 1.10rem;
+
+}
+
+input[type=submit]:hover{
+  background: white;
+  color: black;
+  border:5px black solid ;
 }
 
 /* Responsive CSS */
@@ -348,7 +379,7 @@ input, select{
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="../images/profic1.jpg" class="mobile_profile_image" alt="">
+        <img src="../images/avatar.png" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -363,8 +394,8 @@ input, select{
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../images/profic1.jpg" class="profile_image" alt="">
-        <h4>Danielle</h4>
+        <img src="../images/avatar.png" class="profile_image" alt="">
+        <h4>Admin User</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
@@ -426,7 +457,7 @@ Total Cost : $TotalAmount')";
         
      
       <div class="form-container" style="">
-       <div class="header-form" style="text-align: center; padding: 10px;">
+       <div class="header-form" style="text-align: center; padding: 10px; font-variant: small-caps;">
 
         <h3>Create New Contract/Project Form</h3> 
        </div>
@@ -493,15 +524,15 @@ Total Cost : $TotalAmount')";
         </div>
 
          <div class="form-input">
-            <div class="label" style="flex: 1;">
+            <div class="label">
               <span><label for="payment">Payment Type</label></span> 
             </div>
 
-            <div class="label" style="flex:.5;">
+            <div class="label">
               <span>:</span> 
             </div>
 
-             <div class="label" style="flex: 1.5;">
+             <div class="label">
 
             <select name="paymenttype" id="payment">
               <option value="Downpayment">Downpayment</option>
@@ -513,15 +544,15 @@ Total Cost : $TotalAmount')";
 
          <div class="form-input">
             
-            <div class="label" style="flex: 1;">
+            <div class="label">
               <span><label>Downpayment</label></span> 
             </div>
 
-            <div class="label" style="flex:.5;">
+            <div class="label">
               <span>:</span> 
             </div>
 
-             <div class="label" style="flex: 1.5;">
+             <div class="label">
               <span><input type="number" name="downpaid" min="0" value="0"></span> 
             </div>
 
@@ -529,15 +560,15 @@ Total Cost : $TotalAmount')";
 
         <div class="form-input">
             
-            <div class="label" style="flex: 1;">
+            <div class="label">
               <span><label>Total Payment</label></span> 
             </div>
 
-            <div class="label" style="flex:.5;">
+            <div class="label">
               <span>:</span> 
             </div>
 
-             <div class="label" style="flex: 1.5;">
+             <div class="label">
               <span><input type="number" name="fullpaid" min="0" value="0"></span> 
             </div>
 
@@ -559,7 +590,8 @@ Total Cost : $TotalAmount')";
               
 
                <div class="createBtn">
-          <input type="submit" name="create" style="border-radius: 5px;text-decoration: none; color:white;background: black; padding: 10px; width: 50% ; height: 10vh; margin:20px auto; text-align: center;" value="Create New Contract"></div>
+          <input type="submit" name="create" value="Create New Contract">
+        </div>
                 
 
        </form>

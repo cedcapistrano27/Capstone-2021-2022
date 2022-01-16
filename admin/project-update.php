@@ -175,7 +175,7 @@ label #sidebar_btn:hover{
 }
 
 .content{
-  max- width: 70%;
+  max-width: 100%;
   margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
@@ -183,35 +183,88 @@ label #sidebar_btn:hover{
   transition: 0.5s;
 }
 
-
-
-section{
- width: 100%;
- scroll-snap-align: center;
- box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
--webkit-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
--moz-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
-display: flex;
-flex-direction: column;
-
-    
-}
-table{
-
-  border-collapse: collapse;
-
-
-}
-td, th{
-  padding: 10px;
-}
-
-    .btn:hover{
+.btn:hover{
       background: white;
       color: black;
       border: 2px black solid;
       font-weight: bolder;
     }
+
+    .form-container{
+      width: 60%; 
+      height: auto;
+      background: rgba(0, 0, 0, 0.6); 
+      margin: auto;
+      color: white;
+      border-radius: 10px;
+      padding: 10px;
+      border: 4px white solid;
+    }
+.header-form{
+  text-align: center; 
+  padding: 10px;
+  font-variant: small-caps;
+  font-size: 1.25rem;
+}
+.form-input{
+  display: flex; 
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  align-items: center;
+
+
+}
+.form-input .label{
+  flex: 1;
+  display: block;
+
+}
+
+textarea{
+  margin: 10px;
+  display: block;
+}
+.form-input .label label{
+  font-variant: small-caps;
+}
+.form-input .label input{
+  width: 90%;
+  height: 5vh;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+}
+input[type=submit]{
+  border-radius: 5px;
+  text-decoration: none; 
+  color:white; 
+  display: block; 
+  background: black; 
+  padding: 10px; 
+  width: 50% ; 
+  margin:20px auto; 
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-variant: small-caps;
+}
+
+.createBtn a{
+  border-radius: 5px;
+  text-decoration: none; 
+  color:white; display: 
+  block; background: black; 
+  padding: 10px; width: 50% ; 
+  margin:20px auto; 
+  text-align: center;
+}
+
+input[type=submit]:hover, .createBtn a:hover{
+  background: white;
+  color: black;
+}
+
 
 /* Responsive CSS */
 
@@ -303,9 +356,6 @@ td, th{
   }
 
 
-footer{
-  display: block;
-}
 
 }
       
@@ -331,7 +381,7 @@ footer{
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="../images/profic1.jpg" class="mobile_profile_image" alt="">
+        <img src="../images/avatar.png" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -346,8 +396,8 @@ footer{
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../images/profic1.jpg" class="profile_image" alt="">
-        <h4>Danielle</h4>
+        <img src="../images/avatar.png" class="profile_image" alt="">
+        <h4>Admin User</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
@@ -386,43 +436,41 @@ footer{
         ?>
         
      
-      <div class="form-container" style="width: 500px; height: 90vh;background: skyblue; margin: auto;">
-       <div class="header-form" style="text-align: center; padding: 10px; border: 2px green solid;">
+      <div class="form-container" >
+       <div class="header-form" >
 
         <h3>Project Progress</h3> 
        </div>
 <hr>
        <div class="body-form">
 
-        <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
-        margin-top: 10px;">
+        <div class="form-input">
             
-            <div class="label" style="flex: 1;">
+            <div class="label" >
               <span><label>Project Name</label></span> 
             </div>
 
-            <div class="label" style="flex:.5;">
+            <div class="label">
               <span>:</span> 
             </div>
 
-             <div class="label" style="flex: 1.5;">
+             <div class="label" >
               <span><input type="text" name="projname" value="<?php echo $ProjectName; ?>" readonly></span> 
             </div>
 
         </div>
 
-         <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
-        margin-top: 10px;">
+         <div class="form-input">
             
-            <div class="label" style="flex: 1;">
+            <div class="label" >
               <span><label>Client ID</label></span> 
             </div>
 
-            <div class="label" style="flex:.5;">
+            <div class="label" >
               <span>:</span> 
             </div>
 
-             <div class="label" style="flex: 1.5;">
+             <div class="label" >
               <span><input type="text" name="client" value="<?php echo $ClientID; ?>" readonly></span> 
             </div>
 
@@ -454,24 +502,23 @@ footer{
         ?>
 
 
-      <div class="form-input" style="border: 2px red solid; display: block; text-align: center;padding: 5px;
-        margin-top: 10px;" id="totalpay">
+      <div class="form-input">
             
             <div class="label">
               <span><label>Progress And Accomplishments</label></span> 
             </div>
 
              <div class="label" >
-              <textarea name="info" cols="50" rows="10" style="resize: none;"></textarea>
+              <textarea name="info" cols="40" rows="10" style="resize: none;"></textarea>
             </div>
 
         
       </div>
 
          <div class="createBtn">
-                <input type="submit" name="update" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;" value="Proceed Update">
+                <input type="submit" name="update" value="Proceed Update">
                 
-                <a href="project-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Cancel</a>
+                <a href="project-area.php">Cancel</a>
                 
               </div>
 

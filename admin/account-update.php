@@ -183,31 +183,81 @@ label #sidebar_btn:hover{
 
 
 /*Section Area*/
-section{
   
+.form-container{
+  width: 70%; 
+  background: rgba(0, 0, 0, 0.5); 
+  height: auto; 
+  padding: 10px; 
+  margin: auto;
+  color: white;
+  border: 3px white solid;
+  border-radius: 10px;
 
-  
+}
+
+.input-form{
+  width:100%;
+  margin-top: 20px;
+  padding: 10px 0px 10px 0px;
+  display: flex; 
+  text-align: center;
+}
+
+.input-form .label{
+  flex: 1;
+  padding: 3px;
+
+}
+.input-form label{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.input-form .label input{
+  width: 90%;
+  height: 5vh;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.header-form{
+  text-align: center;
+  font-size: 1.5rem;
+  font-variant: small-caps;
+}
+
+.createBtn{
+  display: flex;
+}
+
+.createBtn a {
+
+  border-radius: 5px;
+  text-decoration: none; 
+  color:white; 
+  display: block; 
+  background: black; 
+  padding: 10px; 
+  width: 30% ; 
+  margin:20px auto; 
+  text-align: center;
+  font-weight: bold;
+  font-variant: small-caps;
+ 
+
+}
+
+.createBtn a:hover{
+  background: white;
+  color: black;
+  border: 3px black solid;
 }
 
 
     
-    footer{
-    width: 60%;
-    position: fixed;
-    left: 20%;
-    right: 20%;
-    z-index: -1;
-    background: rgba(0, 0, 0, 0.79);
-    bottom: 0;
-    border-radius: 5px 5px 0px 0px;
-
-    }  
-    footer span{
-      color: white;
-      text-align: center;
-      font-size: 10px;
-
-    }
+    
 
 
 /* Responsive CSS */
@@ -418,7 +468,7 @@ footer{
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="../images/profic1.jpg" class="mobile_profile_image" alt="">
+        <img src="../images/avatar.png" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -433,8 +483,8 @@ footer{
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../images/profic1.jpg" class="profile_image" alt="">
-        <h4>Danielle</h4>
+        <img src="../images/avatar.png" class="profile_image" alt="">
+        <h4>Admin</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
@@ -480,7 +530,7 @@ footer{
         ?>
 
 
-      		<div class="form-container" style="width: 50%; background: skyblue; height: 90vh; padding: 10px; margin: auto;">
+      		<div class="form-container" style="">
       			<div class="header-form">
 
       				<span>
@@ -489,16 +539,16 @@ footer{
       				
       			</div>
 
-      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px; padding: 10px 0px 10px 0px; display: flex;text-align: center;">
+      			<div class="input-form">
 
-      				<div class="label" style="flex: 1;">
+      				<div class="label">
       					<label>Client's Name </label>
       				</div>
-      				<div class="label" style="flex: .5;">
+      				<div class="label" >
       					<span>:</span>
       				</div>
       			
-      				<div class="label" style="flex: 1.5;">
+      				<div class="label">
       					<input type="text" name="clientname" value="<?php echo $full; ?>" readonly>
       				</div>
       			
@@ -507,67 +557,67 @@ footer{
       			
       				
       			</div>
-      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px;padding: 10px 0px 10px 0px; display: flex;text-align: center;">
-      				<div class="label" style="flex: 1;">
-      					<label>Client's Address :</label>
+      			<div class="input-form">
+      				<div class="label">
+      					<label>Client's Address</label>
       				</div>
-      			<div class="label" style="flex: .5;">
+      			<div class="label">
       					<span>:</span>
       				</div>
       			
-      				<div class="label" style="flex: 1.5;">
+      				<div class="label">
       					<input type="text" name="address" value="<?php echo $address; ?>" readonly>
       				</div>
       				
       			</div>
-      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px;padding: 10px 0px 10px 0px;display: flex;text-align: center; ">
-      			<div class="label" style="flex: 1;">
-      					<label>Client's E-mail :</label>
+      			<div class="input-form">
+      			<div class="label">
+      					<label>Client's E-mail</label>
       				</div>
       			
-      				<div class="label" style="flex: .5;">
+      				<div class="label">
       					<span>:</span>
       				</div>
       			
-      				<div class="label" style="flex: 1.5;">
+      				<div class="label">
       					<input type="text" name="email" value="<?php echo $email; ?>" readonly>
       				</div>
       				
       			</div>
-      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px;padding: 10px 0px 10px 0px;display: flex; text-align: center;">
-      				<div class="label" style="flex: 1;">
-      					<label>Client's Contact :</label>
+      			<div class="input-form">
+      				<div class="label">
+      					<label>Client's Contact</label>
       				</div>
       			
-      				<div class="label" style="flex: .5;">
+      				<div class="label">
       					<span>:</span>
       				</div>
       			
-      				<div class="label" style="flex: 1.5;">
-      					<input type="text" name="contact" value="<?php echo $contact; ?>">
+      				<div class="label">
+      					<input type="text" name="contact" value="<?php echo $contact; ?>" readonly>
       				</div>
       				
       			</div>
 
-      			<div class="input-form" style="width:100%; border: 1px red solid; margin-top: 20px;padding: 10px 0px 10px 0px;display: flex; text-align: center; ">
-      				<div class="label" style="flex: 1;">
-      					<label>Client's Username :</label>
+      			<div class="input-form">
+      				<div class="label">
+      					<label>Client's Username</label>
       				</div>
       			
-      				<div class="label" style="flex: .5;">
+      				<div class="label">
       					<span>:</span>
       				</div>
       			
-      				<div class="label" style="flex: 1.5;">
+      				<div class="label">
       					<input type="text" name="uname" value="<?php echo $uname; ?>" readonly>
       				</div>
       				
       			</div>
 
       			<div class="createBtn">
-                <a href="delete-account.php?id=<?php echo  $ClientID; ?>" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Delete Account</a>
+                <a href="delete-account.php?id=<?php echo  $ClientID; ?>">Delete Account</a>
 
-                <a href="account-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 50% ; margin:20px auto; text-align: center;">Cancel</a>
+                <a href="account-area.php">Cancel</a>
                 
               </div>
 

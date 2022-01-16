@@ -184,19 +184,38 @@ label #sidebar_btn:hover{
   height: 100vh;
   transition: 0.5s;
 }
+.form-container{
+  width: 70%; 
+  height: 90vh;
+  background: rgba(0, 0, 0, 0.57);
+  color: white;
+  margin: auto;
+  border-radius: 5px;
+  border: 5px white solid;
+}
+.header-form {
+  text-align: center; 
+  padding: 10px;
+  font-size: 1.5rem; 
+  font-variant: small-caps;
+}
 
+.form-input{
+  display: flex; 
+  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+}
 
+.form-input .label{
+  flex: 1;
+  font-size: 18px;
+  margin: auto;
+}
 
-section{
- width: 100%;
- scroll-snap-align: center;
- box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
--webkit-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
--moz-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
-display: flex;
-flex-direction: column;
+.form-input label{
+  font-variant: small-caps;
 
-    
 }
 
 input{
@@ -209,7 +228,39 @@ input{
 
 textarea{
   font-size: 15px;
+  resize: none; 
+  text-align: left;
+  margin: 10px;
+  display: block;
 }
+
+.actionbtn{
+  display: flex; 
+  width:100%; 
+  align-items: 
+  center; 
+  justify-content: center; 
+  margin-top: 20px;
+
+}
+.actionbtn .createBtn a{
+  border-radius: 5px;
+  text-decoration: none; 
+  color:white; 
+  display: block; 
+  background: black; 
+  padding: 10px; 
+  width: 60% ; 
+  margin:10px auto; 
+  text-align: center;
+  font-variant: small-caps;
+
+}
+.actionbtn .createBtn a:hover{
+  background: white;
+  color: black;
+}
+
 
 /* Responsive CSS */
 
@@ -327,7 +378,7 @@ textarea{
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="../images/profic1.jpg" class="mobile_profile_image" alt="">
+        <img src="../images/avatar.png" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -342,8 +393,8 @@ textarea{
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../images/profic1.jpg" class="profile_image" alt="">
-        <h4>Danielle</h4>
+        <img src="../images/avatar.png" class="profile_image" alt="">
+        <h4>Admin User</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
@@ -385,77 +436,74 @@ textarea{
 
         
      
-      <div class="form-container" style="width: 500px; height: 90vh;background: skyblue; margin: auto;">
-       <div class="header-form" style="text-align: center; padding: 10px; border: 2px green solid;">
+      <div class="form-container">
+       <div class="header-form">
 
         <h3>Contract/Project Information</h3> 
        </div>
 <hr>
        <div class="body-form">
 
-        <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
-        margin-top: 10px;">
+        <div class="form-input">
             
-            <div class="label" style="flex: 1;">
+            <div class="label">
               <span><label>Project Name</label></span> 
             </div>
 
-            <div class="label" style="flex:.5;">
+            <div class="label">
               <span>:</span> 
             </div>
 
-             <div class="label" style="flex: 1.5;">
+             <div class="label">
               <span><input type="text" name="projname" value="<?php echo $ProjectName; ?>" readonly></span> 
             </div>
 
         </div>
 
-        <div class="form-input" style="border: 2px red solid; display: flex; text-align: center;padding: 5px;
-        margin-top: 10px;">
+        <div class="form-input">
             
-            <div class="label" style="flex: 1;">
+            <div class="label">
               <span><label>Date Issued</label></span> 
             </div>
 
-            <div class="label" style="flex:.5;">
+            <div class="label">
               <span>:</span> 
             </div>
 
-             <div class="label" style="flex: 1.5;">
+             <div class="label">
               <span><input type="date" name="text" value="<?php echo $DateIssue; ?>" readonly></span> 
             </div>
 
         </div>
 
         
-      <div class="form-input" style="border: 2px red solid; display: block; text-align: center;padding: 5px;
-        margin-top: 10px;" id="totalpay">
+      <div class="form-input">
             
             <div class="label">
               <span><label>Contract Summary Information</label></span> 
             </div>
 
-             <div class="label" >
-              <textarea cols="50" rows="10" style="resize: none; text-align: left;" readonly><?php echo $ProjectInfo; ?></textarea>
+             <div class="label">
+              <textarea cols="40" rows="10" readonly><?php echo $ProjectInfo; ?></textarea>
             </div>
 
         
       </div>
 
-      <div class="actionbtn" style="display: flex; width:100%; align-items: center; justify-content: center; border: 1px green solid; margin-top: 20px;">
+      <div class="actionbtn" >
 
          <div class="createBtn" style="flex:1; ">
-                <a href="project-update.php?time=<?php echo $ProjectID; ?>" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Add Timeline</a>
+                <a href="project-update.php?time=<?php echo $ProjectID; ?>">Add Timeline</a>
                 
               </div>
 
            <div class="createBtn" style="flex:1;">
-                <a href="vertical-timeline.php?timeId=<?php echo $ProjectName; ?>" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Preview Timeline</a>
+                <a href="vertical-timeline.php?timeId=<?php echo $ProjectName; ?>">Preview Timeline</a>
                 
               </div>    
 
                <div class="createBtn" style="flex:1;">
-                <a href="project-area.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width: 60% ; margin:10px auto; text-align: center;">Back</a>
+                <a href="project-area.php">Back</a>
                 
               </div>
         

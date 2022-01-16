@@ -182,12 +182,36 @@ label #sidebar_btn:hover{
 
 
 /*Section Area*/
-section{
-  
-
-  
+.header-table{
+  color: white; 
+  background:rgba(0, 0, 0, 0.6); 
+  width: 50%; 
+  margin: auto; 
+  padding: 10px; 
+  text-align: center;
+  border-radius: 10px;
+  -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
 
+.search-bar{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+table tbody tr td,tr{
+  padding: 10px;
+}
+
+ table thead{
+  background: black;
+  color: white;
+ }
+
+ table thead th{
+  padding: 10px;
+ }
 
     
     footer{
@@ -286,112 +310,112 @@ section{
     transition-property: background;
   }
 
-  .mobile_nav_items a:hover{
-    background: #19B3D3;
-  }
+.mobile_nav_items a:hover{
+        background: #19B3D3;
+      }
 
-  .mobile_nav_items i{
-    padding-right: 10px;
-  }
+      .mobile_nav_items i{
+        padding-right: 10px;
+      }
 
-  .active{
-    display: block;
-  }
+      .active{
+        display: block;
+      }
 
-  section{
-    max-width: 90%;
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column-reverse;
-  }
+      section{
+        max-width: 90%;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+      }
 
-  .calendar, .widget{
-    width: 100%;
-    padding-bottom: 20px;
-  }
-/*widget*/
-  .color1{
-    grid-area: first;
-  }
-  .color2{
-    grid-area: second;
-  }
-  .color3{
-    grid-area: third;
-  }
-  .color4{
-    grid-area: fourth;
-  }
-  .color5{
-    grid-area: fifth;
-  }
-  .color6{
-    grid-area: sixth;
-  }
+      .calendar, .widget{
+        width: 100%;
+        padding-bottom: 20px;
+      }
+    /*widget*/
+      .color1{
+        grid-area: first;
+      }
+      .color2{
+        grid-area: second;
+      }
+      .color3{
+        grid-area: third;
+      }
+      .color4{
+        grid-area: fourth;
+      }
+      .color5{
+        grid-area: fifth;
+      }
+      .color6{
+        grid-area: sixth;
+      }
 
-  .widget{
-    display: grid;
-    grid-template-areas: 'first second' 'third fourth' 'fifth sixth';
-  }
-
-
-
-  /*calendar*/
+      .widget{
+        display: grid;
+        grid-template-areas: 'first second' 'third fourth' 'fifth sixth';
+      }
 
 
-.calendar .calendar-body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border-bottom: 6px solid #4285F4;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  box-shadow: 0 5px 25px rgb(1 1 1 / 15%);
-  width: 50%;
-}
 
-.calendar .calendar-body .month-name{
-  color: #fff;
-  background: #4285F4;
-  width: 100%;
-  font-size: 1.2em;
-  text-align: center;
-  font-weight: 400;
-  padding: 5px 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
+      /*calendar*/
 
-.calendar .calendar-body .day-name{
-  color: #fff;
-  font-size: 1em;
-  font-weight: 400;
-  margin-top: 10px;
-}
 
-.calendar .calendar-body .date-number{
-  color: #fff;
-  font-size: 4em;
-  font-weight: 600;
-  line-height: 1.2em;
-}
+    .calendar .calendar-body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-bottom: 6px solid #4285F4;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 5px 25px rgb(1 1 1 / 15%);
+      width: 50%;
+    }
 
-.calendar .calendar-body .year{
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
+    .calendar .calendar-body .month-name{
+      color: #fff;
+      background: #4285F4;
+      width: 100%;
+      font-size: 1.2em;
+      text-align: center;
+      font-weight: 400;
+      padding: 5px 0;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
 
-footer{
-  display: block;
-}
+    .calendar .calendar-body .day-name{
+      color: #fff;
+      font-size: 1em;
+      font-weight: 400;
+      margin-top: 10px;
+    }
+
+    .calendar .calendar-body .date-number{
+      color: #fff;
+      font-size: 4em;
+      font-weight: 600;
+      line-height: 1.2em;
+    }
+
+    .calendar .calendar-body .year{
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    footer{
+      display: block;
+    }
 
 }
       
@@ -427,7 +451,7 @@ footer{
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="../images/profic1.jpg" class="mobile_profile_image" alt="">
+        <img src="../images/avatar.png" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -442,8 +466,8 @@ footer{
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../images/profic1.jpg" class="profile_image" alt="">
-        <h4>Danielle</h4>
+        <img src="../images/avatar.png" class="profile_image" alt="">
+        <h4>Admin</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
@@ -457,16 +481,18 @@ footer{
 
       <section>
 
-        <div class="header-table" style="display: flex; color: white; background: blue; width: 80%; margin: auto; align-items: center; text-align: center;padding: 10px; border-radius: 10px;">
-          <div class="title-table" style="flex:1;">
+        <div class="header-table" style="">
+          
             <h1>Client Accounts</h1>
-          </div>
-            <div class="search-bar" style="margin: 20px 10px; text-align:right; flex: 1;">
+         
+            
+        </div>
+
+        <div class="search-bar" style="">
               <span><label style="color: white; font-weight: bold; font-size:15px;">Search Client's Name : </label></span>
               <input type="text" name="search" style="height: 5vh;" id="search" onkeyup="myFunction()">
               
             </div>
-        </div>
 
         <div class="body-table" style="background: white; width:80%;margin: 20px auto;">
 
