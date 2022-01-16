@@ -1,6 +1,36 @@
 <?php
 session_start();
+include 'connection.php';
 $Uname = $_SESSION['username'];
+$sql1 = "SELECT * FROM user WHERE username = '$Uname'  "  ;
+$result1 = $conn->query($sql1);
+if ($result1->num_rows>0)
+{
+    while($row=$result1->fetch_assoc())
+    {
+      $uid = $row['UID'];
+      $Firstname1 = $row['fname'];
+      $Midname1 = $row['mname'];
+      $Lastname1 = $row['lname'];
+    }
+}
+if (isset($_POST['request'])) {
+
+ 
+  $appoint = $_POST['appointment1'];
+  $details = $_POST['details'];
+  
+  
+
+  $sql = "INSERT into appointment (UID,date,a_details,status) VALUES ('$uid','$appoint','$details', 'pending')  ";
+  $result = mysqli_query($conn, $sql);
+  if ($result) {
+   echo " <script>alert('Appointment Created!') </script>";
+   echo "<script> window.location.href='http://localhost/Capstone-2021-2022/appointment_list.php' </script>  ";
+        header("Location: {$url}");
+  }
+
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
@@ -8,56 +38,45 @@ $Uname = $_SESSION['username'];
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--  
-    Document Titleqwfasdasd
-    =============================================
-    -->
-    <title>BV Contruction</title>
-    <!--  
-    Favicons
-    =============================================
-    -->
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="client.css">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!--  
-    Stylesheets
-    =============================================
     
-    -->
-    <!-- Default stylesheets-->
+    <title>BV Contruction</title>
+    
+    <link rel="stylesheet" href="client.css">
+    
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Template specific stylesheets-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-    <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
-    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
-    <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
-    <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
-    <link href="assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
-    <link href="assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
-    <!-- Main stylesheet and color file-->
+   
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
   </head>
+  <style>
+    .rightpanel{
+      background-color:rgb(242, 242, 242);
+      height: 1350px;
+      padding: 0px 35px 0px 35px;
+    }
+    .module,
+    .module-small {
+      position: relative;
+      padding: 50px 0 0 0;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
+    /* form */
+    form {
+      padding: 15px;
+      border: 1px solid #666;
+      background: #fff;
+      display: none;
+    }
+
+    #formButton {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  </style>
+  
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60" bgcolor="#0000">
     <main>
       <div class="page-loader">
@@ -71,7 +90,7 @@ $Uname = $_SESSION['username'];
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
               
-              <li class="dropdown"><a href="index_agency.php">Logout</a>
+              <li class="dropdown"><a href="logout.php">Logout</a>
                  
               </li>
               
@@ -82,21 +101,53 @@ $Uname = $_SESSION['username'];
       <section class="module module-small">
       <div class="container">
         <div class="row">
-          <div class="col-sm-2">
-            <img class="col-sm-12" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;">
-            <h1 class="col-sm-12" style="font-size: 26px;"><?php echo $Uname ?></h1>
-            <a class="col-sm-12" href="dashboard.php">Dashboard</a>
-            <a class="col-sm-12" href="client.php">Create an Appointment</a>
-            <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-            <a class="col-sm-12" href="projects.php">Project/s</a>
-            <a class="col-sm-12"href="user_update.php">User Profile</a>
-            
+          <div class="col-sm-2"style="margin-top: 20px;">
+          <a href="user_update.php">
+            <img class="col-sm-2" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;cursor:pointer;">
+            </a>
+            <span>________________________</span>
+            <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
+              <a class="col-sm-12" href="dashboard.php">Dashboard</a>
+              <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
+              <a class="col-sm-12" href="Project_list.php">Project/s</a>
+            </div>
           </div>
-          <div class="col-sm-10">
-            <div class="col-sm-12" style="border-radius: 20px;box-shadow: 10px 10px 20px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;">
-            
+
+
+
+
+
+
+
+          <div class="rightpanel col-sm-10">
+            <div class="header col-sm-12" style="margin: 80px 0 25px 0;">
+              <div class="headername col-sm-6" style="border-radius: 20px;width:650px;height:200px;background-color:white;margin-right:20px;">
+                <div class="col-sm-6">
+                  <h5 style="font-size:30px">Good Day</h5> 
+                  <h1 style="font-size:50px"><?php echo $Firstname1?></h1> 
+                </div>
+                <div class="col-sm-6" style="margin: -50px 0 0 0;">
+                  <img src="images/Appoinmentcion.png" style="height:300px;margin-left:70px;">
+                </div>
+                
+              </div>
+              <div class="timedate col-sm-6" style="border-radius: 20px;box-shadow: 5px 5px 5px rgb(133, 131, 131);background-color:rgb(248, 245, 245);width:200px;height:200px;text-align:center;background-color:rgb(201, 248, 201);">
+                <span id="displayDateTime2" style="font-size: 15px;"></span>
+                <h1 id="displayDateTime" style="font-size: 50px;"></h1>
+              </div>
+            </div>  
+            <div class="col-sm-12" style="border-radius: 5px;box-shadow: 2px 2px 10px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;height: 900px;">
             <div class="content">
-                <h2>List of Appointments</h2>
+                <h2 class="col-sm-9">My Appointments</h2>
+                <button type="button" class="btn btn-primary col-sm-3" style="margin-top:20px;border-radius:5px;" id="formButton">New Appointment</button>
+                <form method="post" id="form1">
+                  <!-- label tong pangalan!!!!!  -->
+                  <label for="name" style="visibility:hidden;">Hey </label> <br>
+                  <label for="">Date of Appointment:</label> <input type="datetime-local" name="appointment1" id="" style="margin-top:10px;">
+                  <br>
+                  <label for="">Details: </label><br> <textarea name="details" id="" cols="30" rows="10" style="width:600px; height:150px; margin-bottom:10px;"></textarea> <br>
+                  <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
+                </form>
                 <table   class="table table-hover my-1 caption-top table-borderless">
                   <thead class="table-dark">
                     <tr >
@@ -111,58 +162,58 @@ $Uname = $_SESSION['username'];
                   </thead>
                       <tbody class="color">
                       <?php
-        
-        include 'connection.php';
-       
-       $Uname = $_SESSION['username'];
-       
-        $sql1 = "SELECT * FROM user WHERE username = '$Uname'"  ;
-        $result1 = $conn->query($sql1);
-        if ($result1->num_rows>0)
-        {
-            while($row=$result1->fetch_assoc())
-            {
-              $uid = $row['UID'];
-              $Firstname1 = $row['fname'];
-              $Midname1 = $row['mname'];
-              $Lastname1 = $row['lname'];
-            
-            }
-        }
-        $sql3 = "SELECT * FROM appointment WHERE UID = '$uid' ORDER BY date ASC";
+                            
+                            include 'connection.php';
+                          
+                          $Uname = $_SESSION['username'];
+                          
+                            $sql1 = "SELECT * FROM user WHERE username = '$Uname'"  ;
+                            $result1 = $conn->query($sql1);
+                            if ($result1->num_rows>0)
+                            {
+                                while($row=$result1->fetch_assoc())
+                                {
+                                  $uid = $row['UID'];
+                                  $Firstname1 = $row['fname'];
+                                  $Midname1 = $row['mname'];
+                                  $Lastname1 = $row['lname'];
+                                
+                                }
+                            }
+                            $sql3 = "SELECT * FROM appointment WHERE UID = '$uid' ORDER BY date ASC";
 
-        $result = $conn->query($sql3);
-        
-        if($result->num_rows>0)
-        {
+                            $result = $conn->query($sql3);
+                            
+                            if($result->num_rows>0)
+                            {
 
-          // output data of each row
+                              // output data of each row
 
-         while($row=$result->fetch_assoc())
-            {
+                            while($row=$result->fetch_assoc())
+                                {
 
-          
-          $Date_time = $row["date"];
-          $Details =$row["a_details"];
-          $Status = $row["status"];
-         
-          
-         
-           echo 
-          
-          "<tr>"
-          ."<td>$Firstname1"." $Midname1"." $Lastname1</td>"
-          ."<td>$Date_time</td>"
-          ."<td>$Details</td>"
-          ."<td>$Status</td>";
-           
+                              
+                              $Date_time = $row["date"];
+                              $Details =$row["a_details"];
+                              $Status = $row["status"];
+                            
+                              
+                            
+                              echo 
+                              
+                              "<tr>"
+                              ."<td>$Firstname1"." $Midname1"." $Lastname1</td>"
+                              ."<td>$Date_time</td>"
+                              ."<td>$Details</td>"
+                              ."<td>$Status</td>";
+                              
 
-              }
-            echo "</table>";
-          }else{
-              echo "0 results";}
-           $conn->close();
-        ?>
+                                  }
+                                echo "</table>";
+                              }else{
+                                  echo "0 results";}
+                              $conn->close();
+                            ?>
 
 
                       </tbody>
@@ -179,54 +230,29 @@ $Uname = $_SESSION['username'];
       </div>
       
       
+      <script>
+        var today = new Date();
+      var day = today.getDay();
+      var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+      var monthlist = ["Jan","Feb","March","April ","May","Jun","July"];
+      var month = today.getMonth();                           
+      var date = monthlist[month]+' '+today.getDate();
+      var dateTime = date;
+      
+      document.getElementById("displayDateTime").innerHTML = dateTime ;
+      document.getElementById("displayDateTime2").innerHTML = ' <br> Today is ' + daylist[day];
+      
 
-        <!-- FOOTER -->
-        <div class="bg-dark text-center">
-          <div class="container">
-            
-                  <h5 class="widget-title font-alt">About BV Construction</h5>
-               
-          </div>
-        </div>
-        <hr class="divider-d">
-        <footer class="footer bg-dark">
-          <div class="container">
-            <div class="row text-center">
-              <div class="col-sm-3">
-                <p>Company proect with high quality services and lead modern look interior.</p>
-              </div>
-              <div class="col-sm-3">
-                <p>Phone: +1 234 567 89 10</p> Fax: +1 234 567 89 10
-              </div>
-              <div class="col-sm-3">
-                <p>Email:<a href="#"> somecompany@example.com</a></p>
-              </div>
-              <div class="col-sm-3">
-                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
-    </main>
-    <!--  
-    JavaScripts
-    =============================================
-    -->
+              
+      </script>                            
     <script src="assets/lib/jquery/dist/jquery.js"></script>
-    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/lib/wow/dist/wow.js"></script>
-    <script src="assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
-    <script src="assets/lib/isotope/dist/isotope.pkgd.js"></script>
-    <script src="assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
-    <script src="assets/lib/flexslider/jquery.flexslider.js"></script>
-    <script src="assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
-    <script src="assets/lib/smoothscroll.js"></script>
-    <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
-    <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
-    <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      $(document).ready(function() {
+      $("#formButton").click(function() {
+        $("#form1").toggle();
+      });
+    });
+    </script>
   </body>
 </html>

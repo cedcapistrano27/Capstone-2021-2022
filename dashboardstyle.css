@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  background: #fff;
+  background: rgb(255, 255, 255);
   font: 400 12px/1.8 "Open Sans", sans-serif;
   color: #666;
   -webkit-font-smoothing: antialiased;
@@ -93,15 +93,6 @@ a,
   position: relative;
   background-color: #fff;
   z-index: 1;
-}
-
-.module,
-.module-small {
-  position: relative;
-  padding: 70px 0;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
 }
 
 /* Scroll to top */
@@ -971,23 +962,6 @@ Hero Slider
   padding: 0 6px;
 }
 
-/* -------------------------------------------------------------
-Google map
-------------------------------------------------------------- */
-#map-section {
-  position: relative;
-  height: 450px;
-  width: 100%;
-}
-
-#map {
-  height: 100%;
-  width: 100%;
-}
-
-#map img {
-  max-width: none;
-}
 
 /*--------------------------------------------------------------
 	Services & Features

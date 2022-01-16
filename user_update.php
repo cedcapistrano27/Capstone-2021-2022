@@ -130,7 +130,7 @@ if (isset($_POST['update'])) {
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
               
-              <li class="dropdown"><a href="index_agency.php">Logout</a>
+              <li class="dropdown"><a href="logout.php">Logout</a>
                  
               </li>
               
@@ -145,9 +145,8 @@ if (isset($_POST['update'])) {
             <img class="col-sm-12" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;">
             <h1 class="col-sm-12" style="font-size: 26px;"><?php echo $Uname ?></h1>
             <a class="col-sm-12" href="dashboard.php">Dashboard</a>
-            <a class="col-sm-12" href="client.php">Create an Appointment</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-            <a class="col-sm-12" href="projects.php">Project/s</a>
+            <a class="col-sm-12" href="Project_list.php">Project/s</a>
             <a class="col-sm-12"href="user_update.php">User Profile</a>
             
           </div>
