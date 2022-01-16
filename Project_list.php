@@ -1,6 +1,33 @@
 <?php
+include 'connection.php';
 session_start();
 $Uname = $_SESSION['username'];
+$sql1 = "SELECT * FROM user WHERE username = '$Uname' " ;
+$result1 = $conn->query($sql1);
+if ($result1->num_rows>0)
+{
+    while($row=$result1->fetch_assoc())
+    {
+      $uid = $row['UID'];
+      $Firstname1 = $row['fname'];
+      $Midname1 = $row['mname'];
+      $Lastname1 = $row['lname'];
+    }
+}
+
+
+$projects = "SELECT COUNT(Remarks) AS finished_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Finished'";
+$project_result = mysqli_query($conn, $projects);
+$row1 = mysqli_fetch_array($project_result);
+
+$projects2 = "SELECT COUNT(Remarks) AS ongoing_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Ongoing'";
+$project_result2 = mysqli_query($conn, $projects2);
+$row2 = mysqli_fetch_array($project_result2);
+
+$projects3 = "SELECT COUNT(Remarks) AS cancelled_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Cancelled'";
+$project_result3 = mysqli_query($conn, $projects3);
+$row3 = mysqli_fetch_array($project_result3);
+
 ?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
@@ -68,7 +95,7 @@ $Uname = $_SESSION['username'];
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
               <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-              <a class="col-sm-12" href="projects.php">Project/s</a>
+              <a class="col-sm-12" href="Project_list.php.php">Project/s</a>
             </div>
           </div>
 
@@ -106,20 +133,20 @@ $Uname = $_SESSION['username'];
                     
                     <i class="material-icons" style="font-size:36px">done</i><br>
                     <span style="font-size: 15px;">Completed</span>
-                    <h1 style="font-size: 50px;">2</h1>
+                    <h1 style="font-size: 50px;"> <?php echo $row1['finished_projects']?> </h1>
                     <label for="">Total</label>
                   </div>
                   <div class="timedate col-sm-2" style="border-radius: 20px;box-shadow: 1px 1px 5px rgb(133, 131, 131);background: linear-gradient(0deg, rgba(231,242,171,1) 8%, rgba(250,237,41,1) 57%);width:160px;height:250px;text-align:left;margin: 20px 10px 0 0;">
                     <i class="material-icons" style="font-size:36px">cached</i><br>
                     <span style="font-size: 15px;">On Going</span>
-                    <h1 style="font-size: 50px;">2</h1>
+                    <h1 style="font-size: 50px;"> <?php echo $row2['ongoing_projects']?></h1>
                     <label for="">Total</label>
 
                   </div>
                   <div class="timedate col-sm-2" style="border-radius: 20px;box-shadow: 1px 1px 5px rgb(133, 131, 131);background: linear-gradient(0deg, rgba(231,242,171,1) 8%, #ffa0a0 57%);width:160px;height:250px;text-align:left;background-color:rgb(201, 248, 201);margin: 20px 10px 0 0;">
                     <i class="material-icons" style="font-size:36px">highlight_off</i><br>
                     <span style="font-size: 15px;">Canceled</span>
-                    <h1 style="font-size: 50px;">2</h1>
+                    <h1 style="font-size: 50px;"><?php echo $row3['cancelled_projects']?></h1>
                     <label for="">Total</label>
 
                   </div>
@@ -144,17 +171,17 @@ $Uname = $_SESSION['username'];
                     </tr>
                   </thead>
                       <tbody class="color">
-                      <!--<?php
+                      <?php
                             
                             include 'connection.php';
                           
                           $Uname = $_SESSION['username'];
                           
-                            $sql1 = "SELECT * FROM user WHERE username = '$Uname'"  ;
-                            $result1 = $conn->query($sql1);
-                            if ($result1->num_rows>0)
+                            $sql2 = "SELECT * FROM user WHERE username = '$Uname'"  ;
+                            $result2 = $conn->query($sql2);
+                            if ($result2->num_rows>0)
                             {
-                                while($row=$result1->fetch_assoc())
+                                while($row=$result2->fetch_assoc())
                                 {
                                   $uid = $row['UID'];
                                   $Firstname1 = $row['fname'];
@@ -163,7 +190,7 @@ $Uname = $_SESSION['username'];
                                 
                                 }
                             }
-                            $sql3 = "SELECT * FROM appointment WHERE UID = '$uid' ORDER BY date ASC";
+                            $sql3 = "SELECT * FROM timeline WHERE UID = '$uid' ";
 
                             $result = $conn->query($sql3);
                             
@@ -175,37 +202,37 @@ $Uname = $_SESSION['username'];
                             while($row=$result->fetch_assoc())
                                 {
 
-                              
-                              $Date_time = $row["date"];
-                              $Details =$row["a_details"];
-                              $Status = $row["status"];
+                              $Project_name = $row["ProjectName"];
+                              $Date_issued = $row["DateIssued"];
+                              $Scope = $row["ProjectInfo"];
+                              $Status = $row["Remarks"];
                             
                               
                             
                               echo 
-                                -->
+                                
                               "<tr>"
-                              ."<td style="font-size: 18px;padding: 15px;">Ben House </td>"
-                              ."<td style="font-size: 18px;padding: 15px;">Design and Build</td>"
-                              ."<td style="font-size: 18px;padding: 15px;">12/30/22</td>"
-                              ."<td style="font-size: 18px;padding: 15px;">Ongoing</td>"
-                              ."<td class="col-sm-3" style="padding: 10px 0;">
-                                <button onclick="toproject()" class="btn btn-primary col-sm-6" style="border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;">
-                                  <i class="material-icons " style="font-size:10px;padding: 0 0;">open_in_new</i>
+                              ."<td style='font-size: 18px;padding: 15px;'>$Project_name </td>"
+                              ."<td style='font-size: 18px;padding: 15px;'>$Scope</td>"
+                              ."<td style='font-size: 18px;padding: 15px;'>$Date_issued </td>"
+                              ."<td style='font-size: 18px;padding: 15px;'>$Status</td>"
+                              ."<td class='col-sm-3' style='padding: 10px 0;'>
+                                <button onclick='toproject()' class='btn btn-primary col-sm-6' style='border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;'>
+                                  <i class='material-icons ' style='font-size:10px;padding: 0 0;'>open_in_new</i>
                                   View
                                 </button>
-                                <button type="button" class="btn btn-primary col-sm-6" style="border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;margin-left: 10px;background-color:darkgreen;" id="formButton">
-                                  <i class="material-icons" style="font-size:10px;padding-top: 5px;">assignment</i>
+                                <button type='button' class='btn btn-primary col-sm-6' style='border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;margin-left: 10px;background-color:darkgreen;' id='formButton'>
+                                  <i class='material-icons' style='font-size:10px;padding-top: 5px;'>assignment</i>
                                   Request</button>
                                 </td>";
                               
 
                                   }
                                 echo "</table>";
-                             <!-- }else{
+                               }else{
                                   echo "0 results";}
                               $conn->close();
-                            ?>-->
+                            ?>
 
 
                       </tbody>
@@ -225,7 +252,7 @@ $Uname = $_SESSION['username'];
       <script>
 
         function toproject(){
-          window.location.href='projects.html'
+          window.location.href='projects.php'
         }
       
         var today = new Date();

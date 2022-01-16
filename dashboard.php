@@ -28,7 +28,7 @@ $projects2 = "SELECT COUNT(Remarks) AS ongoing_projects FROM timeline WHERE UID 
 $project_result2 = mysqli_query($conn, $projects2);
 $row2 = mysqli_fetch_array($project_result2);
 
-$projects3 = "SELECT COUNT(Remarks) AS ongoing_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Cancelled'";
+$projects3 = "SELECT COUNT(Remarks) AS cancelled_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Cancelled'";
 $project_result3 = mysqli_query($conn, $projects3);
 $row3 = mysqli_fetch_array($project_result3);
 
@@ -127,7 +127,7 @@ $row3 = mysqli_fetch_array($project_result3);
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
               <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-              <a class="col-sm-12" href="projects.php">Project/s</a>
+              <a class="col-sm-12" href="Project_list.php">Project/s</a>
               <a class="col-sm-12"href="user_update.php">User Profile</a>
             </div>
            
@@ -152,7 +152,7 @@ $row3 = mysqli_fetch_array($project_result3);
                   <div class="col-sm-8" style="background-color: rgb(186, 242, 186);height: 5px;margin-left: 15px;"></div>
                   <h4 class="col-sm-12">On - Ongoing : <?php echo $row2['ongoing_projects']?> </h4>
                   <div class="col-sm-8" style="background-color: yellow;height: 5px;margin-left: 15px;"></div>
-                  <h4 class="col-sm-12">Canceled : <?php echo $row3['ongoing_projects']?> </h4>
+                  <h4 class="col-sm-12">Canceled : <?php echo $row3['cancelled_projects']?> </h4>
                   <div class="col-sm-8" style="background-color: red;height: 5px;margin-left: 15px;"></div>
                 </div>
               </a>
@@ -214,7 +214,7 @@ $row3 = mysqli_fetch_array($project_result3);
 
                             
                             $Project_Name = $row["project_name"];
-                            $scope =$row["scope"];
+                            $scope =$row["project_info"];
                             $Date = $row["Pdate"];
                             $Remarks = $row["remarks"];
                           

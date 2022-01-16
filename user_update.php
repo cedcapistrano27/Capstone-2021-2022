@@ -146,7 +146,7 @@ if (isset($_POST['update'])) {
             <h1 class="col-sm-12" style="font-size: 26px;"><?php echo $Uname ?></h1>
             <a class="col-sm-12" href="dashboard.php">Dashboard</a>
             <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-            <a class="col-sm-12" href="projects.php">Project/s</a>
+            <a class="col-sm-12" href="Project_list.php">Project/s</a>
             <a class="col-sm-12"href="user_update.php">User Profile</a>
             
           </div>
