@@ -88,7 +88,7 @@ $row3 = mysqli_fetch_array($project_result3);
       <div class="container">
         <div class="row">
           <div class="col-sm-2"style="margin-top: 20px;">
-          <a href="user_update.php">
+            <a href="user_update.php">
             <img class="col-sm-2" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;cursor:pointer;">
             </a>
             <span>________________________</span>
@@ -190,7 +190,7 @@ $row3 = mysqli_fetch_array($project_result3);
                                 
                                 }
                             }
-                            $sql3 = "SELECT * FROM timeline WHERE UID = '$uid' ";
+                            $sql3 = "SELECT * FROM project WHERE UID = '$uid' ";
 
                             $result = $conn->query($sql3);
                             
@@ -202,10 +202,10 @@ $row3 = mysqli_fetch_array($project_result3);
                             while($row=$result->fetch_assoc())
                                 {
 
-                              $Project_name = $row["ProjectName"];
-                              $Date_issued = $row["DateIssued"];
-                              $Scope = $row["ProjectInfo"];
-                              $Status = $row["Remarks"];
+                              $Project_name = $row["project_name"];
+                              $Date_issued = $row["Pdate"];
+                              $Scope = $row["scope"];
+                              $Status = $row["remarks"];
                             
                               
                             
