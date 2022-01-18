@@ -95,7 +95,7 @@ $row3 = mysqli_fetch_array($project_result3);
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
               <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-              <a class="col-sm-12" href="Project_list.php.php">Project/s</a>
+              <a class="col-sm-12" href="Project_list.php">Project/s</a>
             </div>
           </div>
 
@@ -109,12 +109,12 @@ $row3 = mysqli_fetch_array($project_result3);
             <div class="header col-sm-12" style="margin: 50px 0 25px 0;padding: 0 0;">
               <div class="headername col-sm-12" style="border-radius: 20px;width:100%;height:300px;background-color:white;">
                 <div class="col-sm-5" >
-                  <h5 style="font-size:30px">Paid Payments</h5> 
+                  <h5 style="font-size:30px">Paid Payments</h5>
                   <h1 style="font-size:50px">P 12000</h1>
                   <div class="col-sm-12" style="padding: 0 0;margin-top: 35px;">
                     <div class="col-sm-6" style="padding: 0 0;">
                       <label class="col-sm-6" style="padding: 0 0;font-size: 10px;"> All Balance </label>
-                      <label class="col-sm-6">5000</label>
+                      <label class="col-sm-6">8000</label>
                       <div class="col-sm-9" style="height: 5px;background-color: lightskyblue;"></div>
                     </div>
                     <div class="col-sm-6" style="padding: 0 0;">
@@ -204,7 +204,7 @@ $row3 = mysqli_fetch_array($project_result3);
 
                               $Project_name = $row["project_name"];
                               $Date_issued = $row["Pdate"];
-                              $Scope = $row["scope"];
+                              $Scope = $row["project_info"];
                               $Status = $row["remarks"];
                             
                               

@@ -146,7 +146,7 @@ $row3 = mysqli_fetch_array($project_result3);
             </div>
             <div class="col-sm-6">
               <span style="font-size: 30px;color: black;">My Project</span>
-              <a href="Project_list.html" style="color:black;">
+              <a href="Project_list.php" style="color:black;">
                 <div class="col-sm-12" style="max-width:100%;background-color:whitesmoke;border-radius: 20px;padding: 10px 10px;box-shadow: 5px 5px 10px grey;">
                   <h4 class="col-sm-12">completed : <?php echo $row1['finished_projects']?> </h4>
                   <div class="col-sm-8" style="background-color: rgb(186, 242, 186);height: 5px;margin-left: 15px;"></div>
