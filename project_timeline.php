@@ -1,4 +1,4 @@
-<!--<?php
+<?php
 include 'connection.php';
 session_start();
 $Uname = $_SESSION['username'];
@@ -28,7 +28,7 @@ $projects3 = "SELECT COUNT(Remarks) AS cancelled_projects FROM timeline WHERE UI
 $project_result3 = mysqli_query($conn, $projects3);
 $row3 = mysqli_fetch_array($project_result3);
 
-?-->
+?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
@@ -119,25 +119,44 @@ $row3 = mysqli_fetch_array($project_result3);
                 </a>
                 <a href="#">
                   <span class="breadcrumb__inner">
-                    <span class="breadcrumb__title">Name of Project</span>
+                    <span class="breadcrumb__title">Name of Proj ect</span>
                   </span>
                 </a>
               </div>
             </div>
             <div class="timeline">
               <div class="timeline--body">
-                <div class="timeline--item">
-                        <p class="time"> date</p>
-                        <div class="content">
-                          <h2 class="title">proect update</h2>
-                          <p>
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                              Amet repellendus quisquam doloribus nulla, consequuntur error,
-                              architecto sunt quibusdam magnam quia itaque expedita iste optio,
-                                voluptas blanditiis consequatur maxime at vero!
-                          </p>
-                        </div>
-                </div>
+                <?php
+                        include 'connection.php';
+                        $PID = $_SESSION['PID'];
+                        $sql1 = "SELECT * FROM timeline WHERE PID = '$PID' " ;
+                        $result1 = $conn->query($sql1);
+                        if ($result1->num_rows>0)
+                        {
+                            while($row=$result1->fetch_assoc())
+                            {
+                              $Pname = $row['ProjectName'];
+                              $Pinfo = $row['ProjectInfo'];
+                              $Dissued = $row['DateIssued'];
+                              $Remarks = $row['Remarks'];
+
+                              echo 
+
+                              "<div class='timeline--item'>
+                                <p class='time'> $Dissued</p>
+                                <div class='content'>
+                                  <h2 class='title'>$Pname</h2>
+                                  <p>
+                                      $Pinfo
+                                  </p>
+                                </div>
+                              </div>";
+                            }
+                        }
+                ?>
+
+
+                
                
 
 

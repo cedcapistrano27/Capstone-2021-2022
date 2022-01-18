@@ -128,7 +128,6 @@ $row3 = mysqli_fetch_array($project_result3);
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
               <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
               <a class="col-sm-12" href="Project_list.php">Project/s</a>
-              <a class="col-sm-12"href="user_update.php">User Profile</a>
             </div>
            
           </div>

@@ -140,14 +140,17 @@ if (isset($_POST['request'])) {
             <div class="content">
                 <h2 class="col-sm-9">My Appointments</h2>
                 <button type="button" class="btn btn-primary col-sm-3" style="margin-top:20px;border-radius:5px;" id="formButton">New Appointment</button>
-                <form method="post" id="form1">
-                  <!-- label tong pangalan!!!!!  -->
-                  <label for="name" style="visibility:hidden;">Hey </label> <br>
-                  <label for="">Date of Appointment:</label> <input type="datetime-local" name="appointment1" id="" style="margin-top:10px;">
-                  <br>
-                  <label for="">Details: </label><br> <textarea name="details" id="" cols="30" rows="10" style="width:600px; height:150px; margin-bottom:10px;"></textarea> <br>
-                  <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
-                </form>
+                
+                  <form method="post" id="form1" style="position:absolute;margin:100px;border-radius: 5px;box-shadow: 2px 2px 10px rgb(133, 131, 131);background-color:rgb(248, 245, 245);">
+                    <!-- label tong pangalan!!!!!  -->
+                    <!--<label for="name" style="visibility:hidden;">Hey </label> <br>-->
+                    
+                    <label for="">Date of Appointment:</label> <input type="datetime-local" name="appointment1" id="" style="margin-top:10px;">
+                    <br>
+                    <label for="">Details: </label><br> <textarea name="details" id="" cols="30" rows="10" style="width:600px; height:150px; margin-bottom:10px;"></textarea> <br>
+                    <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
+                  </form>
+                  
                 <table   class="table table-hover my-1 caption-top table-borderless">
                   <thead class="table-dark">
                     <tr >

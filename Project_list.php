@@ -204,8 +204,9 @@ $row3 = mysqli_fetch_array($project_result3);
 
                               $Project_name = $row["project_name"];
                               $Date_issued = $row["Pdate"];
-                              $Scope = $row["project_info"];
+                              $Scope = $row["scope"];
                               $Status = $row["remarks"];
+                              $PID = $row["PID"];
                             
                               
                             
@@ -217,7 +218,7 @@ $row3 = mysqli_fetch_array($project_result3);
                               ."<td style='font-size: 18px;padding: 15px;'>$Date_issued </td>"
                               ."<td style='font-size: 18px;padding: 15px;'>$Status</td>"
                               ."<td class='col-sm-3' style='padding: 10px 0;'>
-                                <button onclick='toproject()' class='btn btn-primary col-sm-6' style='border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;'>
+                                <button onclick='toproject()' value='$PID' class='btn btn-primary col-sm-6' style='border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;'>
                                   <i class='material-icons ' style='font-size:10px;padding: 0 0;'>open_in_new</i>
                                   View
                                 </button>
@@ -252,7 +253,8 @@ $row3 = mysqli_fetch_array($project_result3);
       <script>
 
         function toproject(){
-          window.location.href='projects.php'
+          window.location.href='project_timeline.php'
+          $PID = $_SESSION["PID"];
         }
       
         var today = new Date();
