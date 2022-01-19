@@ -104,7 +104,7 @@ $row3 = mysqli_fetch_array($project_result3);
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
               <a class="col-sm-12" href="appointment_list.php">Appointment</a>
               <a class="col-sm-12" href="Project_list.php">Project</a>
-              <a class="col-sm-12" href="Payment.php">Payment</a>
+              <a class="col-sm-12" href="Project_list.php">Payment</a>
 
             </div>
           </div>
@@ -116,66 +116,49 @@ $row3 = mysqli_fetch_array($project_result3);
 
 
           <div class="rightpanel col-sm-10">
-            <div class="header col-sm-12" style="margin: 50px 0 25px 0;padding: 0 0;">
-              <div class="headername col-sm-12" style="border-radius: 20px;width:100%;height:300px;background-color:white;">
-                <div class="col-sm-5" >
-                  <h5 style="font-size:30px">Paid Payments</h5>
-                  <h1 style="font-size:50px">P 12000</h1>
-                  <div class="col-sm-12" style="padding: 0 0;margin-top: 35px;">
-                    <div class="col-sm-6" style="padding: 0 0;">
-                      <label class="col-sm-6" style="padding: 0 0;font-size: 10px;"> All Balance </label>
-                      <label class="col-sm-6">8000</label>
-                      <div class="col-sm-9" style="height: 5px;background-color: lightskyblue;"></div>
+          <label style="font-size: 30px;margin:20px 0 0 0;">Payment</label>
+            <div class="header col-sm-12" style="margin: 30px 0 25px 0;padding: 0 0;">
+              <div class="headername col-sm-12" style="border-radius: 20px;width:100%;height:100px;padding:0;">
+                <div class="col-sm-12" >
+                    <div class="col-sm-4 " style="padding:0;margin-left:15px;">
+                      <div class="col-sm-12" style="height: auto;background-color: white;width:250px;border-radius:10px;box-shadow: 2px 2px 5px rgb(133, 131, 131)">
+                      <label class="col-sm-12" style="margin:0;padding: 0;font-size:40px;color:#337ab7;">8000</label>
+                      <label class="col-sm-12" style="padding: 0 ;font-size: 10px;margin:0;opacity: 0.8;"> All Balance </label>
+                      </div>
                     </div>
-                    <div class="col-sm-6" style="padding: 0 0;">
-                      <label class="col-sm-6" style="padding: 0 0;font-size: 10px;">All Project</label>
-                      <label class="col-sm-6">20000</label>
-                      <div class="col-sm-9" style="height: 5px;background-color: lightgreen;"></div>
+                    <div class="col-sm-4 " style="padding:0;margin-left:0px">
+                      <div class="col-sm-12" style="height: auto;background-color: white;width:250px;border-radius:10px;box-shadow: 2px 2px 5px rgb(133, 131, 131)">
+                      <label class="col-sm-12" style="margin:0;padding: 0;font-size:40px;color:#337ab7;">12000</label>
+                      <label class="col-sm-12" style="padding: 0 ;font-size: 10px;margin:0;opacity: 0.8;"> Paid Payments </label>
+                      </div>
                     </div>
-                  </div>
-                  <button type="button" onclick="topayment()" class="btn btn-primary col-sm-11" style="border-radius:20px;margin-top: 20px;padding: 8px 0 8px 10px;">View History
-                    <i class="material-icons" style="font-size:15px;padding-left: 70px;">chevron_right</i>
-                  </button> 
+                    <div class="col-sm-4" style="padding: 0;margin-left:-15px">
+                    <div class="col-sm-12" style="height: auto;background-color: white;width:250px;border-radius:10px;box-shadow: 2px 2px 5px rgb(133, 131, 131)">
+                        <label class="col-sm-12" style="margin:0;padding: 0;font-size:40px;color:#337ab7;">20000</label>
+                        <label class="col-sm-12" style="padding: 0 ;font-size: 10px;margin:0;opacity: 0.8;">All Project</label>
+                      </div>
+                    </div>
+                  
+                  
                   
                 </div>
                 
-                  <div class="timedate col-sm-2" style="border-radius: 20px;box-shadow: 1px 1px 5px rgb(133, 131, 131);background: linear-gradient(0deg, rgba(231,242,171,1) 8%, rgba(180,249,177,1) 57%);width:160px;height:250px;text-align:left;margin: 20px 10px 0 0;">
-                    
-                    <i class="material-icons" style="font-size:36px">done</i><br>
-                    <span style="font-size: 15px;">Completed</span>
-                    <h1 style="font-size: 50px;"> <?php echo $row1['finished_projects']?> </h1>
-                    <label for="">Total</label>
-                  </div>
-                  <div class="timedate col-sm-2" style="border-radius: 20px;box-shadow: 1px 1px 5px rgb(133, 131, 131);background: linear-gradient(0deg, rgba(231,242,171,1) 8%, rgba(250,237,41,1) 57%);width:160px;height:250px;text-align:left;margin: 20px 10px 0 0;">
-                    <i class="material-icons" style="font-size:36px">cached</i><br>
-                    <span style="font-size: 15px;">On Going</span>
-                    <h1 style="font-size: 50px;"> <?php echo $row2['ongoing_projects']?></h1>
-                    <label for="">Total</label>
-
-                  </div>
-                  <div class="timedate col-sm-2" style="border-radius: 20px;box-shadow: 1px 1px 5px rgb(133, 131, 131);background: linear-gradient(0deg, rgba(231,242,171,1) 8%, #ffa0a0 57%);width:160px;height:250px;text-align:left;background-color:rgb(201, 248, 201);margin: 20px 10px 0 0;">
-                    <i class="material-icons" style="font-size:36px">highlight_off</i><br>
-                    <span style="font-size: 15px;">Canceled</span>
-                    <h1 style="font-size: 50px;"><?php echo $row3['cancelled_projects']?></h1>
-                    <label for="">Total</label>
-
-                  </div>
                 
               </div>
               
             </div>  
             <div class="col-sm-12" style="border-radius: 5px;box-shadow: 2px 2px 10px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;height: 900px;">
             <div class="content">
-                <h2 class="col-sm-9">My Projects</h2>
+                <h2 class="col-sm-9">Payment History</h2>
                 
                 <table   class="table table-hover my-1 caption-top table-borderless">
                   <thead class="table-dark">
                     <tr >
                       <th class="fw-light">Project Name</th>
-                      <th class="fw-light">Scope</th>
                       <th class="fw-light">Date</th>
-                      <th class="fw-light">Status</th>
-                      <th class="fw-light" style="text-align: center;">Action</th>
+                      <th class="fw-light">Payment</th>
+                      <th class="fw-light">Downpayment</th>
+                      <th class="fw-light" >Total Cost</th>
                     
                       
                     </tr>
@@ -200,7 +183,7 @@ $row3 = mysqli_fetch_array($project_result3);
                                 
                                 }
                             }
-                            $sql3 = "SELECT * FROM project WHERE UID = '$uid' ";
+                            $sql3 = "SELECT * FROM payment WHERE UID = '$uid' ";
 
                             $result = $conn->query($sql3);
                             
@@ -213,26 +196,21 @@ $row3 = mysqli_fetch_array($project_result3);
                                 {
 
                               $Project_name = $row["project_name"];
-                              $Date_issued = $row["Pdate"];
-                              $Scope = $row["scope"];
-                              $Status = $row["remarks"];
-                              $PID = $row["PID"];
+                              $Date_issued = $row["payment_issued"];
+                              $payment_type = $row["payment_type"];
+                              $downpayment = $row["downpayment"];
+                              $total_cost = $row["total_cost"];
                             
                               
                             
                               echo 
                                 
                               "<tr>"
-                              ."<td style='font-size: 18px;padding: 15px;'>$Project_name </td>"
-                              ."<td style='font-size: 18px;padding: 15px;'>$Scope</td>"
-                              ."<td style='font-size: 18px;padding: 15px;'>$Date_issued </td>"
-                              ."<td style='font-size: 18px;padding: 15px;'>$Status</td>"
-                              ."<td class='col-sm-1' style='padding: 10px 0;'>
-                              
-                                <a href='project_timeline.php?id=$PID' class='btn btn-primary col-sm-6' style='border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;margin-left: 10px;background-color:#337ab7;border-color:#2e6da4;' id='formButton'>
-                                  <i class='material-icons' style='font-size:10px;padding-top: 5px;'>open_in_new</i>
-                                  View</a>
-                                </td>";
+                              ."<td style='font-size: 15px;padding: 15px;'>$Project_name </td>"
+                              ."<td style='font-size: 15px;padding: 15px;'>$Date_issued</td>"
+                              ."<td style='font-size: 15px;padding: 15px;'>$payment_type </td>"
+                              ."<td style='font-size: 15px;padding: 15px;'>$downpayment</td>"
+                              ."<td style='font-size: 15px;padding: 15px;'>$total_cost</td>";
                               
 
                                   }
@@ -262,9 +240,6 @@ $row3 = mysqli_fetch_array($project_result3);
         function toproject(){
           window.location.href='project_timeline.php'
           $PID = $_SESSION["PID"];
-        }
-        function topayment(){
-          window.location.href='Payment.php'
         }
       
         var today = new Date();

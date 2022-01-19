@@ -126,8 +126,10 @@ $row3 = mysqli_fetch_array($project_result3);
             <span>________________________</span>
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
-              <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-              <a class="col-sm-12" href="Project_list.php">Project/s</a>
+              <a class="col-sm-12" href="appointment_list.php">Appointment</a>
+              <a class="col-sm-12" href="Project_list.php">Project</a>
+              <a class="col-sm-12" href="Payment.php">Payment</a>
+
             </div>
            
           </div>

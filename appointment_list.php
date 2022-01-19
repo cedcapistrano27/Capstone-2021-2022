@@ -108,8 +108,10 @@ if (isset($_POST['request'])) {
             <span>________________________</span>
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
-              <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-              <a class="col-sm-12" href="Project_list.php">Project/s</a>
+              <a class="col-sm-12" href="appointment_list.php">Appointment</a>
+              <a class="col-sm-12" href="Project_list.php">Project</a>
+              <a class="col-sm-12" href="Payment.php">Payment</a>
+
             </div>
           </div>
 
@@ -154,11 +156,9 @@ if (isset($_POST['request'])) {
                 <table   class="table table-hover my-1 caption-top table-borderless">
                   <thead class="table-dark">
                     <tr >
-                      <th class="fw-light">CustomerName</th>
                       <th class="fw-light">Date Time</th>
-                      <th class="fw-light">Details</th>
-                      <th class="fw-light">Status</th>
-                      <th class="fw-light"></th>
+                      <th class="fw-light">Type</th>
+                      <th class="fw-light" style="text-align: center;">Status</th>
                     
                       
                     </tr>
@@ -197,18 +197,18 @@ if (isset($_POST['request'])) {
 
                               
                               $Date_time = $row["date"];
-                              $Details =$row["a_details"];
                               $Status = $row["status"];
+                              $atype = $row["atype"];
+
                             
                               
                             
                               echo 
                               
                               "<tr>"
-                              ."<td>$Firstname1"." $Midname1"." $Lastname1</td>"
                               ."<td>$Date_time</td>"
-                              ."<td>$Details</td>"
-                              ."<td>$Status</td>";
+                              ."<td>$atype</td>"
+                              ."<td style='text-align:center;'>$Status</td>";
                               
 
                                   }

@@ -2024,7 +2024,7 @@ Google map
 	Testimonial
 --------------------------------------------------------------*/
 .testimonial:before {
-  background: rgba(2, 2, 2, 0.4);
+  background:none;
 }
 
 .testimonials-slider {

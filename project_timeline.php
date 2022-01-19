@@ -65,8 +65,10 @@
             <span>________________________</span>
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
-              <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-              <a class="col-sm-12" href="Project_list.php">Project/s</a>
+              <a class="col-sm-12" href="appointment_list.php">Appointment</a>
+              <a class="col-sm-12" href="Project_list.php">Project</a>
+              <a class="col-sm-12" href="Payment.php">Payment</a>
+
             </div>
           </div>
 
@@ -130,7 +132,7 @@
                         {
                             while($row=$result2->fetch_assoc())
                             {
-                              $Pname = $row['ProjectName'];
+                              $Uscope = $row['Uscope'];
                               $Pinfo = $row['ProjectInfo'];
                               $Dissued = $row['DateIssued'];
                               $Remarks = $row['Remarks'];
@@ -140,7 +142,7 @@
                               "<div class='timeline--item'>
                                 <p class='time'> $Dissued</p>
                                 <div class='content'>
-                                  <h2 class='title'>$Pname</h2>
+                                  <h2 class='title'>$Uscope</h2>
                                   <p>
                                       $Pinfo
                                   </p>
