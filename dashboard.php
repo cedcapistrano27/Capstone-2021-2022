@@ -137,7 +137,7 @@ $row3 = mysqli_fetch_array($project_result3);
             <div class="nameheader col-sm-12" style="max-width:100%;background-color:whitesmoke;border-radius: 20px;padding: 10px 10px;box-shadow: 5px 5px 10px grey;">
                 <div class="col-sm-6" style="padding: 0px 0px 0px 0px;">
                   <a class="col-sm-12" style="font-size: 30px;color: rgb(100, 100, 100);">Welcome</a>
-                  <a class="col-sm-12" style="font-size: 50px;text-align: center;margin: 15px 0px 0 30px;"><?php echo $Uname ?></a>
+                  <a class="col-sm-12" style="font-size: 50px;text-align: center;margin: 15px 0px 0 30px;"><?php echo $Firstname1?></a>
                 </div>
                 <div class="col-sm-6" style="text-align: center;padding-right: 0px;">
                   <img src="images/dashboardicon.png" style="width: 300px;padding-left: 30px;height: 200px;">
@@ -213,7 +213,7 @@ $row3 = mysqli_fetch_array($project_result3);
 
                             
                             $Project_Name = $row["project_name"];
-                            $scope =$row["project_info"];
+                            $scope =$row["scope"];
                             $Date = $row["Pdate"];
                             $Remarks = $row["remarks"];
                           

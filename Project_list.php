@@ -61,6 +61,14 @@ $row3 = mysqli_fetch_array($project_result3);
       background-position: 50% 50%;
       background-size: cover;
     }
+    #view{
+      margin:10px;
+      top:15px;
+      border-radius:5px;
+      padding:15px;
+      font-size: 12px;
+      background-color:lightblue;
+    }
   </style>
 
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60" bgcolor="#0000">
@@ -218,10 +226,13 @@ $row3 = mysqli_fetch_array($project_result3);
                               ."<td style='font-size: 18px;padding: 15px;'>$Date_issued </td>"
                               ."<td style='font-size: 18px;padding: 15px;'>$Status</td>"
                               ."<td class='col-sm-3' style='padding: 10px 0;'>
-                                <button onclick='toproject()' value='$PID' class='btn btn-primary col-sm-6' style='border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;'>
-                                  <i class='material-icons ' style='font-size:10px;padding: 0 0;'>open_in_new</i>
-                                  View
-                                </button>
+                              <a href='project_timeline.php?id=$PID' id='view'>
+                              <i class='material-icons ' style='font-size:10px;padding: 0 0;'>open_in_new</i>
+                              View 
+                              </a>
+                                 
+                                  
+                                
                                 <button type='button' class='btn btn-primary col-sm-6' style='border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;margin-left: 10px;background-color:darkgreen;' id='formButton'>
                                   <i class='material-icons' style='font-size:10px;padding-top: 5px;'>assignment</i>
                                   Request</button>
@@ -248,7 +259,7 @@ $row3 = mysqli_fetch_array($project_result3);
            
            
       </div>
-      
+      <!-- <a href='project_timeline.php?id=<?php echo $PID?>'>boom </a> -->
       
       <script>
 

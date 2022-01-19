@@ -1,34 +1,3 @@
-<?php
-include 'connection.php';
-session_start();
-$Uname = $_SESSION['username'];
-$sql1 = "SELECT * FROM user WHERE username = '$Uname' " ;
-$result1 = $conn->query($sql1);
-if ($result1->num_rows>0)
-{
-    while($row=$result1->fetch_assoc())
-    {
-      $uid = $row['UID'];
-      $Firstname1 = $row['fname'];
-      $Midname1 = $row['mname'];
-      $Lastname1 = $row['lname'];
-    }
-}
-
-
-$projects = "SELECT COUNT(Remarks) AS finished_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Finished'";
-$project_result = mysqli_query($conn, $projects);
-$row1 = mysqli_fetch_array($project_result);
-
-$projects2 = "SELECT COUNT(Remarks) AS ongoing_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Ongoing'";
-$project_result2 = mysqli_query($conn, $projects2);
-$row2 = mysqli_fetch_array($project_result2);
-
-$projects3 = "SELECT COUNT(Remarks) AS cancelled_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Cancelled'";
-$project_result3 = mysqli_query($conn, $projects3);
-$row3 = mysqli_fetch_array($project_result3);
-
-?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
@@ -97,7 +66,7 @@ $row3 = mysqli_fetch_array($project_result3);
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
               <a class="col-sm-12" href="appointment_list.php">Appointment/s</a>
-              <a class="col-sm-12" href="Project_list.php.php">Project/s</a>
+              <a class="col-sm-12" href="Project_list.php">Project/s</a>
             </div>
           </div>
 
@@ -119,7 +88,7 @@ $row3 = mysqli_fetch_array($project_result3);
                 </a>
                 <a href="#">
                   <span class="breadcrumb__inner">
-                    <span class="breadcrumb__title">Name of Proj ect</span>
+                    <span class="breadcrumb__title">Name of Project</span>
                   </span>
                 </a>
               </div>
@@ -128,12 +97,38 @@ $row3 = mysqli_fetch_array($project_result3);
               <div class="timeline--body">
                 <?php
                         include 'connection.php';
-                        $PID = $_SESSION['PID'];
-                        $sql1 = "SELECT * FROM timeline WHERE PID = '$PID' " ;
+                        session_start();
+                        $Project = $_GET['id'];
+
+                        $Uname = $_SESSION['username'];
+                       
+                        $sql1 = "SELECT * FROM user WHERE username = '$Uname' " ;
                         $result1 = $conn->query($sql1);
                         if ($result1->num_rows>0)
                         {
                             while($row=$result1->fetch_assoc())
+                            {
+                              $uid = $row['UID'];
+                              $Firstname1 = $row['fname'];
+                              $Midname1 = $row['mname'];
+                              $Lastname1 = $row['lname'];
+                            }
+                        }
+                        // $sql3 = "SELECT PID FROM project WHERE UID = '$uid' " ;
+                        // $result3 = $conn->query($sql3);
+                        // if ($result3->num_rows>0)
+                        // {
+                        //     while($row=$result3->fetch_assoc())
+                        //     {
+                        //       $PID = $row['PID'];
+                        //     }
+                        // }
+
+                        $sql2 = "SELECT * FROM timeline WHERE UID = '$uid' AND PID = '$Project' " ;
+                        $result2 = $conn->query($sql2);
+                        if ($result2->num_rows>0)
+                        {
+                            while($row=$result2->fetch_assoc())
                             {
                               $Pname = $row['ProjectName'];
                               $Pinfo = $row['ProjectInfo'];
@@ -149,6 +144,7 @@ $row3 = mysqli_fetch_array($project_result3);
                                   <p>
                                       $Pinfo
                                   </p>
+                                  $Remarks
                                 </div>
                               </div>";
                             }
