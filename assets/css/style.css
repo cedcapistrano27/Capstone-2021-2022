@@ -1462,7 +1462,7 @@ General Styles - Owlcarousel
 }
 
 .portfolio-page-header:before {
-  background: rgba(45, 45, 45, 0.45);
+  background: none;
 }
 
 /* Landing Page Header */
