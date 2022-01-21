@@ -51,6 +51,7 @@ $row3 = mysqli_fetch_array($project_result3);
     
     -->
     <!-- Default stylesheets-->
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="dashboardstyle.css" rel="stylesheet">
 
@@ -102,7 +103,7 @@ $row3 = mysqli_fetch_array($project_result3);
       <nav class="navbar navbar-custom navbar-fixed-top navbar-dark" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index_agency.php">BV Contruction</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="login.php">BV Contruction</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -246,8 +247,37 @@ $row3 = mysqli_fetch_array($project_result3);
         </div>
            
       </div>
-      
-      
+      </div>
+      <div class="bg-dark text-center " style="background-color: black;">
+          <div class="container " >
+            
+                  <h5 class="widget-title font-alt">About BV Construction</h5>
+               
+          </div>
+        </div>
+        
+        <footer class="footer bg-dark" style="background-color: black;text-align: center;">
+          <div class="container">
+            <div class="row text-center">
+              <div class="col-sm-3">
+                <p>Company proect with high quality services and lead modern look interior.</p>
+              </div>
+              <div class="col-sm-3">
+                <p>Phone: PH (+63)9958596092</p>
+              </div>
+              <div class="col-sm-3">
+                <p>Email:<a href="#"> bvconstrak@gamil.com</a></p>
+              </div>
+              <div class="col-sm-3">
+                <div class="footer-social-links"><a href="https://www.facebook.com/bvconstrak"><i class="fa fa-facebook" style="font-size: 20px;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+
 
         <!-- FOOTER -->
         
