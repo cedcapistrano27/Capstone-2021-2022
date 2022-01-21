@@ -1,3 +1,13 @@
+<?php 
+
+      include 'connection.php';
+      session_start();
+
+      $sql_pay ="SELECT * FROM payment ORDER BY PayID desc";
+       $result = mysqli_query($conn, $sql_pay);  
+
+       ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -367,7 +377,7 @@ footer{
     </div>
     <!--sidebar end-->
 
-    <div class="content">
+   <!--- <div class="content">
 
       <section style="display: flex; flex-direction: column; padding: 10px;">
         
@@ -456,16 +466,61 @@ footer{
 
 
         
-      </div>
+      </div>--->
 
-      </section>
+
+<form method="POST">
+      
+      <br /><br />  
+           <div class="container" style="width:900px; margin: auto; background: white;">  
+                <h2 align="center">Ajax PHP MySQL Date Range Search using jQuery DatePicker</h2>  
+                <h3 align="center">Order Data</h3><br />  
+                <div class="col-md-3">  
+                     <input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" />  
+                </div>  
+                <div class="col-md-3">  
+                     <input type="date" name="to_date" id="to_date" class="form-control" placeholder="To Date" />  
+                </div>  
+                <div class="col-md-5">  
+                     <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />  
+                </div>  
+                <div style="clear:both"></div>                 
+                <br />  
+                <div id="order_table">  
+                     <table class="table table-bordered">  
+                          <tr>  
+                                
+                               <th width="20%">Project</th>  
+                               <th width="20%">Payment Type</th>  
+                               <th width="20%">Downpayment</th>
+                               <th width="20%">Total Cost</th>  
+                               <th width="20%">Date Issued</th>    
+                          </tr>  
+                     <?php  
+                     while($row = mysqli_fetch_array($result))  
+                     {  
+                     ?>  
+                          <tr>     
+                               <td><?php echo $row["project_name"]; ?></td> 
+                               <td><?php echo $row["payment_type"]; ?></td>
+                               <td><?php echo $row["downpayment"]; ?></td>
+                               <td><?php echo $row["total_cost"]; ?></td>
+                               <td><?php echo $row["payment_issued"]; ?></td>  
+                          </tr>  
+                     <?php  
+                     }  
+                     ?>  
+                     </table>  
+                </div>  
+           </div>  
+
 
 
 
 
   </div>
 
-
+</form>
 
 </body>
 </html>
@@ -498,6 +553,40 @@ footer{
     document.querySelector(".day-name").innerHTML = dayName;
     document.querySelector(".date-number").innerHTML = dayNumber;
     document.querySelector(".year").innerHTML = year;
+
+
+
+     $(document).ready(function(){  
+           $.datepicker.setDefaults({  
+                dateFormat: 'yy-mm-dd'   
+           });  
+           $(function(){  
+                $("#from_date").datepicker();  
+                $("#to_date").datepicker();  
+           });  
+           $('#filter').click(function(){  
+                var from_date = $('#from_date').val();  
+                var to_date = $('#to_date').val();  
+                if(from_date != '' && to_date != '')  
+                {  
+                     $.ajax({  
+                          url:"filter.php",  
+                          method:"POST",  
+                          data:{from_date:from_date, to_date:to_date},  
+                          success:function(data)  
+                          {  
+                               $('#order_table').html(data);  
+                          }  
+                     });  
+                }  
+                else  
+                {  
+                     alert("Please Select Date");  
+                }  
+           });  
+      });  
+
+
     </script>
 
       
