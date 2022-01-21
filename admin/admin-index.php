@@ -225,7 +225,7 @@ section .calendar{
 
 /*widget css*/
 
-.color1, .color2, .color4, .color5{
+ .color2, .color4, .color5{
   background: rgba(0, 0, 0, 0.54);
 }
 
@@ -234,18 +234,24 @@ section .calendar{
     font-family: "Roboto", sans-serif;
     margin: 10px;
     padding: 20px;
-    width: 20%;
+    width: 25%;
     height: 90px;
     color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border: 3px white solid;
+    display: flex;
+    align-items: center;
 }
 .float-left{
-    float: left;
+    flex: 1.5;
+    text-align: center;
+    border: 1px red solid;
 }
 .float-right{
-    float: right;
+     flex: .5;
+     text-align: right;
+     border: 1px red solid;
 }
 .card-body h3{
     margin-top: 15px;
@@ -636,7 +642,7 @@ section .widget .card-body{
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->
@@ -650,7 +656,7 @@ section .widget .card-body{
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
     </div>
     <!--sidebar end-->
 
@@ -659,20 +665,7 @@ section .widget .card-body{
       <section id="dashboard">
         
 <div class="widget">
-        <!--Widget Start-->
-        <div class="card-body color1">
-            <div class="float-left">
-                <h3>
-                    <span class="currency">₱</span>
-                    <span class="count">20000</span>
-                </h3>
-                <p>Revenue</p>
-            </div>
-            <div class="float-right">
-                <i class="fas fa-money-bill-wave"></i>
-            </div>
-        </div>
-        <!--Widget End-->
+       
 
         <!--Widget Start-->
         <div class="card-body color2">
@@ -695,7 +688,7 @@ section .widget .card-body{
                 <h3>
                     <span class="count">191</span>
                 </h3>
-                <p>Appointments</p>
+                <p>Appointments for today</p>
             </div>
             <div class="float-right">
                 <i class="fas fa-handshake"></i>
@@ -739,6 +732,7 @@ section .widget .card-body{
 
 <!-----Top Selling Project and Top Sale Area--->
 <div class="bot-content">
+
 <div class="top-content">
 
   <div class="header-content">

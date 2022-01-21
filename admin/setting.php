@@ -3,14 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BV CONSTRUCTION | Administrators : Account</title>
+    <title>BV CONSTRUCTION | Administrators : Home</title>
     <link rel="icon" type="images/x-icon" href="images/logo.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<style>
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Finish TasK', 'In a Month'],
+          ['Success Project',  210],
+          ['Ongoing',      52],
+          ['Cancelled',  14]
+        ]);
+
+        var options = {
+          title: 'Summary In Projects',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <style>
 body{
   margin: 0;
   padding: 0;
@@ -180,61 +202,12 @@ label #sidebar_btn:hover{
 }
 
 
-/*Section Area*/
-.header-table{
-  color: white; 
-  background:rgba(0, 0, 0, 0.6); 
-  width: 50%; 
-  margin: auto; 
-  padding: 10px; 
-  text-align: center;
-  border-radius: 10px;
-  -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-}
-
-.search-bar{
-  margin-top: 30px;
-  margin-bottom: 20px;
-  margin-left: 40px;
-}
-
-table tbody tr td,tr{
-  padding: 10px;
-}
-
- table thead{
-  background: black;
-  color: white;
- }
-
- table thead th{
-  padding: 10px;
- }
-
     
-    footer{
-    width: 60%;
-    position: fixed;
-    left: 20%;
-    right: 20%;
-    z-index: -1;
-    background: rgba(0, 0, 0, 0.79);
-    bottom: 0;
-    border-radius: 5px 5px 0px 0px;
+  
 
-    }  
-    footer span{
-      color: white;
-      text-align: center;
-      font-size: 10px;
+/*Responsive CSS */
 
-    }
-
-
-/* Responsive CSS */
-
-@media screen and (max-width: 780px){
+@media screen and (max-width: 600px){
   .sidebar{
     display: none;
   }
@@ -242,7 +215,13 @@ table tbody tr td,tr{
   #sidebar_btn{
     display: none;
   }
-
+body{
+  max-width: 100%;
+  height: auto;
+}
+header{
+  width: 100%;
+}
   header .left_area span{
     font-size: 13px;
   }
@@ -261,12 +240,12 @@ table tbody tr td,tr{
 
   .mobile_nav{
     display: block;
-    width: calc(100% - 0%);
+    max-width: 100%;
   }
 
   .nav_bar{
     background: #222;
-    width: 100% - 0px;
+    max-width: calc(100% - 0%);
     margin-top: 70px;
     display: flex;
     justify-content: space-between;
@@ -309,126 +288,24 @@ table tbody tr td,tr{
     transition-property: background;
   }
 
-.mobile_nav_items a:hover{
-        background: #19B3D3;
-      }
+  .mobile_nav_items a:hover{
+    background: #19B3D3;
+  }
 
-      .mobile_nav_items i{
-        padding-right: 10px;
-      }
+  .mobile_nav_items i{
+    padding-right: 10px;
+  }
 
-      .active{
-        display: block;
-      }
-
-      section{
-        max-width: 90%;
-        margin-top: 40px;
-        margin-left: auto;
-        margin-right: auto;
-        height: auto;
-        display: flex;
-        flex-direction: column-reverse;
-      }
-
-      .calendar, .widget{
-        width: 100%;
-        padding-bottom: 20px;
-      }
-    /*widget*/
-      .color1{
-        grid-area: first;
-      }
-      .color2{
-        grid-area: second;
-      }
-      .color3{
-        grid-area: third;
-      }
-      .color4{
-        grid-area: fourth;
-      }
-      .color5{
-        grid-area: fifth;
-      }
-      .color6{
-        grid-area: sixth;
-      }
-
-      .widget{
-        display: grid;
-        grid-template-areas: 'first second' 'third fourth' 'fifth sixth';
-      }
+  .active{
+    display: block;
+  }
 
 
 
-      /*calendar*/
-
-
-    .calendar .calendar-body{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(15px);
-      border-bottom: 6px solid #4285F4;
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      box-shadow: 0 5px 25px rgb(1 1 1 / 15%);
-      width: 50%;
-    }
-
-    .calendar .calendar-body .month-name{
-      color: #fff;
-      background: #4285F4;
-      width: 100%;
-      font-size: 1.2em;
-      text-align: center;
-      font-weight: 400;
-      padding: 5px 0;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-    }
-
-    .calendar .calendar-body .day-name{
-      color: #fff;
-      font-size: 1em;
-      font-weight: 400;
-      margin-top: 10px;
-    }
-
-    .calendar .calendar-body .date-number{
-      color: #fff;
-      font-size: 4em;
-      font-weight: 600;
-      line-height: 1.2em;
-    }
-
-    .calendar .calendar-body .year{
-      color: #fff;
-      font-size: 1.2em;
-      font-weight: 400;
-      margin-bottom: 20px;
-    }
-
-    footer{
-      display: block;
-    }
 
 }
       
     </style>
-
-
-      <script>
-  $(document).ready(function(){
-    $('table tr').click(function(){
-      var id = $(this).attr('row_id');
-      window.location.replace("http://localhost/Capstone-2021-2022/admin/account-update.php?id="+ id);
-    });
-  });
-</script>
   </head>
   <body>
 
@@ -443,7 +320,7 @@ table tbody tr td,tr{
         <h3>BV <span>Construction</span></h3>
       </div>
       <div class="right_area">
-        <a href="#" class="logout_btn">Logout</a>
+        <a href="../index_agency.html" class="logout_btn">Logout</a>
       </div>
     </header>
     <!--header area end-->
@@ -477,76 +354,6 @@ table tbody tr td,tr{
     <!--sidebar end-->
 
     <div class="content">
-
-      <section>
-
-        <div class="header-table" style="">
-          
-            <h1>Client Accounts</h1>
-         
-            
-        </div>
-
-        <div class="search-bar" style="">
-              <span><label style="color: white; font-weight: bold; font-size:15px;">Search Client's Name : </label></span>
-              <input type="text" name="search" style="height: 5vh;" id="search" onkeyup="myFunction()">
-              
-            </div>
-
-        <div class="body-table" style="background: white; width:80%;margin: 20px auto;">
-
-          <table style="border-collapse: collapse; width:100%; font-size: 1.2rem; text-align:center;">
-            <thead>
-              <tr>
-                <th>Client ID</th>
-                <th>Client Name</th>
-                <th>E-mail Address</th>
-             
-              </tr>
-            </thead>
-            <tbody>
-                                 <?php 
-
-      include 'connection.php';
-
-      
-
-      
- 
-      $result = mysqli_query($conn, "SELECT * FROM user");
-
-      if ($result->num_rows > 0) {
-        
-        while ($row = mysqli_fetch_assoc($result)) {
-
-          echo "<tr row_id='".$row['UID']. "'> 
-          <td data-label='Client ID :'>" .$row["UID"]. "</td>" 
-          ."<td data-label='Client ID :'>" .$row["fname"]. " " .$row["mname"]. " ".$row["lname"]."</td>" 
-          ."<td data-label='Project Name :'>" .$row["email"]. "</td>"
-          ."</tr>";
-        }
-        echo "</table>";
-        
-
-      }else{
-    
-      }
-
-      $conn->close();
-
-
-       ?>
-            </tbody>
-          </table>
-          
-        </div>
-        
-
-        
-
-
-      </section>
-
 
 
 
@@ -588,24 +395,6 @@ table tbody tr td,tr{
 
 
 
-    function myFunction() {
-  var input, filter, table, table_row, table_data, i, txtValue;
-  input = document.getElementById("search");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("searcharea");
-  table_row = document.getElementsByTagName("tr");
-  for (i = 0; i < table_row.length; i++) {
-    table_data = table_row[i].getElementsByTagName("td")[1];
-    if (table_data) {
-      txtValue = table_data.textContent || table_data.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        table_row[i].style.display = "";
-      } else {
-        table_row[i].style.display = "none";
-      }
-    }       
-  }
-}
     </script>
 
       

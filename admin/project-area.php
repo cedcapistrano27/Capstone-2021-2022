@@ -336,11 +336,11 @@ td, th{
         <a href="#" class="logout_btn">Logout</a>
       </div>
     </header>
-    <!--header area end-->
+<!--header area end-->
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="../images/profic1.jpg" class="mobile_profile_image" alt="">
+        <img src="../images/avatar.png" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -348,21 +348,21 @@ td, th{
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../images/profic1.jpg" class="profile_image" alt="">
-        <h4>Danielle</h4>
+        <img src="../images/avatar.png" class="profile_image" alt="">
+        <h4>Admin User</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
     </div>
     <!--sidebar end-->
 
@@ -377,7 +377,7 @@ td, th{
           <div class="body-table" style="height: 80vh; padding: 10px; display: flex; flex-direction: column;">
 
             <div class="search-bar" style="margin: 20px 10px; text-align:right;">
-              <span><label style="color: white; font-weight: bold; font-size:15px;">Search Client's Name : </label></span>
+              <span><label style="color: white; font-weight: bold; font-size:15px;">Smart Search : </label></span>
               <input type="text" name="search" style="height: 5vh;" id="search" onkeyup="myFunction()">
               
             </div>
@@ -390,7 +390,7 @@ td, th{
                     <th>Project ID</th>
                     <th>Client ID</th>
                     <th>Project Name</th>
-                    <th>Remarks</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
 

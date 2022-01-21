@@ -476,7 +476,7 @@ footer{
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->
@@ -484,13 +484,13 @@ footer{
     <div class="sidebar">
       <div class="profile_info">
         <img src="../images/avatar.png" class="profile_image" alt="">
-        <h4>Admin</h4>
+        <h4>Admin User</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
     </div>
     <!--sidebar end-->
 

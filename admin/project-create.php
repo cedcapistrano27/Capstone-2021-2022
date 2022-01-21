@@ -387,7 +387,7 @@ input[type=submit]:hover{
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->
@@ -401,7 +401,7 @@ input[type=submit]:hover{
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
     </div>
     <!--sidebar end-->
 
@@ -417,6 +417,7 @@ input[type=submit]:hover{
       if (isset($_POST['create'])) {
        
        $ProjectName = $_POST['projname'];
+       $Location = $_POST['location'];
        $clientName = $_POST['client'];
        $Paytype = $_POST['paymenttype'];
        $DownpaymentAmount = $_POST['downpaid'];
@@ -476,6 +477,22 @@ Total Cost : $TotalAmount')";
 
              <div class="label" style="flex: 1.5;">
               <span><input type="text" name="projname"></span> 
+            </div>
+
+        </div>
+
+        <div class="form-input">
+            
+            <div class="label" style="flex: 1;">
+              <span><label>Project Location</label></span> 
+            </div>
+
+            <div class="label" style="flex:.5;">
+              <span>:</span> 
+            </div>
+
+             <div class="label" style="flex: 1.5;">
+              <span><input type="text" name="location"></span> 
             </div>
 
         </div>

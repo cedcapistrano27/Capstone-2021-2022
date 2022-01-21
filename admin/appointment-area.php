@@ -651,8 +651,7 @@ summary, p{
         <a href="#" class="logout_btn">Logout</a>
       </div>
     </header>
-    <!--header area end-->
-
+   <!--header area end-->
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
@@ -660,15 +659,14 @@ summary, p{
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
-       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
+        <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->
-
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
@@ -679,7 +677,7 @@ summary, p{
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
-        <a href="account-area.php"><i class="fas fa-user"></i><span>ACCOUNT</span></a>
+        <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
     </div>
     <!--sidebar end-->
 
