@@ -425,8 +425,10 @@ input[type=submit]:hover, .createBtn a:hover{
           $ProjectID = $row['PID'];
           $ClientID = $row['UID'];
           $ProjectName = $row['project_name'];
-          $ProjectInfo = $row['project_info'];
+          $location = $row['Location'];
+          $scope = $row['scope'];
           $Remarks = $row['remarks'];
+          $target = $row['TargetDate'];
           $DateIssue = $row['Pdate'];
 
         }
@@ -447,7 +449,7 @@ input[type=submit]:hover, .createBtn a:hover{
         <div class="form-input">
             
             <div class="label" >
-              <span><label>Project Name</label></span> 
+              <span><label>Project ID</label></span> 
             </div>
 
             <div class="label">
@@ -455,7 +457,7 @@ input[type=submit]:hover, .createBtn a:hover{
             </div>
 
              <div class="label" >
-              <span><input type="text" name="projname" value="<?php echo $ProjectName; ?>" readonly></span> 
+              <span><input type="text" name="projname" value="<?php echo $ProjectID; ?>" readonly></span> 
             </div>
 
         </div>
@@ -476,14 +478,66 @@ input[type=submit]:hover, .createBtn a:hover{
 
         </div>
 
+        <div class="form-input">
+            
+            <div class="label" >
+              <span><label>Scope Of Works</label></span> 
+            </div>
+
+            <div class="label" >
+              <span>:</span> 
+            </div>
+
+             <div class="label" >
+             <span><input list="scopes" name="scope" id="scope">
+                <datalist id="scopes">
+                  <option value="General Works"></option>
+                  <option value="Ceiling Works"></option>
+                  <option value="Painting Works"></option>
+                  <option value="Electrical Works"></option>
+                  <option value="Tile Works"></option>
+                  <option value="Flooring Works"></option>
+                  <option value="Others"></option>
+                </datalist>
+              </span> 
+            </div>
+
+        </div>
+
+    <div class="form-input">
+            
+            <div class="label" >
+              <span><label>Remarks</label></span> 
+            </div>
+
+            <div class="label" >
+              <span>:</span> 
+            </div>
+
+             <div class="label" >
+              <span><input list="remarks" name="remark" id="remark">
+                <datalist id="remarks">
+                  <option value="Ongoing">Ongoing</option>
+                  <option value="Cancelled">Cancelled</option>
+                  <option value="Completed">Completed</option>
+                </datalist>
+              </span>  
+            </div>
+
+        </div>
+
+
         <?php 
 
         if (isset($_POST['update'])) {
           $CID = $_POST['client'];
           $proj = $_POST['projname'];
+          $scope = $_POST['scope'];
           $info = $_POST['info'];
+          $remark = $_POST['remark'];
 
-            $sql_time ="INSERT INTO timeline(UID, ProjectName, ProjectInfo, DateIssued) VALUES ('$CID','$proj','$info',current_timestamp())"; 
+            $sql_time ="INSERT INTO timeline(PID, UID, Uscope, ProjectInfo, DateIssued, Remarks) 
+            VALUES ('$proj','$CID','$scope','$info',current_timestamp(), '$remark')"; 
 
             $res_time = mysqli_query($conn, $sql_time);
 

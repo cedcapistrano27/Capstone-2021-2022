@@ -377,7 +377,7 @@ td, th{
           <div class="body-table" style="height: 80vh; padding: 10px; display: flex; flex-direction: column;">
 
             <div class="search-bar" style="margin: 20px 10px; text-align:right;">
-              <span><label style="color: white; font-weight: bold; font-size:15px;">Smart Search : </label></span>
+              <span><label style="color: white; font-weight: bold; font-size:15px;">Search : </label></span>
               <input type="text" name="search" style="height: 5vh;" id="search" onkeyup="myFunction()">
               
             </div>

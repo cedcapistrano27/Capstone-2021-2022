@@ -249,11 +249,11 @@ input, select{
   background: black; 
   padding: 10px; 
   width: 70% ; 
-  height: 10vh; 
-  margin:20px auto; 
+  height: 7vh; 
+  margin:10px auto; 
   text-align: center;
   font-variant: small-caps;
-  font-size: 1.10rem;
+  font-size: 1.1rem;
 
 }
 
@@ -417,30 +417,31 @@ input[type=submit]:hover{
       if (isset($_POST['create'])) {
        
        $ProjectName = $_POST['projname'];
+       $target = $_POST['target'];
+       $scope = $_POST['scope'];
        $Location = $_POST['location'];
        $clientName = $_POST['client'];
        $Paytype = $_POST['paymenttype'];
        $DownpaymentAmount = $_POST['downpaid'];
        $TotalAmount = $_POST['fullpaid'];
-      $SummayInfo = $_POST['info'];
+      
 
-      $sql_create = "INSERT INTO project(UID, project_name, project_info, remarks, Pdate) VALUES (
+      $sql_create = "INSERT INTO project(UID, project_name,Location,scope, remarks,TargetDate, Pdate) VALUES (
       '$clientName',
       '$ProjectName',
-'Project Name : $ProjectName
-Additional Request : 
-$SummayInfo',
-      'Processed', current_timestamp())";
+      '$Location',
+      '$scope',
+      'Processed','$target', current_timestamp())";
 
-      $sql_payment = "INSERT INTO payment(UID, total_amount, payment_issued, project_name, receipt_details) 
+      $sql_payment = "INSERT INTO payment(UID, total_amount, payment_issued, project_name, payment_type, downpayment, total_cost) 
       VALUES (
       '$clientName',
       '$TotalAmount',
        current_timestamp(),
       '$ProjectName',
-'Payment-Type : $Paytype 
-Downpayment Cost : $DownpaymentAmount 
-Total Cost : $TotalAmount')";
+      '$Paytype', 
+      '$DownpaymentAmount', 
+      '$TotalAmount')";
 
       $result_insert = mysqli_query($conn, $sql_create);
       $result_pay = mysqli_query($conn, $sql_payment);
@@ -480,6 +481,33 @@ Total Cost : $TotalAmount')";
             </div>
 
         </div>
+
+
+        <div class="form-input">
+            
+            <div class="label" style="flex: 1;">
+              <span><label>Scope</label></span> 
+            </div>
+
+            <div class="label" style="flex:.5;">
+              <span>:</span> 
+            </div>
+
+             <div class="label" style="flex: 1.5;">
+              <span><input list="scopes" name="scope" id="scope">
+                <datalist id="scopes">
+                  <option value="Design">Design </option>
+                  <option value="Build">Build</option>
+                  <option value="Design & Build">Design & Build</option>
+                </datalist>
+
+
+
+              </span> 
+            </div>
+
+        </div>
+
 
         <div class="form-input">
             
@@ -590,21 +618,28 @@ Total Cost : $TotalAmount')";
             </div>
 
         </div>
-        
 
-      <div class="form-textarea" style="" id="totalpay">
+        <div class="form-input">
             
             <div class="label">
-              <span><label>Additional Request</label></span> 
+              <span><label>Target Date</label></span> 
             </div>
 
-             <div class="label" >
-              <textarea cols="50" rows="10" name="info" style="resize: none;"></textarea>
+            <div class="label">
+              <span>:</span> 
             </div>
+
+             <div class="label">
+              <span><input type="date" name="target" min="0" value="0"></span> 
+            </div>
+
+        </div>
+
+
 
         
-      </div>
-              
+
+      
 
                <div class="createBtn">
           <input type="submit" name="create" value="Create New Contract">

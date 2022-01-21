@@ -73,8 +73,9 @@ $status_sql = "SELECT * FROM timeline WHERE PID = '$project'";
                             	<div class="timeline__item">
                                     <div class="timeline__content">
                                     	<h2>Date : <?php echo $row["DateIssued"]; ?></h2>
-                                        <h4>Project Name : <?php echo $row['Uscope']; ?></h4>
+                                        <h4>Scope of Works: <?php echo $row['Uscope']; ?></h4>
                                     	<p>Information : <?php echo $row["ProjectInfo"]; ?></p>
+                                        <i><?php echo $row["Remarks"]; ?></i>
 
                                     </div>
                                 </div>

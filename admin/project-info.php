@@ -476,19 +476,6 @@ textarea{
 
         </div>
 
-        
-      <div class="form-input">
-            
-            <div class="label">
-              <span><label>Contract Summary Information</label></span> 
-            </div>
-
-             <div class="label">
-              <textarea cols="40" rows="10" readonly><?php echo $ProjectInfo; ?></textarea>
-            </div>
-
-        
-      </div>
 
       <div class="actionbtn" >
 
@@ -506,6 +493,20 @@ textarea{
                 <a href="project-area.php">Back</a>
                 
               </div>
+        
+      </div>
+
+       <div class="actionbtn" >
+
+         <div class="createBtn" style="flex:1; ">
+                <a href="cancel.php?Id=<?php echo $ProjectID; ?>">Cancelled</a>
+                
+              </div>
+
+           <div class="createBtn" style="flex:1;">
+                <a href="complete.php?ComId=<?php echo $ProjectID; ?>">Completed</a>
+                
+              </div>    
         
       </div>
 

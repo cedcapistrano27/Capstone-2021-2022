@@ -246,12 +246,12 @@ section .calendar{
 .float-left{
     flex: 1.5;
     text-align: center;
-    border: 1px red solid;
+    
 }
 .float-right{
      flex: .5;
      text-align: right;
-     border: 1px red solid;
+     
 }
 .card-body h3{
     margin-top: 15px;
@@ -667,19 +667,7 @@ section .widget .card-body{
 <div class="widget">
        
 
-        <!--Widget Start-->
-        <div class="card-body color2">
-            <div class="float-left">
-                <h3>
-                    <span class="count">345</span>
-                </h3>
-                <p>Customers</p>
-            </div>
-            <div class="float-right">
-                <i class="pe-7s-users"></i>
-            </div>
-        </div>
-        <!--Widget End-->
+    
         
         <!--Widget Start-->
 
@@ -696,20 +684,7 @@ section .widget .card-body{
         </div>
         <!--Widget End-->
 
-        <!--Widget Start-->
-
-        <div class="card-body color5">
-            <div class="float-left">
-                <h3>
-                    <span class="count"> 225 </span>
-                </h3>
-                <p>Tasks</p>
-            </div>
-            <div class="float-right">
-                <i class="fas fa-pencil-ruler"></i>
-            </div>
-        </div>
-        <!--Widget End-->
+     
 
 
      
@@ -730,77 +705,7 @@ section .widget .card-body{
     </div>
 <!----- Calendar Area end----->
 
-<!-----Top Selling Project and Top Sale Area--->
-<div class="bot-content">
 
-<div class="top-content">
-
-  <div class="header-content">
-     <div class="header-left">
-    <span><h3>Top Selling Project</h3></span>   
-   </div>
-
-   <div class="see-all">
-      <span>
-        <a href="sales-area.php">View More</a>
-      </span>     
-   </div>
-  </div>
-
-  
-
-  <div class="top-sell-content">
-
-    <table>
-      <thead>
-        <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Sample</td>
-          <td>Sample</td>
-          <td>Sample</td>
-        </tr>
-      </tbody>
-    </table>
-
-    
-  </div>
-  
-</div>
-
-<div class="sale-content">
-
- <div class="header-content">
-     <div class="header-left">
-    <span><h3>Projects</h3></span>   
-   </div>
-
-   <div class="see-all">
-      <span>
-        <a href="project-area.php">View More</a>
-      </span>     
-   </div>
-
-
-  </div>
-   <div id="donutchart" class="donut"></div>
- </div>
-
-
-  
-</div>
-
-</div>
-
-
-
-      </section>
-<!----- Dashboard Area end----->
 
 
 
