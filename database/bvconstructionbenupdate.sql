@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2022 at 11:30 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Jan 21, 2022 at 07:41 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -66,7 +65,7 @@ CREATE TABLE `payment` (
   `PayID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
   `total_amount` decimal(10,2) NOT NULL,
-  `payment_issued` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `payment_issued` datetime NOT NULL DEFAULT current_timestamp(),
   `project_name` text NOT NULL,
   `payment_type` varchar(255) NOT NULL,
   `downpayment` int(11) NOT NULL,
@@ -92,6 +91,7 @@ CREATE TABLE `project` (
   `PID` int(255) NOT NULL,
   `UID` int(11) NOT NULL,
   `project_name` varchar(250) NOT NULL,
+  `Location` text NOT NULL,
   `scope` varchar(255) NOT NULL,
   `project_info` text NOT NULL,
   `remarks` text NOT NULL,
@@ -102,12 +102,12 @@ CREATE TABLE `project` (
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`PID`, `UID`, `project_name`, `scope`, `project_info`, `remarks`, `Pdate`) VALUES
-(9, 3005, 'Reconstruction Of Bedroom', 'build', ' Project Name : Reconstruction Of Bedroom\n        Additional Request : - may sealing fan\n- mataas kama\n- d na alog kama\n', 'Processed', '2022-01-06'),
-(10, 3022, 'teres ni marites', 'design and build', ' Project Name : teres ni marites\r\n        Additional Request :\r\n        - sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample', 'Processed', '2022-01-06'),
-(11, 3022, 'sample', 'design', 'Project Name : sample\nAdditional Request : \nsample\nsample\nsample\nsample\nsample\nsample\nsample', 'Processed', '2022-01-06'),
-(12, 3010, 'Dream house of Henry Sy', 'design and build', 'Creating foundations in a 3000 acres and checking all of the possible builds we can provide to the client.', 'Ongoing', '0000-00-00'),
-(13, 3022, 'cr ni moy', 'design', 'nasira eh ', 'Completed', '0000-00-00');
+INSERT INTO `project` (`PID`, `UID`, `project_name`, `Location`, `scope`, `project_info`, `remarks`, `Pdate`) VALUES
+(9, 3005, 'Reconstruction Of Bedroom', '', 'build', ' Project Name : Reconstruction Of Bedroom\n        Additional Request : - may sealing fan\n- mataas kama\n- d na alog kama\n', 'Processed', '2022-01-06'),
+(10, 3022, 'teres ni marites', '', 'design and build', ' Project Name : teres ni marites\r\n        Additional Request :\r\n        - sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample', 'Processed', '2022-01-06'),
+(11, 3022, 'sample', '', 'design', 'Project Name : sample\nAdditional Request : \nsample\nsample\nsample\nsample\nsample\nsample\nsample', 'Processed', '2022-01-06'),
+(12, 3010, 'Dream house of Henry Sy', '', 'design and build', 'Creating foundations in a 3000 acres and checking all of the possible builds we can provide to the client.', 'Ongoing', '0000-00-00'),
+(13, 3022, 'cr ni moy', '', 'design', 'nasira eh ', 'Completed', '0000-00-00');
 
 -- --------------------------------------------------------
 
