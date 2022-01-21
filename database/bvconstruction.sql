@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2022 at 08:30 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.0
+-- Generation Time: Jan 21, 2022 at 06:18 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,23 +31,29 @@ CREATE TABLE `appointment` (
   `APPID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
   `date` datetime NOT NULL,
+  `atype` varchar(255) NOT NULL,
   `a_details` text NOT NULL,
   `status` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`APPID`, `UID`, `date`, `a_details`, `status`) VALUES
-(7, 3010, '2022-01-13 13:39:00', 'asfdggg', 'Approved'),
-(8, 3022, '2022-01-17 17:40:00', 'hatfdog ajsjhhajdshadpoj ', 'Approved'),
-(9, 3022, '2022-01-12 04:00:00', 'adksjhguyoiyu  m;alsfj missyou', 'Approved'),
-(10, 3010, '2022-01-16 17:00:00', 'for update of the ongoing project aka Payamansion 5.6', 'pending'),
-(11, 3010, '2022-01-07 04:40:00', 'unang una dapat to', 'pending'),
-(12, 3010, '2022-01-14 04:40:00', 'kasunod ng 13 po', 'pending'),
-(13, 3010, '2022-01-20 02:08:00', 'Nasira ang double deck', 'pending'),
-(14, 3024, '2022-01-12 00:38:00', 'kakakakakakakakakakakakakkakaka\r\nlalalalalalalallalalala\r\nhahahahahhahaha\r\npapapappaa', 'pending');
+INSERT INTO `appointment` (`APPID`, `UID`, `date`, `atype`, `a_details`, `status`) VALUES
+(7, 3010, '2022-01-13 13:39:00', '', 'asfdggg', 'Approved'),
+(8, 3022, '2022-01-17 17:40:00', 'Follow-up', 'hatfdog ajsjhhajdshadpoj ', 'Approved'),
+(9, 3022, '2022-01-12 04:00:00', 'New Project', 'adksjhguyoiyu  m;alsfj missyou', 'Approved'),
+(10, 3010, '2022-01-16 17:00:00', '', 'for update of the ongoing project aka Payamansion 5.6', 'Approved'),
+(11, 3010, '2022-01-07 04:40:00', '', 'unang una dapat to', 'Approved'),
+(12, 3010, '2022-01-14 04:40:00', '', 'kasunod ng 13 po', 'Approved'),
+(13, 3010, '2022-01-20 02:08:00', '', 'Nasira ang double deck', 'pending'),
+(14, 3024, '2022-01-12 00:38:00', '', 'kakakakakakakakakakakakakkakaka\r\nlalalalalalalallalalala\r\nhahahahahhahaha\r\npapapappaa', 'pending'),
+(15, 3010, '2022-01-19 06:14:00', '', 'hahahaha hatdog na may cheese', 'pending'),
+(23, 0, '0000-00-00 00:00:00', '', 'appoinment ako', 'Approved'),
+(24, 3023, '2022-01-12 05:37:00', '', 'appoinment ako', 'Approved'),
+(25, 3022, '2022-01-05 05:34:00', 'New Project', 'flooring and tiles', 'pending'),
+(27, 3022, '2022-01-20 21:00:00', 'Follow-up', 'Demon slayer season 2', 'Approved');
 
 -- --------------------------------------------------------
 
@@ -59,19 +65,24 @@ CREATE TABLE `payment` (
   `PayID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
   `total_amount` decimal(10,2) NOT NULL,
-  `payment_issued` datetime NOT NULL DEFAULT current_timestamp(),
+  `payment_issued` date NOT NULL DEFAULT current_timestamp(),
   `project_name` text NOT NULL,
-  `receipt_details` text NOT NULL
+  `payment_type` varchar(255) NOT NULL,
+  `downpayment` int(11) NOT NULL,
+  `total_cost` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`PayID`, `UID`, `total_amount`, `payment_issued`, `project_name`, `receipt_details`) VALUES
-(2, 3005, '120000.00', '2022-01-06 22:10:52', 'Reconstruction Of Bedroom', 'Payment-Type : Fully-Paid \n       Downpayment Cost : 0 \n       Total Cost : 120000'),
-(3, 3022, '32450.00', '2022-01-06 22:35:52', 'teres ni marites', 'Payment-Type : Downpayment \r\n       Downpayment Cost : 32450 \r\n       Total Cost : 32450'),
-(4, 3022, '77000.00', '2022-01-06 22:38:19', 'sample', 'Payment-Type : Downpayment \r\n       Downpayment Cost : 77000 \r\n       Total Cost : 77000');
+INSERT INTO `payment` (`PayID`, `UID`, `total_amount`, `payment_issued`, `project_name`, `payment_type`, `downpayment`, `total_cost`) VALUES
+(2, 3005, '120000.00', '2022-01-06', 'Reconstruction Of Bedroom', 'Fully-paid', 0, 120000),
+(3, 3022, '32450.00', '2022-01-06', 'teres ni marites', 'Downpayment ', 5000, 32450),
+(4, 3022, '77000.00', '2022-01-06', 'sample', 'Downpayment ', 7700, 15000),
+(5, 3005, '190000.00', '2022-01-21', 'motor chris', 'Fully-Paid', 0, 190000),
+(6, 3005, '190000.00', '2022-01-21', 'motor chris', 'Fully-Paid', 0, 190000),
+(7, 3022, '120000.00', '2022-01-22', 'Paa ni Ben', 'Downpayment', 5000, 120000);
 
 -- --------------------------------------------------------
 
@@ -83,19 +94,26 @@ CREATE TABLE `project` (
   `PID` int(255) NOT NULL,
   `UID` int(11) NOT NULL,
   `project_name` varchar(250) NOT NULL,
+  `Location` text NOT NULL,
+  `scope` varchar(255) NOT NULL,
   `project_info` text NOT NULL,
   `remarks` text NOT NULL,
-  `Pdate` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `TargetDate` varchar(250) NOT NULL,
+  `Pdate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`PID`, `UID`, `project_name`, `project_info`, `remarks`, `Pdate`) VALUES
-(9, 3005, 'Reconstruction Of Bedroom', ' Project Name : Reconstruction Of Bedroom\n        Additional Request : - may sealing fan\n- mataas kama\n- d na alog kama\n', 'Processed', '2022-01-06'),
-(10, 3022, 'teres ni marites', ' Project Name : teres ni marites\r\n        Additional Request :\r\n         \r\n        - sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample', 'Processed', '2022-01-06'),
-(11, 3022, 'sample', 'Project Name : sample\nAdditional Request : \nsample\nsample\nsample\nsample\nsample\nsample\nsample', 'Processed', '2022-01-06');
+INSERT INTO `project` (`PID`, `UID`, `project_name`, `Location`, `scope`, `project_info`, `remarks`, `TargetDate`, `Pdate`) VALUES
+(9, 3005, 'Reconstruction Of Bedroom', '', 'build', ' Project Name : Reconstruction Of Bedroom\n        Additional Request : - may sealing fan\n- mataas kama\n- d na alog kama\n', 'Completed', '', '2022-01-06'),
+(10, 3022, 'teres ni marites', '', 'design and build', ' Project Name : teres ni marites\r\n        Additional Request :\r\n        - sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample', 'Completed', '', '2022-01-06'),
+(11, 3022, 'sample', '', 'design', 'Project Name : sample\nAdditional Request : \nsample\nsample\nsample\nsample\nsample\nsample\nsample', 'Cancelled', '', '2022-01-06'),
+(12, 3010, 'Dream house of Henry Sy', '', 'design and build', 'Creating foundations in a 3000 acres and checking all of the possible builds we can provide to the client.', 'Ongoing', '', '0000-00-00'),
+(13, 3022, 'cr ni moy', '', 'design', 'nasira eh ', 'Completed', '', '0000-00-00'),
+(14, 3005, 'motor chris', 'makati', 'Build', '', 'Processed', '2022-01-16', '2022-01-21'),
+(15, 3022, 'Paa ni Ben', 'manila', 'Design', '', 'Processed', '2026-11-26', '2022-01-22');
 
 -- --------------------------------------------------------
 
@@ -105,10 +123,11 @@ INSERT INTO `project` (`PID`, `UID`, `project_name`, `project_info`, `remarks`, 
 
 CREATE TABLE `timeline` (
   `TimeID` int(11) NOT NULL,
+  `PID` int(11) NOT NULL,
   `UID` int(11) NOT NULL,
-  `ProjectName` varchar(250) NOT NULL,
+  `Uscope` varchar(250) NOT NULL,
   `ProjectInfo` text NOT NULL,
-  `DateIssued` date NOT NULL DEFAULT current_timestamp(),
+  `DateIssued` date NOT NULL,
   `Remarks` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -116,15 +135,18 @@ CREATE TABLE `timeline` (
 -- Dumping data for table `timeline`
 --
 
-INSERT INTO `timeline` (`TimeID`, `UID`, `ProjectName`, `ProjectInfo`, `DateIssued`, `Remarks`) VALUES
-(1, 3022, 'teres ni marites', 'Nalagyan na ang mga bakal sa pader', '2022-01-06', ''),
-(2, 3022, 'sample', 'ASMASkasmdnasdA', '2022-01-07', ''),
-(3, 3022, 'sample', 'ASMASkasmdnasdAvvvASMASkasmdnasdAASMASkasmdnasdA', '2022-01-07', ''),
-(4, 3005, 'Reconstruction Of Bedroom', 'nasira yung double deck', '2022-01-07', ''),
-(29, 3010, 'Pag gawa ng bubong', 'nagawa po ng bubong ng bahay. lahat ng lumang yero tinunaw para makagawa ng bago at mas pinatibay na bubong.', '2022-01-05', 'Finished'),
-(30, 3010, 'Door Making', 'Puputol ng sampung puno galing sa Palawan para gawing pintuan.', '2022-01-05', 'Ongoing'),
-(31, 3022, 'Floor Polishing', 'Aarkila ng mga bata para magbunot ng sahig at ng kumintab ito.', '2022-01-05', ''),
-(32, 3010, 'Room Making', 'building new room from scratch', '2022-01-07', 'Ongoing');
+INSERT INTO `timeline` (`TimeID`, `PID`, `UID`, `Uscope`, `ProjectInfo`, `DateIssued`, `Remarks`) VALUES
+(1, 10, 3022, 'Design', 'Nalagyan na ang mga bakal sa pader', '2022-01-06', 'Ongoing'),
+(2, 11, 3022, 'Installation', 'ASMASkasmdnasdA', '2022-01-07', 'Ongoing'),
+(3, 11, 3022, 'Build', 'ASMASkasmdnasdAvvvASMASkasmdnasdAASMASkasmdnasdA', '2022-01-07', 'Cancelled'),
+(4, 0, 3005, 'Reconstruction Of Bedroom', 'nasira yung double deck', '2022-01-07', ''),
+(29, 0, 3010, 'Pag gawa ng bubong', 'nagawa po ng bubong ng bahay. lahat ng lumang yero tinunaw para makagawa ng bago at mas pinatibay na bubong.', '2022-01-05', 'Finished'),
+(30, 0, 3010, 'Door Making', 'Puputol ng sampung puno galing sa Palawan para gawing pintuan.', '2022-01-05', 'Ongoing'),
+(31, 12, 3022, 'Floor Polishing', 'Aarkila ng mga bata para magbunot ng sahig at ng kumintab ito.', '2022-01-05', 'Finished'),
+(32, 0, 3010, 'Room Making', 'building new room from scratch', '2022-01-07', 'Ongoing'),
+(33, 13, 3022, 'Build', 'House Walls', '0000-00-00', 'Ongoing'),
+(34, 14, 3005, 'Electrical Works', 'D pa tapos', '2022-01-21', 'Ongoing'),
+(35, 14, 3005, 'Electrical Works', 'tapos na', '2022-01-21', 'Completed');
 
 -- --------------------------------------------------------
 
@@ -153,7 +175,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumber`, `ID_proof`, `username`, `password`, `usertype`) VALUES
 (3005, 'chris', 'g', 'cullados', 'tanzang luma 6', 'gogo@gmail.com', 922278489, 'sss id, umid id, philhealth id, national id', 'xtianpuh', '12345678', 'admin'),
 (3010, 'Danielle', 'P', 'Capistrano', 'imus', 'maosdu@gmail.com', 102884, '', 'user3', 'qwerty', 'common'),
-(3022, 'Bagong', 'N', 'User', 'Bagumbayan', 'bagong@email', 34735678, 'Drivers License', 'bagonguser', 'qwerty123', 'common'),
+(3022, 'benedict', 'gutierrez', 'bautista', 'Springville Ave', 'bbendict08@gmail.com', 456456, 'Passport', 'bagonguser', '12345678', 'common'),
 (3023, '', '', '', '', 'christiancullados73@gmail.com', 0, '', 'newuser2', '12345678', 'common'),
 (3024, 'Mukbang', 'H', 'Pamore', 'Imus meow', 'test@gmail.com', 977283731, 'SSS ID', 'newuser', 'Manila123', 'common');
 
@@ -172,6 +194,12 @@ ALTER TABLE `appointment`
 --
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`PayID`);
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`PID`);
 
 --
 -- Indexes for table `timeline`
@@ -193,19 +221,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `APPID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `APPID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `timeline`
 --
 ALTER TABLE `timeline`
-  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `user`
