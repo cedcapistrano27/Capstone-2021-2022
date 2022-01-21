@@ -11,7 +11,7 @@ $result = $statement->fetchAll();
  include 'connection.php'; 
 
 $project = $_GET['timeId'];
-$status_sql = "SELECT * FROM timeline WHERE ProjectName = '$project'";
+$status_sql = "SELECT * FROM timeline WHERE PID = '$project'";
 
         $res_p = mysqli_query($conn, $status_sql);
 
@@ -20,15 +20,19 @@ $status_sql = "SELECT * FROM timeline WHERE ProjectName = '$project'";
         while ($row = mysqli_fetch_assoc($res_p)) {
           $timeID = $row['TimeID'];
           $ClientID = $row['UID'];
-          $ProjectName = $row['ProjectName'];
+          $ProjectName = $row['PID'];
+          $Scope = $row['Uscope'];
           $ProjectInfo = $row['ProjectInfo'];
           $date = $row['DateIssued'];
+
+         
         
 
         }
-
-        
         }
+
+
+         
 
 ?>
 
@@ -51,7 +55,7 @@ $status_sql = "SELECT * FROM timeline WHERE ProjectName = '$project'";
     <body>  
         <div class="container">
 			<br />
-			<h3 align="center">Project Timeline : <?php echo $ProjectName; ?></h3>
+			<h3 align="center">Project Timeline :</h3>
 
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -69,7 +73,7 @@ $status_sql = "SELECT * FROM timeline WHERE ProjectName = '$project'";
                             	<div class="timeline__item">
                                     <div class="timeline__content">
                                     	<h2>Date : <?php echo $row["DateIssued"]; ?></h2>
-                                        <h4>Project Name : <?php echo $row["ProjectName"]; ?></h4>
+                                        <h4>Project Name : <?php echo $row['Uscope']; ?></h4>
                                     	<p>Information : <?php echo $row["ProjectInfo"]; ?></p>
 
                                     </div>

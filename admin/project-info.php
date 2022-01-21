@@ -498,7 +498,7 @@ textarea{
               </div>
 
            <div class="createBtn" style="flex:1;">
-                <a href="vertical-timeline.php?timeId=<?php echo $ProjectName; ?>">Preview Timeline</a>
+                <a href="vertical-timeline.php?timeId=<?php echo $ProjectID; ?>">Preview Timeline</a>
                 
               </div>    
 
