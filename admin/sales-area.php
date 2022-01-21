@@ -1,6 +1,7 @@
 <?php 
 
       include 'connection.php';
+      include 'filter.php';
       session_start();
 
       $sql_pay ="SELECT * FROM payment ORDER BY PayID desc";
@@ -19,8 +20,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
+    <link href='jquery-ui.min.css' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+    
+      <script src='jquery-3.3.1.js' type='text/javascript'></script>
+      <script src='jquery-ui.min.js' type='text/javascript'></script>
+      <script type='text/javascript'>
+      $(document).ready(function(){
+        $('.dateFilter').datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+      });
+       </script>
     <style>
 body{
   margin: 0;
@@ -476,13 +488,13 @@ footer{
                 <h2 align="center">Ajax PHP MySQL Date Range Search using jQuery DatePicker</h2>  
                 <h3 align="center">Order Data</h3><br />  
                 <div class="col-md-3">  
-                     <input type="date" name="from_date" id="from_date" class="form-control" placeholder="From Date" />  
+                      Start Date <input type='text' class='dateFilter' name='fromDate' value='<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>'>
                 </div>  
                 <div class="col-md-3">  
-                     <input type="date" name="to_date" id="to_date" class="form-control" placeholder="To Date" />  
+                      End Date <input type='text' class='dateFilter' name='endDate' value='<?php if(isset($_POST['endDate'])) echo $_POST['endDate']; ?>'>
                 </div>  
                 <div class="col-md-5">  
-                     <input type="button" name="filter" id="filter" value="Filter" class="btn btn-info" />  
+                     <input type="submit" name="but_search" id="filter" value="Search" class="dateFilter"/>  
                 </div>  
                 <div style="clear:both"></div>                 
                 <br />  
@@ -496,20 +508,44 @@ footer{
                                <th width="20%">Total Cost</th>  
                                <th width="20%">Date Issued</th>    
                           </tr>  
-                     <?php  
-                     while($row = mysqli_fetch_array($result))  
-                     {  
-                     ?>  
-                          <tr>     
-                               <td><?php echo $row["project_name"]; ?></td> 
-                               <td><?php echo $row["payment_type"]; ?></td>
-                               <td><?php echo $row["downpayment"]; ?></td>
-                               <td><?php echo $row["total_cost"]; ?></td>
-                               <td><?php echo $row["payment_issued"]; ?></td>  
-                          </tr>  
-                     <?php  
-                     }  
-                     ?>  
+                     <?php 
+                        $emp_query = "SELECT * FROM payment WHERE 1 ";
+
+                        if(isset($_POST['but_search'])){
+                          $fromDate = $_POST['fromDate'];
+                          $endDate = $_POST['endDate'];
+                
+                          if(!empty($fromDate) && !empty($endDate)){
+                            $emp_query .= " and payment_issued between '".$fromDate."' and '".$endDate."' ";
+                          }
+                        }
+                        $emp_query .= " ORDER BY payment_issued DESC";
+                        $paymentRecords = mysqli_query($conn,$emp_query);
+
+                        if(mysqli_num_rows($paymentRecords) > 0){
+                          while($empRecord = mysqli_fetch_assoc($paymentRecords)){
+                            $pname = $empRecord['project_name'];
+                            $payment = $empRecord['payment_type'];
+                            $downpayment = $empRecord['downpayment'];
+                            $totalcost = $empRecord['total_cost'];
+                            $paymentissued = $empRecord['payment_issued'];  
+                       
+                          echo "<tr>";    
+                          echo "<td>".$pname."</td>";
+                          echo "<td>".$payment."</td>";
+                          echo "<td>".$downpayment."</td>";
+                          echo "<td>".$totalcost."</td>";
+                          echo "<td>".$paymentissued."</td>";
+                          echo "</tr>";    
+                          }
+                               
+                       
+                     }else{
+                      echo "<tr>";
+                      echo "<td colspan='4'>No record found.</td>";
+                      echo "</tr>";
+                    }  
+                     ?>
                      </table>  
                 </div>  
            </div>  
@@ -525,68 +561,6 @@ footer{
 </body>
 </html>
 
- <script type="text/javascript">
-    $(document).ready(function(){
-      $('.nav_btn').click(function(){
-        $('.mobile_nav_items').toggleClass('active');
-      });
-    });
-
-     $('.count').each(function(){
-            $(this).prop('Counter',0).animate({
-                Counter: $(this).text()
-            }, {
-                duration:4000,
-                easing:'swing',
-                step: function(now){
-                    $(this).text(Math.ceil(now));
-                }
-            });
-        });
-
-    const dayNumber = new Date().getDate();
-    const year = new Date().getFullYear();
-    const dayName = new Date().toLocaleString("default", {weekday: "long"});
-    const monthName = new Date().toLocaleString("default", {month: "long"});
-
-    document.querySelector(".month-name").innerHTML = monthName;
-    document.querySelector(".day-name").innerHTML = dayName;
-    document.querySelector(".date-number").innerHTML = dayNumber;
-    document.querySelector(".year").innerHTML = year;
-
-
-
-     $(document).ready(function(){  
-           $.datepicker.setDefaults({  
-                dateFormat: 'yy-mm-dd'   
-           });  
-           $(function(){  
-                $("#from_date").datepicker();  
-                $("#to_date").datepicker();  
-           });  
-           $('#filter').click(function(){  
-                var from_date = $('#from_date').val();  
-                var to_date = $('#to_date').val();  
-                if(from_date != '' && to_date != '')  
-                {  
-                     $.ajax({  
-                          url:"filter.php",  
-                          method:"POST",  
-                          data:{from_date:from_date, to_date:to_date},  
-                          success:function(data)  
-                          {  
-                               $('#order_table').html(data);  
-                          }  
-                     });  
-                }  
-                else  
-                {  
-                     alert("Please Select Date");  
-                }  
-           });  
-      });  
-
-
-    </script>
+ 
 
       
