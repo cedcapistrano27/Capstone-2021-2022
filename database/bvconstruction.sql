@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2022 at 06:18 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Jan 22, 2022 at 04:45 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -64,11 +65,12 @@ INSERT INTO `appointment` (`APPID`, `UID`, `date`, `atype`, `a_details`, `status
 CREATE TABLE `payment` (
   `PayID` int(255) NOT NULL,
   `UID` int(255) NOT NULL,
-  `total_amount` decimal(10,2) NOT NULL,
-  `payment_issued` date NOT NULL DEFAULT current_timestamp(),
+  `payment_issued` date NOT NULL,
   `project_name` text NOT NULL,
   `payment_type` varchar(255) NOT NULL,
+  `reference_no` int(11) NOT NULL,
   `downpayment` int(11) NOT NULL,
+  `balance` decimal(65,2) NOT NULL,
   `total_cost` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -76,13 +78,13 @@ CREATE TABLE `payment` (
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`PayID`, `UID`, `total_amount`, `payment_issued`, `project_name`, `payment_type`, `downpayment`, `total_cost`) VALUES
-(2, 3005, '120000.00', '2022-01-06', 'Reconstruction Of Bedroom', 'Fully-paid', 0, 120000),
-(3, 3022, '32450.00', '2022-01-06', 'teres ni marites', 'Downpayment ', 5000, 32450),
-(4, 3022, '77000.00', '2022-01-06', 'sample', 'Downpayment ', 7700, 15000),
-(5, 3005, '190000.00', '2022-01-21', 'motor chris', 'Fully-Paid', 0, 190000),
-(6, 3005, '190000.00', '2022-01-21', 'motor chris', 'Fully-Paid', 0, 190000),
-(7, 3022, '120000.00', '2022-01-22', 'Paa ni Ben', 'Downpayment', 5000, 120000);
+INSERT INTO `payment` (`PayID`, `UID`, `payment_issued`, `project_name`, `payment_type`, `reference_no`, `downpayment`, `balance`, `total_cost`) VALUES
+(2, 3005, '2022-01-06', 'Reconstruction Of Bedroom', 'Fully-paid', 0, 0, '120000.00', 120000),
+(3, 3022, '2022-01-06', 'teres ni marites', 'Downpayment ', 0, 5000, '32450.00', 32450),
+(4, 3022, '2022-01-06', 'sample', 'Downpayment ', 0, 7700, '77000.00', 15000),
+(5, 3005, '2022-01-21', 'motor chris', 'Fully-Paid', 0, 0, '190000.00', 190000),
+(6, 3005, '2022-01-21', 'motor chris', 'Fully-Paid', 0, 0, '190000.00', 190000),
+(7, 3022, '2022-01-22', 'Paa ni Ben', 'Downpayment', 0, 5000, '120000.00', 120000);
 
 -- --------------------------------------------------------
 
