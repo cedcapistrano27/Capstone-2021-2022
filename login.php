@@ -35,7 +35,7 @@ if ($result->num_rows > 0)
       if($row["usertype"] == 'admin')
       {
 		$_SESSION["username"] = $username;
-        echo "<script> window.location.href='admin/admin-index.html' </script>  ";
+        echo "<script> window.location.href='admin/admin-index.php' </script>  ";
         header("Location: {$url}");
         exit;
       }
