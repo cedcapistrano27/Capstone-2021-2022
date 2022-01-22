@@ -248,7 +248,25 @@
       text-align: center;
       font-variant: small-caps;
     }
+    
+    .form1 {
+      padding: 15px;
+      border: 1px solid #666;
+      width: 40%;
+      background: #fff;
+      display: none;
+      position:absolute;
+      margin:100px 0 0 300px;
+      border-radius: 5px;
+      box-shadow: 2px 2px 10px rgb(133, 131, 131);
+      background-color:rgb(248, 245, 245);
+    }
 
+    #formButton {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
 
 
 
@@ -355,6 +373,13 @@
 
     }
 </style>
+<script>
+   $(document).ready(function() {
+      $("#formButton").click(function() {
+        $(".form1").toggle();
+      });
+    });
+</script>
   </head>
   <body>
 
@@ -475,7 +500,7 @@
                 <div class="header-row">  
                      <input type="submit" name="but_search" id="filter" value="Search" class="dateFilter"/>  
                 </div>
-              
+                
             </div>
 
             <div class="body-table"></div>
@@ -486,7 +511,31 @@
                 <div class="title-body" style="margin: 30px auto; color:white;font-variant: small-caps; padding:10px;background:rgba(0, 0, 0, 0.49); width: auto;-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); width:60%;text-align: center;">
             <span><h1 style="">Transaction</h1></span>
           </div>                  
-                
+                    
+           <div>
+                <button type="button" class="btn btn-primary col-sm-3" style="margin-top:20px;border-radius:5px;cursor:pointer;" id="formButton">New Payment</button>
+           </div>
+                <div class="form1">
+                  <form method="post" id="form1" style="">
+                    <!-- label tong pangalan!!!!!  -->
+                    <!--<label for="name" style="visibility:hidden;">Hey </label> <br>-->
+                    <div></div>
+                    <label for="" >Payment</label>
+                    <br>
+                    <label for="">Client</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
+                    <br>
+                    <label for="">Project Name</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
+                    <br>
+                    <label for="">Amount</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
+                    <br>
+                    <label for="">reference number</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
+                    <br>
+                    <label for="">Client</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
+                    <br>
+                    
+                    <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
+                  </form>
+                </div>
                 <div id="order_table">  
                      <table class="table table-bordered"> 
 
@@ -607,6 +656,9 @@
     document.querySelector(".day-name").innerHTML = dayName;
     document.querySelector(".date-number").innerHTML = dayNumber;
     document.querySelector(".year").innerHTML = year;
+    
+     
+    
 </script>
  
 

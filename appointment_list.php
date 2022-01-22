@@ -32,7 +32,7 @@ if (isset($_POST['request'])) {
   $result = mysqli_query($conn, $sql);
   if ($result) {
    echo " <script>alert('Appointment Created!') </script>";
-   echo "<script> window.location.href='http://localhost/Capstone-2021-2022/appointment_list.php' </script>  ";
+   echo "<script> window.location.href='appointment_list.php' </script>  ";
         header("Location: {$url}");
   }
 
