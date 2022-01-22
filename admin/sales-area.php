@@ -520,18 +520,113 @@
                     <!-- label tong pangalan!!!!!  -->
                     <!--<label for="name" style="visibility:hidden;">Hey </label> <br>-->
                     <div></div>
+                    
+
+                    
+
+
+
+                     
                     <label for="" >Payment</label>
                     <br>
-                    <label for="">Client</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
+                    <label for="">Client</label> 
+
+                    <span><input list="clients" name="client" id="client">
+                    <datalist id="clients">
+
+                       <?php 
+                     
+
+                $sql_client = "SELECT * FROM user";
+
+                $result=mysqli_query($conn, $sql_client);
+
+                if ($result->num_rows > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                      $clientF = $row['fname'];
+                      $clientM = $row['mname'];
+                      $clientL = $row['lname'];
+                      $clientID = $row['UID'];
+
+                      echo "
+                      <option value='$clientID'>$clientF $clientM $clientL</option>
+                      ";
+
+                  }
+                }
+                 ?>
+
+         
+              </datalist>
+            </span>
+
+
                     <br>
-                    <label for="">Project Name</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
+                    <label for="">Project Name</label> 
+
+                    <span><input list="projects" name="project" id="project">
+                    <datalist id="projects">
+
+                       <?php 
+                     
+
+                $sql = "SELECT * FROM project";
+
+                $result_p=mysqli_query($conn, $sql);
+
+                if ($result_p->num_rows > 0) {
+                  while ($row = mysqli_fetch_assoc($result_p)) {
+                    
+                      $projname = $row['project_name'];
+                      $PID = $row['PID'];
+
+                      echo "
+                      <option value='$projname'>$projname</option>
+                      ";
+
+                  }
+                }
+                 ?>
+
+         
+              </datalist>
+            </span>
+
+
                     <br>
-                    <label for="">Amount</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
+                    <label for="">Amount</label>
+                    <input type="number" name="amount" id="" style="margin-top:10px;" min="1">
                     <br>
-                    <label for="">reference number</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
+                    <label for="">reference number</label> <input type="number" min="8" maxlength="20" name="reference" id="" style="margin-top:10px;" >
                     <br>
-                    <label for="">Client</label> <input type="" name="appointment1" id="" style="margin-top:10px;">
-                    <br>
+
+                    <?php 
+
+                    if (isset($_POST['request'])) {
+
+                      $UID = $_POST['client'];
+                      $project = $_POST['project'];
+                      $amount = $_POST['amount'];
+                      $refno = $_POST['reference'];
+                      
+
+                      $sql_paycheck ="INSERT INTO payment( UID, payment_issued, project_name, payment_type, reference_no, balance) VALUES ('$UID', current_timestamp(),'$project','Balance','$refno','$amount')";
+
+                        $result_pay = mysqli_query($conn, $sql_paycheck);
+                        if ($result_pay == true) {
+                          echo "<script> alert('You have successfully inserted!') </script>";
+  echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/sales-area.php' </script>";
+                        }
+                    }
+
+
+
+
+
+
+
+                     ?>
+                    
                     
                     <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
                   </form>
