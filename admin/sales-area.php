@@ -33,315 +33,328 @@
         });
       });
        </script>
-    <style>
-body{
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
-  background: url(landing-page.jpg) no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-}
+<style>
+    body{
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      background: url(landing-page.jpg) no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
 
-header{
-  z-index: 1;
-  position: fixed;
-  background: #22242A;
-  padding: 20px;
-  width: calc(100% - 0%);
-  top: 0;
-  height: 30px;
-}
-.left_area{
-  display: flex;
-}
-.left_area img{
-  border-radius: 5px;
-  margin-right: 5px;
-}
+    header{
+      z-index: 1;
+      position: fixed;
+      background: #22242A;
+      padding: 20px;
+      width: calc(100% - 0%);
+      top: 0;
+      height: 30px;
+    }
+    .left_area{
+      display: flex;
+    }
+    .left_area img{
+      border-radius: 5px;
+      margin-right: 5px;
+    }
 
-.left_area h3{
-  color: #fff;
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 22px;
-  font-weight: 900;
-}
+    .left_area h3{
+      color: #fff;
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 900;
+    }
 
-.left_area span{
-  color: #19B3D3;
-}
+    .left_area span{
+      color: #19B3D3;
+    }
 
-.logout_btn{
-  padding: 5px;
-  background: #19B3D3;
-  text-decoration: none;
-  float: right;
-  margin-top: -30px;
-  margin-right: 40px;
-  border-radius: 2px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  transition: 0.5s;
-  transition-property: background;
-}
+    .logout_btn{
+      padding: 5px;
+      background: #19B3D3;
+      text-decoration: none;
+      float: right;
+      margin-top: -30px;
+      margin-right: 40px;
+      border-radius: 2px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      transition: 0.5s;
+      transition-property: background;
+    }
 
-.logout_btn:hover{
-  background: #0B87A6;
-}
+    .logout_btn:hover{
+      background: #0B87A6;
+    }
 
-.sidebar{
-  z-index: 1;
-  top: 0;
-  background: #2f323a;
-  margin-top: 70px;
-  padding-top: 30px;
-  position: fixed;
-  left: 0;
-  width: 250px;
-  height: calc(100% - 9%);
-  transition: 0.5s;
-  transition-property: left;
-  overflow-y: auto;
-}
+    .sidebar{
+      z-index: 1;
+      top: 0;
+      background: #2f323a;
+      margin-top: 70px;
+      padding-top: 30px;
+      position: fixed;
+      left: 0;
+      width: 250px;
+      height: calc(100% - 9%);
+      transition: 0.5s;
+      transition-property: left;
+      overflow-y: auto;
+    }
 
-.profile_info{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+    .profile_info{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-.sidebar .profile_info .profile_image{
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  margin-bottom: 10px;
-}
+    .sidebar .profile_info .profile_image{
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
 
-.sidebar .profile_info h4{
-  color: #ccc;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
+    .sidebar .profile_info h4{
+      color: #ccc;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
 
-.sidebar a{
-  color: #fff;
-  display: block;
-  width: 100%;
-  line-height: 60px;
-  text-decoration: none;
-  padding-left: 40px;
-  box-sizing: border-box;
-  transition: 0.5s;
-  transition-property: background;
-}
+    .sidebar a{
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 60px;
+      text-decoration: none;
+      padding-left: 40px;
+      box-sizing: border-box;
+      transition: 0.5s;
+      transition-property: background;
+    }
 
-.sidebar a:hover{
-  background: #19B3D3;
-}
+    .sidebar a:hover{
+      background: #19B3D3;
+    }
 
-.sidebar i{
-  padding-right: 10px;
-}
+    .sidebar i{
+      padding-right: 10px;
+    }
 
-label #sidebar_btn{
-  z-index: 1;
-  color: #fff;
-  position: fixed;
-  cursor: pointer;
-  left: 300px;
-  font-size: 20px;
-  margin: 5px 0;
-  transition: 0.5s;
-  transition-property: color;
-}
+    label #sidebar_btn{
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      font-size: 20px;
+      margin: 5px 0;
+      transition: 0.5s;
+      transition-property: color;
+    }
 
-label #sidebar_btn:hover{
-  color: #19B3D3;
-}
+    label #sidebar_btn:hover{
+      color: #19B3D3;
+    }
 
-#check:checked ~ .sidebar{
-  left: -185px;
-}
+    #check:checked ~ .sidebar{
+      left: -185px;
+    }
 
-#check:checked ~ .sidebar a span{
-  display: none;
-}
+    #check:checked ~ .sidebar a span{
+      display: none;
+    }
 
-#check:checked ~ .sidebar a{
-  font-size: 20px;
-  margin-left: 165px;
-  width: 100%;
-}
+    #check:checked ~ .sidebar a{
+      font-size: 20px;
+      margin-left: 165px;
+      width: 100%;
+    }
 
-.content{
-  width: 100% - 250px;
-  margin-top: 60px;
-  padding: 20px;
-  margin-left: 250px;
-  height: 100vh;
-  transition: 0.5s;
-}
+    .content{
+      width: 100% - 250px;
+      margin-top: 60px;
+      padding: 20px;
+      margin-left: 250px;
+      height: 100vh;
+      transition: 0.5s;
+    }
 
-#check:checked ~ .content{
-  margin-left: 60px;
-}
+    #check:checked ~ .content{
+      margin-left: 60px;
+    }
 
-#check:checked ~ .sidebar .profile_info{
-  display: none;
-}
+    #check:checked ~ .sidebar .profile_info{
+      display: none;
+    }
 
-#check{
-  display: none;
-}
+    #check{
+      display: none;
+    }
 
-.mobile_nav{
-  display: none;
-}
-
-
-/*Section Area*/
-section{
-  
-  width: 100% - 250px;
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  
-}
-
-
-    
-    footer{
-    width: 60%;
-    position: fixed;
-    left: 20%;
-    right: 20%;
-    z-index: -1;
-    background: rgba(0, 0, 0, 0.79);
-    bottom: 0;
-    border-radius: 5px 5px 0px 0px;
-
-    }  
-    footer span{
-      color: white;
-      text-align: center;
-      font-size: 10px;
-
+    .mobile_nav{
+      display: none;
     }
 
 
-/* Responsive CSS */
+    /*Section Area*/
+   
+
+    .header-table{
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .header-row{
+      flex: 1;  
+      padding: 10px;
+      text-align: center;
+      font-variant: small-caps;
+
+    }
+
+    .header-row input[type="date"], .header-row input[list], .header-row input[type="submit"] {
+      height: 4vh;
+      font-size: 18px;
+      text-align: center;
+      font-variant: inherit;
+    }
+
+    table{
+      margin: 30px auto;
+      border: 1px black solid;
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      
+    }
+
+    thead{
+      background: black;
+      color: white;
+    }
+
+    th,td{
+      padding: 10px;
+      text-align: center;
+      font-variant: small-caps;
+    }
+
+
+
+
+
+
+    /* Responsive CSS */
 
 @media screen and (max-width: 780px){
-  .sidebar{
-    display: none;
-  }
+      .sidebar{
+        display: none;
+      }
 
-  #sidebar_btn{
-    display: none;
-  }
+      #sidebar_btn{
+        display: none;
+      }
 
-  header .left_area span{
-    font-size: 13px;
-  }
+      header .left_area span{
+        font-size: 13px;
+      }
 
-  .content{
-    margin-left: 0;
-    margin-top: 0;
-    padding: 10px 20px;
-    transition: 0s;
+      .content{
+        margin-left: 0;
+        margin-top: 0;
+        padding: 10px 20px;
+        transition: 0s;
 
-  }
+      }
 
-  #check:checked ~ .content{
-    margin-left: 0;
-  }
+      #check:checked ~ .content{
+        margin-left: 0;
+      }
 
-  .mobile_nav{
-    display: block;
-    width: calc(100% - 0%);
-  }
+      .mobile_nav{
+        display: block;
+        width: calc(100% - 0%);
+      }
 
-  .nav_bar{
-    background: #222;
-    width: 100% - 0px;
-    margin-top: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
+      .nav_bar{
+        background: #222;
+        width: 100% - 0px;
+        margin-top: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
 
-  .nav_bar .mobile_profile_image{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
+      .nav_bar .mobile_profile_image{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
 
-  .nav_bar .nav_btn{
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-    transition: 0.5s;
-    transition-property: color;
-  }
+      .nav_bar .nav_btn{
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+        transition: 0.5s;
+        transition-property: color;
+      }
 
-  .nav_bar .nav_btn:hover{
-    color: #19B3D3;
-  }
+      .nav_bar .nav_btn:hover{
+        color: #19B3D3;
+      }
 
-  .mobile_nav_items{
-    background: #2F323A;
-    display: none;
-  }
+      .mobile_nav_items{
+        background: #2F323A;
+        display: none;
+      }
 
-  .mobile_nav_items a{
-    color: #fff;
-    display: block;
-    text-align: center;
-    letter-spacing: 1px;
-    line-height: 60px;
-    text-decoration: none;
-    box-sizing: border-box;
-    transition: 0.5s;
-    transition-property: background;
-  }
+      .mobile_nav_items a{
+        color: #fff;
+        display: block;
+        text-align: center;
+        letter-spacing: 1px;
+        line-height: 60px;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: 0.5s;
+        transition-property: background;
+      }
 
-  .mobile_nav_items a:hover{
-    background: #19B3D3;
-  }
+      .mobile_nav_items a:hover{
+        background: #19B3D3;
+      }
 
-  .mobile_nav_items i{
-    padding-right: 10px;
-  }
+      .mobile_nav_items i{
+        padding-right: 10px;
+      }
 
-  .active{
-    display: block;
-  }
+      .active{
+        display: block;
+      }
 
-  section{
-    width: auto;
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column-reverse;
-  }
+      section{
+        width: auto;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+      }
 
-
-
-footer{
-  display: block;
-}
-
-}
-      
-    </style>
+    }
+</style>
   </head>
   <body>
 
@@ -389,11 +402,12 @@ footer{
     </div>
     <!--sidebar end-->
 
-   <!--- <div class="content">
+   <div class="content">
 
       <section style="display: flex; flex-direction: column; padding: 10px;">
         
         <div class="first-container"  style=" margin: auto; width: 100%; border-radius: 5px; margin-bottom: 20px;">
+
           <div class="calendar" style="width:100%; padding:7px; margin-bottom:15px; font-size: 2rem; color:white; font-weight: 700;-webkit-text-stroke: 2px black;">
             <span><label class="day-name"></label></span>,
             <span><label class="month-name"></label></span>
@@ -402,10 +416,24 @@ footer{
             
           </div>
 
-          <div class="header-total" style="display:flex; text-align: center; align-items: center; background:rgba(255, 255, 255, 0.86); overflow: visible; height:25vh;">
+          <div class="header-total" style="display:flex; text-align: center; align-items: center; background:rgba(255, 255, 255, 0.86); overflow: visible; height:25vh; border-radius: 10px;">
             <div class="amount" style="flex: 1; font-size: 4rem; font-weight: 600; border-right: 10px grey double;">
               <span>Php</span>
-              <span class="count"> 17777</span>
+
+              <?php 
+
+
+          $sql = "SELECT SUM(total_cost) AS total FROM payment WHERE  payment_issued > DATE_SUB(NOW(), INTERVAL 1 DAY)";
+          $result = mysqli_query($conn, $sql);
+          while ($count_r = mysqli_fetch_assoc($result)) {
+          $num_rows = $count_r['total'];
+          //echo "<span class='count'>$num_rows</span>";
+          }
+
+
+               ?>
+
+              <span class="count"><?php echo $num_rows; ?></span>
             </div>
             <div class="image" style="flex: 1;">
               <img src="images/money-bag.png" width="180" height="180" style="">
@@ -415,120 +443,94 @@ footer{
 
       </div>
 
-      <div class="second-container" style="width:100%; height: 80vh; ">
+      <div class="second-container" style="width:100%; height: 100vh ; margin: 30px auto;">
 
-        <div class="date-area" style="width:100%; background: white; height:20vh; margin-top: 20px; display: flex; text-align:center; align-items:center; font-weight:600; border-radius: 10px;">
-
-
-          <div class="date-old" style="flex:1;">
-            <label>Select Old Transaction</label>
-           <input type="date" name="selectOld" style="height: 5vh; width: 70%; font-size:1.20rem;">
-          </div>
-
-
-
-          <div class="mid" style="flex:.25;">TO</div>
-        
-
-
-          <div class="date-new" style="flex:1;">
-            <label>Select Recent Transaction</label>
-             <input type="date" name="selectNew" style="height: 5vh; width: 70%; font-size:1.20rem;">
-          </div>
-
-  
-
-        <div class="totalAmount" style="flex:1;">
-           <label>Total Amount Transaction:</label>
-          <input type="text" name="totalAmount" style="height: 5vh; width: 70%; font-size:1.20rem;">
-        </div>
-
-        </div>
-
-        <div class="header-table" style="color: white;">
-          <h1>TRANSACTION</h1>
-        </div>
-
-        <div class="content-table" style="width:100%;">
-
-          <table style="background: whitesmoke; width:100%; text-align: center;  border-collapse: collapse;">
-            <thead style="background:black; color: white; font-size: 25px; font-family: monospace;">
-              <tr>
-                <th>Name</th>
-                 <th>Date Issued</th>
-                  <th>Amount</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>Danielle Capistrano</td>
-                <td>january 27, 2022</td>
-                <td>Php 20,299.00</td>
-              </tr>
-              <tr>
-                <td>Danielle Capistrano</td>
-                <td>january 27, 2022</td>
-                <td>Php 20,299.00</td>
-              </tr>
-            </tbody>
-          </table>
-          
-        </div>
-
-
-        
-      </div>--->
-
-
-<form method="POST">
+            <form method="POST">
       
-      <br /><br />  
-           <div class="container" style="width:900px; margin: auto; background: white;">  
-                <h2 align="center">Ajax PHP MySQL Date Range Search using jQuery DatePicker</h2>  
-                <h3 align="center">Order Data</h3><br />  
-                <div class="col-md-3">  
-                      Start Date <input type='text' class='dateFilter' name='fromDate' value='<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>'>
+   
+    <div class="container" style="width: 100%;">  
+
+            <div class="header-table">
+
+              <div class="header-row">  
+                      Start Date <input type='date' class='dateFilter' name='fromDate' value='<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>'>
                 </div>  
-                <div class="col-md-3">  
-                      End Date <input type='text' class='dateFilter' name='endDate' value='<?php if(isset($_POST['endDate'])) echo $_POST['endDate']; ?>'>
+
+
+                <div class="header-row">  
+                      End Date <input type='date' class='dateFilter' name='endDate' value='<?php if(isset($_POST['endDate'])) echo $_POST['endDate']; ?>'>
                 </div>  
-                <div class="col-md-5">  
+
+
+                <div class="header-row">
+                        Payment Type<span><input list="types" name="paytype" id="paytype" value="<?php if(isset($_POST['paytype'])) echo $_POST['paytype']; ?>">
+                <datalist id="types">
+                  <option value="Fully-Paid">Fully-Paid</option>
+                  <option value="Downpayment">Downpayment</option> 
+                </datalist>
+              </span> 
+                </div>  
+
+
+                <div class="header-row">  
                      <input type="submit" name="but_search" id="filter" value="Search" class="dateFilter"/>  
-                </div>  
-                <div style="clear:both"></div>                 
-                <br />  
+                </div>
+              
+            </div>
+
+            <div class="body-table"></div>
+                
+                  
+              
+
+                <div class="title-body" style="margin: 30px auto; color:white;font-variant: small-caps; padding:10px;background:rgba(0, 0, 0, 0.49); width: auto;-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); width:60%;text-align: center;">
+            <span><h1 style="">Transaction</h1></span>
+          </div>                  
+                
                 <div id="order_table">  
-                     <table class="table table-bordered">  
-                          <tr>  
+                     <table class="table table-bordered"> 
+
+                     <thead>
+
+                      <tr>  
                                 
-                               <th width="20%">Project</th>  
-                               <th width="20%">Payment Type</th>  
-                               <th width="20%">Downpayment</th>
-                               <th width="20%">Total Cost</th>  
-                               <th width="20%">Date Issued</th>    
-                          </tr>  
-                     <?php 
-                        $emp_query = "SELECT * FROM payment WHERE 1 ";
+                               <th>Project</th>  
+                               <th>Payment Type</th>  
+                               <th>Downpayment</th>
+                               <th>Total Cost</th>  
+                               <th>Date Issued</th>    
+                          </tr>
+                       
+                     </thead> 
+
+                     <tbody>
+
+                      <?php 
+                       //$emp_query = "SELECT * FROM payment WHERE 1";
 
                         if(isset($_POST['but_search'])){
                           $fromDate = $_POST['fromDate'];
                           $endDate = $_POST['endDate'];
+                          $paytype = $_POST['paytype'];
                 
                           if(!empty($fromDate) && !empty($endDate)){
-                            $emp_query .= " and payment_issued between '".$fromDate."' and '".$endDate."' ";
+                            //$emp_query .= "AND payment_type = '".$paytype."' AND payment_issued BETWEEN '".$fromDate."' AND '".$endDate."' ";
+                             $sql_pay ="SELECT * FROM payment WHERE payment_type = '$paytype' AND payment_issued BETWEEN '$fromDate' AND '$endDate' ORDER BY payment_issued DESC";
                           }
                         }
-                        $emp_query .= " ORDER BY payment_issued DESC";
-                        $paymentRecords = mysqli_query($conn,$emp_query);
+                        //$emp_query .= " ORDER BY payment_issued DESC";
 
-                        if(mysqli_num_rows($paymentRecords) > 0){
-                          while($empRecord = mysqli_fetch_assoc($paymentRecords)){
-                            $pname = $empRecord['project_name'];
-                            $payment = $empRecord['payment_type'];
-                            $downpayment = $empRecord['downpayment'];
-                            $totalcost = $empRecord['total_cost'];
-                            $paymentissued = $empRecord['payment_issued'];  
+                       
+
+                        $result_r = mysqli_query($conn,$sql_pay);
+
+                        if(mysqli_num_rows($result_r) > 0){
+                          while($row = mysqli_fetch_assoc($result_r)){
+                            $pname = $row['project_name'];
+                            $payment = $row['payment_type'];
+                            $downpayment = $row['downpayment'];
+                            $totalcost = $row['total_cost'];
+                            $paymentissued = $row['payment_issued'];  
                        
                           echo "<tr>";    
                           echo "<td>".$pname."</td>";
@@ -546,21 +548,66 @@ footer{
                       echo "</tr>";
                     }  
                      ?>
-                     </table>  
+
+                       
+                     </tbody>
+                            
+                    </table>  
                 </div>  
            </div>  
 
 
+           <div>
+             <a href='generatepdf.php' style='font-size: 13px; margin-right: auto; margin-left: auto; text-align: center; background: #131313; color: #E1E1E1; border-radius: 3px; cursor: pointer; text-decoration: none; line-height: 2.3; padding: 10px;'>DOWNLOAD PAYMENT DATA FILE</a>   
+           </div>
 
 
 
-  </div>
 
-</form>
+
+                </div>
+
+              </form>
+          </div>
+
+        </section>
+
+      </div>
+
+
 
 </body>
 </html>
+<script>
 
+  $(document).ready(function(){
+      $('.nav_btn').click(function(){
+        $('.mobile_nav_items').toggleClass('active');
+      });
+    });
+
+     $('.count').each(function(){
+            $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+            }, {
+                duration:4000,
+                easing:'swing',
+                step: function(now){
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+  
+    const dayNumber = new Date().getDate();
+    const year = new Date().getFullYear();
+    const dayName = new Date().toLocaleString("default", {weekday: "long"});
+    const monthName = new Date().toLocaleString("default", {month: "long"});
+
+    document.querySelector(".month-name").innerHTML = monthName;
+    document.querySelector(".day-name").innerHTML = dayName;
+    document.querySelector(".date-number").innerHTML = dayNumber;
+    document.querySelector(".year").innerHTML = year;
+</script>
  
 
       
