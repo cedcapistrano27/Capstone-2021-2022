@@ -1,11 +1,18 @@
 <?php
 include 'connection.php';
 session_start();
+//if the user is logged in the account
+if (isset($_SESSION['username'])) {
+		header('location:dashboard.php');
+	exit;
+}
 
 if(isset($_POST["login-btn"]))
 {
-$username = $_POST["uname"];
-$password = $_POST["pass"];
+	$username = $_POST["uname"];
+	$password = $_POST["pass"];
+	$usertype = $_POST["usertype"];
+
 
 $sql1 = "SELECT * FROM user WHERE username = '$username' ;";
 $result1 = $conn->query($sql1);
@@ -35,14 +42,14 @@ if ($result->num_rows > 0)
       if($row["usertype"] == 'admin')
       {
 		$_SESSION["username"] = $username;
-        echo "<script> window.location.href='admin/admin-index.html' </script>  ";
+        echo "<script> window.location.href='admin/admin-index.php' </script>  ";
         header("Location: {$url}");
         exit;
       }
       else if($row["usertype"] == 'common')
       {
 		$_SESSION["username"] = $username;
-		$_SESSION["fname"] = $Firstname;
+		$_SESSION["fname"] = $Firstname1;
 		$_SESSION["mname"] = $Midname;
 		$_SESSION["lname"] = $Lastname;
 		$_SESSION["address"] = $Address;
@@ -50,20 +57,41 @@ if ($result->num_rows > 0)
 		$_SESSION["cnumber"] = $Contact;
 		$_SESSION["ID_proof"] = $ID;
 		$_SESSION["password"] = $password;
-        echo "<script> window.location.href='dashboard.php' </script>  ";
-        header("Location: {$url}");
-        exit;
+
+		echo "<script> window.location.href='dashboard.php' </script>  ";
+		header("Location: {$url}");
+		exit;
       }
-      else
-      {
-        echo "<script>alert('Invalid user account. Contact your Administrator!')</script>";
-        exit;
-      }
+	  else
+	  {
+		echo "<script>alert('Invalid user account. Contact your Administrator!')</script>";
+		exit;
+	  }
     }
+
+
   $conn->close();
   }
+ 
+
+// $query = "SELECT count(*) AS count FROM user WHERE username= '$username' AND password = '$password' AND usertype ='$usertype';";
+// $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+// 	while ($row = mysqli_fetch_assoc($result)) {
+// 		$count = $row['count'];
+
+// 			if ($count == 1 AND $usertype = 'admin') {
+// 				$_SESSION['username'] = $username;
+// 				header('location:admin.php');
+// 				exit;
+// 			}
+// 			else{
+// 				$_SESSION['username'] = $username;
+// 				header('location:dashboard.php');
+// 			}
+// 		}
 
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -136,7 +164,13 @@ if ($result->num_rows > 0)
 						</span>
 						<a class="txt2" href="#">
 							Username / Password?
-						</a>
+						</a> <br>
+						<span class="txt1">
+							Login as <select name="usertype" id="">
+								<option value="common">user</option>
+								<option value="admin">admin</option>
+							</select>
+						</span>
 					</div>
 
 					<div class="text-center p-t-136">
@@ -145,7 +179,7 @@ if ($result->num_rows > 0)
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 						<br>
-						<a class="txt2" href="index_agency.php">
+						<a class="txt2" href="index.php">
 							Go to homepage
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 						</a>

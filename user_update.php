@@ -2,7 +2,11 @@
 
 include 'connection.php';
 session_start();
-
+//if the user clicks the back button from the browser, it prevents him to go back in the last page.
+if (!isset($_SESSION['username'])) {
+  header('location:login.php');
+  exit;
+  }
 
 // updating...
 $Uname = $_SESSION['username'];
@@ -121,6 +125,7 @@ if (isset($_POST['update'])) {
               <a class="col-sm-12" href="appointment_list.php">Appointment</a>
               <a class="col-sm-12" href="Project_list.php">Project</a>
               <a class="col-sm-12" href="Payment.php">Payment</a>
+              <a class="col-sm-12" href="user_update.php">Settings</a>
 
             </div>
           </div>

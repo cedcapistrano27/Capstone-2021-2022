@@ -1,6 +1,12 @@
 <?php
 include 'connection.php';
 session_start();
+//if the user clicks the back button from the browser, it prevents him to go back in the last page.
+if (!isset($_SESSION['username'])) {
+  header('location:login.php');
+  exit;
+  }
+
 $Uname = $_SESSION['username'];
 $sql1 = "SELECT * FROM user WHERE username = '$Uname' " ;
 $result1 = $conn->query($sql1);
@@ -106,6 +112,7 @@ $row3 = mysqli_fetch_array($project_result3);
               <a class="col-sm-12" href="appointment_list.php">Appointment</a>
               <a class="col-sm-12" href="Project_list.php">Project</a>
               <a class="col-sm-12" href="Project_list.php">Payment</a>
+              <a class="col-sm-12" href="user_update.php">Settings</a>
 
             </div>
           </div>
@@ -118,6 +125,7 @@ $row3 = mysqli_fetch_array($project_result3);
 
           <div class="rightpanel col-sm-10">
           <label style="font-size: 30px;margin:20px 0 0 0;">Payment</label>
+          <button>print baby!</button>
             <div class="header col-sm-12" style="margin: 30px 0 25px 0;padding: 0 0;">
               <div class="headername col-sm-12" style="border-radius: 20px;width:100%;height:100px;padding:0;">
                 <div class="col-sm-12" >

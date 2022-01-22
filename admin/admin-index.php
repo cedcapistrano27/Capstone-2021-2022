@@ -627,7 +627,7 @@ section .widget .card-body{
         <h3>BV <span>Construction</span></h3>
       </div>
       <div class="right_area">
-        <a href="../index_agency.html" class="logout_btn">Logout</a>
+        <a href="../admin-logout.php" class="logout_btn">Logout</a>
       </div>
     </header>
     <!--header area end-->
