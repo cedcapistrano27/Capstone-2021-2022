@@ -125,7 +125,12 @@ $row3 = mysqli_fetch_array($project_result3);
 
           <div class="rightpanel col-sm-10">
           <label style="font-size: 30px;margin:20px 0 0 0;">Payment</label>
-          <button>print baby!</button>
+          <div class="" id="divToPrint" style="display:none;">
+            <div style="width:200px;height:300px;background-color:teal;">
+
+            </div>
+          </div>
+          
             <div class="header col-sm-12" style="margin: 30px 0 25px 0;padding: 0 0;">
               <div class="headername col-sm-12" style="border-radius: 20px;width:100%;height:100px;padding:0;">
                 <div class="col-sm-12" >
@@ -158,7 +163,11 @@ $row3 = mysqli_fetch_array($project_result3);
             </div>  
             <div class="col-sm-12" style="border-radius: 5px;box-shadow: 2px 2px 10px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;height: 900px;">
             <div class="content">
-                <h2 class="col-sm-9">Payment History</h2>
+                <h2 class="col-sm-9">Payment History</h2> <br>
+                <div>
+            <!-- <input type="button" value="print" onclick="PrintDiv();" /> -->
+            <a href="generatepdf.php" style="height: 35px; width: 350; margin-right: auto; margin-left: auto; text-align: center; background: #055C9D; color: white; border-radius: 3px; cursor: pointer; text-decoration: none; line-height: 2.3; padding: 10px;">Print</a>
+                </div>
                 
                 <table   class="table table-hover my-1 caption-top table-borderless">
                   <thead class="table-dark">
@@ -290,7 +299,14 @@ $row3 = mysqli_fetch_array($project_result3);
       
       document.getElementById("displayDateTime").innerHTML = dateTime ;
       document.getElementById("displayDateTime2").innerHTML = ' <br> Today is ' + daylist[day];
-      
+
+      function PrintDiv() {    
+       var divToPrint = document.getElementById('divToPrint');
+       var popupWin = window.open('', '_blank', 'width=300,height=300');
+       popupWin.document.open();
+       popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+        popupWin.document.close();
+            }
       
       </script>                            
     <script src="assets/lib/jquery/dist/jquery.js"></script>

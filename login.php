@@ -11,7 +11,6 @@ if(isset($_POST["login-btn"]))
 {
 	$username = $_POST["uname"];
 	$password = $_POST["pass"];
-	$usertype = $_POST["usertype"];
 
 
 $sql1 = "SELECT * FROM user WHERE username = '$username' ;";
@@ -49,7 +48,7 @@ if ($result->num_rows > 0)
       else if($row["usertype"] == 'common')
       {
 		$_SESSION["username"] = $username;
-		$_SESSION["fname"] = $Firstname1;
+		$_SESSION["fname"] = $Firstname;
 		$_SESSION["mname"] = $Midname;
 		$_SESSION["lname"] = $Lastname;
 		$_SESSION["address"] = $Address;
@@ -164,13 +163,8 @@ if ($result->num_rows > 0)
 						</span>
 						<a class="txt2" href="#">
 							Username / Password?
-						</a> <br>
-						<span class="txt1">
-							Login as <select name="usertype" id="">
-								<option value="common">user</option>
-								<option value="admin">admin</option>
-							</select>
-						</span>
+						</a> 
+
 					</div>
 
 					<div class="text-center p-t-136">
