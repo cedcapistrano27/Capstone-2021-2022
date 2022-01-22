@@ -56,7 +56,7 @@ session_start();
       $content .= '  
 
 
-      <h4 align="center">BV CONSTRUNCTION : PAYMENT TRANSACTION</h4><br/>  
+      <h4 align="center">BV CONSTRUNCTION REPORT FILE: PAYMENT TRANSACTION</h4><br/>  
     
      <table border="1" cellspacing="0" cellpadding="3" >    
            <tr>    
@@ -94,7 +94,7 @@ session_start();
       <body>    
            <br />  
            <div class="container">    
-                <h4 align="center">Check Payment Transaction</h4><br />    
+                <h4 align="center">Transaction Report</h4><br />    
                 <div class="table-responsive">    
                     <div class="col-md-12" align="right">  
                      <form method="post">    
