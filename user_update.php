@@ -1,5 +1,6 @@
 <?php 
-
+include 'upload_pic.php';
+$target = "";
 include 'connection.php';
 session_start();
 //if the user clicks the back button from the browser, it prevents him to go back in the last page.
@@ -25,8 +26,10 @@ if ($result1->num_rows>0)
       $Contact_number1 = $row['cnumber'];
       $Proof_ID1 = $row['ID_proof'];
       $pass = $row['password'];
+      $avatar = $row['picpath'];
     }
 }
+
 
 if (isset($_POST['update'])) {
 
@@ -38,10 +41,18 @@ if (isset($_POST['update'])) {
   $Email = $_POST['email'];
   $Contact_number = $_POST['cnumber'];
   $Proof_ID = $_POST['proof_id'];
-  
+  $picpath = $_POST["picpath"];
+
+  // move uploaded pic from temp folder to permanent folder
+  if(file_exists($picpath)){
+    $pic_filename = explode('temp/', $picpath)[1];
+    rename($picpath, 'uploads/' . $pic_filename);
+    $picpath = 'uploads/' . $pic_filename;
+  }
+  /////
   
 
-  $sql = "UPDATE user SET fname='$Firstname', mname='$Midname', lname='$Lastname', address='$Address', email='$Email', cnumber='$Contact_number', ID_proof='$Proof_ID' WHERE username = '$Uname' ";
+  $sql = "UPDATE user SET fname='$Firstname', mname='$Midname', lname='$Lastname', address='$Address', email='$Email', cnumber='$Contact_number', ID_proof='$Proof_ID', picpath='$picpath'  WHERE username = '$Uname' ";
   $result = mysqli_query($conn, $sql);
   if ($result) {
    echo " <script>alert('User_Updated') </script>";
@@ -49,6 +60,8 @@ if (isset($_POST['update'])) {
         header("Location: {$url}");
         
   }
+  $sql2 = "INSERT INTO user (pic_filename) VALUES ('$pic_filename') WHERE username = '$Uname' ";
+  $result2 = mysqli_query($conn, $sql2);
 
  }
 
@@ -116,9 +129,14 @@ if (isset($_POST['update'])) {
       <div class="container">
         <div class="row">
           <div class="col-sm-2"style="margin-top: 20px;">
-            <a href="user_update.php">
-            <img class="col-sm-2" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;cursor:pointer;">
-            </a>
+            <?php
+            if($avatar!=""){
+              echo "<img src='$avatar' style='border-radius:25px'></img>";
+            }
+            else{
+              echo "<img src='images/avatar.png' style='border-radius:25px'></img>";
+            }
+            ?>
             <span>________________________</span>
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
@@ -141,13 +159,21 @@ if (isset($_POST['update'])) {
             
             <div class="content" style="">
                   <h2 style="text-align: center;">Update Profile</h2>
+                  <form id="pic-upload" class="a-form" enctype="multipart/form-data" method="post" width='840'>
+                    <div class="a-form-group mt-3" style="float:left; clear:block; width:20%;" >
+                    <div id="pic-box" style='width:150px; height:150px; overflow:hidden; margin-
+                    top:7px; margin-left:5px; background:none; border:thin solid #d3d3d3; border-radius:5px;'></div>
+                    <input type="file" style="margin-top:10px; text:center; margin-left:5px; "
+                    id="uploadfile" name="uploadfile" value="" />
+                    </div>
+                  </form>
                   <form method="post">
-                    <label for="" style="font-size:14px">First Name:</label>  <input type="text" name="fname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Firstname1 ?>"> 
-                    <label for="" style="font-size:14px">Middle Name:</label> <input type="text" name="mname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:50px;" value="<?php echo $Midname1 ?>"> 
-                    <label for="" style="font-size:14px">Last Name:</label> <input type="text" name="lname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Lastname1 ?>"><br>
+                    <label for="" style="font-size:14px">First Name:</label>  <input type="text" name="fname" id="" style="margin-left:8px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Firstname1 ?>"> 
+                    <label for="" style="font-size:14px; margin-left:10px;">Middle Name:</label> <input type="text" name="mname" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:75px;" value="<?php echo $Midname1 ?>">  <br>
+                    <label for="" style="font-size:14px">Last Name:</label> <input type="text" name="lname" id="" style="margin-left:10px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Lastname1 ?>"><br>
                     <label for="" style="font-size:14px; margin-left:20px;">Address:</label> <input type="text" name="address" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Address1 ?>"> 
-                    <label for="" style="font-size:14px; margin-left:55px;" >Email:</label> <input type="email" name="email" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Email1 ?>"> <br>
-                    <label for="" style="font-size:14px; margin-left:10px;">Contact #:</label> <input type="number" name="cnumber" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Contact_number1 ?>">
+                    <label for="" style="font-size:14px; margin-left:10px;" >Email:</label> <input type="email" name="email" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Email1 ?>"> <br>
+                    <label for="" style="font-size:14px; margin-left:10px;">Contact #:</label> <input type="number" name="cnumber" id="" style="margin-left:8px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Contact_number1 ?>">
                     <label for="" style="font-size:14px; margin-left:10px;">Proof of Identification:</label>
                     <select name="proof_id" id="" value="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:120px;" >
                       <option value="<?php echo $Proof_ID1 ?>"></option>
@@ -159,10 +185,14 @@ if (isset($_POST['update'])) {
                       <option value="Police Clearance">Police Clearance</option>
                       <option value="NBI Clearance">NBI Clearance</option>
                     </select> <br>
-                    <label for="" style="font-size:14px; margin-left:6px;">Username:</label> <input type="text" name="user" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Uname ?>" readonly> 
+                    <label for="" style="font-size:14px; margin-left:6px;">Username:</label> <input type="text" name="user" id="" style="margin-left:8px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Uname ?>" readonly> 
                     <label for="" style="font-size:14px; margin-left:10px;">Password:</label> <input type="password" name="" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $pass ?>" readonly> <a href="reset_pass.php" id="reset_pass" style="text-decoration:none; color:white; border:solid 1px; padding:4px; margin-left:5px; background-color: #A52A2A;">Reset Password</a><br>
               
                     <button type="submit" name="update" style="margin-bottom:10px; margin-left:15px; width:85px; background-color:#68BBE3;color:white;">Update</button>
+                    <div class="form-group col3" style="visibility:hidden;">
+                      <label for="picpath" class="mb-0">Picture Path</label>
+                      <input type="text" class="form-control mt-0" name="picpath" id="picpath" value="<?php echo "$target" ?>">
+                    </div>
                   </form>
             </div>
             </div>    
@@ -179,7 +209,34 @@ if (isset($_POST['update'])) {
       
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/js/main.js"></script>
+    <!-- JavaScript Codes to upload picture and display it inside the specified image -->
+<script>
+$(document).ready(function(){
 
+ $('#uploadfile').change(function(e){
+ var formData = new FormData($('#pic-upload')[0]);
+ //codes in AJAX for uploading of picture
+ $.ajax({
+ type: 'POST',
+ url: 'upload_pic.php',
+ data: formData,
+ contentType: false,
+ processData: false,
+ dataType: 'json',
+ success: function(result){
+ if(result.ok){
+ $('#pic-box').html('');
+ $('#pic-box').append("<img src='" + result.temp_path + "' style='width:100%'/>");
+ $('#picpath').val(result.temp_path);
+ } else {
+ alert('Error encountered while trying to upload the picture!');
+ }
+ }
+ });
+ return false;
+ });
+});
+</script>
     
   </body>
 </html>

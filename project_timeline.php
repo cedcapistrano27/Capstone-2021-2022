@@ -1,3 +1,30 @@
+<?php
+                        include 'connection.php';
+                        session_start();
+                        //if the user clicks the back button from the browser, it prevents him to go back in the last page.
+                        if (!isset($_SESSION['username'])) {
+                          header('location:login.php');
+                          exit;
+                          }
+                       
+                        $Project = $_GET['id'];
+
+                        $Uname = $_SESSION['username'];
+                       
+                        $sql1 = "SELECT * FROM user WHERE username = '$Uname' " ;
+                        $result1 = $conn->query($sql1);
+                        if ($result1->num_rows>0)
+                        {
+                            while($row=$result1->fetch_assoc())
+                            {
+                              $uid = $row['UID'];
+                              $Firstname1 = $row['fname'];
+                              $Midname1 = $row['mname'];
+                              $Lastname1 = $row['lname'];
+                              $avatar = $row['picpath'];
+                            }
+                        }
+?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
@@ -59,9 +86,14 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-2"style="margin-top: 20px;">
-            <a href="user_update.php">
-            <img class="col-sm-2" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;cursor:pointer;">
-            </a>
+          <?php
+            if($avatar!=""){
+              echo "<img src='$avatar' style='border-radius:25px'></img>";
+            }
+            else{
+              echo "<img src='images/avatar.png' style='border-radius:25px'></img>";
+            }
+            ?>
             <span>________________________</span>
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
@@ -99,30 +131,7 @@
             <div class="timeline">
               <div class="timeline--body">
                 <?php
-                        include 'connection.php';
-                        session_start();
-                        //if the user clicks the back button from the browser, it prevents him to go back in the last page.
-                        if (!isset($_SESSION['username'])) {
-                          header('location:login.php');
-                          exit;
-                          }
-                       
-                        $Project = $_GET['id'];
 
-                        $Uname = $_SESSION['username'];
-                       
-                        $sql1 = "SELECT * FROM user WHERE username = '$Uname' " ;
-                        $result1 = $conn->query($sql1);
-                        if ($result1->num_rows>0)
-                        {
-                            while($row=$result1->fetch_assoc())
-                            {
-                              $uid = $row['UID'];
-                              $Firstname1 = $row['fname'];
-                              $Midname1 = $row['mname'];
-                              $Lastname1 = $row['lname'];
-                            }
-                        }
                         // $sql3 = "SELECT PID FROM project WHERE UID = '$uid' " ;
                         // $result3 = $conn->query($sql3);
                         // if ($result3->num_rows>0)

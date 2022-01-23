@@ -19,6 +19,7 @@ if ($result1->num_rows>0)
       $Firstname1 = $row['fname'];
       $Midname1 = $row['mname'];
       $Lastname1 = $row['lname'];
+      $avatar = $row['picpath'];
     }
 }
 
@@ -127,9 +128,14 @@ $row3 = mysqli_fetch_array($project_result3);
         <div class="row" >
           
           <div class="col-sm-2" style="margin-top: 20px;">
-            <a href="user_update.php">
-            <img class="col-sm-2" src="images/avatar.png" style="border-radius: 50%;width: 100%;height: auto;cursor:pointer;">
-            </a>
+          <?php
+            if($avatar!=""){
+              echo "<img src='$avatar' style='border-radius:25px'></img>";
+            }
+            else{
+              echo "<img src='images/avatar.png' style='border-radius:25px'></img>";
+            }
+            ?>
             <span>________________________</span>
             <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
               <a class="col-sm-12" href="dashboard.php">Dashboard</a>
