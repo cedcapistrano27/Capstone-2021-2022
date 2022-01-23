@@ -1,10 +1,4 @@
 
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
 @font-face {
   font-family: Poppins-Regular;
   src: url('..assets/fonts/poppins/Poppins-Regular.ttf'); 
@@ -173,7 +167,7 @@ iframe {
 }
 
 .wrap-login100 {
-  width: 960px;
+  width: auto;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -185,7 +179,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 177px 130px 33px 95px;
+  padding: 100px 100px 33px 100px;
 }
 
 /*------------------------------------------------------------------

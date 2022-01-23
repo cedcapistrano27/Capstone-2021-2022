@@ -61,7 +61,10 @@ $row3 = mysqli_fetch_array($project_result3);
     <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="dashboardstyle.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
+    
   </head>
   <style>
     .module, .module-small {
@@ -72,7 +75,7 @@ $row3 = mysqli_fetch_array($project_result3);
       background-size: cover;
     }
     .rightpanel{
-      background-color:rgb(232, 232, 232);
+      background-color:rgb(242, 242, 242);
       height: 1350px;
       padding: 0px 35px 0px 35px;
     }
@@ -82,15 +85,28 @@ $row3 = mysqli_fetch_array($project_result3);
       background-color:whitesmoke;
       border-radius: 20px;
       padding: 10px 10px;
-      box-shadow: 5px 5px 10px grey;
+      box-shadow: 2px 2px 10px grey;
       text-align: center;
       cursor: pointer;
     }
     .myappoinment:hover {
       background-color: rgb(186, 242, 186);
     }
-    
-    
+    .leftpanel{
+      padding: 15px 10px;
+      font-size: 17px;
+      font-family: verdana,tahoma;
+      font-weight: 700;
+    } 
+    .leftpanel:hover{
+      background-color:#0492c2 ;
+      color: white;
+      
+    }
+    .material-icons{
+      vertical-align: middle;
+      margin-right: 5px;
+    }
   </style>
   <script>
     function toappoinment(){
@@ -127,30 +143,32 @@ $row3 = mysqli_fetch_array($project_result3);
       <div class="container">
         <div class="row" >
           
-          <div class="col-sm-2" style="margin-top: 20px;">
+          <div class="col-sm-2" style="box-shadow: -2px -2px 5px lightgrey;height: 1350px;padding:20px 5px 0 10px;" >
           <?php
             if($avatar!=""){
-              echo "<img src='$avatar' style='border-radius:25px'></img>";
+              echo "<img src='$avatar' style='border-radius:50%;height:150px;width:200px;'></img>";
             }
             else{
-              echo "<img src='images/avatar.png' style='border-radius:25px'></img>";
+              echo "<img src='images/avatar.png' style='border-radius:50%;height:150px;width:200px;'></img>";
             }
             ?>
             <span>________________________</span>
-            <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
-              <a class="col-sm-12" href="dashboard.php">Dashboard</a>
-              <a class="col-sm-12" href="appointment_list.php">Appointment</a>
-              <a class="col-sm-12" href="Project_list.php">Project</a>
-              <a class="col-sm-12" href="Payment.php">Payment</a>
-              <a class="col-sm-12" href="user_update.php">Settings</a>
+              
+              
+              <a class="leftpanel col-sm-12" href="dashboard.php" ><i class="material-icons" >home</i>Home</a>
 
-            </div>
+              <a class="leftpanel col-sm-12" href="appointment_list.php" ><i class="material-icons" >&#xe916;</i>Appointment</a>
+              <a class="leftpanel col-sm-12" href="Project_list.php" ><i class="material-icons">&#xe16a;</i>Project</a>
+              <a class="leftpanel col-sm-12" href="Payment.php" ><i class="material-icons">&#xe850;</i>Payment</a>
+              <a class="leftpanel col-sm-12" href="user_update.php" ><i class="material-icons">&#xe869;</i>Settings</a>
+
+           
            
           </div>
           
           <div class="rightpanel col-sm-10" >
-            <span style="font-size: 30px;color: black;">Dashboard</span>
-            <div class="nameheader col-sm-12" style="max-width:100%;background-color:whitesmoke;border-radius: 20px;padding: 10px 10px;box-shadow: 5px 5px 10px grey;">
+            <span style="font-size: 30px;color: black;">Home</span>
+            <div class="nameheader col-sm-12" style="max-width:100%;background-color:white;border-radius: 20px;padding: 10px 10px;box-shadow: 2px 2px 10px grey;">
                 <div class="col-sm-6" style="padding: 0px 0px 0px 0px;">
                   <a class="col-sm-12" style="font-size: 30px;color: rgb(100, 100, 100);">Welcome</a>
                   <a class="col-sm-12" style="font-size: 50px;text-align: center;margin: 15px 0px 0 30px;"><?php echo $Firstname1?></a>
@@ -162,7 +180,7 @@ $row3 = mysqli_fetch_array($project_result3);
             <div class="col-sm-6">
               <span style="font-size: 30px;color: black;">My Project</span>
               <a href="Project_list.php" style="color:black;">
-                <div class="col-sm-12" style="max-width:100%;background-color:whitesmoke;border-radius: 20px;padding: 10px 10px;box-shadow: 5px 5px 10px grey;">
+                <div class="col-sm-12" style="max-width:100%;background-color:white;border-radius: 20px;padding: 10px 10px;box-shadow: 2px 2px 10px grey;">
                   <h4 class="col-sm-12">completed : <?php echo $row1['finished_projects']?> </h4>
                   <div class="col-sm-8" style="background-color: rgb(186, 242, 186);height: 5px;margin-left: 15px;"></div>
                   <h4 class="col-sm-12">On - Ongoing : <?php echo $row2['ongoing_projects']?> </h4>
@@ -175,7 +193,7 @@ $row3 = mysqli_fetch_array($project_result3);
             <div class="col-sm-6">
               <span style="font-size: 30px;color: black;">My Appointment</span>
               <a onclick="toappoinment()">
-                <div class="myappoinment col-sm-12" >
+                <div class="myappoinment col-sm-12" style="background-color: white;">
                   <span class="col-sm-6" style="font-size: 85px;padding: 0px 0px;margin-left: 10px;color:black;">
                     <?php
                     echo $row['numbers'];
@@ -187,17 +205,18 @@ $row3 = mysqli_fetch_array($project_result3);
                 </div>
               </a>
             </div>
-            <span class="col-sm-12" style="font-size: 30px;color: black;">Updates</span>
-            <div class="col-sm-12" style="max-width:100%;background-color:whitesmoke;border-radius: 20px;padding: 10px 10px;box-shadow: 5px 5px 10px grey;margin-top: 15px;text-align: center;">
-              <a class="col-sm-3">Project Name</a>
-              <a class="col-sm-3" style="padding-left: 100px;">Scope</a>
-              <a class="col-sm-3" style="padding-left: 100px;">Date</a>
-              <a class="col-sm-3" style="padding-left: 60px;">Remarks</a>
-              
-            </div>
-            <div class="col-sm-12" style="max-width:100%;height: 700px;background-color:whitesmoke;border-radius: 5px;padding: 10px 10px;box-shadow: 5px 5px 10px grey;margin-top: 15px;text-align: center;">
+            
+            <div class="col-sm-12" style="max-width:100%;height: 700px;background-color:white;border-radius: 5px;padding: 10px 10px;box-shadow: 2px 2px 10px grey;margin-top: 15px;text-align: center;">
+            <h2 class="col-sm-2">Updates</h2> <br>
             <table   class="table table-hover my-1 caption-bottom table-borderless" >
-                  
+            <thead class="table-dark">
+                    <tr >
+                      <th class="fw-light">Project Name</th>
+                      <th class="fw-light">Scope</th>
+                      <th class="fw-light">Payment</th>
+                      <th class="fw-light">Remarks</th>
+                    </tr>
+                  </thead>
                       <tbody class="color">
                       <?php
                         include 'connection.php';
@@ -297,7 +316,6 @@ $row3 = mysqli_fetch_array($project_result3);
      
     
     </main>
-    
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

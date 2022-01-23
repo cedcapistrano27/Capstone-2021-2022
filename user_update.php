@@ -84,6 +84,8 @@ if (isset($_POST['update'])) {
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
@@ -101,6 +103,22 @@ if (isset($_POST['update'])) {
       background-repeat: no-repeat;
       background-position: 50% 50%;
       background-size: cover;
+    }
+    
+    .leftpanel{
+      padding: 15px 10px;
+      font-size: 17px;
+      font-family: verdana,tahoma;
+      font-weight: 700;
+    } 
+    .leftpanel:hover{
+      background-color:#0492c2 ;
+      color: white;
+      
+    }
+    .material-icons{
+      vertical-align: middle;
+      margin-right: 5px;
     }
   </style>
 
@@ -128,24 +146,28 @@ if (isset($_POST['update'])) {
       <section class="module module-small">
       <div class="container">
         <div class="row">
-          <div class="col-sm-2"style="margin-top: 20px;">
-            <?php
+          
+        <div class="col-sm-2" style="box-shadow: -2px -2px 5px lightgrey;height: 1350px;padding:20px 5px 0 10px;" >
+          <?php
             if($avatar!=""){
-              echo "<img src='$avatar' style='border-radius:25px'></img>";
+              echo "<img src='$avatar' style='border-radius:50%;height:150px;width:200px;'></img>";
             }
             else{
-              echo "<img src='images/avatar.png' style='border-radius:25px'></img>";
+              echo "<img src='images/avatar.png' style='border-radius:50%;height:150px;width:200px;'></img>";
             }
             ?>
             <span>________________________</span>
-            <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
-              <a class="col-sm-12" href="dashboard.php">Dashboard</a>
-              <a class="col-sm-12" href="appointment_list.php">Appointment</a>
-              <a class="col-sm-12" href="Project_list.php">Project</a>
-              <a class="col-sm-12" href="Payment.php">Payment</a>
-              <a class="col-sm-12" href="user_update.php">Settings</a>
+              
+              
+              <a class="leftpanel col-sm-12" href="dashboard.php" ><i class="material-icons" >home</i>Home</a>
 
-            </div>
+              <a class="leftpanel col-sm-12" href="appointment_list.php" ><i class="material-icons" >&#xe916;</i>Appointment</a>
+              <a class="leftpanel col-sm-12" href="Project_list.php" ><i class="material-icons">&#xe16a;</i>Project</a>
+              <a class="leftpanel col-sm-12" href="Payment.php" ><i class="material-icons">&#xe850;</i>Payment</a>
+              <a class="leftpanel col-sm-12" href="user_update.php" ><i class="material-icons">&#xe869;</i>Settings</a>
+
+           
+           
           </div>
 
 
@@ -205,6 +227,36 @@ if (isset($_POST['update'])) {
            
            
       </div>
+      <div class="bg-dark text-center " style="background-color: black;">
+          <div class="container " >
+            
+                  <h5 class="widget-title font-alt">About BV Construction</h5>
+               
+          </div>
+        </div>
+        
+        <footer class="footer bg-dark" style="background-color: black;text-align: center;">
+          <div class="container">
+            <div class="row text-center">
+              <div class="col-sm-3">
+                <p>Company proect with high quality services and lead modern look interior.</p>
+              </div>
+              <div class="col-sm-3">
+                <p>Phone: PH (+63)9958596092</p>
+              </div>
+              <div class="col-sm-3">
+                <p>Email:<a href="#"> bvconstrak@gamil.com</a></p>
+              </div>
+              <div class="col-sm-3">
+                <div class="footer-social-links"><a href="https://www.facebook.com/bvconstrak"><i class="fa fa-facebook" style="font-size: 20px;"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+
       
       
     <script src="assets/lib/jquery/dist/jquery.js"></script>

@@ -98,7 +98,6 @@ if ($result->num_rows > 0)
 <head>
 	<title>Login</title>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="assets/images/agency/icons/favicon.ico">
@@ -111,7 +110,6 @@ if ($result->num_rows > 0)
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="assets/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/vendor/select2/select2.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
@@ -129,13 +127,14 @@ if ($result->num_rows > 0)
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
+				
+				<div class="login100-pic js-tilt" data-tilt >
 					<img src="assets/images/agency/img-01.png" alt="IMG">
 				</div>
 				
 				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title">
-						User Login
+						Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Username is required">

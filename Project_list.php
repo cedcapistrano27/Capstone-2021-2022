@@ -52,6 +52,8 @@ $row3 = mysqli_fetch_array($project_result3);
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
   </head>
   <style>
@@ -75,6 +77,22 @@ $row3 = mysqli_fetch_array($project_result3);
       padding:15px;
       font-size: 12px;
       background-color:lightblue;
+    }
+    
+    .leftpanel{
+      padding: 15px 10px;
+      font-size: 17px;
+      font-family: verdana,tahoma;
+      font-weight: 700;
+    } 
+    .leftpanel:hover{
+      background-color:#0492c2 ;
+      color: white;
+      
+    }
+    .material-icons{
+      vertical-align: middle;
+      margin-right: 5px;
     }
   </style>
 
@@ -102,24 +120,28 @@ $row3 = mysqli_fetch_array($project_result3);
       <section class="module module-small">
       <div class="container">
         <div class="row">
-          <div class="col-sm-2"style="margin-top: 20px;">
+          
+        <div class="col-sm-2" style="box-shadow: -2px -2px 5px lightgrey;height: 1350px;padding:20px 5px 0 10px;" >
           <?php
             if($avatar!=""){
-              echo "<img src='$avatar' style='border-radius:25px'></img>";
+              echo "<img src='$avatar' style='border-radius:50%;height:150px;width:200px;'></img>";
             }
             else{
-              echo "<img src='images/avatar.png' style='border-radius:25px'></img>";
+              echo "<img src='images/avatar.png' style='border-radius:50%;height:150px;width:200px;'></img>";
             }
             ?>
             <span>________________________</span>
-            <div class="container2 col-sm-10" style="font-size: 14px; padding-bottom: 40px; width:250px; right:30px">
-              <a class="col-sm-12" href="dashboard.php">Dashboard</a>
-              <a class="col-sm-12" href="appointment_list.php">Appointment</a>
-              <a class="col-sm-12" href="Project_list.php">Project</a>
-              <a class="col-sm-12" href="Payment.php">Payment</a>
-              <a class="col-sm-12" href="user_update.php">Settings</a>
+              
+              
+              <a class="leftpanel col-sm-12" href="dashboard.php" ><i class="material-icons" >home</i>Home</a>
 
-            </div>
+              <a class="leftpanel col-sm-12" href="appointment_list.php" ><i class="material-icons" >&#xe916;</i>Appointment</a>
+              <a class="leftpanel col-sm-12" href="Project_list.php" ><i class="material-icons">&#xe16a;</i>Project</a>
+              <a class="leftpanel col-sm-12" href="Payment.php" ><i class="material-icons">&#xe850;</i>Payment</a>
+              <a class="leftpanel col-sm-12" href="user_update.php" ><i class="material-icons">&#xe869;</i>Settings</a>
+
+           
+           
           </div>
 
 
@@ -242,8 +264,8 @@ $row3 = mysqli_fetch_array($project_result3);
                               ."<td style='font-size: 18px;padding: 15px;'>$Status</td>"
                               ."<td class='col-sm-1' style='padding: 10px 0;'>
                               
-                                <a href='project_timeline.php?id=$PID' class='btn btn-primary col-sm-6' style='border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 12px;margin-left: 10px;background-color:#337ab7;border-color:#2e6da4;' id='formButton'>
-                                  <i class='material-icons' style='font-size:10px;padding-top: 5px;'>open_in_new</i>
+                                <a href='project_timeline.php?id=$PID' class='btn btn-primary col-sm-6' style='border-radius:5px;width:100px;padding: 0 0;height: 30px;font-size: 15px;margin-left: 10px;background-color:#337ab7;border-color:#2e6da4;' id='formButton'>
+                                  <i class='material-icons' style='font-size:15px;'>open_in_new</i>
                                   View</a>
                                 </td>";
                               

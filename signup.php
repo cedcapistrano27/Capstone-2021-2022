@@ -66,17 +66,14 @@ if(isset($_POST["signup-btn"]))
       <div class="input-box">
         <input type="password" placeholder="Confirm password" name="confirm-pass" required>
       </div>
-      <div class="policy">
-        <input type="checkbox" checked>
-        <h3>I accept all terms & condition</h3>
-      </div>
+      
       <div class="input-box button">
         <input type="Submit" value="Register Now" name="signup-btn">
       </div>
       <div class="text">
         <h3>Already have an account? <a href="login.php">Login now</a></h3>
         <br>
-						<a class="txt2" href="index_agency.php">
+						<a class="txt2" href="index.html">
 							 Go to homepage
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 						</a>
