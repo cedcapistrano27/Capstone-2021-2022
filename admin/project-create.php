@@ -424,6 +424,8 @@ input[type=submit]:hover{
        $Paytype = $_POST['paymenttype'];
        $DownpaymentAmount = $_POST['downpaid'];
        $TotalAmount = $_POST['fullpaid'];
+
+       $reference = rand(10000,100000000);
       
 
       $sql_create = "INSERT INTO project(UID, project_name,Location,scope, remarks,TargetDate, Pdate) VALUES (
@@ -433,13 +435,14 @@ input[type=submit]:hover{
       '$scope',
       'Processed','$target', current_timestamp())";
 
-      $sql_payment = "INSERT INTO payment(UID, total_amount, payment_issued, project_name, payment_type, downpayment, total_cost) 
+      $sql_payment = "INSERT INTO payment(UID, balance, payment_issued, project_name, payment_type, reference_no, downpayment, total_cost) 
       VALUES (
       '$clientName',
       '$TotalAmount',
        current_timestamp(),
       '$ProjectName',
-      '$Paytype', 
+      '$Paytype',
+      '$reference', 
       '$DownpaymentAmount', 
       '$TotalAmount')";
 
