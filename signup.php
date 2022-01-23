@@ -26,7 +26,7 @@ if(isset($_POST["signup-btn"]))
     $sql = "INSERT INTO user (username, email, password, usertype) VALUES ('$username', '$email', '$password', 'common')";
     $result = $conn->query($sql);
     echo "<script>alert('Your account has been created. Redirecting to login page...')</script>"; 
-    echo "<script> window.location.href='http://localhost/Capstone-2021-2022/login.php' </script>  ";
+    echo "<script> window.location.href='login.php' </script>  ";
     header("Location: {$url}");
     exit;
     $conn->close();
@@ -44,7 +44,7 @@ if(isset($_POST["signup-btn"]))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Main stylesheet and color file-->
-    <link href="assets/css/style.css" rel="stylesheet">
+     <!--<link href="assets/css/style.css" rel="stylesheet">-->
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
     <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
     <link rel="stylesheet" href="signupstyle.css">

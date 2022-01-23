@@ -121,6 +121,9 @@ if ($result->num_rows > 0)
 <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
+<style>
+	
+</style>
 <body>
 
 	<div class="limiter">
@@ -173,7 +176,7 @@ if ($result->num_rows > 0)
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 						<br>
-						<a class="txt2" href="index.php">
+						<a class="txt2" href="index.html">
 							Go to homepage
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 						</a>
