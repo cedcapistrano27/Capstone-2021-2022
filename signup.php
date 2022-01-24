@@ -15,7 +15,7 @@ if(isset($_POST["signup-btn"]))
   $email = $_POST["email"];
   $password = $_POST["pass"];
   $confirm_pass = $_POST["confirm-pass"];
-
+  $OTP=rand(1000,9999);
   if(strlen($password)<8){
     if(!ctype_upper($password) && !ctype_lower($password)){
       echo "<script>alert('Password Should have uppercase and lowercase letters')</script>";
@@ -49,8 +49,8 @@ if(isset($_POST["signup-btn"]))
 
               //Content
               $mail->IsHTML(true);
-              $mail->Subject='Reset Password OTP Code';
-              $mail->Body='<h1 align-center>Click the link to reset your password</h1><br><a href="http://localhost/Capstone-2021-2022/reset_pass.php?email='.$email.'">Click here to change your password</a>';
+              $mail->Subject='Confirmation OTP Code';
+              $mail->Body='<h1 align-center>Your One Time Password : '.$OTP.'</h1><br><a href="reset_pass.php?email='.$email.'">Click here to login</a>';
 
               //icomment mo nalang tong $mail ben pag ayaw pa din. para sa presentation ok muna.
               

@@ -128,9 +128,9 @@ if ($result->num_rows > 0)
 		<div class="container-login100">
 			<div class="wrap-login100">
 				
-				<div class="login100-pic js-tilt" data-tilt >
+				<!-- <div class="login100-pic js-tilt" data-tilt >
 					<img src="assets/images/agency/img-01.png" alt="IMG">
-				</div>
+				</div> -->
 				
 				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title">

@@ -27,7 +27,7 @@ $projects = "SELECT COUNT(remarks) AS finished_projects FROM project WHERE UID =
 $project_result = mysqli_query($conn, $projects);
 $row1 = mysqli_fetch_array($project_result);
 
-$projects2 = "SELECT COUNT(remarks) AS ongoing_projects FROM project WHERE UID = '$uid' AND remarks = 'Processed'";
+$projects2 = "SELECT COUNT(remarks) AS ongoing_projects FROM project WHERE UID = '$uid' AND remarks = 'Ongoing'";
 $project_result2 = mysqli_query($conn, $projects2);
 $row2 = mysqli_fetch_array($project_result2);
 

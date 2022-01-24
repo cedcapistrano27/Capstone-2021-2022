@@ -133,7 +133,7 @@
           <div class="rightpanel col-sm-10">
 
 
-            <div class="container">
+            <!-- <div class="container">
               <div class="breadcrumb">
                 <a href="#">
                   <span class="breadcrumb__inner">
@@ -146,7 +146,7 @@
                   </span>
                 </a>
               </div>
-            </div>
+            </div> -->
             <div class="timeline">
               <div class="timeline--body">
                 <?php

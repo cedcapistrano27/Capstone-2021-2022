@@ -37,8 +37,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: url(landing-page.jpg) no-repeat;
-  background-position: center;
+  background-color: white;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -46,7 +45,7 @@ body{
 header{
   z-index: 1;
   position: fixed;
-  background: #22242A;
+  background: #293756;
   padding: 20px;
   width: calc(100% - 0%);
   top: 0;
@@ -94,13 +93,13 @@ header{
 .sidebar{
   z-index: 1;
   top: 0;
-  background: #2f323a;
+  background: #293756;
   margin-top: 70px;
   padding-top: 30px;
   position: fixed;
   left: 0;
   width: 250px;
-  height: calc(100% - 9%);
+  height: calc(100%);
   transition: 0.5s;
   transition-property: left;
   overflow-y: auto;
@@ -178,8 +177,8 @@ label #sidebar_btn:hover{
 
 .content{
   width: 100% - 250px;
-  margin-top: 60px;
-  padding: 20px;
+  margin-top: 50px;
+  /* padding: 20px; */
   margin-left: 250px;
   height: 100vh;
   transition: 0.5s;
@@ -214,9 +213,16 @@ section{
 }
 
 section .widget{
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
+  display: inline-flex;
+    flex-direction: row;
+    margin-top: -5%;
+    width: 800px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px dimgray;
+    
+
 }
 section .calendar{
   max-width: 100% - 250px;
@@ -232,14 +238,12 @@ section .calendar{
 .card-body{
     
     font-family: "Roboto", sans-serif;
-    margin: 10px;
+    margin: 15px;
     padding: 20px;
     width: 25%;
     height: 90px;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    border: 3px white solid;
     display: flex;
     align-items: center;
 }
@@ -623,13 +627,11 @@ section .widget .card-body{
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label>
       <div class="left_area">
-        <img src="../images/logo.jpg" class="logo-image" alt="BV Logo" width="30">
+        <img src="../images/logologo.png" class="logo-image" alt="BV Logo" width="30">
         <h3>BV <span>Construction</span></h3>
       </div>
-      <div class="right_area">
-        <a href="../admin-logout.php" class="logout_btn">Logout</a>
-      </div>
-    </header>
+
+    </header> -->
     <!--header area end-->
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
@@ -648,62 +650,87 @@ section .widget .card-body{
     <!--mobile navigation bar end-->
     <!--sidebar start-->
     <div class="sidebar">
+      <!-- <div class="container-fluid" style="color:white;text-align:center;">
+        <h2 >BV <br> Construction</h2>
+      </div> -->
       <div class="profile_info">
         <img src="../images/avatar.png" class="profile_image" alt="">
-        <h4>Admin User</h4>
+        <h4>Admin</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
         <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
+        <a href="../admin-logout.php"><i class='fas fa-sign-out-alt'></i><span>LOGOUT</span> </a>
+
     </div>
     <!--sidebar end-->
 
-    <div class="content">
+    <div class="content" style="background-color: rgb(252, 245, 245);">
 
       <section id="dashboard">
-        
-<div class="widget">
-       
+        <div class="container-fluid" style="height: 120px;background-color: dimgray;width: 100%;"></div>
+        <div class="container-fluid" style="text-align-last: center;text-align: -webkit-center;padding-top: 20px;margin-top: -100px;">
+          <img src="../images/Capture2.PNG" style="width: 900px;height: 450px;border-radius: 10px;box-shadow: 1px 1px 5px;">
 
+          <div class="widget">
+            <!--Widget Start-->
     
-        
-        <!--Widget Start-->
-
-        <div class="card-body color4">
+            <div class="card-body color4">
+                <div class="float-left">
+                    <p>Appointments for today</p>
+    
+                    <h3>
+                        <span class="count">191</span>
+                    </h3>
+                </div>
+                <div class="float-right">
+                    <i class="fas fa-handshake"></i>
+                </div>
+            </div>
+            <div class="card-body color4">
+              <div class="float-left">
+                  <p>On-Going <br> Project</p>
+    
+                  <h3>
+                      <span class="count">6</span>
+                  </h3>
+              </div>
+              <div class="float-right">
+                  <i class="fas fa-handshake"></i>
+              </div>
+          </div>
+          <div class="card-body color4">
             <div class="float-left">
+                <p>Today <br> Sales</p>
+    
                 <h3>
-                    <span class="count">191</span>
+                    <span class="count">10000</span>
                 </h3>
-                <p>Appointments for today</p>
             </div>
             <div class="float-right">
                 <i class="fas fa-handshake"></i>
             </div>
         </div>
-        <!--Widget End-->
+            <!--Widget End-->
+    </div>
+        </div>
+<!-----Calendar Area----->
+<!-- 
+<div class="calendar">
+  <div class="calendar-body">
+    <label class="day-name">Day</label>,
+    <label class="month-name">Month</label>
+    <label class="date-number">00</label>,
+    <label class="year">0000</label>
+  </div>
+</div> -->
+<!----- Calendar Area end----->
 
-     
-
-
-     
-      </div>
-       
 
         
 
-<!-----Calendar Area----->
-
-    <div class="calendar">
-      <div class="calendar-body">
-        <label class="day-name">Day</label>,
-        <label class="month-name">Month</label>
-        <label class="date-number">00</label>,
-        <label class="year">0000</label>
-      </div>
-    </div>
-<!----- Calendar Area end----->
 
 
 

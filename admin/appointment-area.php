@@ -34,7 +34,7 @@ body{
 header{
   z-index: 1;
   position: fixed;
-  background: #22242A;
+  background: #293756;
   padding: 20px;
   width: calc(100% - 0%);
   top: 0;
@@ -82,7 +82,7 @@ header{
 .sidebar{
   z-index: 1;
   top: 0;
-  background: #2f323a;
+  background: #293756;
   margin-top: 70px;
   padding-top: 30px;
   position: fixed;
@@ -394,7 +394,7 @@ summary, p{
   }
 
   .nav_bar{
-    background: #222;
+    background: #293756;
     width: 100% - 0px;
     margin-top: 70px;
     display: flex;
@@ -644,12 +644,12 @@ summary, p{
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label>
       <div class="left_area">
-        <img src="../images/logo.jpg" class="logo-image" alt="BV Logo" width="30">
+        <img src="../images/logologo.png" class="logo-image" alt="BV Logo" width="30">
         <h3>BV <span>Construction</span></h3>
       </div>
-      <div class="right_area">
+      <!-- <div class="right_area">
         <a href="#" class="logout_btn">Logout</a>
-      </div>
+      </div> -->
     </header>
    <!--header area end-->
     <!--mobile navigation bar start-->
@@ -671,13 +671,15 @@ summary, p{
     <div class="sidebar">
       <div class="profile_info">
         <img src="../images/avatar.png" class="profile_image" alt="">
-        <h4>Admin User</h4>
+        <h4>Admin</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
         <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
+        <a href="../admin-logout.php"><i class='fas fa-sign-out-alt'></i><span>LOGOUT</span> </a>
+
     </div>
     <!--sidebar end-->
 
