@@ -177,7 +177,7 @@ if (isset($_POST['request'])) {
                     <!-- label tong pangalan!!!!!  -->
                     <!--<label for="name" style="visibility:hidden;">Hey </label> <br>-->
                     
-                    <label for="">Date of Appointment:</label> <input type="datetime-local" name="appointment1" id="" style="margin-top:10px;">
+                    <label for="">Date of Appointment:</label> <input type="date" name="appointment1" id="txt-appoint_date"  style="margin-top:10px;" onkeydown="return false" >
                     <br>
                     <label for="">Details: </label><br> <textarea name="details" id="" cols="30" rows="10" style="width:600px; height:150px; margin-bottom:10px;"></textarea> <br>
                     <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
@@ -291,27 +291,42 @@ if (isset($_POST['request'])) {
       
       <script>
         var today = new Date();
-      var day = today.getDay();
-      var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
-      var monthlist = ["Jan","Feb","March","April ","May","Jun","July"];
-      var month = today.getMonth();                           
-      var date = monthlist[month]+' '+today.getDate();
-      var dateTime = date;
-      
-      document.getElementById("displayDateTime").innerHTML = dateTime ;
-      document.getElementById("displayDateTime2").innerHTML = ' <br> Today is ' + daylist[day];
-      
-
-              
+        var day = today.getDay();
+        var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+        var monthlist = ["Jan","Feb","March","April ","May","Jun","July"];
+        var month = today.getMonth();                           
+        var date = monthlist[month]+' '+today.getDate();
+        var dateTime = date;
+        
+        document.getElementById("displayDateTime").innerHTML = dateTime ;
+        document.getElementById("displayDateTime2").innerHTML = ' <br> Today is ' + daylist[day];
       </script>                            
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
       $(document).ready(function() {
       $("#formButton").click(function() {
         $("#form1").toggle();
       });
     });
+    </script>
+    <script>
+        $(document).ready(function() { //DISABLED PAST DATES IN APPOINTMENT DATE
+        var dateToday = new Date();
+        var month2 = dateToday.getMonth() + 1;
+        var day2 = dateToday.getDate();
+        var year2 = dateToday.getFullYear();
+
+        if (month2 < 10)
+          month2 = '0' + month2.toString();
+        if (day2 < 10)
+          day2 = '0' + day2.toString();
+
+        var maxDate = year2 + '-' + month2 + '-' + day2;
+
+        $('#txt-appoint_date').attr('min', maxDate);
+      });
     </script>
   </body>
 </html>

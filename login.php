@@ -175,7 +175,7 @@ if ($result->num_rows > 0)
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 						<br>
-						<a class="txt2" href="index.html">
+						<a class="txt2" href="index.php">
 							Go to homepage
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 						</a>

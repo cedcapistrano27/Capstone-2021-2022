@@ -271,7 +271,7 @@
                 <p>Phone: PH (+63)9958596092</p>
               </div>
               <div class="col-sm-3">
-                <p>Email:<a href="#"> bvconstrak@gamil.com</a></p>
+                <p>Email:<a href="#"> bvconstrak@gmail.com</a></p>
               </div>
               <div class="col-sm-3">
                 <div class="footer-social-links"><a href="https://www.facebook.com/bvconstrak"><i class="fa fa-facebook" style="font-size: 20px;"></i></a>

@@ -695,7 +695,7 @@ summary, p{
     <div class="appointment-area">
 
         <div class="header">
-        <span><h2>Appointments</h2></span>
+        <span><h2>Appointments</h2><a href="generatepdf2.php" style="height: 35px; width: 350; margin-right: auto; margin-left: auto; text-align: center; background: #055C9D; color: white; border-radius: 3px; cursor: pointer; text-decoration: none; line-height: 2.3; padding: 10px;">Print</a></span>
         </div>
 
       <div class="appointments"> 
