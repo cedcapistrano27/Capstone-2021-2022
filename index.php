@@ -213,7 +213,7 @@
 
                     include 'connection.php';
 
-                    $sql_image = "SELECT * FROM web_images WHERE status ='SET'";
+                    $sql_image = "SELECT * FROM web_images WHERE status ='SET' AND image_info ='Carousel'";
 
                     $result = mysqli_query($conn, $sql_image);
 

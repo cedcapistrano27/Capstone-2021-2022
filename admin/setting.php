@@ -252,6 +252,41 @@ table .actionbtn{
 
 }
 
+.insert-area{
+              background: rgba(0, 0, 0, .40);
+              border: 2px white solid;
+              margin-top: 20px;
+              margin-bottom: 20px;
+              height: auto;
+              width: 45%;
+              display: flex;
+              flex-direction: column;
+              border-radius: 10px;
+
+            }
+
+            .header-label{
+              font-size: 1rem;
+              font-variant: small-caps;
+              text-align: center;
+              
+
+            }
+
+            input[type="file"], input[type="submit"],select{
+              display: block;
+              margin: 10px auto;
+              width: 50%;
+              height: 5vh;
+              font-size: 1rem;
+              text-align: center;
+              font-weight: 500;
+              font-variant: small-caps;
+              border-radius: 5px;
+            }
+            
+
+
     
   
 
@@ -468,43 +503,7 @@ table .actionbtn{
 
         <div class="insert-area">
 
-          <style>
-
-            .insert-area{
-              background: rgba(0, 0, 0, .40);
-              border: 2px white solid;
-              margin-top: 20px;
-              margin-bottom: 20px;
-              height: auto;
-              width: 45%;
-              display: flex;
-              flex-direction: column;
-              border-radius: 10px;
-
-            }
-
-            .header-label{
-              font-size: 1rem;
-              font-variant: small-caps;
-              text-align: center;
-              
-
-            }
-
-            input[type="file"], input[type="submit"],select{
-              display: block;
-              margin: 10px auto;
-              width: 50%;
-              height: 5vh;
-              font-size: 1rem;
-              text-align: center;
-              font-weight: 500;
-              font-variant: small-caps;
-              border-radius: 5px;
-            }
-            
-
-          </style>
+        
 
             <div class="header-label" style="color:white;">
 
