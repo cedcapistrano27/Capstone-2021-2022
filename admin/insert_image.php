@@ -20,7 +20,7 @@ if(isset($_POST['insert'])){
      if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name)){
         // Insert record
         $section = $_POST['section'];
-        $query = "INSERT INTO web_images(filename, image_info, picpath, status) values('".$name."', '".$section."', '".$target_dir."".$name."', 'Unset')";
+        $query = "INSERT INTO web_images(filename, image_info, picpath, status) values('".$name."', '".$section."', '".$target_dir."".$name."', 'UNSET')";
         $result = mysqli_query($conn,$query);
 
         if ($result == true) {

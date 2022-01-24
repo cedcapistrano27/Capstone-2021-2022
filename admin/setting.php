@@ -181,7 +181,6 @@ label #sidebar_btn:hover{
   margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
-  height: 100vh;
   transition: 0.5s;
 }
 
@@ -199,6 +198,58 @@ label #sidebar_btn:hover{
 
 .mobile_nav{
   display: none;
+}
+
+legend{
+  font-size: 2rem;
+  font-variant: small-caps;
+  color: white;
+}
+fieldset{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  height: 50vh;
+  padding: 15px;
+  overflow: hidden;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+table{
+  border-collapse: collapse;
+  font-variant: small-caps;
+  margin-top: 20px;
+  height: auto;
+
+
+}
+table thead{
+  background: black;
+  color: white;
+}
+
+th,td{
+  padding: 10px;
+  text-align: center;
+}
+
+table .actionbtn{
+
+  border-radius: 5px;
+  text-decoration: none; 
+  color:white;  
+  background: black; 
+  padding: 10px; 
+  width: 30% ; 
+  margin:auto; 
+  text-align: center;
+  font-variant: small-caps;
+  display: inline-block;
+  margin-top: 10px;
+
+
 }
 
     
@@ -351,17 +402,42 @@ label #sidebar_btn:hover{
 
     <div class="content">
 
-        <div class="content-header" style="color: white;">
-          <h2>SETTINGS</h2>
-        </div>
+          <div class="header-table" style="
+          color:white;
+          font-variant: small-caps; 
+          background:rgba(0, 0, 0, 0.49); 
+          width: 25%;
+          padding: 5px;
+          -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+">
+            <span><h1><i class="fas fa-cogs"></i> Setting</h1></span>
+          </div>
 
 
       <div class="container">
 
 
-        <div class="account-area">
+        <div class="account-area" style="
+        background: rgba(0, 0, 0, .4); 
+        padding:10px; 
+        margin-top: 20px; 
+        color:white; 
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 10px;
+        border:2px white solid;
+        ">
 
-          <div class="header-label">
+          <div class="header-label" style="
+          font-size: 1.25rem; 
+          font-variant: small-caps;
+          flex: 1;
+
+
+          ">
 
             <span><label><h3>Check Accounts</h4></label></span>
             
@@ -369,7 +445,21 @@ label #sidebar_btn:hover{
 
           <div class="actionBtn">
             CLICK HERE :
-            <a href='account-area.php' style='font-size: 18px; margin-right: auto; margin-left: auto; text-align: center; background: #131313; color: #E1E1E1; border-radius: 3px; cursor: pointer; text-decoration: none; padding: 10px;'>ACCOUNTS</a>   
+            <a href='account-area.php' style='
+            font-size: 1rem; 
+            flex: 1;
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center; 
+            background: #131313; 
+            color: #E1E1E1; 
+            border-radius: 3px; 
+            cursor: pointer; 
+            text-decoration: none; 
+            padding: 10px;
+            border: 2px white solid;
+            '>ACCOUNTS</a>
+
            
           </div>
           
@@ -377,6 +467,44 @@ label #sidebar_btn:hover{
 
 
         <div class="insert-area">
+
+          <style>
+
+            .insert-area{
+              background: rgba(0, 0, 0, .40);
+              border: 2px white solid;
+              margin-top: 20px;
+              margin-bottom: 20px;
+              height: auto;
+              width: 45%;
+              display: flex;
+              flex-direction: column;
+              border-radius: 10px;
+
+            }
+
+            .header-label{
+              font-size: 1rem;
+              font-variant: small-caps;
+              text-align: center;
+              
+
+            }
+
+            input[type="file"], input[type="submit"],select{
+              display: block;
+              margin: 10px auto;
+              width: 50%;
+              height: 5vh;
+              font-size: 1rem;
+              text-align: center;
+              font-weight: 500;
+              font-variant: small-caps;
+              border-radius: 5px;
+            }
+            
+
+          </style>
 
             <div class="header-label" style="color:white;">
 
@@ -407,8 +535,13 @@ label #sidebar_btn:hover{
 
 </form>
 
+    
+        </div>
+        
+      </div>
+
             <fieldset>
-              <legend> Edit: Front-End</legend>
+              <legend> Edit: Front-End Images</legend>
 
               <table style="background: white; width: 100%;">
                 <thead>
@@ -442,8 +575,8 @@ label #sidebar_btn:hover{
                             <td>$filename</td>" 
                             ."<td>$image_info</td>" 
                             ."<td>$status</td>"
-                            ."<td><a href='status.php?ID=$ImgID'> SET</a> 
-                                  <a href='unset.php?UnsetID=$ImgID'> UNSET</a></td>"
+                            ."<td><a href='status.php?ID=$ImgID' class='actionbtn' > SET</a> 
+                                  <a href='unset.php?UnsetID=$ImgID' class='actionbtn'> UNSET</a></td>"
                             ."</tr>";
 
                         
@@ -459,17 +592,11 @@ label #sidebar_btn:hover{
                 </tbody>
               </table>
 
-              <div>
-                
-              </div>
-            </fieldset>
+              </fieldset>
 
 
 
-          
-        </div>
-        
-      </div>
+      
 
 
 
