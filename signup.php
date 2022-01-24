@@ -1,14 +1,12 @@
 <?php
 session_start();
-
+include 'connection.php';
 use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;
   require 'PHPMailers/src/Exception.php';
   require 'PHPMailers/src/PHPMailer.php';
   require 'PHPMailers/src/SMTP.php';
   
-  include 'connection.php';
-
 if(isset($_POST["signup-btn"]))
 {
   $username = $_POST["uname"];
@@ -49,17 +47,22 @@ if(isset($_POST["signup-btn"]))
 
               //Content
               $mail->IsHTML(true);
+<<<<<<< HEAD
               $mail->Subject='Confirmation OTP Code';
               $mail->Body='<h1 align-center>Your One Time Password : '.$OTP.'</h1><br><a href="reset_pass.php?email='.$email.'">Click here to login</a>';
+=======
+              $mail->Subject='Verify email';
+              $mail->Body='<h1 align-center>Click the link to Verify your email</h1><br><a href="http://localhost/Capstone-2021-2022/reset_pass.php?email='.$email.'">Click here to change your password</a>';
+>>>>>>> 64564443a97fff7cee18d5b1f9176a71435c6ef1
 
               //icomment mo nalang tong $mail ben pag ayaw pa din. para sa presentation ok muna.
-              
+
           if($mail->send()){
             // $email=$_SESSION['email'];
           // $querymail = "UPDATE account SET created_at='$currentDate', expiration ='$packageEndDate' WHERE email='$myemail'";  
           //      $run1 = mysqli_query($con,$querymail) or die(mysqli_error($con));
                $sql = "INSERT INTO user (username, email, password, usertype) VALUES ('$username', '$email', '$password', 'common')";
-               $result = $conn->query($sql);
+               $result = mysqli_query($conn,$sql1) or die(mysqli_error($conn));
                 if($result){
                   echo "<script>alert('Your account has been created. Check your email for validation. Redirecting to login page...')</script>"; 
                   echo "<script> window.location.href='login.php' </script>  ";
