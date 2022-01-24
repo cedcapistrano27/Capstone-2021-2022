@@ -52,6 +52,8 @@ if(isset($_POST["signup-btn"]))
               $mail->Subject='Reset Password OTP Code';
               $mail->Body='<h1 align-center>Click the link to reset your password</h1><br><a href="http://localhost/Capstone-2021-2022/reset_pass.php?email='.$email.'">Click here to change your password</a>';
 
+              //icomment mo nalang tong $mail ben pag ayaw pa din. para sa presentation ok muna.
+              
           if($mail->send()){
             // $email=$_SESSION['email'];
           // $querymail = "UPDATE account SET created_at='$currentDate', expiration ='$packageEndDate' WHERE email='$myemail'";  
