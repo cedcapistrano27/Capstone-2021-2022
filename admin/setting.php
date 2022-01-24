@@ -201,107 +201,103 @@ label #sidebar_btn:hover{
   display: none;
 }
 
-
     
   
 
 /*Responsive CSS */
 
 @media screen and (max-width: 600px){
-  .sidebar{
-    display: none;
-  }
+        .sidebar{
+          display: none;
+        }
 
-  #sidebar_btn{
-    display: none;
-  }
-body{
-  max-width: 100%;
-  height: auto;
-}
-header{
-  width: 100%;
-}
-  header .left_area span{
-    font-size: 13px;
-  }
+        #sidebar_btn{
+          display: none;
+        }
+      body{
+        max-width: 100%;
+        height: auto;
+      }
+      header{
+        width: 100%;
+      }
+        header .left_area span{
+          font-size: 13px;
+        }
 
-  .content{
-    margin-left: 0;
-    margin-top: 0;
-    padding: 10px 20px;
-    transition: 0s;
+        .content{
+          margin-left: 0;
+          margin-top: 0;
+          padding: 10px 20px;
+          transition: 0s;
 
-  }
+        }
 
-  #check:checked ~ .content{
-    margin-left: 0;
-  }
+        #check:checked ~ .content{
+          margin-left: 0;
+        }
 
-  .mobile_nav{
-    display: block;
-    max-width: 100%;
-  }
+        .mobile_nav{
+          display: block;
+          max-width: 100%;
+        }
 
-  .nav_bar{
-    background: #222;
-    max-width: calc(100% - 0%);
-    margin-top: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
+        .nav_bar{
+          background: #222;
+          max-width: calc(100% - 0%);
+          margin-top: 70px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 20px;
+        }
 
-  .nav_bar .mobile_profile_image{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
+        .nav_bar .mobile_profile_image{
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
 
-  .nav_bar .nav_btn{
-    color: #fff;
-    font-size: 22px;
-    cursor: pointer;
-    transition: 0.5s;
-    transition-property: color;
-  }
+        .nav_bar .nav_btn{
+          color: #fff;
+          font-size: 22px;
+          cursor: pointer;
+          transition: 0.5s;
+          transition-property: color;
+        }
 
-  .nav_bar .nav_btn:hover{
-    color: #19B3D3;
-  }
+        .nav_bar .nav_btn:hover{
+          color: #19B3D3;
+        }
 
-  .mobile_nav_items{
-    background: #2F323A;
-    display: none;
-  }
+        .mobile_nav_items{
+          background: #2F323A;
+          display: none;
+        }
 
-  .mobile_nav_items a{
-    color: #fff;
-    display: block;
-    text-align: center;
-    letter-spacing: 1px;
-    line-height: 60px;
-    text-decoration: none;
-    box-sizing: border-box;
-    transition: 0.5s;
-    transition-property: background;
-  }
+        .mobile_nav_items a{
+          color: #fff;
+          display: block;
+          text-align: center;
+          letter-spacing: 1px;
+          line-height: 60px;
+          text-decoration: none;
+          box-sizing: border-box;
+          transition: 0.5s;
+          transition-property: background;
+        }
 
-  .mobile_nav_items a:hover{
-    background: #19B3D3;
-  }
+        .mobile_nav_items a:hover{
+          background: #19B3D3;
+        }
 
-  .mobile_nav_items i{
-    padding-right: 10px;
-  }
+        .mobile_nav_items i{
+          padding-right: 10px;
+        }
 
-  .active{
-    display: block;
-  }
-
-
-
+        .active{
+          display: block;
+        }
 
 }
       
@@ -354,6 +350,126 @@ header{
     <!--sidebar end-->
 
     <div class="content">
+
+        <div class="content-header" style="color: white;">
+          <h2>SETTINGS</h2>
+        </div>
+
+
+      <div class="container">
+
+
+        <div class="account-area">
+
+          <div class="header-label">
+
+            <span><label><h3>Check Accounts</h4></label></span>
+            
+          </div>
+
+          <div class="actionBtn">
+            CLICK HERE :
+            <a href='account-area.php' style='font-size: 18px; margin-right: auto; margin-left: auto; text-align: center; background: #131313; color: #E1E1E1; border-radius: 3px; cursor: pointer; text-decoration: none; padding: 10px;'>ACCOUNTS</a>   
+           
+          </div>
+          
+        </div>
+
+
+        <div class="insert-area">
+
+            <div class="header-label" style="color:white;">
+
+            <span><label><h3>Upload And Set Image</h4></label></span>
+            
+          </div>
+
+          <form method="POST" enctype="multipart/form-data" action="insert_image.php">
+
+            <?php 
+
+            include("connection.php");
+
+
+             ?>
+
+            <input type="file" name="file">
+            <select name="section">
+              <optgroup label="Section">
+                <option>Carousel</option>
+                <option>Background</option>
+              </optgroup>
+            </select>
+            
+
+
+            <input type="submit" name="insert" value="Upload">
+
+</form>
+
+            <fieldset>
+              <legend> Edit: Front-End</legend>
+
+              <table style="background: white; width: 100%;">
+                <thead>
+                  <tr>
+                    <th>Filename</th>
+                    <th>Image Section</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+            
+
+                <tbody>
+                  <?php 
+
+                  $sql_set ="SELECT * FROM web_images";
+
+                  $result_set = mysqli_query($conn, $sql_set);
+
+                  if ($result_set->num_rows > 0) {
+                     while ($row = mysqli_fetch_assoc($result_set)) {
+                       
+                       $filename = $row['filename'];
+                        $image_info = $row['image_info'];
+                        $picpath = $row['picpath'];
+                        $status = $row['status'];
+                        $ImgID = $row['ImgID'];
+
+                        echo "
+                            <tr row_id='".$row["ImgID"]. "'> 
+                            <td>$filename</td>" 
+                            ."<td>$image_info</td>" 
+                            ."<td>$status</td>"
+                            ."<td><a href='status.php?ID=$ImgID'> SET</a> 
+                                  <a href='unset.php?UnsetID=$ImgID'> UNSET</a></td>"
+                            ."</tr>";
+
+                        
+                     }
+                        
+                  }
+
+
+
+
+
+                   ?>
+                </tbody>
+              </table>
+
+              <div>
+                
+              </div>
+            </fieldset>
+
+
+
+          
+        </div>
+        
+      </div>
 
 
 
