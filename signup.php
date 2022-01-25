@@ -47,13 +47,9 @@ if(isset($_POST["signup-btn"]))
 
               //Content
               $mail->IsHTML(true);
-<<<<<<< HEAD
               $mail->Subject='Confirmation OTP Code';
               $mail->Body='<h1 align-center>Your One Time Password : '.$OTP.'</h1><br><a href="reset_pass.php?email='.$email.'">Click here to login</a>';
-=======
-              $mail->Subject='Verify email';
-              $mail->Body='<h1 align-center>Click the link to Verify your email</h1><br><a href="http://localhost/Capstone-2021-2022/reset_pass.php?email='.$email.'">Click here to change your password</a>';
->>>>>>> 64564443a97fff7cee18d5b1f9176a71435c6ef1
+              
 
               //icomment mo nalang tong $mail ben pag ayaw pa din. para sa presentation ok muna.
 
@@ -66,7 +62,7 @@ if(isset($_POST["signup-btn"]))
                 if($result){
                   echo "<script>alert('Your account has been created. Check your email for validation. Redirecting to login page...')</script>"; 
                   echo "<script> window.location.href='login.php' </script>  ";
-                  // header("Location: {$url}");
+                  // header("Location: {'$url'}");
                   exit;
                 }
 
@@ -77,7 +73,7 @@ if(isset($_POST["signup-btn"]))
     // $result = $conn->query($sql);
     // echo "<script>alert('Your account has been created. Redirecting to login page...')</script>"; 
     // echo "<script> window.location.href='login.php' </script>  ";
-    // header("Location: {$url}");
+    // header("Location: {.$url.}");
     // exit;
     // $conn->close();
 
