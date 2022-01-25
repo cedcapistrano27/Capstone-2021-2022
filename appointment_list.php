@@ -26,16 +26,27 @@ if (isset($_POST['request'])) {
  
   $appoint = $_POST['appointment1'];
   $details = $_POST['details'];
+  $time = $_POST['app_time'];
   
+  $query = "SELECT * FROM appointment WHERE time = '$time' and date='$appoint'";
+  $resulta = mysqli_query($conn,$query);
+  if($resulta->num_rows == 0)
+  {
+    $sql = "INSERT into appointment (UID,date,time,a_details,status) VALUES ('$uid','$appoint','$time','$details','pending')";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+      echo " <script>alert('Appointment Created!') </script>";
+      echo "<script> window.location.href='appointment_list.php' </script> ";
+      header("Location: {$url}");
+    }
+  }
+  else{
+    echo "<script>alert('Time $time is already booked. Please select another one.')</script>";
+
+  }
+
   
 
-  $sql = "INSERT into appointment (UID,date,a_details,status) VALUES ('$uid','$appoint','$details', 'pending')  ";
-  $result = mysqli_query($conn, $sql);
-  if ($result) {
-   echo " <script>alert('Appointment Created!') </script>";
-   echo "<script> window.location.href='appointment_list.php' </script>  ";
-        header("Location: {$url}");
-  }
 
  }
 ?>
@@ -55,6 +66,7 @@ if (isset($_POST['request'])) {
     <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/> -->
   </head>
   <style>
     .rightpanel{
@@ -178,6 +190,23 @@ if (isset($_POST['request'])) {
                     <!--<label for="name" style="visibility:hidden;">Hey </label> <br>-->
                     
                     <label for="">Date of Appointment:</label> <input type="date" name="appointment1" id="txt-appoint_date"  style="margin-top:10px;" onkeydown="return false" >
+                    <label for="">Select time: 
+                      <select name="app_time" id="" style="height:35px; width:100px;">
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="3:00 PM">3:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="5:00 PM">5:00 PM</option>
+                      </select>
+                    </label> 
+                    <!-- <div>
+                      <input type="text" id="time" placeholder="Select Time">
+                    </div> -->
                     <br>
                     <label for="">Details: </label><br> <textarea name="details" id="" cols="30" rows="10" style="width:600px; height:150px; margin-bottom:10px;"></textarea> <br>
                     <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
@@ -304,6 +333,7 @@ if (isset($_POST['request'])) {
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script> -->
     <script>
       $(document).ready(function() {
       $("#formButton").click(function() {
@@ -327,6 +357,19 @@ if (isset($_POST['request'])) {
 
         $('#txt-appoint_date').attr('min', maxDate);
       });
+
+      // var timepicker = new TimePicker('time', {
+      //   lang: 'en',
+      //   theme: 'dark'
+      // });
+      // timepicker.on('change', function(evt) {
+        
+      //   var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+      //   evt.element.value = value;
+
+      // });
     </script>
+    
+    
   </body>
 </html>
