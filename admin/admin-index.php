@@ -208,6 +208,7 @@
       height: 100vh;
       align-items: center;
 
+<<<<<<< HEAD
 
       
     }
@@ -303,6 +304,231 @@
       font-size: 1.5rem;
       
      
+=======
+    <style>
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header{
+  z-index: 1;
+  position: fixed;
+  background: #293756;
+  padding: 20px;
+  width: calc(100% - 0%);
+  top: 0;
+  height: 30px;
+}
+.left_area{
+  display: flex;
+}
+.left_area img{
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.left_area h3{
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.left_area span{
+  color: #19B3D3;
+}
+
+.logout_btn{
+  padding: 5px;
+  background: #19B3D3;
+  text-decoration: none;
+  float: right;
+  margin-top: -30px;
+  margin-right: 40px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.logout_btn:hover{
+  background: #0B87A6;
+}
+
+.sidebar{
+  z-index: 1;
+  top: 0;
+  background: #293756;
+  margin-top: 70px;
+  padding-top: 30px;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  height: calc(100%);
+  transition: 0.5s;
+  transition-property: left;
+  overflow-y: auto;
+}
+
+.profile_info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar .profile_info .profile_image{
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.sidebar .profile_info h4{
+  color: #ccc;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.sidebar a{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar a:hover{
+  background: #19B3D3;
+}
+
+.sidebar i{
+  padding-right: 10px;
+}
+
+label #sidebar_btn{
+  z-index: 1;
+  color: #fff;
+  position: fixed;
+  cursor: pointer;
+  left: 300px;
+  font-size: 20px;
+  margin: 5px 0;
+  transition: 0.5s;
+  transition-property: color;
+}
+
+label #sidebar_btn:hover{
+  color: #19B3D3;
+}
+
+#check:checked ~ .sidebar{
+  left: -185px;
+}
+
+#check:checked ~ .sidebar a span{
+  display: none;
+}
+
+#check:checked ~ .sidebar a{
+  font-size: 20px;
+  margin-left: 165px;
+  width: 100%;
+}
+
+.content{
+  width: 100% - 250px;
+  margin-top: 50px;
+  /* padding: 20px; */
+  margin-left: 250px;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+#check:checked ~ .content{
+  margin-left: 60px;
+}
+
+#check:checked ~ .sidebar .profile_info{
+  display: none;
+}
+
+#check{
+  display: none;
+}
+
+.mobile_nav{
+  display: none;
+}
+
+
+/*Section Area*/
+section{
+  
+  width: 100% - 250px;
+  height: 100vh;
+  align-items: center;
+
+
+  
+}
+
+section .widget{
+  display: inline-flex;
+    flex-direction: row;
+    margin-top: -5%;
+    width: 800px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px dimgray;
+    
+
+}
+section .calendar{
+  max-width: 100% - 250px;
+
+}
+
+/*widget css*/
+
+ .color2, .color4, .color5{
+  background: rgba(0, 0, 0, 0.54);
+}
+
+.card-body{
+    
+    font-family: "Roboto", sans-serif;
+    margin: 15px;
+    padding: 20px;
+    width: 25%;
+    height: 90px;
+    color: #fff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.float-left{
+    flex: 1.5;
+    text-align: center;
+    
+}
+.float-right{
+     flex: .5;
+     text-align: right;
+>>>>>>> 2495d9e4f2316243030b157ce0f021d44598ab1f
      
     }
 
@@ -621,13 +847,11 @@
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label>
       <div class="left_area">
-        <img src="../images/logo.jpg" class="logo-image" alt="BV Logo" width="30">
+        <img src="../images/logologo.png" class="logo-image" alt="BV Logo" width="30">
         <h3>BV <span>Construction</span></h3>
       </div>
-      <div class="right_area">
-        <a href="../admin-logout.php" class="logout_btn">Logout</a>
-      </div>
-    </header>
+
+    </header> -->
     <!--header area end-->
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
@@ -646,68 +870,96 @@
     <!--mobile navigation bar end-->
     <!--sidebar start-->
     <div class="sidebar">
+      <!-- <div class="container-fluid" style="color:white;text-align:center;">
+        <h2 >BV <br> Construction</h2>
+      </div> -->
       <div class="profile_info">
         <img src="../images/avatar.png" class="profile_image" alt="">
-        <h4>Admin User</h4>
+        <h4>Admin</h4>
       </div>
       <a href="admin-index.php"><i class="fas fa-home"></i><span>HOME</span></a>
         <a href="appointment-area.php"><i class="fas fa-calendar-check"></i><span>APPOINTMENTS</span></a>
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
         <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
+        <a href="../admin-logout.php"><i class='fas fa-sign-out-alt'></i><span>LOGOUT</span> </a>
+
     </div>
     <!--sidebar end-->
 
-    <div class="content">
+    <div class="content" style="background-color: rgb(252, 245, 245);">
 
       <section id="dashboard">
-        
-<div class="widget">
-       
+        <div class="container-fluid" style="height: 120px;background-color: dimgray;width: 100%;"></div>
+        <div class="container-fluid" style="text-align-last: center;text-align: -webkit-center;padding-top: 20px;margin-top: -100px;">
+          <img src="../images/Capture2.PNG" style="width: 900px;height: 450px;border-radius: 10px;box-shadow: 1px 1px 5px;">
 
+          <div class="widget">
+            <!--Widget Start-->
     
-        
-        <!--Widget Start-->
-
-        <div class="card-body color4">
+            <div class="card-body color4">
+                <div class="float-left">
+                    <p>Appointments for today</p>
+    
+                    <h3>
+                        <span class="count">191</span>
+                    </h3>
+                </div>
+                <div class="float-right">
+                    <i class="fas fa-handshake"></i>
+                </div>
+            </div>
+            <div class="card-body color4">
+              <div class="float-left">
+                  <p>On-Going <br> Project</p>
+    
+                  <h3>
+                      <span class="count">6</span>
+                  </h3>
+              </div>
+              <div class="float-right">
+                  <i class="fas fa-handshake"></i>
+              </div>
+          </div>
+          <div class="card-body color4">
             <div class="float-left">
+<<<<<<< HEAD
 
               <?php 
 
 
 
                ?>
+=======
+                <p>Today <br> Sales</p>
+    
+>>>>>>> 2495d9e4f2316243030b157ce0f021d44598ab1f
                 <h3>
-                    <span class="count">191</span>
+                    <span class="count">10000</span>
                 </h3>
-                <p>Appointments for today</p>
             </div>
             <div class="float-right">
                 <i class="fas fa-handshake"></i>
             </div>
         </div>
-        <!--Widget End-->
+            <!--Widget End-->
+    </div>
+        </div>
+<!-----Calendar Area----->
+<!-- 
+<div class="calendar">
+  <div class="calendar-body">
+    <label class="day-name">Day</label>,
+    <label class="month-name">Month</label>
+    <label class="date-number">00</label>,
+    <label class="year">0000</label>
+  </div>
+</div> -->
+<!----- Calendar Area end----->
 
-     
-
-
-     
-      </div>
-       
 
         
 
-<!-----Calendar Area----->
-
-    <div class="calendar">
-      <div class="calendar-body">
-        <label class="day-name">Day</label>,
-        <label class="month-name">Month</label>
-        <label class="date-number">00</label>,
-        <label class="year">0000</label>
-      </div>
-    </div>
-<!----- Calendar Area end----->
 
 
 

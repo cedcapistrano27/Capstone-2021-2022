@@ -1,16 +1,19 @@
 <?php
+session_start();
 include 'connection.php';
-
+use PHPMailer\PHPMailer\PHPMailer;
+  use PHPMailer\PHPMailer\Exception;
+  require 'PHPMailers/src/Exception.php';
+  require 'PHPMailers/src/PHPMailer.php';
+  require 'PHPMailers/src/SMTP.php';
+  
 if(isset($_POST["signup-btn"]))
 {
   $username = $_POST["uname"];
   $email = $_POST["email"];
   $password = $_POST["pass"];
   $confirm_pass = $_POST["confirm-pass"];
-
-
-  
-  
+  $OTP=rand(1000,9999);
   if(strlen($password)<8){
     if(!ctype_upper($password) && !ctype_lower($password)){
       echo "<script>alert('Password Should have uppercase and lowercase letters')</script>";
@@ -23,16 +26,65 @@ if(isset($_POST["signup-btn"]))
     echo "<script>alert('Password does not match!')</script>"; 
   }
   else{
-    $sql = "INSERT INTO user (username, email, password, usertype) VALUES ('$username', '$email', '$password', 'common')";
-    $result = $conn->query($sql);
-    echo "<script>alert('Your account has been created. Redirecting to login page...')</script>"; 
-    echo "<script> window.location.href='login.php' </script>  ";
-    header("Location: {$url}");
-    exit;
-    $conn->close();
+    //SERVER SETTING 
+    $mail=new PHPMailer();
+    $mail-> isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 587;
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'tls';
+    
+    $mail->Username ='BVConstruk@gmail.com';
+    $mail->Password=  'bv12345678';
+
+     //Recipients
+    $mail->setFrom('BVConstruk@gmail.com', 'BV Construction');
+    $mail->AddAddress($email);
+    $mail->addReplyTo('BVConstruk@gmail.com');
+
+    // $_SESSION["created_at"] = $currentDate; 
+    // $_SESSION["expiration"] = $packageEndDate;
+
+              //Content
+              $mail->IsHTML(true);
+              $mail->Subject='Confirmation OTP Code';
+              $mail->Body='<h1 align-center>Your One Time Password : '.$OTP.'</h1><br><a href="reset_pass.php?email='.$email.'">Click here to login</a>';
+<<<<<<< HEAD
+              
+=======
+>>>>>>> 906de8cbc355544072b77b6e8a5b82743c84421b
+
+              //icomment mo nalang tong $mail ben pag ayaw pa din. para sa presentation ok muna.
+
+          if($mail->send()){
+            // $email=$_SESSION['email'];
+          // $querymail = "UPDATE account SET created_at='$currentDate', expiration ='$packageEndDate' WHERE email='$myemail'";  
+          //      $run1 = mysqli_query($con,$querymail) or die(mysqli_error($con));
+               $sql = "INSERT INTO user (username, email, password, usertype) VALUES ('$username', '$email', '$password', 'common')";
+               $result = mysqli_query($conn,$sql1) or die(mysqli_error($conn));
+                if($result){
+                  echo "<script>alert('Your account has been created. Check your email for validation. Redirecting to login page...')</script>"; 
+                  echo "<script> window.location.href='login.php' </script>  ";
+                  // header("Location: {'$url'}");
+                  exit;
+                }
+
+
+            }
+          
+    // $sql = "INSERT INTO user (username, email, password, usertype) VALUES ('$username', '$email', '$password', 'common')";
+    // $result = $conn->query($sql);
+    // echo "<script>alert('Your account has been created. Redirecting to login page...')</script>"; 
+    // echo "<script> window.location.href='login.php' </script>  ";
+    // header("Location: {.$url.}");
+    // exit;
+    // $conn->close();
+
   }
   
   }  
+
+
 
 
 ?>
@@ -73,7 +125,7 @@ if(isset($_POST["signup-btn"]))
       <div class="text">
         <h3>Already have an account? <a href="login.php">Login now</a></h3>
         <br>
-						<a class="txt2" href="index.html">
+						<a class="txt2" href="index.php">
 							 Go to homepage
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 						</a>

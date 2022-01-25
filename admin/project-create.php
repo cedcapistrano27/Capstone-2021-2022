@@ -34,7 +34,7 @@ body{
 header{
   z-index: 1;
   position: fixed;
-  background: #22242A;
+  background: #293756;
   padding: 20px;
   width: calc(100% - 0%);
   top: 0;
@@ -82,7 +82,7 @@ header{
 .sidebar{
   z-index: 1;
   top: 0;
-  background: #2f323a;
+  background: #293756;
   margin-top: 70px;
   padding-top: 30px;
   position: fixed;
@@ -368,12 +368,10 @@ input[type=submit]:hover{
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label>
       <div class="left_area">
-        <img src="../images/logo.jpg" class="logo-image" alt="BV Logo" width="30">
+        <img src="../images/logologo.png" class="logo-image" alt="BV Logo" width="30">
         <h3>BV <span>Construction</span></h3>
       </div>
-      <div class="right_area">
-        <a href="#" class="logout_btn">Logout</a>
-      </div>
+      
     </header>
     <!--header area end-->
     <!--mobile navigation bar start-->
@@ -402,6 +400,8 @@ input[type=submit]:hover{
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
         <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
+        <a href="../admin-logout.php"><i class='fas fa-sign-out-alt'></i><span>LOGOUT</span> </a>
+
     </div>
     <!--sidebar end-->
 
@@ -451,7 +451,7 @@ input[type=submit]:hover{
 
       if ($result_insert == true) {
         echo "<script> alert('You have Created a New Contract!') </script>";
-  echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/project-area.php' </script>";
+  echo "<script> window.location.href='admin/project-area.php' </script>";
       }
 
 

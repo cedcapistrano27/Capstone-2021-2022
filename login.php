@@ -128,9 +128,9 @@ if ($result->num_rows > 0)
 		<div class="container-login100">
 			<div class="wrap-login100">
 				
-				<div class="login100-pic js-tilt" data-tilt >
+				<!-- <div class="login100-pic js-tilt" data-tilt >
 					<img src="assets/images/agency/img-01.png" alt="IMG">
-				</div>
+				</div> -->
 				
 				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title">
@@ -175,7 +175,7 @@ if ($result->num_rows > 0)
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 						<br>
-						<a class="txt2" href="index.html">
+						<a class="txt2" href="index.php">
 							Go to homepage
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 						</a>

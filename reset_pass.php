@@ -1,6 +1,11 @@
 <?php
 include 'connection.php';
 session_start();
+if (!isset($_SESSION['username'])) {
+  header('location:login.php');
+  exit;
+  }
+  
 $uname = $_SESSION['username'];
 
 
@@ -23,8 +28,8 @@ $uname = $_SESSION['username'];
   else{
     $sql = "UPDATE user SET password = '$password' WHERE username = '$uname'";
     $result = $conn->query($sql);
-      echo "<script>alert('Your password has been changed. Redirecting to login page...')</script>"; 
-      echo "<script> window.location.href='http://localhost/Capstone-2021-2022/login.php' </script>  ";
+      echo "<script>alert('Your password has been changed. Your account have been logged out!')</script>"; 
+      echo "<script> window.location.href='http://localhost/Capstone-2021-2022/logout2_resetpass.php' </script>  ";
       header("Location: {$url}");
   }
   

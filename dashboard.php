@@ -27,15 +27,15 @@ $sql = "SELECT COUNT(UID) AS numbers FROM appointment  WHERE UID = '$uid' ";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 
-$projects = "SELECT COUNT(Remarks) AS finished_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Finished'";
+$projects = "SELECT COUNT(Remarks) AS finished_projects FROM project WHERE UID = '$uid' AND Remarks = 'Completed'";
 $project_result = mysqli_query($conn, $projects);
 $row1 = mysqli_fetch_array($project_result);
 
-$projects2 = "SELECT COUNT(Remarks) AS ongoing_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Ongoing'";
+$projects2 = "SELECT COUNT(Remarks) AS ongoing_projects FROM project WHERE UID = '$uid' AND Remarks = 'Ongoing'";
 $project_result2 = mysqli_query($conn, $projects2);
 $row2 = mysqli_fetch_array($project_result2);
 
-$projects3 = "SELECT COUNT(Remarks) AS cancelled_projects FROM timeline WHERE UID = '$uid' AND Remarks = 'Cancelled'";
+$projects3 = "SELECT COUNT(Remarks) AS cancelled_projects FROM project WHERE UID = '$uid' AND Remarks = 'Cancelled'";
 $project_result3 = mysqli_query($conn, $projects3);
 $row3 = mysqli_fetch_array($project_result3);
 
@@ -115,7 +115,7 @@ $row3 = mysqli_fetch_array($project_result3);
     }/*
     function openclose(){
       document.getElementById("AL").style.display= "block";
-      //document.getElementById("APM").style.backgroundColor="blue";
+      document.getElementById("APM").style.backgroundColor="blue";
     }*/
   </script>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60" bgcolor="#0000">
@@ -206,7 +206,7 @@ $row3 = mysqli_fetch_array($project_result3);
               </a>
             </div>
             
-            <div class="col-sm-12" style="max-width:100%;height: 700px;background-color:white;border-radius: 5px;padding: 10px 10px;box-shadow: 2px 2px 10px grey;margin-top: 15px;text-align: center;">
+            <div class="col-sm-12" style="max-width:100%;height: 700px;background-color:white;border-radius: 5px;padding: 10px 10px;box-shadow: 2px 2px 10px grey;margin-top: 15px;">
             <h2 class="col-sm-2">Updates</h2> <br>
             <table   class="table table-hover my-1 caption-bottom table-borderless" >
             <thead class="table-dark">
