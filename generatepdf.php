@@ -1,9 +1,9 @@
 <?php    
 
 session_start();
-     include 'connection.php';
      
-          
+     
+
    
 
   
@@ -11,9 +11,24 @@ session_start();
 
  function fetch_data()    
  {    
+     include 'connection.php';
+     $Uname = $_SESSION['username'];
+     $sql2 = "SELECT * FROM user WHERE username = '$Uname'"  ;
+     $result2 = $conn->query($sql2);
+     if ($result2->num_rows>0)
+     {
+          while($row=$result2->fetch_assoc())
+          {
+               $uid = $row['UID'];
+               $Firstname1 = $row['fname'];
+               $Midname1 = $row['mname'];
+               $Lastname1 = $row['lname'];          
+          }
+     }
+
       $output = '';    
       $conn = mysqli_connect("localhost", "root", "", "bvconstruction");    
-      $sql = "SELECT * FROM payment WHERE 1";    
+      $sql = "SELECT * FROM payment WHERE UID = '$uid'";    
       $result = mysqli_query($conn, $sql);
 
       if (mysqli_num_rows($result) > 0) {
