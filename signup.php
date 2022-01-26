@@ -48,11 +48,7 @@ if(isset($_POST["signup-btn"]))
               //Content
               $mail->IsHTML(true);
               $mail->Subject='Confirmation OTP Code';
-              $mail->Body='<h1 align-center>Your One Time Password : '.$OTP.'</h1><br><a href="reset_pass.php?email='.$email.'">Click here to login</a>';
-<<<<<<< HEAD
-              
-=======
->>>>>>> 906de8cbc355544072b77b6e8a5b82743c84421b
+              $mail->Body='<h1 align-center>Your One Time Password : '.$OTP.'</h1><br><a href="http://localhost/Capstone-2021-2022/login.php?email='.$email.'">Click here to login</a>';
 
               //icomment mo nalang tong $mail ben pag ayaw pa din. para sa presentation ok muna.
 
