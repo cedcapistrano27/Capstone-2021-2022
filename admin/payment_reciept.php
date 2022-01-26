@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
 
       $conn = mysqli_connect("localhost", "root", "", "bvconstruction");    
 
-      $sql = "SELECT * FROM payment WHERE UID ='$Reciept'";    
+      $sql = "SELECT * FROM invoice WHERE UID ='$Reciept' AND project_name='$Project'";    
 
     
       $result = mysqli_query($conn, $sql);
@@ -56,7 +56,7 @@ if ($result->num_rows > 0) {
                           <td>'.$row["PayID"].'</td>        
                           <td>'.$row["project_name"].'</td>
                           <td>'.$row["reference_no"].'</td>
-                          <td>'.$row["balance"].'</td>        
+                                 
                      </tr>    
                           ';    
       }  
