@@ -11,7 +11,7 @@ $res_app = mysqli_query($conn, $status_sql);
 
 if ($res_app) {
 	echo "<script> alert('You have approved the Appointment!') </script>";
-	echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/appointment-area.php' </script>";
+	echo "<script> window.location.href='admin/appointment-area.php' </script>";
 }
 
 

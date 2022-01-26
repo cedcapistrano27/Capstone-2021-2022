@@ -36,7 +36,7 @@
       margin: 0;
       padding: 0;
       font-family: "Roboto", sans-serif;
-      background: url(landing-page.jpg) no-repeat;
+      /* background: url(landing-page.jpg) no-repeat; */
       background-position: center;
       background-size: cover;
       background-attachment: fixed;
@@ -177,8 +177,8 @@
 
     .content{
       width: 100% - 250px;
-      margin-top: 60px;
-      padding: 20px;
+      margin-top: 20px;
+      padding: 0;
       margin-left: 250px;
       height: 100vh;
       transition: 0.5s;
@@ -208,15 +208,14 @@
       height: 100vh;
       align-items: center;
 
-<<<<<<< HEAD
 
       
     }
 
     section .widget{
-      display: flex;
+      display: inline-flex;
       flex-direction: row;
-      margin-top: 20px;
+      margin-top: -30%;
     }
     section .calendar{
       max-width: 100% - 250px;
@@ -304,231 +303,6 @@
       font-size: 1.5rem;
       
      
-=======
-    <style>
-body{
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
-  background-color: white;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-header{
-  z-index: 1;
-  position: fixed;
-  background: #293756;
-  padding: 20px;
-  width: calc(100% - 0%);
-  top: 0;
-  height: 30px;
-}
-.left_area{
-  display: flex;
-}
-.left_area img{
-  border-radius: 5px;
-  margin-right: 5px;
-}
-
-.left_area h3{
-  color: #fff;
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 22px;
-  font-weight: 900;
-}
-
-.left_area span{
-  color: #19B3D3;
-}
-
-.logout_btn{
-  padding: 5px;
-  background: #19B3D3;
-  text-decoration: none;
-  float: right;
-  margin-top: -30px;
-  margin-right: 40px;
-  border-radius: 2px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  transition: 0.5s;
-  transition-property: background;
-}
-
-.logout_btn:hover{
-  background: #0B87A6;
-}
-
-.sidebar{
-  z-index: 1;
-  top: 0;
-  background: #293756;
-  margin-top: 70px;
-  padding-top: 30px;
-  position: fixed;
-  left: 0;
-  width: 250px;
-  height: calc(100%);
-  transition: 0.5s;
-  transition-property: left;
-  overflow-y: auto;
-}
-
-.profile_info{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.sidebar .profile_info .profile_image{
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  margin-bottom: 10px;
-}
-
-.sidebar .profile_info h4{
-  color: #ccc;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-.sidebar a{
-  color: #fff;
-  display: block;
-  width: 100%;
-  line-height: 60px;
-  text-decoration: none;
-  padding-left: 40px;
-  box-sizing: border-box;
-  transition: 0.5s;
-  transition-property: background;
-}
-
-.sidebar a:hover{
-  background: #19B3D3;
-}
-
-.sidebar i{
-  padding-right: 10px;
-}
-
-label #sidebar_btn{
-  z-index: 1;
-  color: #fff;
-  position: fixed;
-  cursor: pointer;
-  left: 300px;
-  font-size: 20px;
-  margin: 5px 0;
-  transition: 0.5s;
-  transition-property: color;
-}
-
-label #sidebar_btn:hover{
-  color: #19B3D3;
-}
-
-#check:checked ~ .sidebar{
-  left: -185px;
-}
-
-#check:checked ~ .sidebar a span{
-  display: none;
-}
-
-#check:checked ~ .sidebar a{
-  font-size: 20px;
-  margin-left: 165px;
-  width: 100%;
-}
-
-.content{
-  width: 100% - 250px;
-  margin-top: 50px;
-  /* padding: 20px; */
-  margin-left: 250px;
-  height: 100vh;
-  transition: 0.5s;
-}
-
-#check:checked ~ .content{
-  margin-left: 60px;
-}
-
-#check:checked ~ .sidebar .profile_info{
-  display: none;
-}
-
-#check{
-  display: none;
-}
-
-.mobile_nav{
-  display: none;
-}
-
-
-/*Section Area*/
-section{
-  
-  width: 100% - 250px;
-  height: 100vh;
-  align-items: center;
-
-
-  
-}
-
-section .widget{
-  display: inline-flex;
-    flex-direction: row;
-    margin-top: -5%;
-    width: 800px;
-    padding: 15px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 2px 2px 5px dimgray;
-    
-
-}
-section .calendar{
-  max-width: 100% - 250px;
-
-}
-
-/*widget css*/
-
- .color2, .color4, .color5{
-  background: rgba(0, 0, 0, 0.54);
-}
-
-.card-body{
-    
-    font-family: "Roboto", sans-serif;
-    margin: 15px;
-    padding: 20px;
-    width: 25%;
-    height: 90px;
-    color: #fff;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-}
-.float-left{
-    flex: 1.5;
-    text-align: center;
-    
-}
-.float-right{
-     flex: .5;
-     text-align: right;
->>>>>>> 2495d9e4f2316243030b157ce0f021d44598ab1f
      
     }
 
@@ -766,7 +540,7 @@ section .calendar{
       
       width: 100%;
       display:flex;
-      margin: auto;
+      margin-top: -10%;
 
 
     }
@@ -891,7 +665,7 @@ section .calendar{
 
       <section id="dashboard">
         <div class="container-fluid" style="height: 120px;background-color: dimgray;width: 100%;"></div>
-        <div class="container-fluid" style="text-align-last: center;text-align: -webkit-center;padding-top: 20px;margin-top: -100px;">
+        <div class="container-fluid" style="text-align-last: center;text-align: -webkit-center;padding-top: 20px;margin-top: -50px;">
           <img src="../images/Capture2.PNG" style="width: 900px;height: 450px;border-radius: 10px;box-shadow: 1px 1px 5px;">
 
           <div class="widget">
@@ -958,9 +732,16 @@ $sql_proj ="SELECT COUNT(PID) AS total_p FROM project WHERE remarks = 'Ongoing' 
             <div class="float-left">
 
 
+<<<<<<< HEAD
                 <p>Today <br> Sales</p>
     
 
+=======
+
+
+               ?>
+               <p>Todays <br> Sales</p>
+>>>>>>> 28472c97108313bf32f9536465851e54e796d649
                 <h3>
                     <span class="count">10000</span>
                 </h3>
@@ -970,8 +751,8 @@ $sql_proj ="SELECT COUNT(PID) AS total_p FROM project WHERE remarks = 'Ongoing' 
             </div>
         </div>
             <!--Widget End-->
+      </div>
     </div>
-        </div>
 <!-----Calendar Area----->
 <!-- 
 <div class="calendar">
