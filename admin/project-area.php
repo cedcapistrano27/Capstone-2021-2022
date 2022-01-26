@@ -305,7 +305,12 @@ td, th{
 
 
 }
-      
+ td{
+  padding:15px;
+ }
+ tr:hover{
+   background-color: lightgray;
+ }
     </style>
 
 
@@ -313,7 +318,7 @@ td, th{
   $(document).ready(function(){
     $('table tr').click(function(){
       var id = $(this).attr('row_id');
-      window.location.replace("admin/project-info.php?id="+ id);
+      window.location.replace("project-info.php?id="+ id);
     });
   });
 </script>
@@ -371,16 +376,16 @@ td, th{
       
         <section>
           <div class="header-table" style="margin: auto; color:black;font-variant: small-caps; padding:10px; width: auto; width:60%;text-align: center;">
-            <span><h1 style="">Projects</h1></span>
+            <span><h1 style="font-size:40px;">Projects</h1></span>
           </div>
 
           <div class="body-table" style="height: 80vh; padding: 10px; display: flex; flex-direction: column;">  
             <div class="search-bar" style="margin: 20px 10px;">
                 
-              <span><label style="color: white; font-weight: bold; font-size:15px;">Search : </label></span>
+              <span class="col-sm-6"><label style="color: black; font-weight: bold; font-size:15px;">Search : </label></span>
               <input type="text" name="search" style="height: 5vh;" id="search" onkeyup="myFunction()">
-                <div class="createBtn">
-                  <a href="project-create.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width:20% ; margin:20px auto; text-align: center;">Create New Project</a>
+                <div class="createBtn" style="text-align:right;margin-top:-25px;">
+                  <a href="project-create.php" style="border-radius: 5px;text-decoration: none; color:white; background: #055C9D; padding: 10px; width:20% ; text-align: center;">Create New Project</a>
                   
                 </div>
             </div>
@@ -388,7 +393,7 @@ td, th{
             <div class="table-area" style=" height: 70vh; background:white; overflow-y: scroll;">
 
               <table style="width: 100%; background: white; text-align:center;">
-                <thead style="background: black; color: white; font-size: 1.2rem;">
+                <thead style="background: #293756; color: white; font-size: 1.2rem;">
                   <tr>
                     <th>Project ID</th>
                     <th>Client ID</th>
