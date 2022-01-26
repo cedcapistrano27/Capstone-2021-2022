@@ -900,9 +900,24 @@ section .calendar{
             <div class="card-body color4">
                 <div class="float-left">
                     <p>Appointments for today</p>
+
+                    <?php 
+
+                      include 'connection.php';
+                      $sql ="SELECT COUNT(APPID) AS total FROM appointment WHERE status = 'pending' AND date > DATE_SUB(NOW(), INTERVAL 1 DAY)";
+                      $result = mysqli_query($conn, $sql);
+
+                      while ($count_r = mysqli_fetch_assoc($result)) {
+                        $num_rows = $count_r['total'];
+                      }
+
+
+
+
+                     ?>
     
                     <h3>
-                        <span class="count">191</span>
+                        <span class="count"><?php   echo $num_rows ?></span>
                     </h3>
                 </div>
                 <div class="float-right">
@@ -914,7 +929,25 @@ section .calendar{
                   <p>On-Going <br> Project</p>
     
                   <h3>
-                      <span class="count">6</span>
+
+
+                    <?php
+
+$sql_proj ="SELECT COUNT(PID) AS total_p FROM project WHERE remarks = 'Ongoing' AND Pdate > DATE_SUB(NOW(), INTERVAL 1 DAY)";
+                      $result_p = mysqli_query($conn, $sql_proj);
+                      if ($result_p->num_rows > 0) {
+                         while ($count_p = mysqli_fetch_assoc($result_p)) {
+
+                        $num_proj = $count_p['total_p'];
+                      }
+                      }
+                     
+
+
+
+
+                     ?>
+                      <span class="count"><?php echo $num_proj;?></span>
                   </h3>
               </div>
               <div class="float-right">
@@ -923,17 +956,11 @@ section .calendar{
           </div>
           <div class="card-body color4">
             <div class="float-left">
-<<<<<<< HEAD
-
-              <?php 
 
 
-
-               ?>
-=======
                 <p>Today <br> Sales</p>
     
->>>>>>> 2495d9e4f2316243030b157ce0f021d44598ab1f
+
                 <h3>
                     <span class="count">10000</span>
                 </h3>
