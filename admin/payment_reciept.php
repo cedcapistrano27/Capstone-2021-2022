@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
       }
 }
 
- $sql = "SELECT SUM(total_cost) AS total FROM payment WHERE  payment_issued > DATE_SUB(NOW(), INTERVAL 1 DAY)";
+ $sql = "SELECT SUM(total_cost) AS total FROM payment ";
           $result = mysqli_query($conn, $sql);
           while ($count_r = mysqli_fetch_assoc($result)) {
           $num_rows = $count_r['total'];
@@ -43,7 +43,10 @@ if ($result->num_rows > 0) {
       $Project = $_GET['Projname'];
 
       $conn = mysqli_connect("localhost", "root", "", "bvconstruction");    
+
       $sql = "SELECT * FROM payment WHERE UID ='$Reciept'";    
+
+    
       $result = mysqli_query($conn, $sql);
 
       if (mysqli_num_rows($result) > 0) {
@@ -53,9 +56,7 @@ if ($result->num_rows > 0) {
                           <td>'.$row["PayID"].'</td>        
                           <td>'.$row["project_name"].'</td>
                           <td>'.$row["reference_no"].'</td>
-                          <td>'.$row["balance"].'</td>
-                          
-                           
+                          <td>'.$row["balance"].'</td>        
                      </tr>    
                           ';    
       }  
