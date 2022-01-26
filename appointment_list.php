@@ -392,11 +392,10 @@ if (isset($_POST['request'])) {
           $('#time_list').append('<option>'+availableTime[i]+'</option>')
         }
 
-        var needle = document.getElementById('time_list').value;
-        if(availableTime.indexOf(needle) > -1){
-          availableTime.splice(availableTime.indexOf(needle),1);
-          
-        }
+        // var needle = document.getElementById('time_list').value;
+        // if(availableTime.indexOf(needle) > -1){
+        //   availableTime.splice(availableTime.indexOf(needle),1);
+        // }
 
         
 
