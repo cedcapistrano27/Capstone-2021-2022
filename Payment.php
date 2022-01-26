@@ -241,8 +241,7 @@ $row3 = mysqli_fetch_array($project_result3);
 
                               $Project_name = $row["project_name"];
                               $Date_issued = $row["payment_issued"];
-                              $payment_type = $row["payment_type"];
-                              $downpayment = $row["downpayment"];
+                              $payment_type = $row["payment_type"];                            
                               $total_cost = $row["total_cost"];
                             
                               
@@ -253,7 +252,6 @@ $row3 = mysqli_fetch_array($project_result3);
                               ."<td style='font-size: 15px;padding: 15px;'>$Project_name </td>"
                               ."<td style='font-size: 15px;padding: 15px;'>$Date_issued</td>"
                               ."<td style='font-size: 15px;padding: 15px;'>$payment_type </td>"
-                              ."<td style='font-size: 15px;padding: 15px;'>$downpayment</td>"
                               ."<td style='font-size: 15px;padding: 15px;'>$total_cost</td>";
                               
 
