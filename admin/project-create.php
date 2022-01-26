@@ -19,13 +19,15 @@ S<?php
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
     <style>
 body{
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: url(landing-page.jpg) no-repeat;
+  /* background: url(landing-page.jpg) no-repeat; */
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -183,7 +185,7 @@ label #sidebar_btn:hover{
 }
 
 .content{
-  max- width: 70%;
+  /* max- width: 70%; */
   margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
@@ -203,11 +205,12 @@ label #sidebar_btn:hover{
 
 .form-container{
   width: 80%; 
-  height: 100vh;
+  height: auto;
   background: rgba(0, 0, 0, 0.57); 
   color: white;
   margin: auto;
   border-radius: 10px;
+  padding-bottom: 20px;
 
 }
 
@@ -228,10 +231,11 @@ label #sidebar_btn:hover{
 }
 
 .createBtn{
+  
   width: 40%;
-  float: left;
+  float: right;
   text-align: center;
- margin: 10px auto;
+ margin-top: 20px;
 }
 
 input, select{
@@ -246,7 +250,7 @@ input, select{
   border-radius: 5px;
   text-decoration: none; 
   color:white;
-  background: black; 
+  background: #293756; 
   padding: 10px; 
   width: 70% ; 
   height: 7vh; 
@@ -258,10 +262,9 @@ input, select{
 }
 
 input[type=submit]:hover{
-  background: white;
-  color: black;
-  border:5px black solid ;
-}
+  cursor: pointer;
+  
+} 
 
 /* Responsive CSS */
 
@@ -475,9 +478,9 @@ input[type=submit]:hover{
       <div class="form-container" style="">
        <div class="header-form" style="text-align: center; padding: 10px; font-variant: small-caps;">
 
-        <h3>Create New Contract/Project Form</h3> 
+        <h3>Create New Contract/Project</h3> 
        </div>
-<hr>
+        <hr>
        <div class="body-form">
 
         <div class="form-input">
@@ -650,18 +653,19 @@ input[type=submit]:hover{
 
         </div>
 
-        <div class="form-input">
+        <div class="col-sm-12">
             
-            <div class="label">
-              <span><label>Scope of Work</label></span> 
+            <div class="col-sm-12" style="text-align: center;font-size:30px">
+              <span><label>Scope of Work</label></span>
+              <div class="controls col-sm-12" style="width:auto;">
+            <button id="addMore" style="padding:10px; ">Add more fields</button> <button id="deleteField" style="padding:10px; ">Delete fields</button>
+              <!-- <a href="#" id="add_more_fields" class=""><i class="fa fa-plus"></i>Add</a>
+              <a href="#" id="remove_fields" style="float:right;"><i class="fa fa-minus" style="margin-right:5px;"></i>Remove</a> -->
+            </div> 
             </div>
 
-            <div class="label">
-              <span>:</span> 
-            </div>
-
-            <div class="label">
-                <ul id="fieldList" style="padding:0; margin:0;">
+            <div class="col-sm-12" style="text-align: center;">
+                <ul id="fieldList" style="">
                   <li style="list-style:none;" id="list">
                   <select name="survey_options[]" class="survey_options" >
                     <optgroup label="A. General Requirements">
@@ -714,21 +718,18 @@ input[type=submit]:hover{
               </ul>
             </div>
                 
-            <div class="controls" style="width:294px; margin:15px auto;">
-            <button id="addMore">Add more fields</button> <button id="deleteField">Delete fields</button>
-              <!-- <a href="#" id="add_more_fields" class=""><i class="fa fa-plus"></i>Add</a>
-              <a href="#" id="remove_fields" style="float:right;"><i class="fa fa-minus" style="margin-right:5px;"></i>Remove</a> -->
-            </div>
-
-        </div>
-
+            
+                  
         
-
-      
-
+        </div>
         <div class="createBtn">
           <input type="submit" name="create" value="Create New Contract">
         </div>
+        </div>
+        
+        </div>
+      
+
                 
 
        </form>
@@ -758,19 +759,7 @@ input[type=submit]:hover{
                 }
             });
         });
-
-    const dayNumber = new Date().getDate();
-    const year = new Date().getFullYear();
-    const dayName = new Date().toLocaleString("default", {weekday: "long"});
-    const monthName = new Date().toLocaleString("default", {month: "long"});
-
-    document.querySelector(".month-name").innerHTML = monthName;
-    document.querySelector(".day-name").innerHTML = dayName;
-    document.querySelector(".date-number").innerHTML = dayNumber;
-    document.querySelector(".year").innerHTML = year;
-    </script>
-    
-    <script>
+          
       $(function() {
       $("#addMore").click(function(e) {
         e.preventDefault();
@@ -817,7 +806,7 @@ input[type=submit]:hover{
         $("#fieldList").append("<li style='list-style:none;'><input name='qty[]' type='number' placeholder='QTY' id='qty' onkeyup='total()'/></li>");
         $("#fieldList").append("<li style='list-style:none;'><input name='cost[]' type='number' placeholder='PRICE' id='price' onkeyup='total()'/></li>");
         $("#fieldList").append("<li style='list-style:none;'><input class='form-control' type='number' id='show_result' placeholder='TOTAL' readonly/> </li>");
-
+        
       });
     });
         var survey_options = document.getElementById('list');
@@ -868,6 +857,26 @@ input[type=submit]:hover{
       //   })
       // })
 
+
+
+
+
+
+
+
+
+
+    const dayNumber = new Date().getDate();
+    const year = new Date().getFullYear();
+    const dayName = new Date().toLocaleString("default", {weekday: "long"});
+    const monthName = new Date().toLocaleString("default", {month: "long"});
+
+    document.querySelector(".month-name").innerHTML = monthName;
+    document.querySelector(".day-name").innerHTML = dayName;
+    document.querySelector(".date-number").innerHTML = dayNumber;
+    document.querySelector(".year").innerHTML = year;
     </script>
+    
+    
 
       
