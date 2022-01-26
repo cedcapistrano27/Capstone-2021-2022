@@ -2,10 +2,6 @@
 
 session_start();
 include 'connection.php';
-
-
-
-
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,7 +21,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: url(landing-page.jpg) no-repeat;
+  /* background: url(landing-page.jpg) no-repeat; */
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -210,34 +206,31 @@ label #sidebar_btn:hover{
 }
 .appointment-area{
   margin: 20px auto;
-  height: 90vh;
+  height: 1000px;
   overflow: hidden; 
   border-radius: 10px;
-  width: 90%;
+  width: 100%;
 
 }
 .appointment-area .header{
-  background: rgba(0, 0, 0, 0.62);
+  background: white;
   font-weight: bold;
-  color: white;
-  text-align: center;
+  color: black;
+  text-align: left;
   border-radius: 5px;
   padding: 4px;
   font-variant: small-caps;
-  width: 50%;
+  width: 95%;
   margin-top:10px;
   margin-left: 20px;
-  border: 2px white solid;
-  
-
+  box-shadow: 2px 2px 10px grey;
+  height: 600px;
 
 }
 .appointments{
   width: 80% - 250px;
   display: flex;
   padding: 10px 10px;
-
-
 }
 
 
@@ -486,7 +479,7 @@ summary, p{
   height: 100vh;
   overflow: hidden; 
   border-radius: 10px;
-  width: 90%;
+  width: 100%;
 
 }
 .appointment-area .header{
@@ -630,9 +623,20 @@ summary, p{
     opacity: 1;
 }
 
-
 }
-      
+
+th{
+  font-size: 20px;
+  font-family:sans-serif;
+  font-weight: 50;
+}
+td{
+  font-weight: 50;
+  padding: 10px;
+}
+tr:hover{
+  background-color: lightgray;
+}
     </style>
   </head>
   <body>
@@ -685,22 +689,93 @@ summary, p{
 
     <div class="content">
 
-      <div class="calendar">
+      <!-- <div class="calendar">
       <div class="calendar-body">
         <span class="day-name">Day</span>,
         <span class="month-name">Month</span>
         <span class="date-number">00</span>,
         <span class="year">0000</span>
       </div>
-    </div>
+    </div> -->
 
     <div class="appointment-area">
+      <div class="col-sm-12">
+        <div class="col-sm-6" >
+              <h2 style="text-align: left ;">Appointments for today</h2>
+                        <?php 
 
-        <div class="header">
-        <span><h2>Appointments</h2><a href="generatepdf2.php" style="height: 35px; width: 350; margin-right: auto; margin-left: auto; text-align: center; background: #055C9D; color: white; border-radius: 3px; cursor: pointer; text-decoration: none; line-height: 2.3; padding: 10px;">Print</a></span>
+
+                $sql = "SELECT COUNT(APPID) AS total FROM appointment WHERE status = 'pending' AND UID > 3000";
+                $result = mysqli_query($conn, $sql);
+                while ($count_r = mysqli_fetch_assoc($result)) {
+                $num_rows = $count_r['total'];
+                echo "
+
+                
+                <h3 class='count' style = 'font-size:100px;font-weight:1000;margin-left:30%;'>$num_rows</h3>
+
+                ";
+                }
+                ?>
         </div>
+        <div class="col-sm-6" style="margin:-370px 0 0 700px;">
+                  <img src="../images/appoinmetheader.png" style="height:300px;">
+        </div>
+        <a href="generatepdf2.php" style="height: 35px; width: 350px; margin-left: 80%; background: #055C9D; color: white; border-radius: 3px; cursor: pointer; text-decoration: none; line-height: 2.3; padding: 10px;">Print Appointments</a></span>
 
-      <div class="appointments"> 
+        </div>
+        <div class="header">
+        
+
+        <table   class="table" style="width:100%;padding:15px;">
+                  <thead class="table-dark">
+                    <tr >
+                      <th class="fw-light" >Name</th>
+                      <th class="fw-light">Date</th>
+                      <th class="fw-light">Type</th>
+                      <th class="fw-light" style="text-align: center;">Action</th>
+                    </tr>
+                  </thead>
+                      <tbody class="color">
+                      <?php
+                             include 'connection.php';
+          $appoint_sql = "SELECT user.fname , user.mname, user.lname , appointment.date, appointment.atype, appointment.APPID FROM appointment INNER JOIN user ON appointment.UID = user.UID WHERE status ='pending' ORDER BY date ASC";
+
+          $appointment_result = mysqli_query($conn, $appoint_sql);
+
+          if ($appointment_result->num_rows > 0) {
+            while ($row = mysqli_fetch_assoc($appointment_result)) {
+              
+              $Name = $row['fname'].' '.$row['mname'].' '.$row['lname'];
+              // $user_id = $row['UID'];
+              $app_date = $row['date'];
+              $app_type = $row['atype'];
+              $APPID = $row['APPID'];
+
+              
+              echo 
+                              
+              "<tr>"
+              ."<td>$Name</td>"
+              ."<td>$app_date</td>"
+              ."<td>$app_type</td>"
+              ."<td><a href='appointment-status.php?app_id=$APPID' name='update' style='background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;''>Accept Appointment</a><td>";
+
+
+                  }
+                echo "</table>";
+              }else{
+                  echo "0 results";}
+              $conn->close();
+
+                            ?>
+
+
+                      </tbody>
+                    </table>
+        </div>
+        
+      <!-- <div class="appointments"> 
 
         <form method="POST">
 
@@ -711,51 +786,37 @@ summary, p{
 
 
 
-          $appoint_sql = "SELECT * FROM   appointment WHERE status='pending'";
 
-          $appointment_result = mysqli_query($conn, $appoint_sql);
+        //     $name = "SELECT * FROM user WHERE UID = '$user_id'"; 
 
-          if ($appointment_result->num_rows > 0) {
-            while ($row = mysqli_fetch_assoc($appointment_result)) {
-              
-              $app_id = $row['APPID'];
-              $user_id = $row['UID'];
-              $app_date = $row['date'];
-              $app_info = $row['a_details'];
-              $app_status = $row['status'];
+        //           $result = mysqli_query($conn, $name);
+        //            if ($result->num_rows > 0) {
+        //             while ($row_name = mysqli_fetch_assoc($result)) {
+        //               $clientF = $row_name['fname'];
+        //               $clientM = $row_name['mname'];
+        //               $clientL = $row_name['lname'];
 
-            $name = "SELECT * FROM user WHERE UID = '$user_id'"; 
-
-                  $result = mysqli_query($conn, $name);
-                   if ($result->num_rows > 0) {
-                    while ($row_name = mysqli_fetch_assoc($result)) {
-                      $clientF = $row_name['fname'];
-                      $clientM = $row_name['mname'];
-                      $clientL = $row_name['lname'];
-
-                       echo "
-              <div class='single-appointment' id='$app_id'>
-          <div class='title'>
-            <span><h4>$app_date</h4></span>
-             
-          </div>
-          <div class='information'>
-            <details>
-            <summary> Client's ID : $user_id | Client's Name : $clientF $clientM $clientL</summary>
-            <p>$app_info</p>
-               <a href='appointment-status.php?app_id=$app_id' name='update' style='background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;''>Accept Appointment</a>
-            </details>
-          </div>  
-        </div>
-              ";
-                    }
-                   }
+        //                echo "
+        //       <div class='single-appointment' id='$app_id'>
+        //   <div class='title'>
+        //     <span><h4>$app_date</h4></span></div>
+        //   <div class='information'>
+        //     <details>
+        //     <summary> Client's ID : $user_id | Client's Name : $clientF $clientM $clientL</summary>
+        //     <p>$app_info</p>
+        //        <a href='appointment-status.php?app_id=$app_id' name='update' style='background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;''>Accept Appointment</a>
+        //     </details>
+        //   </div>
+        // </div>
+        //       ";
+        //             }
+        //            }
   
 
              
 
-            }
-          }
+        //     }
+        //   }
           
 
 
@@ -766,9 +827,9 @@ summary, p{
 
       </form>
 
-        <div class="appointment-col-1">
+        <div class="appointment col-sm-12">
 
-           <!--Widget Start-->
+           Widget Start-->
 
         <div class="card-body">
 
@@ -778,22 +839,7 @@ summary, p{
 
             <div class="info">
 
-              <?php 
-
-
-              $sql = "SELECT COUNT(APPID) AS total FROM appointment WHERE status = 'pending' AND UID > 3000";
-          $result = mysqli_query($conn, $sql);
-          while ($count_r = mysqli_fetch_assoc($result)) {
-          $num_rows = $count_r['total'];
-          echo "
-
-          <h3>
-             <span class='count'>$num_rows</span>
-                </h3>
-
-          ";
-          }
-               ?>
+              
                 <p>Appointments</p>
             </div>
             
@@ -805,7 +851,7 @@ summary, p{
      
         
         
-      </div>
+      </div> -->
 
      
         
