@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2022 at 06:52 PM
+-- Generation Time: Jan 26, 2022 at 11:32 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -60,6 +60,21 @@ INSERT INTO `appointment` (`APPID`, `UID`, `date`, `atype`, `a_details`, `status
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `inID` int(11) NOT NULL,
+  `PID` int(11) NOT NULL,
+  `payment_type` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `balance` int(11) NOT NULL,
+  `remarks` varchar(11) COLLATE latin1_general_ci NOT NULL,
+  `targetdate` varchar(255) COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payment`
 --
 
@@ -70,8 +85,6 @@ CREATE TABLE `payment` (
   `project_name` text NOT NULL,
   `payment_type` varchar(255) NOT NULL,
   `reference_no` int(11) NOT NULL,
-  `downpayment` int(11) NOT NULL,
-  `balance` decimal(65,2) NOT NULL,
   `total_cost` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -79,15 +92,15 @@ CREATE TABLE `payment` (
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`PayID`, `UID`, `payment_issued`, `project_name`, `payment_type`, `reference_no`, `downpayment`, `balance`, `total_cost`) VALUES
-(2, 3005, '2022-01-06', 'Reconstruction Of Bedroom', 'Fully-paid', 0, 0, '120000.00', 120000),
-(3, 3022, '2022-01-06', 'teres ni marites', 'Downpayment ', 0, 5000, '32450.00', 32450),
-(4, 3022, '2022-01-06', 'sample', 'Downpayment ', 0, 7700, '77000.00', 15000),
-(5, 3005, '2022-01-21', 'motor chris', 'Fully-Paid', 0, 0, '190000.00', 190000),
-(6, 3005, '2022-01-21', 'motor chris', 'Fully-Paid', 0, 0, '190000.00', 190000),
-(7, 3022, '2022-01-22', 'Paa ni Ben', 'Downpayment', 0, 5000, '120000.00', 120000),
-(8, 0, '2022-01-25', '', 'Downpayment', 16798527, 0, '0.00', 0),
-(9, 3022, '2022-01-25', 'ben project', 'Downpayment', 7502740, 5000, '30000.00', 30000);
+INSERT INTO `payment` (`PayID`, `UID`, `payment_issued`, `project_name`, `payment_type`, `reference_no`, `total_cost`) VALUES
+(2, 3005, '2022-01-06', 'Reconstruction Of Bedroom', 'Fully-paid', 0, 120000),
+(3, 3022, '2022-01-06', 'teres ni marites', 'Downpayment ', 0, 32450),
+(4, 3022, '2022-01-06', 'sample', 'Downpayment ', 0, 15000),
+(5, 3005, '2022-01-21', 'motor chris', 'Fully-Paid', 0, 190000),
+(6, 3005, '2022-01-21', 'motor chris', 'Fully-Paid', 0, 190000),
+(7, 3022, '2022-01-22', 'Paa ni Ben', 'Downpayment', 0, 120000),
+(8, 0, '2022-01-25', '', 'Downpayment', 16798527, 0),
+(9, 3022, '2022-01-25', 'ben project', 'Downpayment', 7502740, 30000);
 
 -- --------------------------------------------------------
 
@@ -220,6 +233,12 @@ INSERT INTO `web_images` (`ImgID`, `filename`, `image_info`, `picpath`, `status`
 --
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`APPID`);
+
+--
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`inID`);
 
 --
 -- Indexes for table `payment`
