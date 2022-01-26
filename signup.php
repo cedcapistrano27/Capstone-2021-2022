@@ -48,7 +48,7 @@ if(isset($_POST["signup-btn"]))
               //Content
               $mail->IsHTML(true);
               $mail->Subject='Confirmation OTP Code';
-              $mail->Body='<h1 align-center>Your One Time Password : '.$OTP.'</h1><br><a href="http://localhost/Capstone-2021-2022/login.php?email='.$email.'">Click here to login</a>';
+              $mail->Body='<h1 align-center>Your Account has Been Veryfied</h1><br><a href="localhost/login.php?email='.$email.'">Click here to login</a>';
 
               //icomment mo nalang tong $mail ben pag ayaw pa din. para sa presentation ok muna.
 
@@ -57,7 +57,7 @@ if(isset($_POST["signup-btn"]))
           // $querymail = "UPDATE account SET created_at='$currentDate', expiration ='$packageEndDate' WHERE email='$myemail'";  
           //      $run1 = mysqli_query($con,$querymail) or die(mysqli_error($con));
                $sql = "INSERT INTO user (username, email, password, usertype) VALUES ('$username', '$email', '$password', 'common')";
-               $result = mysqli_query($conn,$sql1) or die(mysqli_error($conn));
+               $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
                 if($result){
                   echo "<script>alert('Your account has been created. Check your email for validation. Redirecting to login page...')</script>"; 
                   echo "<script> window.location.href='login.php' </script>  ";
