@@ -661,8 +661,9 @@ input[type=submit]:hover{
             </div>
 
             <div class="label">
-                <div id="survey_options">
-                  <select name="survey_options[]" class="survey_options" id="list">
+                <ul id="fieldList" style="padding:0; margin:0;">
+                  <li style="list-style:none;" id="list">
+                  <select name="survey_options[]" class="survey_options" >
                     <optgroup label="A. General Requirements">
                       <option value="Mobilization/Demobilization">Mobilization/Demobilization</option>
                       <option value="Project Management/Supervision">Project Management/Supervision</option>
@@ -670,16 +671,53 @@ input[type=submit]:hover{
                       <option value="Material Delivery">Material Delivery</option>
                       <option value="Miscellaneous">Miscellaneous</option>
                     </optgroup>
+                    <optgroup label="B. Ceiling Works">
+                      <option value="False Ceiling">False Ceiling</option>
+                    </optgroup>
+                    <optgroup label="C. Painting Works">
+                      <option value="False Ceiling">False Ceiling</option>
+                      <option value="Interior Wall"> Interior Wall</option>
+                    </optgroup>
+                    <optgroup label="D. Electrical Works">
+                      <option value="Electrical Conduiting">Electrical Conduiting</option>
+                      <option value="Wire Installation">Wire Installation</option>
+                      <option value="Lighting Installation">Lighting Installation</option>
+                    </optgroup>
+                    <optgroup label="E. Tile Works">
+                      <option value="Demolition of Existing Tiles">Demolition of Existing Tiles</option>
+                      <option value="Installation of Tile. 60cm x 60cm">Installation of Tile. 60cm x 60cm</option>
+                      <option value="Backplash Installation">Backplash Installation</option>
+                    </optgroup>
+                    <optgroup label="F. Flooring Works">
+                      <option value="Laminated Planks Installation. 20cm x 120cm x 8mm">Laminated Planks Installation. 20cm x 120cm x 8mm</option>
+                      <option value="Installation of Laminated Planks including foam">Installation of Laminated Planks including foam</option>
+                    </optgroup>
+                    <optgroup label="G. Others">
+                      <option value="Baluster and Handrail Repaint">Baluster and Handrail Repaint</option>
+                      <option value="Demolition and Installation of 40x40 tiles @ balcony">Demolition and Installation of 40x40 tiles @ balcony</option>
+                      <option value="Aluminum Screen Door Installation. 2100mm x 900mm">Aluminum Screen Door Installation. 2100mm x 900mm</option>
+                      <option value="False Wall,Modular Cabinet(Hanging and Under sink) Fabrication and Installation">False Wall,Modular Cabinet(Hanging and Under sink) Fabrication and Installation</option>
+                      <option value="Installation of Shower Enclosure">Installation of Shower Enclosure</option>
+                      <option value="Laminated finish for Cabinet and Shelves">Laminated finish for Cabinet and Shelves</option>
+                    </optgroup>
                   </select>
-                </div>
-                <div class="oten">
-                  <input type="text" name="survey_options[]" id="txtresults">
-                </div>
+                  </li>
+                  <li style="list-style:none;" id="list">
+                    <input name="qty[]" type="number" placeholder="QTY" id="qty" onkeyup="total()" />
+                  </li>
+                  <li style="list-style:none;" id="list">
+                    <input name="cost[]" type="number" placeholder="PRICE" id="price" onkeyup="total()" />
+                  </li>
+                  <li style="list-style:none;" id="list">
+                    <input class="form-control" type="number" id="show_result" placeholder="TOTAL" readonly> 
+                  </li>
+              </ul>
             </div>
                 
             <div class="controls" style="width:294px; margin:15px auto;">
-              <a href="#" id="add_more_fields" class=""><i class="fa fa-plus"></i>Add</a>
-              <a href="#" id="remove_fields" style="float:right;"><i class="fa fa-minus" style="margin-right:5px;"></i>Remove</a>
+            <button id="addMore">Add more fields</button> <button id="deleteField">Delete fields</button>
+              <!-- <a href="#" id="add_more_fields" class=""><i class="fa fa-plus"></i>Add</a>
+              <a href="#" id="remove_fields" style="float:right;"><i class="fa fa-minus" style="margin-right:5px;"></i>Remove</a> -->
             </div>
 
         </div>
@@ -733,34 +771,102 @@ input[type=submit]:hover{
     </script>
     
     <script>
-      var survey_options = document.getElementById('survey_options');
-      var add_more_fields = document.getElementById('add_more_fields');
-      var remove_fields = document.getElementById('remove_fields');
+      $(function() {
+      $("#addMore").click(function(e) {
+        e.preventDefault();
+        $("#fieldList").append("<li style='list-style:none;'>&nbsp;</li>");
+        $("#fieldList").append(`<li style="list-style:none;"><select name="survey_options[]" class="survey_options" id="list">
+                    <optgroup label="A. General Requirements">
+                      <option value="Mobilization/Demobilization">Mobilization/Demobilization</option>
+                      <option value="Project Management/Supervision">Project Management/Supervision</option>
+                      <option value="Housekeeping">Housekeeping</option>
+                      <option value="Material Delivery">Material Delivery</option>
+                      <option value="Miscellaneous">Miscellaneous</option>
+                    </optgroup>
+                    <optgroup label="B. Ceiling Works">
+                      <option value="False Ceiling">False Ceiling</option>
+                    </optgroup>
+                    <optgroup label="C. Painting Works">
+                      <option value="False Ceiling">False Ceiling</option>
+                      <option value="Interior Wall"> Interior Wall</option>
+                    </optgroup>
+                    <optgroup label="D. Electrical Works">
+                      <option value="Electrical Conduiting">Electrical Conduiting</option>
+                      <option value="Wire Installation">Wire Installation</option>
+                      <option value="Lighting Installation">Lighting Installation</option>
+                    </optgroup>
+                    <optgroup label="E. Tile Works">
+                      <option value="Demolition of Existing Tiles">Demolition of Existing Tiles</option>
+                      <option value="Installation of Tile. 60cm x 60cm">Installation of Tile. 60cm x 60cm</option>
+                      <option value="Backplash Installation">Backplash Installation</option>
+                    </optgroup>
+                    <optgroup label="F. Flooring Works">
+                      <option value="Laminated Planks Installation. 20cm x 120cm x 8mm">Laminated Planks Installation. 20cm x 120cm x 8mm</option>
+                      <option value="Installation of Laminated Planks including foam">Installation of Laminated Planks including foam</option>
+                    </optgroup>
+                    <optgroup label="G. Others">
+                      <option value="Baluster and Handrail Repaint">Baluster and Handrail Repaint</option>
+                      <option value="Demolition and Installation of 40x40 tiles @ balcony">Demolition and Installation of 40x40 tiles @ balcony</option>
+                      <option value="Aluminum Screen Door Installation. 2100mm x 900mm">Aluminum Screen Door Installation. 2100mm x 900mm</option>
+                      <option value="False Wall,Modular Cabinet(Hanging and Under sink) Fabrication and Installation">False Wall,Modular Cabinet(Hanging and Under sink) Fabrication and Installation</option>
+                      <option value="Installation of Shower Enclosure">Installation of Shower Enclosure</option>
+                      <option value="Laminated finish for Cabinet and Shelves">Laminated finish for Cabinet and Shelves</option>
+                    </optgroup>
+                  </select></li>`);
+        
+        $("#fieldList").append("<li style='list-style:none;'><input name='qty[]' type='number' placeholder='QTY' id='qty' onkeyup='total()'/></li>");
+        $("#fieldList").append("<li style='list-style:none;'><input name='cost[]' type='number' placeholder='PRICE' id='price' onkeyup='total()'/></li>");
+        $("#fieldList").append("<li style='list-style:none;'><input class='form-control' type='number' id='show_result' placeholder='TOTAL' readonly/> </li>");
 
-      add_more_fields.onclick = function(){
-        var newField = document.createElement('input');
-        newField.setAttribute('type','text');
-        newField.setAttribute('id','txtresults');
-        newField.setAttribute('name','survey_options[]');
-        newField.setAttribute('class','survey_options');
-        newField.setAttribute('size',50);
-        newField.setAttribute('placeholder','Another field');
-        survey_options.appendChild(newField);
-      }
-
-      remove_fields.onclick = function(){
-        var input_tags = survey_options.getElementsByTagName('input');
-        if(input_tags.length > 0){
+      });
+    });
+        var survey_options = document.getElementById('list');
+        var remove_fields = document.getElementById('deleteFields');
+        remove_fields.onclick = function(){
+        var input_tags = survey_options.getElementsByTagName('select');
+        if(input_tags.length > 1){
           survey_options.removeChild(input_tags[(input_tags.length) - 1]);
         }
       }
 
-      $(function(){
-        $('#list').change(function(){
-          var displaybeach=$('#list option:selected').text();
-          $('#txtresults').val(displaybeach);
-        })
-      })
+      function total() {
+      var quantity = parseInt(document.getElementById('qty').value);
+
+      var price = parseInt(document.getElementById('price').value);
+
+      var total = price * quantity;
+
+      document.getElementById('show_result').value = total;
+      document.getElementById('result').value = total;
+    }
+
+      // var add_more_fields = document.getElementById('add_more_fields');
+   
+
+      // add_more_fields.onclick = function(){
+      //   var newField = document.createElement('input');
+      //   newField.setAttribute('type','text');
+      //   newField.setAttribute('id','txtresults');
+      //   newField.setAttribute('name','survey_options[]');
+      //   newField.setAttribute('class','survey_options');
+      //   newField.setAttribute('size',50);
+      //   newField.setAttribute('placeholder','Another field');
+      //   survey_options.appendChild(newField);
+      // }
+
+      // remove_fields.onclick = function(){
+      //   var input_tags = survey_options.getElementsByTagName('input');
+      //   if(input_tags.length > 0){
+      //     survey_options.removeChild(input_tags[(input_tags.length) - 1]);
+      //   }
+      // }
+
+      // $(function(){
+      //   $('#list').change(function(){
+      //     var displaybeach=$('#list option:selected').text();
+      //     $('#txtresults').val(displaybeach);
+      //   })
+      // })
 
     </script>
 
