@@ -4,7 +4,9 @@ session_start();
 include 'tcpdf/tcpdf.php';
 include 'connection.php';
 
-$sql_user = "SELECT * FROM user";
+$Reciept = $_GET['PayId'];
+
+$sql_user = "SELECT * FROM user WHERE UID ='$Reciept'";
 date_default_timezone_set("Asia/Manila");
 $date = date("Y/m/d h:ia");
 $randnum = rand(100000,1000000);
@@ -36,9 +38,12 @@ if ($result->num_rows > 0) {
      
  function fetch_data()    
  {    
-      $output = '';    
+      $output = '';
+      $Reciept = $_GET['PayId'];
+      $Project = $_GET['Projname'];
+
       $conn = mysqli_connect("localhost", "root", "", "bvconstruction");    
-      $sql = "SELECT * FROM payment WHERE 1";    
+      $sql = "SELECT * FROM payment WHERE UID ='$Reciept'";    
       $result = mysqli_query($conn, $sql);
 
       if (mysqli_num_rows($result) > 0) {
