@@ -1,4 +1,4 @@
-<?php 
+S<?php 
   session_start()
  
 
@@ -650,13 +650,45 @@ input[type=submit]:hover{
 
         </div>
 
+        <div class="form-input">
+            
+            <div class="label">
+              <span><label>Scope of Work</label></span> 
+            </div>
 
+            <div class="label">
+              <span>:</span> 
+            </div>
+
+            <div class="label">
+                <div id="survey_options">
+                  <select name="survey_options[]" class="survey_options" id="list">
+                    <optgroup label="A. General Requirements">
+                      <option value="Mobilization/Demobilization">Mobilization/Demobilization</option>
+                      <option value="Project Management/Supervision">Project Management/Supervision</option>
+                      <option value="Housekeeping">Housekeeping</option>
+                      <option value="Material Delivery">Material Delivery</option>
+                      <option value="Miscellaneous">Miscellaneous</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="oten">
+                  <input type="text" name="survey_options[]" id="txtresults">
+                </div>
+            </div>
+                
+            <div class="controls" style="width:294px; margin:15px auto;">
+              <a href="#" id="add_more_fields" class=""><i class="fa fa-plus"></i>Add</a>
+              <a href="#" id="remove_fields" style="float:right;"><i class="fa fa-minus" style="margin-right:5px;"></i>Remove</a>
+            </div>
+
+        </div>
 
         
 
       
 
-               <div class="createBtn">
+        <div class="createBtn">
           <input type="submit" name="create" value="Create New Contract">
         </div>
                 
@@ -664,7 +696,7 @@ input[type=submit]:hover{
        </form>
 
         </div>
-
+        
        
 
 </body>
@@ -698,13 +730,37 @@ input[type=submit]:hover{
     document.querySelector(".day-name").innerHTML = dayName;
     document.querySelector(".date-number").innerHTML = dayNumber;
     document.querySelector(".year").innerHTML = year;
+    </script>
+    
+    <script>
+      var survey_options = document.getElementById('survey_options');
+      var add_more_fields = document.getElementById('add_more_fields');
+      var remove_fields = document.getElementById('remove_fields');
 
+      add_more_fields.onclick = function(){
+        var newField = document.createElement('input');
+        newField.setAttribute('type','text');
+        newField.setAttribute('id','txtresults');
+        newField.setAttribute('name','survey_options[]');
+        newField.setAttribute('class','survey_options');
+        newField.setAttribute('size',50);
+        newField.setAttribute('placeholder','Another field');
+        survey_options.appendChild(newField);
+      }
 
+      remove_fields.onclick = function(){
+        var input_tags = survey_options.getElementsByTagName('input');
+        if(input_tags.length > 0){
+          survey_options.removeChild(input_tags[(input_tags.length) - 1]);
+        }
+      }
 
-
-
-
-
+      $(function(){
+        $('#list').change(function(){
+          var displaybeach=$('#list option:selected').text();
+          $('#txtresults').val(displaybeach);
+        })
+      })
 
     </script>
 
