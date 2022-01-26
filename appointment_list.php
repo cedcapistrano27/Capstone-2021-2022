@@ -370,8 +370,8 @@ if (isset($_POST['request'])) {
       // });
     </script>
     <script>
-      var availableTime= new Array
-      (
+      var availableTime= 
+      [
         "8:00 AM",
         "9:00 AM",
         "10:00 AM",
@@ -382,7 +382,9 @@ if (isset($_POST['request'])) {
         "3:00 PM",
         "4:00 PM",
         "5:00 PM"
-      );
+      ];
+      
+
       $(document).ready(function()
       {
         for(i=0;i<availableTime.length;i++)
@@ -390,6 +392,13 @@ if (isset($_POST['request'])) {
           $('#time_list').append('<option>'+availableTime[i]+'</option>')
         }
 
+        var needle = document.getElementById('time_list').value;
+        if(availableTime.indexOf(needle) > -1){
+          availableTime.splice(availableTime.indexOf(needle),1);
+          
+        }
+
+        
 
       })
     </script>
