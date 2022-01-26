@@ -191,8 +191,8 @@ if (isset($_POST['request'])) {
                     
                     <label for="">Date of Appointment:</label> <input type="date" name="appointment1" id="txt-appoint_date"  style="margin-top:10px;" onkeydown="return false" >
                     <label for="">Select time: 
-                      <select name="app_time" id="" style="height:35px; width:100px;">
-                        <option value="8:00 AM">8:00 AM</option>
+                      <select name="app_time" id="time_list" style="height:35px; width:100px;">
+                        <!-- <option value="8:00 AM">8:00 AM</option>
                         <option value="9:00 AM">9:00 AM</option>
                         <option value="10:00 AM">10:00 AM</option>
                         <option value="11:00 AM">11:00 AM</option>
@@ -201,7 +201,7 @@ if (isset($_POST['request'])) {
                         <option value="2:00 PM">2:00 PM</option>
                         <option value="3:00 PM">3:00 PM</option>
                         <option value="4:00 PM">4:00 PM</option>
-                        <option value="5:00 PM">5:00 PM</option>
+                        <option value="5:00 PM">5:00 PM</option> -->
                       </select>
                     </label> 
                     <!-- <div>
@@ -333,7 +333,7 @@ if (isset($_POST['request'])) {
     <script src="assets/lib/jquery/dist/jquery.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
       $(document).ready(function() {
       $("#formButton").click(function() {
@@ -368,6 +368,39 @@ if (isset($_POST['request'])) {
       //   evt.element.value = value;
 
       // });
+    </script>
+    <script>
+      var availableTime= 
+      [
+        "8:00 AM",
+        "9:00 AM",
+        "10:00 AM",
+        "11:00 AM",
+        "12:00 PM",
+        "1:00 PM",
+        "2:00 PM",
+        "3:00 PM",
+        "4:00 PM",
+        "5:00 PM"
+      ];
+      
+
+      $(document).ready(function()
+      {
+        for(i=0;i<availableTime.length;i++)
+        {
+          $('#time_list').append('<option>'+availableTime[i]+'</option>')
+        }
+
+        var needle = document.getElementById('time_list').value;
+        if(availableTime.indexOf(needle) > -1){
+          availableTime.splice(availableTime.indexOf(needle),1);
+          
+        }
+
+        
+
+      })
     </script>
     
     

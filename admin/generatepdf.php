@@ -2,12 +2,6 @@
 
 session_start();
      include 'connection.php';
-     
-          
-   
-
-  
-
 
  function fetch_data()    
  {    
@@ -78,7 +72,7 @@ session_start();
  <!DOCTYPE html>    
  <html>    
       <head>    
-           <title>Admin Area | Database : Order Detail Table</title>    
+           <title>Admin Area | Database : Transaction Table</title>    
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> 
            <style>
                 table tr td p{

@@ -451,7 +451,7 @@ input[type=submit]:hover{
 
       if ($result_insert == true) {
         echo "<script> alert('You have Created a New Contract!') </script>";
-  echo "<script> window.location.href='admin/project-area.php' </script>";
+  echo "<script> window.location.href='project-area.php' </script>";
       }
 
 
