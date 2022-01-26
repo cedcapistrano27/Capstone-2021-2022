@@ -432,7 +432,7 @@ input[type=submit]:hover{
       '$ProjectName',
       '$Location',
       '$scope',
-      'Processed','$target', current_timestamp())";
+      'Ongoing','$target', current_timestamp())";
 
       
 
@@ -452,13 +452,13 @@ input[type=submit]:hover{
       if ($Paytype == "Downpayment") {
         
 
-        mysqli_query($conn, "INSERT INTO invoice(UID, project_name, payment_type, balance, remarks, targetdate) 
-      VALUES('$clientName', '$ProjectName', '$Paytype', '$TotalAmount', 'On-going', '$target')");
+        mysqli_query($conn, "INSERT INTO invoice(UID, project_name, payment_type, reference_no, balance, remarks, targetdate) 
+      VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$TotalAmount', 'Ongoing', '$target')");
 
       }else{
 
-        $sql_invoice2 = "INSERT INTO invoice(UID, PID, project_name, payment_type, balance, remarks, targetdate) 
-      VALUES('$clientName', '$ProjectName', '$Paytype', '$TotalAmount', 'Fully-Paid', '$target')";
+        $sql_invoice2 = "INSERT INTO invoice(UID, PID, project_name, payment_type, reference_no balance, remarks, targetdate) 
+      VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$TotalAmount', 'Fully-Paid', '$target')";
 
         mysqli_query($conn, $sql_invoice2);
 

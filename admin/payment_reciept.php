@@ -4,7 +4,8 @@ session_start();
 include 'tcpdf/tcpdf.php';
 include 'connection.php';
 
-$Reciept = $_GET['PayId'];
+ $Reciept = $_GET['PayId'];
+ $Project = $_GET['Projname'];
 
 $sql_user = "SELECT * FROM user WHERE UID ='$Reciept'";
 date_default_timezone_set("Asia/Manila");
@@ -27,10 +28,10 @@ if ($result->num_rows > 0) {
       }
 }
 
- $sql = "SELECT SUM(total_cost) AS total FROM payment ";
+ $sql = "SELECT  balance FROM invoice WHERE UID = '$Reciept' AND project_name= '$Project' ";
           $result = mysqli_query($conn, $sql);
           while ($count_r = mysqli_fetch_assoc($result)) {
-          $num_rows = $count_r['total'];
+          $num_rows = $count_r['balance'];
           //echo "<span class='count'>$num_rows</span>";
           }
 
@@ -53,9 +54,11 @@ if ($result->num_rows > 0) {
           while($row = mysqli_fetch_assoc($result))    
       {         
       $output .= '<tr>    
-                          <td>'.$row["PayID"].'</td>        
+                                  
                           <td>'.$row["project_name"].'</td>
                           <td>'.$row["reference_no"].'</td>
+                          <td>'.$row["balance"].'</td>
+                          
                                  
                      </tr>    
                           ';    
@@ -122,8 +125,8 @@ if ($result->num_rows > 0) {
     
      <table cellspacing="0" cellpadding="3" align="center">    
            <tr>    
-                <th width="10%">ID</th>
-                <th width="35%">Project Name</th>    
+               
+                <th width="45%">Project Name</th>    
                 <th width="25%">Reference #</th>       
                 <th width="30%">Amount</th>
                 
@@ -160,13 +163,13 @@ if ($result->num_rows > 0) {
      $pdf->Cell('90','10',"Discount : ",'','0','R');
      $pdf->Cell('50','10'," 0.00",'','1','R');
 
-     $pdf->Cell('40','10',"",'','0','R');
-     $pdf->Cell('90','10',"Tax Rate : ",'','0','R');
-     $pdf->Cell('50','10'," 0.00",'','1','R');
+     //$pdf->Cell('40','10',"",'','0','R');
+     //$pdf->Cell('90','10',"Tax Rate : ",'','0','R');
+     //$pdf->Cell('50','10'," 0.00",'','1','R');
 
-     $pdf->Cell('40','10',"",'','0','R');
-     $pdf->Cell('90','10',"Total Tax : ",'','0','R');
-     $pdf->Cell('50','10'," 0.00",'','1','R');
+     //$pdf->Cell('40','10',"",'','0','R');
+     //$pdf->Cell('90','10',"Total Tax : ",'','0','R');
+     //$pdf->Cell('50','10'," 0.00",'','1','R');
 
      $pdf->Cell('40','10',"",'','0','R');
      $pdf->Cell('90','10',"Amount to pay : ",'','0','R');

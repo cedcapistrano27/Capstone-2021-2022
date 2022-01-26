@@ -608,9 +608,20 @@
                       $project = $_POST['project'];
                       $amount = $_POST['amount'];
                       $refno = $_POST['reference'];
-                      
 
-                      $sql_paycheck ="INSERT INTO payment( UID, payment_issued, project_name, payment_type, reference_no, balance) VALUES ('$UID', current_timestamp(),'$project','Balance','$refno','$amount')";
+                      $query ="SELECT balance FROM invoice WHERE UID ='$UID' AND reference_no='$refno'";
+
+                      $result_q =mysqli_query($conn, $query);
+                      while ($row = mysqli_fetch_assoc($result_q)) {
+                        $balance = $row['balance'];
+                      }
+
+                      $total = $balance - $amount;
+                      
+                      $sql = "UPDATE invoice SET balance = '$total' WHERE UID ='$UID' AND reference_no ='$refno'";
+                      mysqli_query($conn, $sql);
+
+                      $sql_paycheck ="INSERT INTO payment( UID, payment_issued, project_name, payment_type, reference_no,total_cost) VALUES ('$UID', current_timestamp(),'$project','Balance','$refno','$amount')";
 
                         $result_pay = mysqli_query($conn, $sql_paycheck);
                         if ($result_pay == true) {

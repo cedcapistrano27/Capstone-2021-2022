@@ -731,19 +731,22 @@ $sql_proj ="SELECT COUNT(PID) AS total_p FROM project WHERE remarks = 'Ongoing' 
           <div class="card-body color4">
             <div class="float-left">
 
-
-<<<<<<< HEAD
-                <p>Today <br> Sales</p>
-    
-
-=======
-
-
-               ?>
                <p>Todays <br> Sales</p>
->>>>>>> 28472c97108313bf32f9536465851e54e796d649
+
                 <h3>
-                    <span class="count">10000</span>
+                  <?php 
+
+                  $sql = "SELECT SUM(total_cost) AS total FROM payment WHERE  payment_issued > DATE_SUB(NOW(), INTERVAL 1 DAY)";
+          $result = mysqli_query($conn, $sql);
+          while ($count_r = mysqli_fetch_assoc($result)) {
+          $num_row = $count_r['total'];
+          //echo "<span class='count'>$num_rows</span>";
+          }
+
+
+
+                   ?>
+                    <span class="count"><?php echo $num_row ?></span>
                 </h3>
             </div>
             <div class="float-right">
