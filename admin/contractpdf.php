@@ -21,7 +21,17 @@
       $pdf->SetFont('helvetica', '', 9);    
       $pdf->AddPage();
 
-      $pdf->Image('images/coco.jpg', 175, 10, 25, 25, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
+      $pdf->Image('images/coco.jpg', 15, 5, 25, 25, 'JPG', '', '', true, 150, '', false, false, 0, false, false, false);
+      $pdf->Cell(30,5,'','','0','');
+      $pdf->Cell(60,5,'BV Construction','','1','');
+      $pdf->Cell(30,5,'','','0','');
+      $pdf->Cell(60,5,'Quezon City, National Capital Region, Philippines','','1','');
+      $pdf->Cell(30,5,'','','0','');
+      $pdf->Cell(60,5,'Phone: PH (+63)958596092','','1','');
+      $pdf->Line(10, 33, 200, 33);
+
+
+      $pdf->Ln(20);
       $pdf->Cell(30,5,'Project Name','','0','');
       $pdf->Cell(60,5,': Restoration Restroom','','1','');
 
@@ -340,8 +350,8 @@ $pdf->Ln(5);
 $pdf->Ln(10);
 		
 
-	$pdf->Line(130,150,180,150);
-	$pdf->Line(30,150,100,150);
+	$pdf->Line(130,185,180,185);
+	$pdf->Line(30,185,100,185);
       $pdf->Cell(95,5,'Gen-Con. - PCE.BVC','','','C');
       $pdf->Cell(90,5,'Client','','','C');
     
