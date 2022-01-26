@@ -705,7 +705,7 @@ tr:hover{
                         <?php 
 
 
-                $sql = "SELECT COUNT(APPID) AS total FROM appointment WHERE status = 'pending' AND UID > 3000";
+                $sql = "SELECT COUNT(APPID) AS total FROM appointment WHERE status = 'pending' AND date > DATE_SUB(NOW(), INTERVAL 1 DAY)";
                 $result = mysqli_query($conn, $sql);
                 while ($count_r = mysqli_fetch_assoc($result)) {
                 $num_rows = $count_r['total'];
