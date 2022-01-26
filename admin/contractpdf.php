@@ -21,21 +21,21 @@
       $pdf->SetFont('helvetica', '', 9);    
       $pdf->AddPage();
 
+      $pdf->Image('images/coco.jpg', 175, 10, 25, 25, 'JPG', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
+      $pdf->Cell(30,5,'Project Name','','0','');
+      $pdf->Cell(60,5,': Restoration Restroom','','1','');
 
-      $pdf->Cell(30,5,'Project Name','1','0','');
-      $pdf->Cell(60,5,': Restoration Restroom','1','1','');
+      $pdf->Cell(30,5,'Project Location','','0','');
+      $pdf->Cell(60,5,': Makati, Manila','','1','');
 
-      $pdf->Cell(30,5,'Project Location','1','0','');
-      $pdf->Cell(60,5,': Makati, Manila','1','1','');
+      $pdf->Cell(30,5,'Subject','','0','');
+      $pdf->Cell(60,5,': Design Interior & Exterior','','1','');
 
-      $pdf->Cell(30,5,'Subject','1','0','');
-      $pdf->Cell(60,5,': Design Interior & Exterior','1','1','');
+      $pdf->Cell(30,5,'Client','','0','');
+      $pdf->Cell(60,5,': Danielle Capistrano','','1','');
 
-      $pdf->Cell(30,5,'Client','1','0','');
-      $pdf->Cell(60,5,': Danielle Capistrano','1','1','');
-
-      $pdf->Cell(30,5,'Date','1','0','');
-      $pdf->Cell(60,5,': January 26, 2022','1','1','');
+      $pdf->Cell(30,5,'Date','','0','');
+      $pdf->Cell(60,5,': January 26, 2022','','1','');
 
       /// table
       $pdf->Ln(5);
