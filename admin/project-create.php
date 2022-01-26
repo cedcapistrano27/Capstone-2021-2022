@@ -422,7 +422,6 @@ input[type=submit]:hover{
        $Location = $_POST['location'];
        $clientName = $_POST['client'];
        $Paytype = $_POST['paymenttype'];
-       $DownpaymentAmount = $_POST['downpaid'];
        $TotalAmount = $_POST['fullpaid'];
 
        $reference = rand(10000,100000000);
@@ -435,23 +434,34 @@ input[type=submit]:hover{
       '$scope',
       'Processed','$target', current_timestamp())";
 
-      $sql_payment = "INSERT INTO payment(UID, balance, payment_issued, project_name, payment_type, reference_no, downpayment, total_cost) 
+      
+
+      $sql_payment = "INSERT INTO payment(UID, payment_issued, project_name, payment_type, reference_no, total_cost) 
       VALUES (
-      '$clientName',
-      '$TotalAmount',
-       current_timestamp(),
-      '$ProjectName',
-      '$Paytype',
-      '$reference', 
-      '$DownpaymentAmount', 
-      '$TotalAmount')";
+      '$clientName', current_timestamp(),'$ProjectName','$Paytype','$reference', '$TotalAmount')";
 
       $result_insert = mysqli_query($conn, $sql_create);
       $result_pay = mysqli_query($conn, $sql_payment);
+    
 
       if ($result_insert == true) {
         echo "<script> alert('You have Created a New Contract!') </script>";
   echo "<script> window.location.href='project-area.php' </script>";
+      }
+
+      if ($Paytype == "Downpayment") {
+        
+
+        mysqli_query($conn, "INSERT INTO invoice(UID, project_name, payment_type, balance, remarks, targetdate) 
+      VALUES('$clientName', '$ProjectName', '$Paytype', '$TotalAmount', 'On-going', '$target')");
+
+      }else{
+
+        $sql_invoice2 = "INSERT INTO invoice(UID, PID, project_name, payment_type, balance, remarks, targetdate) 
+      VALUES('$clientName', '$ProjectName', '$Paytype', '$TotalAmount', 'Fully-Paid', '$target')";
+
+        mysqli_query($conn, $sql_invoice2);
+
       }
 
 
@@ -590,21 +600,6 @@ input[type=submit]:hover{
 
         </div>
 
-         <div class="form-input">
-            
-            <div class="label">
-              <span><label>Downpayment</label></span> 
-            </div>
-
-            <div class="label">
-              <span>:</span> 
-            </div>
-
-             <div class="label">
-              <span><input type="number" name="downpaid" min="0" value="0"></span> 
-            </div>
-
-        </div>
 
         <div class="form-input">
             

@@ -189,7 +189,7 @@ if (isset($_POST['request'])) {
                     <!-- label tong pangalan!!!!!  -->
                     <!--<label for="name" style="visibility:hidden;">Hey </label> <br>-->
                     
-                    <label for="">Date of Appointment:</label> <input type="date" name="appointment1" id="txt-appoint_date"  style="margin-top:10px;" onkeydown="return false" >
+                    <label for="">Date of Appointment:</label> <input type="date" name="appointment1" id="txt-appoint_date"  style="margin-top:10px;" onkeydown="return false" required >
                     <label for="">Select time: 
                       <select name="app_time" id="time_list" style="height:35px; width:100px;">
                         <!-- <option value="8:00 AM">8:00 AM</option>
@@ -392,11 +392,10 @@ if (isset($_POST['request'])) {
           $('#time_list').append('<option>'+availableTime[i]+'</option>')
         }
 
-        var needle = document.getElementById('time_list').value;
-        if(availableTime.indexOf(needle) > -1){
-          availableTime.splice(availableTime.indexOf(needle),1);
-          
-        }
+        // var needle = document.getElementById('time_list').value;
+        // if(availableTime.indexOf(needle) > -1){
+        //   availableTime.splice(availableTime.indexOf(needle),1);
+        // }
 
         
 

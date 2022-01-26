@@ -506,7 +506,12 @@ textarea{
            <div class="createBtn" style="flex:1;">
                 <a href="complete.php?ComId=<?php echo $ProjectID; ?>">Completed</a>
                 
-              </div>    
+              </div>
+
+            <div class="createBtn" style="flex:1;">
+                <a href="payment_reciept.php?PayId=<?php echo $ClientID; ?>&&Projname=<?php echo $ProjectName ?>">Generate Receipt</a>
+                
+              </div>       
         
       </div>
 

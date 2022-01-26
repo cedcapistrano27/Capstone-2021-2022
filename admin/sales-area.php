@@ -640,7 +640,6 @@
                                 
                                <th>Project</th>  
                                <th>Payment Type</th>  
-                               <th>Downpayment</th>
                                <th>Total Cost</th>  
                                <th>Date Issued</th>    
                           </tr>
@@ -672,14 +671,12 @@
                           while($row = mysqli_fetch_assoc($result_r)){
                             $pname = $row['project_name'];
                             $payment = $row['payment_type'];
-                            $downpayment = $row['downpayment'];
                             $totalcost = $row['total_cost'];
                             $paymentissued = $row['payment_issued'];  
                        
                           echo "<tr>";    
                           echo "<td>".$pname."</td>";
                           echo "<td>".$payment."</td>";
-                          echo "<td>".$downpayment."</td>";
                           echo "<td>".$totalcost."</td>";
                           echo "<td>".$paymentissued."</td>";
                           echo "</tr>";    
