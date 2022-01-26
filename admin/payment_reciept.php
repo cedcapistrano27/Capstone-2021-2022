@@ -97,12 +97,13 @@ if ($result->num_rows > 0) {
      $pdf->Line(10, 46, 50, 46);
      $pdf->Ln(5);
 
+     $pdf->Cell('100','5',$UID,'','1','');
      $pdf->Cell('100','5',$fullname,'','1','');
      $pdf->Cell('100','5',$address,'','1','');
      $pdf->Cell('100','5',$email,'','1','');
      $pdf->Cell('100','5', "+63$phone",'','1','');
 
-     $pdf->Line(10, 75, 200, 75);
+     $pdf->Line(10, 85, 200, 85);
      $pdf->Ln(10);
 
 
@@ -164,9 +165,9 @@ if ($result->num_rows > 0) {
      $pdf->Cell('40','10',"",'','0','R');
      $pdf->Cell('90','10',"Amount to pay : ",'','0','R');
      $pdf->Cell('50','10'," $num_rows.00",'','1','R');
-     $pdf->Line(150, 162, 200, 162);
+     
      $pdf->Ln(85);
-     $pdf->Line(10, 170, 200, 170);
+     
 
      
      $pdf->Cell('190','10','Thank you for your Business!','','1','C');
