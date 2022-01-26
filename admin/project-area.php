@@ -17,7 +17,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: url(landing-page.jpg) no-repeat;
+  /* background: url(landing-page.jpg) no-repeat; */
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -175,7 +175,7 @@ label #sidebar_btn:hover{
 }
 
 .content{
-  max- width: 70%;
+  /* max-width: 70%; */
   margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
@@ -188,8 +188,8 @@ label #sidebar_btn:hover{
 section{
  width: 100%;
  scroll-snap-align: center;
- box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
--webkit-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
+ /* box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56); */
+/* -webkit-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56); */
 -moz-box-shadow: -8px -10px 57px 3px rgba(0,0,0,0.56);
 display: flex;
 flex-direction: column;
@@ -313,7 +313,7 @@ td, th{
   $(document).ready(function(){
     $('table tr').click(function(){
       var id = $(this).attr('row_id');
-      window.location.replace("http://localhost/Capstone-2021-2022/admin/project-info.php?id="+ id);
+      window.location.replace("admin/project-info.php?id="+ id);
     });
   });
 </script>
@@ -370,16 +370,19 @@ td, th{
 
       
         <section>
-          <div class="header-table" style="margin: auto; color:white;font-variant: small-caps; padding:10px;background:rgba(0, 0, 0, 0.49); width: auto;-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); width:60%;text-align: center;">
-            <span><h1 style="">Project Management</h1></span>
+          <div class="header-table" style="margin: auto; color:black;font-variant: small-caps; padding:10px; width: auto; width:60%;text-align: center;">
+            <span><h1 style="">Projects</h1></span>
           </div>
 
-          <div class="body-table" style="height: 80vh; padding: 10px; display: flex; flex-direction: column;">
-
-            <div class="search-bar" style="margin: 20px 10px; text-align:right;">
+          <div class="body-table" style="height: 80vh; padding: 10px; display: flex; flex-direction: column;">  
+            <div class="search-bar" style="margin: 20px 10px;">
+                
               <span><label style="color: white; font-weight: bold; font-size:15px;">Search : </label></span>
               <input type="text" name="search" style="height: 5vh;" id="search" onkeyup="myFunction()">
-              
+                <div class="createBtn">
+                  <a href="project-create.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width:20% ; margin:20px auto; text-align: center;">Create New Project</a>
+                  
+                </div>
             </div>
 
             <div class="table-area" style=" height: 70vh; background:white; overflow-y: scroll;">
@@ -434,10 +437,7 @@ td, th{
              
             </div>
 
-             <div class="createBtn">
-                <a href="project-create.php" style="border-radius: 5px;text-decoration: none; color:white; display: block; background: black; padding: 10px; width:20% ; margin:20px auto; text-align: center;">Create New Project</a>
-                
-              </div>
+             
 
 
             

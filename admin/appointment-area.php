@@ -701,7 +701,7 @@ tr:hover{
     <div class="appointment-area">
       <div class="col-sm-12">
         <div class="col-sm-6" >
-              <h2 style="text-align: left ;">Appointments for today</h2>
+              <h2 style="text-align: left ;">Appointments</h2>
                         <?php 
 
 
