@@ -422,6 +422,7 @@ input[type=submit]:hover{
        $Location = $_POST['location'];
        $clientName = $_POST['client'];
        $Paytype = $_POST['paymenttype'];
+       $downpaid = $_POST['downpaid'];
        $TotalAmount = $_POST['fullpaid'];
 
        $reference = rand(10000,100000000);
@@ -436,7 +437,7 @@ input[type=submit]:hover{
 
       
 
-      $sql_payment = "INSERT INTO payment(UID, payment_issued, project_name, payment_type, reference_no, total_cost) 
+      $sql_payment = "INSERT INTO payment(UID, payment_issued, project_name, payment_type, reference_no, amount) 
       VALUES (
       '$clientName', current_timestamp(),'$ProjectName','$Paytype','$reference', '$TotalAmount')";
 
@@ -596,6 +597,22 @@ input[type=submit]:hover{
               <option value="Downpayment">Downpayment</option>
               <option value="Fully-Paid">Fully-Paid</option>
             </select>
+            </div>
+
+        </div>
+
+        <div class="form-input">
+            
+            <div class="label">
+              <span><label>Downpayment</label></span> 
+            </div>
+
+            <div class="label">
+              <span>:</span> 
+            </div>
+
+             <div class="label">
+              <span><input type="number" name="downpaid" min="0" value="0"></span> 
             </div>
 
         </div>

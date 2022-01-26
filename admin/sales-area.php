@@ -448,7 +448,7 @@
               <?php 
 
 
-          $sql = "SELECT SUM(total_cost) AS total FROM payment WHERE  payment_issued > DATE_SUB(NOW(), INTERVAL 1 DAY)";
+          $sql = "SELECT SUM(amount) AS total FROM payment WHERE  payment_issued > DATE_SUB(NOW(), INTERVAL 1 DAY)";
           $result = mysqli_query($conn, $sql);
           while ($count_r = mysqli_fetch_assoc($result)) {
           $num_rows = $count_r['total'];
@@ -491,7 +491,8 @@
                         Payment Type<span><input list="types" name="paytype" id="paytype" value="<?php if(isset($_POST['paytype'])) echo $_POST['paytype']; ?>">
                 <datalist id="types">
                   <option value="Fully-Paid">Fully-Paid</option>
-                  <option value="Downpayment">Downpayment</option> 
+                  <option value="Downpayment">Downpayment</option>
+                  <option value="Partial Payment">Partial Payment</option> 
                 </datalist>
               </span> 
                 </div>  
@@ -621,7 +622,7 @@
                       $sql = "UPDATE invoice SET balance = '$total' WHERE UID ='$UID' AND reference_no ='$refno'";
                       mysqli_query($conn, $sql);
 
-                      $sql_paycheck ="INSERT INTO payment( UID, payment_issued, project_name, payment_type, reference_no,total_cost) VALUES ('$UID', current_timestamp(),'$project','Balance','$refno','$amount')";
+                      $sql_paycheck ="INSERT INTO payment( UID, payment_issued, project_name, payment_type, reference_no,amount) VALUES ('$UID', current_timestamp(),'$project','Partial Payment','$refno','$amount')";
 
                         $result_pay = mysqli_query($conn, $sql_paycheck);
                         if ($result_pay == true) {
@@ -651,7 +652,7 @@
                                 
                                <th>Project</th>  
                                <th>Payment Type</th>  
-                               <th>Total Cost</th>  
+                               <th>Amount Paid</th>  
                                <th>Date Issued</th>    
                           </tr>
                        
@@ -682,7 +683,7 @@
                           while($row = mysqli_fetch_assoc($result_r)){
                             $pname = $row['project_name'];
                             $payment = $row['payment_type'];
-                            $totalcost = $row['total_cost'];
+                            $totalcost = $row['amount'];
                             $paymentissued = $row['payment_issued'];  
                        
                           echo "<tr>";    
