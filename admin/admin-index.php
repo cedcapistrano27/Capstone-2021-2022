@@ -736,7 +736,7 @@ $sql_proj ="SELECT COUNT(PID) AS total_p FROM project WHERE remarks = 'Ongoing' 
                 <h3>
                   <?php 
 
-                  $sql = "SELECT SUM(total_cost) AS total FROM payment WHERE  payment_issued > DATE_SUB(NOW(), INTERVAL 1 DAY)";
+                  $sql = "SELECT SUM(amount) AS total FROM payment WHERE  payment_issued > DATE_SUB(NOW(), INTERVAL 1 DAY)";
           $result = mysqli_query($conn, $sql);
           while ($count_r = mysqli_fetch_assoc($result)) {
           $num_row = $count_r['total'];

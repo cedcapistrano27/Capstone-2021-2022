@@ -705,7 +705,7 @@ tr:hover{
                         <?php 
 
 
-                $sql = "SELECT COUNT(APPID) AS total FROM appointment WHERE status = 'pending' AND UID > 3000";
+                $sql = "SELECT COUNT(APPID) AS total FROM appointment WHERE status = 'pending' AND date > DATE_SUB(NOW(), INTERVAL 1 DAY)";
                 $result = mysqli_query($conn, $sql);
                 while ($count_r = mysqli_fetch_assoc($result)) {
                 $num_rows = $count_r['total'];
@@ -759,7 +759,11 @@ tr:hover{
               ."<td>$Name</td>"
               ."<td>$app_date</td>"
               ."<td>$app_type</td>"
-              ."<td><a href='appointment-status.php?app_id=$APPID' name='update' style='background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;''>Accept Appointment</a><td>";
+              ."<td><a href='appointment-status.php?app_id=$APPID' name='update' style='background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;''>Accept Appointment</a><td>
+              </tr>
+
+
+              ";
 
 
                   }
