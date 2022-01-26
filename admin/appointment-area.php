@@ -759,7 +759,11 @@ tr:hover{
               ."<td>$Name</td>"
               ."<td>$app_date</td>"
               ."<td>$app_type</td>"
-              ."<td><a href='appointment-status.php?app_id=$APPID' name='update' style='background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;''>Accept Appointment</a><td>";
+              ."<td><a href='appointment-status.php?app_id=$APPID' name='update' style='background:black; text-decoration: none; padding: 10px; border-radius:5px;color:white; margin-top: 10px; float: right;''>Accept Appointment</a><td>
+              </tr>
+
+
+              ";
 
 
                   }
