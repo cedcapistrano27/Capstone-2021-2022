@@ -45,7 +45,7 @@
     header{
       z-index: 1;
       position: fixed;
-      background: #22242A;
+      background:  #293756;
       padding: 20px;
       width: calc(100% - 0%);
       top: 0;
@@ -93,7 +93,7 @@
     .sidebar{
       z-index: 1;
       top: 0;
-      background: #2f323a;
+      background: #293756;
       margin-top: 70px;
       padding-top: 30px;
       position: fixed;

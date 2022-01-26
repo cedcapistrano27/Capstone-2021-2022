@@ -17,7 +17,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: url(landing-page.jpg) no-repeat;
+  /* background: url(landing-page.jpg) no-repeat; */
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -26,7 +26,7 @@ body{
 header{
   z-index: 1;
   position: fixed;
-  background: #22242A;
+  background: #293756;
   padding: 20px;
   width: calc(100% - 0%);
   top: 0;
@@ -74,7 +74,7 @@ header{
 .sidebar{
   z-index: 1;
   top: 0;
-  background: #2f323a;
+  background: #293756;
   margin-top: 70px;
   padding-top: 30px;
   position: fixed;
@@ -191,14 +191,15 @@ label #sidebar_btn:hover{
     }
 
     .form-container{
-      width: 60%; 
+      width: 80%; 
       height: auto;
-      background: rgba(0, 0, 0, 0.6); 
+      background: white; 
       margin: auto;
-      color: white;
+      color: black;
       border-radius: 10px;
       padding: 10px;
-      border: 4px white solid;
+      box-shadow: 2px 2px 10px grey;
+      /* border: 4px white solid; */
     }
 .header-form{
   text-align: center; 
@@ -236,11 +237,11 @@ textarea{
   font-weight: 600;
 }
 input[type=submit]{
-  border-radius: 5px;
+  border-radius: 20px;
   text-decoration: none; 
   color:white; 
   display: block; 
-  background: black; 
+  background: #055C9D; 
   padding: 10px; 
   width: 50% ; 
   margin:20px auto; 
@@ -251,18 +252,19 @@ input[type=submit]{
 }
 
 .createBtn a{
-  border-radius: 5px;
+  border-radius: 20px;
   text-decoration: none; 
-  color:white; display: 
-  block; background: black; 
+  color:black; display: 
+  block; 
+  background: whitesmoke; 
   padding: 10px; width: 50% ; 
   margin:20px auto; 
   text-align: center;
 }
 
 input[type=submit]:hover, .createBtn a:hover{
-  background: white;
-  color: black;
+  background: #0F3325;
+  color: white;
 }
 
 
@@ -370,12 +372,10 @@ input[type=submit]:hover, .createBtn a:hover{
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label>
       <div class="left_area">
-        <img src="../images/logo.jpg" class="logo-image" alt="BV Logo" width="30">
+        <img src="../images/logologo.png" class="logo-image" alt="BV Logo" width="30">
         <h3>BV <span>Construction</span></h3>
       </div>
-      <div class="right_area">
-        <a href="#" class="logout_btn">Logout</a>
-      </div>
+      
     </header>
     <!--header area end-->
     <!--mobile navigation bar start-->
@@ -404,6 +404,8 @@ input[type=submit]:hover, .createBtn a:hover{
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
         <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
+        <a href="../admin-logout.php"><i class='fas fa-sign-out-alt'></i><span>LOGOUT</span> </a>
+
     </div>
     <!--sidebar end-->
 
@@ -441,7 +443,7 @@ input[type=submit]:hover, .createBtn a:hover{
       <div class="form-container" >
        <div class="header-form" >
 
-        <h3>Project Progress</h3> 
+        <h3>Project Updates</h3> 
        </div>
 <hr>
        <div class="body-form">

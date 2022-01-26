@@ -55,8 +55,8 @@ if (isset($_POST['update'])) {
   $sql = "UPDATE user SET fname='$Firstname', mname='$Midname', lname='$Lastname', address='$Address', email='$Email', cnumber='$Contact_number', ID_proof='$Proof_ID', picpath='$picpath'  WHERE username = '$Uname' ";
   $result = mysqli_query($conn, $sql);
   if ($result) {
-   echo " <script>alert('User_Updated') </script>";
-   echo "<script> window.location.href='http://localhost/Capstone-2021-2022/dashboard.php' </script>  ";
+   echo " <script>alert('Update Succesfully') </script>";
+   echo "<script> window.location.href='dashboard.php' </script>  ";
         header("Location: {$url}");
         
   }
@@ -183,8 +183,7 @@ if (isset($_POST['update'])) {
                   <h2 style="text-align: center;">Update Profile</h2>
                   <form id="pic-upload" class="a-form" enctype="multipart/form-data" method="post" width='840'>
                     <div class="a-form-group mt-3" style="float:left; clear:block; width:20%;" >
-                    <div id="pic-box" style='width:150px; height:150px; overflow:hidden; margin-
-                    top:7px; margin-left:5px; background:none; border:thin solid #d3d3d3; border-radius:5px;'></div>
+                    <div id="pic-box" style='width:150px; height:150px; overflow:hidden; margin-top:7px; margin-left:5px; background:none; border:thin solid #d3d3d3; border-radius:5px;'></div>
                     <input type="file" style="margin-top:10px; text:center; margin-left:5px; "
                     id="uploadfile" name="uploadfile" value="" />
                     </div>

@@ -19,16 +19,17 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: url(landing-page.jpg) no-repeat;
+  /* background: url(landing-page.jpg) no-repeat; */
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  background-color: whitesmoke;
 }
 
 header{
   z-index: 1;
   position: fixed;
-  background: #22242A;
+  background: #293756;
   padding: 20px;
   width: calc(100% - 0%);
   top: 0;
@@ -76,7 +77,7 @@ header{
 .sidebar{
   z-index: 1;
   top: 0;
-  background: #2f323a;
+  background: #293756;
   margin-top: 70px;
   padding-top: 30px;
   position: fixed;
@@ -177,7 +178,7 @@ label #sidebar_btn:hover{
 }
 
 .content{
-  max- width: 70%;
+  max-width: 100%;
   margin-top: 60px;
   padding: 20px;
   margin-left: 250px;
@@ -185,13 +186,13 @@ label #sidebar_btn:hover{
   transition: 0.5s;
 }
 .form-container{
-  width: 70%; 
-  height: 90vh;
-  background: rgba(0, 0, 0, 0.57);
-  color: white;
-  margin: auto;
+  width: 90%; 
+  height: 70vh;
+  background: white;
+  color: black;
+  margin: 50px;
   border-radius: 5px;
-  border: 5px white solid;
+  box-shadow: 2px 2px 10px lightgray;
 }
 .header-form {
   text-align: center; 
@@ -248,7 +249,7 @@ textarea{
   text-decoration: none; 
   color:white; 
   display: block; 
-  background: black; 
+  background: #055C9D; 
   padding: 10px; 
   width: 60% ; 
   margin:10px auto; 
@@ -257,8 +258,8 @@ textarea{
 
 }
 .actionbtn .createBtn a:hover{
-  background: white;
-  color: black;
+   background: #0F3325;
+  /* color: black;  */
 }
 
 
@@ -367,11 +368,8 @@ textarea{
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label>
       <div class="left_area">
-        <img src="../images/logo.jpg" class="logo-image" alt="BV Logo" width="30">
+        <img src="../images/logologo.png" class="logo-image" alt="BV Logo" width="30">
         <h3>BV <span>Construction</span></h3>
-      </div>
-      <div class="right_area">
-        <a href="#" class="logout_btn">Logout</a>
       </div>
     </header>
     <!--header area end-->
@@ -401,6 +399,7 @@ textarea{
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
         <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
+        <a href="../admin-logout.php"><i class='fas fa-sign-out-alt'></i><span>LOGOUT</span> </a>
     </div>
     <!--sidebar end-->
 
@@ -439,7 +438,7 @@ textarea{
       <div class="form-container">
        <div class="header-form">
 
-        <h3>Contract/Project Information</h3> 
+        <h3>Project Information</h3> 
        </div>
 <hr>
        <div class="body-form">

@@ -22,7 +22,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <link href='jquery-ui.min.css' rel='stylesheet' type='text/css'>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+<!--     
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     
       <script src='jquery-3.3.1.js' type='text/javascript'></script>
       <script src='jquery-ui.min.js' type='text/javascript'></script>
@@ -38,10 +42,11 @@
       margin: 0;
       padding: 0;
       font-family: "Roboto", sans-serif;
-      background: url(landing-page.jpg) no-repeat;
+      /* background: url(landing-page.jpg) no-repeat; */
       background-position: center;
       background-size: cover;
       background-attachment: fixed;
+      background-color: whitesmoke;
     }
 
     header{
@@ -51,7 +56,7 @@
       padding: 20px;
       width: calc(100% - 0%);
       top: 0;
-      height: 30px;
+      height: 30px;;
     }
     .left_area{
       display: flex;
@@ -307,7 +312,7 @@
       .nav_bar{
         background: #222;
         width: 100% - 0px;
-        margin-top: 70px;
+        margin-top: 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -433,7 +438,7 @@
         
         <div class="first-container"  style=" margin: auto; width: 100%; border-radius: 5px; margin-bottom: 20px;">
 
-          <div class="calendar" style="width:100%; padding:7px; margin-bottom:15px; font-size: 2rem; color:white; font-weight: 700;-webkit-text-stroke: 2px black;">
+          <div class="calendar" style="width:100%; padding:7px; margin-bottom:15px; font-size: 2rem; color:black; font-weight: 500;">
             <span><label class="day-name"></label></span>,
             <span><label class="month-name"></label></span>
             <span><label class="date-number"></label></span>
@@ -441,12 +446,11 @@
             
           </div>
 
-          <div class="header-total" style="display:flex; text-align: center; align-items: center; background:rgba(255, 255, 255, 0.86); overflow: visible; height:25vh; border-radius: 10px;">
+          <div class="header-total" style="display:flex; text-align: center; align-items: center; background:white; overflow: visible; height:25vh; border-radius: 10px;box-shadow:2px 2px 10px grey;">
             <div class="amount" style="flex: 1; font-size: 4rem; font-weight: 600; border-right: 10px grey double;">
               <span>Php</span>
 
               <?php 
-
 
           $sql = "SELECT SUM(amount) AS total FROM payment WHERE  payment_issued > DATE_SUB(NOW(), INTERVAL 1 DAY)";
           $result = mysqli_query($conn, $sql);
@@ -475,7 +479,7 @@
    
     <div class="container" style="width: 100%;">  
 
-            <div class="header-table">
+            <div class="header-table" style="background-color:white;box-shadow:2px 2px 10px grey;">
 
               <div class="header-row">  
                       Start Date <input type='date' class='dateFilter' name='fromDate' value='<?php if(isset($_POST['fromDate'])) echo $_POST['fromDate']; ?>'>
@@ -499,7 +503,7 @@
 
 
                 <div class="header-row">  
-                     <input type="submit" name="but_search" id="filter" value="Search" class="dateFilter"/>  
+                     <input type="submit" name="but_search" id="filter" value="Search" class="dateFilter" style="font-size: 20px; text-align: center; background: #055C9D; color: #E1E1E1; border-radius: 3px; cursor: pointer; text-decoration: none;"/>  
                 </div>
                 
             </div>
@@ -509,13 +513,16 @@
                   
               
 
-                <div class="title-body" style="margin: 30px auto; color:white;font-variant: small-caps; padding:10px;background:rgba(0, 0, 0, 0.49); width: auto;-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); width:60%;text-align: center;">
-            <span><h1 style="">Transaction</h1></span>
-          </div>                  
+                <div class="title-body" style=" color:black;font-variant: small-caps; padding:10px;text-align: left;font-size:20px;">
+                <h1 style="">Transaction</h1>
+                            
                     
-           <div>
-                <button type="button" class="btn btn-primary col-sm-3" style="margin-top:20px;border-radius:5px;cursor:pointer;" id="formButton">New Payment</button>
-           </div>
+                <div style="display:inline-flex;margin-left:70%;margin-top:-30%;">
+                <button type="button" class="btn btn-primary" style="font-size: 20px; text-align: center; background: #055C9D; color: #E1E1E1; border-radius: 10px; cursor: pointer; text-decoration: none; padding: 10px;margin-right:10px;" id="formButton">New Payment</button>
+                <a href='generatepdf.php' style='font-size: 20px; text-align: center; background:#055C9D; color: #E1E1E1; border-radius: 10px; cursor: pointer; text-decoration: none; padding: 10px;'>Payment Reports</a>   
+
+                </div>
+                </div>
                 <div class="form1">
                   <form method="post" id="form1" style="">
                     <!-- label tong pangalan!!!!!  -->
@@ -626,8 +633,8 @@
 
                         $result_pay = mysqli_query($conn, $sql_paycheck);
                         if ($result_pay == true) {
-                          echo "<script> alert('You have successfully inserted!') </script>";
-  echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/sales-area.php' </script>";
+                          echo "<script> alert('successfully inserted!') </script>";
+  echo "<script> window.location.href='sales-area.php' </script>";
                         }
                     }
 
@@ -710,9 +717,6 @@
            </div>  
 
 
-           <div>
-             <a href='generatepdf.php' style='font-size: 13px; margin-right: auto; margin-left: auto; text-align: center; background: #131313; color: #E1E1E1; border-radius: 3px; cursor: pointer; text-decoration: none; line-height: 2.3; padding: 10px;'>DOWNLOAD PAYMENT DATA FILE</a>   
-           </div>
 
 
 
