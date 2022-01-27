@@ -39,8 +39,8 @@ session_start();
                           <td>'.$row["UID"].'</td>     
                           <td>'.$row["project_name"].'</td>
                           <td>'.$row["payment_type"].'</td>
-                          <td>'.$row["downpayment"].'</td>
-                          <td>'.$row["total_cost"].'</td>
+                          <td>'.$row["reference_no"].'</td>
+                          <td>'.$row["amount"].'</td>
                           <td>'.$row["payment_issued"].'</td>  
                      </tr>    
                           ';    
@@ -79,7 +79,7 @@ session_start();
                 <th width="10%">CLIENT ID</th>       
                 <th width="20%">PROJECT NAME</th>
                 <th width="20%">PAYMENT TYPE</th>
-                <th width="15%">DOWNPAYMENT</th>       
+                <th width="15%">REFERENCE NUMBER</th>       
                 <th width="10%">TOTAL COST</th>
                 <th width="15%">TRANSACTION DATE ISSUE</th>     
            </tr>    
@@ -128,7 +128,7 @@ session_start();
                                <th width="">CLIENT ID</th>       
                                <th width="">PROJECT NAME</th>
                                <th width="">PAYMENT TYPE</th>
-                               <th width="">DOWNPAYMENT</th>       
+                               <th width="">REFERENCE NUMBER</th>       
                                <th width="">TOTAL COST</th>
                                <th width="">TRANSACTION DATE ISSUE</th>      
                           </tr>    

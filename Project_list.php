@@ -35,6 +35,10 @@ $projects3 = "SELECT COUNT(remarks) AS cancelled_projects FROM project WHERE UID
 $project_result3 = mysqli_query($conn, $projects3);
 $row3 = mysqli_fetch_array($project_result3);
 
+$paid_payments = "SELECT  SUM(amount) as paid FROM payment WHERE UID = '$uid'";
+$paid_payments_result = mysqli_query($conn, $paid_payments);
+$row4 = mysqli_fetch_array($paid_payments_result);
+
 ?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
@@ -155,9 +159,9 @@ $row3 = mysqli_fetch_array($project_result3);
               <div class="headername col-sm-12" style="border-radius: 20px;width:100%;height:300px;background-color:white;">
                 <div class="col-sm-5" >
                   <h5 style="font-size:30px">Paid Payments</h5>
-                  <h1 style="font-size:50px">P 12000</h1>
-                  <div class="col-sm-12" style="padding: 0 0;margin-top: 35px;">
-                    <div class="col-sm-6" style="padding: 0 0;">
+                  <h1 style="font-size:50px">P <?php echo $row4['paid'] ?></h1>
+                  <!-- <div class="col-sm-12" style="padding: 0 0;margin-top: 35px;">
+                     <div class="col-sm-6" style="padding: 0 0;">
                       <label class="col-sm-6" style="padding: 0 0;font-size: 10px;"> All Balance </label>
                       <label class="col-sm-6">8000</label>
                       <div class="col-sm-9" style="height: 5px;background-color: lightskyblue;"></div>
@@ -166,8 +170,8 @@ $row3 = mysqli_fetch_array($project_result3);
                       <label class="col-sm-6" style="padding: 0 0;font-size: 10px;">All Project</label>
                       <label class="col-sm-6">20000</label>
                       <div class="col-sm-9" style="height: 5px;background-color: lightgreen;"></div>
-                    </div>
-                  </div>
+                    </div> 
+                  </div> -->
                   <button type="button" onclick="topayment()" class="btn btn-primary col-sm-11" style="border-radius:20px;margin-top: 20px;padding: 8px 0 8px 10px;">View History
                     <i class="material-icons" style="font-size:15px;padding-left: 70px;">chevron_right</i>
                   </button> 

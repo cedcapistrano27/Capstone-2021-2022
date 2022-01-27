@@ -35,6 +35,11 @@ $projects3 = "SELECT COUNT(remarks) AS cancelled_projects FROM project WHERE UID
 $project_result3 = mysqli_query($conn, $projects3);
 $row3 = mysqli_fetch_array($project_result3);
 
+$paid_payments = "SELECT  SUM(amount) as paid FROM payment WHERE UID = '$uid'";
+$paid_payments_result = mysqli_query($conn, $paid_payments);
+$row4 = mysqli_fetch_array($paid_payments_result);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
@@ -144,7 +149,7 @@ $row3 = mysqli_fetch_array($project_result3);
           </div>
 
 
-
+          
 
 
 
@@ -160,23 +165,23 @@ $row3 = mysqli_fetch_array($project_result3);
             <div class="header col-sm-12" style="margin: 30px 0 25px 0;padding: 0 0;">
               <div class="headername col-sm-12" style="border-radius: 20px;width:100%;height:100px;padding:0;">
                 <div class="col-sm-12" >
-                    <div class="col-sm-4 " style="padding:0;margin-left:15px;">
+                    <!-- <div class="col-sm-4 " style="padding:0;margin-left:15px;">
                       <div class="col-sm-12" style="height: auto;background-color: white;width:250px;border-radius:10px;box-shadow: 2px 2px 5px rgb(133, 131, 131)">
                       <label class="col-sm-12" style="margin:0;padding: 0;font-size:40px;color:#337ab7;">8000</label>
                       <label class="col-sm-12" style="padding: 0 ;font-size: 10px;margin:0;opacity: 0.8;"> All Balance </label>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-sm-4 " style="padding:0;margin-left:0px">
                       <div class="col-sm-12" style="height: auto;background-color: white;width:250px;border-radius:10px;box-shadow: 2px 2px 5px rgb(133, 131, 131)">
-                      <label class="col-sm-12" style="margin:0;padding: 0;font-size:40px;color:#337ab7;">12000</label>
+                      <label class="col-sm-12" style="margin:0;padding: 0;font-size:40px;color:#337ab7;">P <?php echo $row4['paid'] ?></label>
                       <label class="col-sm-12" style="padding: 0 ;font-size: 10px;margin:0;opacity: 0.8;"> Paid Payments </label>
                       </div>
-                    </div>
+                    <!-- </div>
                     <div class="col-sm-4" style="padding: 0;margin-left:-15px">
                     <div class="col-sm-12" style="height: auto;background-color: white;width:250px;border-radius:10px;box-shadow: 2px 2px 5px rgb(133, 131, 131)">
                         <label class="col-sm-12" style="margin:0;padding: 0;font-size:40px;color:#337ab7;">20000</label>
                         <label class="col-sm-12" style="padding: 0 ;font-size: 10px;margin:0;opacity: 0.8;">All Project</label>
-                      </div>
+                      </div> -->
                     </div>
                   
                   
@@ -201,7 +206,7 @@ $row3 = mysqli_fetch_array($project_result3);
                       <th class="fw-light">Project Name</th>
                       <th class="fw-light">Date</th>
                       <th class="fw-light">Payment</th>
-                      <th class="fw-light">Downpayment</th>
+                      <th class="fw-light">Reference Number</th>
                       <th class="fw-light" >Total Cost</th>
                     
                       
@@ -241,8 +246,9 @@ $row3 = mysqli_fetch_array($project_result3);
 
                               $Project_name = $row["project_name"];
                               $Date_issued = $row["payment_issued"];
-                              $payment_type = $row["payment_type"];                            
-                              $total_cost = $row["total_cost"];
+                              $payment_type = $row["payment_type"]; 
+                              $reference_no = $row["reference_no"];                        
+                              $total_cost = $row["amount"];
                             
                               
                             
@@ -252,6 +258,7 @@ $row3 = mysqli_fetch_array($project_result3);
                               ."<td style='font-size: 15px;padding: 15px;'>$Project_name </td>"
                               ."<td style='font-size: 15px;padding: 15px;'>$Date_issued</td>"
                               ."<td style='font-size: 15px;padding: 15px;'>$payment_type </td>"
+                              ."<td style='font-size: 15px;padding: 15px;'>$reference_no </td>"
                               ."<td style='font-size: 15px;padding: 15px;'>$total_cost</td>";
                               
 
