@@ -19,7 +19,6 @@ session_start();
                           <td>'.$row["address"].'</td>
                           <td>'.$row["email"].'</td>
                           <td>'.$row["cnumber"].'</td>
-                          <td>'.$row["ID_proof"].'</td>
                           <td>'.$row["username"].'</td>  
                           <td>'.$row["password"].'</td> 
                      </tr>    
@@ -56,11 +55,10 @@ session_start();
      <table border="1" cellspacing="0" cellpadding="3" >    
            <tr>    
                 <th width="7%">ID</th>    
-                <th width="15%">CLIENT NAME</th>       
-                <th width="17%">ADDRESS</th>
+                <th width="18%">CLIENT NAME</th>       
+                <th width="30%">ADDRESS</th>
                 <th width="15%">EMAIL</th>
-                <th width="15%">PHONE #</th>       
-                <th width="11%">ID PROOF</th>
+                <th width="10%">PHONE #</th>       
                 <th width="10%">USERNAME</th>
                 <th width="10%">PASSWORD</th>      
            </tr>    
@@ -110,7 +108,6 @@ session_start();
                                <th width="">ADDRESS</th>
                                <th width="">EMAIL</th>
                                <th width="">PHONE #</th>       
-                               <th width="">ID PROOF</th>
                                <th width="">USERNAME</th>
                                <th width="">PASSWORD</th>      
                           </tr>    

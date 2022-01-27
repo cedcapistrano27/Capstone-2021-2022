@@ -76,6 +76,9 @@ $status_sql = "SELECT * FROM timeline WHERE PID = '$project'";
                                         <h4>Scope of Works: <?php echo $row['Uscope']; ?></h4>
                                     	<p>Information : <?php echo $row["ProjectInfo"]; ?></p>
                                         <i><?php echo $row["Remarks"]; ?></i>
+                                        <br>
+                                        <img src='uploads/<?php echo $row["filename"]; ?>' width="200" >
+
 
                                     </div>
                                 </div>
