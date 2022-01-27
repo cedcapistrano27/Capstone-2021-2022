@@ -27,12 +27,13 @@ if (isset($_POST['request'])) {
   $appoint = $_POST['appointment1'];
   $details = $_POST['details'];
   $time = $_POST['app_time'];
+  $atype= $_POST['atype'];
   
   $query = "SELECT * FROM appointment WHERE time = '$time' and date='$appoint'";
   $resulta = mysqli_query($conn,$query);
   if($resulta->num_rows == 0)
   {
-    $sql = "INSERT into appointment (UID,date,time,a_details,status) VALUES ('$uid','$appoint','$time','$details','pending')";
+    $sql = "INSERT into appointment (UID,date,time,atype,a_details,status) VALUES ('$uid','$appoint','$time','$atype','$details','pending')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
       echo " <script>alert('Appointment Created!') </script>";
@@ -207,6 +208,14 @@ if (isset($_POST['request'])) {
                     <!-- <div>
                       <input type="text" id="time" placeholder="Select Time">
                     </div> -->
+                    <label for=""> Type :
+                      <select name="atype" id="" style="height:35px; width: 150px;" aria-placeholder="Select appointment">
+                        <option value="--"></option>
+                        <option value="Follow-up">Follow up</option>
+                        <option value="New Project">New Project</option>
+                      </select>
+                    </label>
+                    
                     <br>
                     <label for="">Details: </label><br> <textarea name="details" id="" cols="30" rows="10" style="width:600px; height:150px; margin-bottom:10px;"></textarea> <br>
                     <button type="submit" name="request" style="margin-bottom:10px; width:85px; background-color:#68BBE3;color:white;">Submit</button>
