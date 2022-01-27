@@ -24,7 +24,6 @@ if ($result1->num_rows>0)
       $Address1 = $row['address'];
       $Email1 = $row['email'];
       $Contact_number1 = $row['cnumber'];
-      $Proof_ID1 = $row['ID_proof'];
       $pass = $row['password'];
       $avatar = $row['picpath'];
     }
@@ -40,8 +39,8 @@ if (isset($_POST['update'])) {
   $Address = $_POST['address'];
   $Email = $_POST['email'];
   $Contact_number = $_POST['cnumber'];
-  $Proof_ID = $_POST['proof_id'];
   $picpath = $_POST["picpath"];
+  
 
   // move uploaded pic from temp folder to permanent folder
   if(file_exists($picpath)){
@@ -49,10 +48,10 @@ if (isset($_POST['update'])) {
     rename($picpath, 'uploads/' . $pic_filename);
     $picpath = 'uploads/' . $pic_filename;
   }
-  /////
-  
 
-  $sql = "UPDATE user SET fname='$Firstname', mname='$Midname', lname='$Lastname', address='$Address', email='$Email', cnumber='$Contact_number', ID_proof='$Proof_ID', picpath='$picpath'  WHERE username = '$Uname' ";
+
+
+  $sql = "UPDATE user SET fname='$Firstname', mname='$Midname', lname='$Lastname', address='$Address', email='$Email', cnumber='$Contact_number', picpath='$picpath' WHERE username = '$Uname' ";
   $result = mysqli_query($conn, $sql);
   if ($result) {
    echo " <script>alert('Update Succesfully') </script>";
@@ -60,8 +59,12 @@ if (isset($_POST['update'])) {
         header("Location: {$url}");
         
   }
+
   $sql2 = "INSERT INTO user (pic_filename) VALUES ('$pic_filename') WHERE username = '$Uname' ";
   $result2 = mysqli_query($conn, $sql2);
+
+
+
 
  }
 
@@ -195,7 +198,7 @@ if (isset($_POST['update'])) {
                     <label for="" style="font-size:14px; margin-left:20px;">Address:</label> <input type="text" name="address" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Address1 ?>"> 
                     <label for="" style="font-size:14px; margin-left:10px;" >Email:</label> <input type="email" name="email" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Email1 ?>"> <br>
                     <label for="" style="font-size:14px; margin-left:10px;">Contact #:</label> <input type="number" name="cnumber" id="" style="margin-left:8px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Contact_number1 ?>">
-                    <label for="" style="font-size:14px; margin-left:10px;">Proof of Identification:</label>
+                    <!-- <label for="" style="font-size:14px; margin-left:10px;">Proof of Identification:</label>
                     <select name="proof_id" id="" value="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:120px;" >
                       <option value="<?php echo $Proof_ID1 ?>"></option>
                       <option value="SSS ID">SSS ID</option>
@@ -205,8 +208,10 @@ if (isset($_POST['update'])) {
                       <option value="TIN ID">TIN ID</option>
                       <option value="Police Clearance">Police Clearance</option>
                       <option value="NBI Clearance">NBI Clearance</option>
-                    </select> <br>
-                    <label for="" style="font-size:14px; margin-left:6px;">Username:</label> <input type="text" name="user" id="" style="margin-left:8px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Uname ?>" readonly> 
+                    </select>
+                     -->
+                     <br>
+                    <label for="" style="font-size:14px; margin-left:6px;">Username:</label> <input type="text" name="user" id="" style="margin-left:8px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $Uname ?>" readonly>
                     <label for="" style="font-size:14px; margin-left:10px;">Password:</label> <input type="password" name="" id="" style="margin-left:5px; margin-bottom:10px; margin-right:5px; width:200px;" value="<?php echo $pass ?>" readonly> <a href="reset_pass.php" id="reset_pass" style="text-decoration:none; color:white; border:solid 1px; padding:4px; margin-left:5px; background-color: #A52A2A;">Reset Password</a><br>
               
                     <button type="submit" name="update" style="margin-bottom:10px; margin-left:15px; width:85px; background-color:#68BBE3;color:white;">Update</button>
@@ -263,29 +268,28 @@ if (isset($_POST['update'])) {
     <!-- JavaScript Codes to upload picture and display it inside the specified image -->
 <script>
 $(document).ready(function(){
-
- $('#uploadfile').change(function(e){
- var formData = new FormData($('#pic-upload')[0]);
- //codes in AJAX for uploading of picture
- $.ajax({
- type: 'POST',
- url: 'upload_pic.php',
- data: formData,
- contentType: false,
- processData: false,
- dataType: 'json',
- success: function(result){
- if(result.ok){
- $('#pic-box').html('');
- $('#pic-box').append("<img src='" + result.temp_path + "' style='width:100%'/>");
- $('#picpath').val(result.temp_path);
- } else {
- alert('Error encountered while trying to upload the picture!');
- }
- }
- });
- return false;
- });
+  $('#uploadfile').change(function(e){
+  var formData = new FormData($('#pic-upload')[0]);
+    //codes in AJAX for uploading of picture
+    $.ajax({
+    type: 'POST',
+    url: 'upload_pic.php',
+    data: formData,
+    contentType: false,
+    processData: false,
+    dataType: 'json',
+    success: function(result){
+    if(result.ok){
+    $('#pic-box').html('');
+    $('#pic-box').append("<img src='" + result.temp_path + "' style='width:100%'/>");
+    $('#picpath').val(result.temp_path);
+    } else {
+    alert('Error encountered while trying to upload the picture!');
+    }
+    }
+    });
+    return false;
+  });
 });
 </script>
     
