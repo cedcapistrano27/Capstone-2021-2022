@@ -411,7 +411,7 @@ input[type=submit]:hover, .createBtn a:hover{
 
     <div class="content">
 
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data" action="">
         <?php 
 
         include 'connection.php';
@@ -528,6 +528,22 @@ input[type=submit]:hover, .createBtn a:hover{
 
         </div>
 
+        <div class="form-input">
+            
+            <div class="label" >
+              <span><label>Input Image</label></span> 
+            </div>
+
+            <div class="label" >
+              <span>:</span> 
+            </div>
+
+             <div class="label" >
+              <span><input type="file" name="file"></span> 
+            </div>
+
+        </div>
+
 
         <?php 
 
@@ -538,15 +554,37 @@ input[type=submit]:hover, .createBtn a:hover{
           $info = $_POST['info'];
           $remark = $_POST['remark'];
 
-            $sql_time ="INSERT INTO timeline(PID, UID, Uscope, ProjectInfo, DateIssued, Remarks) 
-            VALUES ('$proj','$CID','$scope','$info',current_timestamp(), '$remark')"; 
+          $name = $_FILES['file']['name'];
+          $target_dir = "uploads/";
+          $target_file = $target_dir . basename($_FILES["file"]["name"]);
 
-            $res_time = mysqli_query($conn, $sql_time);
+          // Select file type
+          $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-            if ($res_time == true) {
-               echo "<script> alert('You have Created a New Update in Timeline!') </script>";
-                echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/project-area.php' </script>";
-            }
+          // Valid file extensions
+          $extensions_arr = array("jpg","jpeg","png","gif");
+
+          // Check extension
+          if( in_array($imageFileType,$extensions_arr) ){
+             // Upload file
+             if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name)){
+                // Insert record
+                $section = $_POST['section'];
+                $query = "INSERT INTO timeline(PID, UID, Uscope, ProjectInfo, DateIssued, Remarks, picpath, filename) 
+            VALUES ('$proj','$CID','$scope','$info',current_timestamp(), '$remark', '$target_file', '$name')";
+                $result = mysqli_query($conn,$query);
+
+                if ($result == true) {
+                   echo "<script> alert('You have Inserted a New Timeline!') </script>";
+           echo "<script> window.location.href='http://localhost/Capstone-2021-2022/admin/project-area.php' </script>";
+
+                }
+             }
+
+          }
+         
+
+            
         }
 
       
