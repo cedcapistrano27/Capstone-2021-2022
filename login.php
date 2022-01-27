@@ -25,7 +25,6 @@ if ($result1->num_rows>0)
       $Address = $row['address'];
       $Email = $row['email'];
       $Contact = $row['cnumber'];
-      $ID = $row['ID_proof'];
       $Username = $row['username'];
 	  $Password = $row['password'];
 	  
@@ -54,7 +53,6 @@ if ($result->num_rows > 0)
 		$_SESSION["address"] = $Address;
 		$_SESSION["email"] = $Email;
 		$_SESSION["cnumber"] = $Contact;
-		$_SESSION["ID_proof"] = $ID;
 		$_SESSION["password"] = $password;
 
 		echo "<script> window.location.href='dashboard.php' </script>  ";
