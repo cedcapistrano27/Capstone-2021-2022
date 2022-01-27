@@ -33,7 +33,7 @@ if (isset($_POST['request'])) {
   $resulta = mysqli_query($conn,$query);
   if($resulta->num_rows == 0)
   {
-    $sql = "INSERT into appointment (UID,date,time,a_details,status,atype) VALUES ('$uid','$appoint','$time','$atype','$details','pending')";
+    $sql = "INSERT into appointment (UID,date,time,atype,a_details,status) VALUES ('$uid','$appoint','$time','$atype','$details','pending')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
       echo " <script>alert('Appointment Created!') </script>";
@@ -208,8 +208,9 @@ if (isset($_POST['request'])) {
                     <!-- <div>
                       <input type="text" id="time" placeholder="Select Time">
                     </div> -->
-                    <label for=""> 
-                      <select name="atype" id="" style="height:35px; width: 150px;">
+                    <label for=""> Type :
+                      <select name="atype" id="" style="height:35px; width: 150px;" aria-placeholder="Select appointment">
+                        <option value="--"></option>
                         <option value="Follow-up">Follow up</option>
                         <option value="New Project">New Project</option>
                       </select>
