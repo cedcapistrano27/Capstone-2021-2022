@@ -46,6 +46,17 @@ session_start();
       $obj_pdf->SetAutoPageBreak(TRUE, 10);    
       $obj_pdf->SetFont('helvetica', '', 9);    
       $obj_pdf->AddPage();    
+
+      $obj_pdf->Image('images/coco.jpg', 15, 5, 25, 25, 'JPG', '', '', true, 150, '', false, false, 0, false, false, false);
+      $obj_pdf->Cell(30,5,'','','0','');
+      $obj_pdf->Cell(60,5,'BV Construction','','1','');
+      $obj_pdf->Cell(30,5,'','','0','');
+      $obj_pdf->Cell(60,5,'Quezon City, National Capital Region, Philippines','','1','');
+      $obj_pdf->Cell(30,5,'','','0','');
+      $obj_pdf->Cell(60,5,'Phone: PH (+63)958596092','','1','');
+      $obj_pdf->Line(10, 33, 200, 33);
+      $obj_pdf->Ln(20);
+
       $content = '';    
       $content .= '  
 
@@ -66,7 +77,23 @@ session_start();
       $content .= fetch_data();    
       $content .= '</table>';     
       $obj_pdf->writeHTML($content);    
-      $obj_pdf->Output('file.pdf', 'I');    
+      /// footer
+
+ $obj_pdf->Ln(25);
+
+ $obj_pdf->Cell(95,5,'Prepared by :','','','L');
+ $obj_pdf->Cell(90,5,'Conformed by :','','','L');
+ $obj_pdf->Ln(10);
+     
+ 
+ 
+ $obj_pdf->Cell(95,5,'Gen-Con. - PCE.BVC','','','C');
+ $obj_pdf->Cell(90,5,'Client','','','C');
+ 
+ 
+ 
+ $obj_pdf->Output('file.pdf', 'I');  
+     
  }    
  ?>    
  <!DOCTYPE html>    
