@@ -31,6 +31,7 @@ body{
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  background-color: lightgray;
 }
 
 header{
@@ -206,11 +207,12 @@ label #sidebar_btn:hover{
 .form-container{
   width: 80%; 
   height: auto;
-  background: rgba(0, 0, 0, 0.57); 
-  color: white;
+  background: white; 
+  color: black;
   margin: auto;
   border-radius: 10px;
   padding-bottom: 20px;
+  box-shadow: 2px 2px 10px grey;
 
 }
 
@@ -658,7 +660,8 @@ input[type=submit]:hover{
             <div class="col-sm-12" style="text-align: center;font-size:30px">
               <span><label>Scope of Work</label></span>
               <div class="controls col-sm-12" style="width:auto;">
-            <button id="addMore" style="padding:10px; ">Add more fields</button> <button id="deleteField" style="padding:10px; ">Delete fields</button>
+            <button id="addMore" style="padding:10px;background-color:#293756;color:white;border-radius:20px; ">Add more fields</button> 
+            <button id="deleteField" style="padding:10px;background-color:#293756;color:white;border-radius:20px; ">Delete fields</button>
               <!-- <a href="#" id="add_more_fields" class=""><i class="fa fa-plus"></i>Add</a>
               <a href="#" id="remove_fields" style="float:right;"><i class="fa fa-minus" style="margin-right:5px;"></i>Remove</a> -->
             </div> 
