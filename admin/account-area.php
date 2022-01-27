@@ -15,7 +15,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  background: url(landing-page.jpg) no-repeat;
+  /* background: url(landing-page.jpg) no-repeat; */
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -24,7 +24,7 @@ body{
 header{
   z-index: 1;
   position: fixed;
-  background: #22242A;
+  background: #293756;
   padding: 20px;
   width: calc(100% - 0%);
   top: 0;
@@ -72,7 +72,7 @@ header{
 .sidebar{
   z-index: 1;
   top: 0;
-  background: #2f323a;
+  background: #293756;
   margin-top: 70px;
   padding-top: 30px;
   position: fixed;
@@ -182,15 +182,13 @@ label #sidebar_btn:hover{
 
 /*Section Area*/
 .header-table{
-  color: white; 
-  background:rgba(0, 0, 0, 0.6); 
+  color: black;
   width: 50%; 
   margin: auto; 
   padding: 10px; 
   text-align: center;
   border-radius: 10px;
-  -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  
 }
 
 .search-bar{
@@ -200,11 +198,11 @@ label #sidebar_btn:hover{
 }
 
 table tbody tr td,tr{
-  padding: 10px;
+  padding: 15px;
 }
 
  table thead{
-  background: black;
+  background: #293756;
   color: white;
  }
 
@@ -439,12 +437,10 @@ table tbody tr td,tr{
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label>
       <div class="left_area">
-        <img src="../images/logo.jpg" class="logo-image" alt="BV Logo" width="30">
+        <img src="../images/logologo.png" class="logo-image" alt="BV Logo" width="30">
         <h3>BV <span>Construction</span></h3>
       </div>
-      <div class="right_area">
-        <a href="#" class="logout_btn">Logout</a>
-      </div>
+      
     </header>
     <!--header area end-->
     <!--mobile navigation bar start-->
@@ -473,6 +469,8 @@ table tbody tr td,tr{
         <a href="project-area.php"><i class="fas fa-tasks"></i><span>PROJECTS</span></a>
         <a href="sales-area.php"><i class="fas fa-dollar-sign"></i><span>SALES</span></a>
         <a href="setting.php"><i class="fas fa-cogs"></i><span>SETTINGS</span></a>
+        <a href="../admin-logout.php"><i class='fas fa-sign-out-alt'></i><span>LOGOUT</span> </a>
+
     </div>
     <!--sidebar end-->
 
@@ -488,7 +486,7 @@ table tbody tr td,tr{
         </div>
 
         <div class="search-bar" style="">
-              <span><label style="color: white; font-weight: bold; font-size:15px;">Search Client's Name : </label></span>
+              <span><label style="color: black; font-weight: bold; font-size:15px;">Search : </label></span>
               <input type="text" name="search" style="height: 5vh;" id="search" onkeyup="myFunction()">
               
             </div>
@@ -513,7 +511,7 @@ table tbody tr td,tr{
 
       
  
-      $result = mysqli_query($conn, "SELECT * FROM user");
+      $result = mysqli_query($conn, "SELECT * FROM user WHERE remarks=''");
 
       if ($result->num_rows > 0) {
         
@@ -540,6 +538,21 @@ table tbody tr td,tr{
           </table>
           
         </div>
+
+         <a href='account-pdf.php' style='
+            font-size: 1rem; 
+            flex: 1;
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center; 
+            background: #131313; 
+            color: #E1E1E1; 
+            border-radius: 3px; 
+            cursor: pointer; 
+            text-decoration: none; 
+            padding: 10px;
+            border: 2px white solid;
+            '>ARCHIVED ACCOUNTS</a>
         
 
         

@@ -41,6 +41,7 @@ body{
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  /* background-color: dimgray; */
 }
 
 header{
@@ -443,8 +444,8 @@ table .actionbtn{
           background:rgba(0, 0, 0, 0.49); 
           width: 25%;
           padding: 5px;
-          -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-          clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+          text-align:center;
+         
 ">
             <span><h1><i class="fas fa-cogs"></i> Setting</h1></span>
           </div>
