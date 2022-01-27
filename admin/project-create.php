@@ -1,9 +1,4 @@
-S<?php 
-  session_start()
- 
-
-
-
+<?php 
 
 
  ?>
@@ -20,7 +15,7 @@ S<?php
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <style>
 body{
@@ -429,6 +424,7 @@ input[type=submit]:hover{
        $Paytype = $_POST['paymenttype'];
        $downpaid = $_POST['downpaid'];
        $TotalAmount = $_POST['fullpaid'];
+       $checkbox1 = $_POST['chkl'] ;
 
        $reference = rand(10000,100000000);
       
@@ -470,8 +466,16 @@ input[type=submit]:hover{
 
       }
 
-
-
+      
+    
+         
+      for ($i=0; $i<sizeof ($checkbox1);$i++) {  
+      $query="INSERT INTO scopeofwork (UID,project_name, scope_of_work) VALUES ('$clientName','$ProjectName','".$checkbox1[$i]. "')";  
+      mysqli_query($conn,$query);  
+      }  
+       
+      
+    
       }
 
        ?>
@@ -655,20 +659,98 @@ input[type=submit]:hover{
 
         </div>
 
-        <div class="col-sm-12">
-            
-            <div class="col-sm-12" style="text-align: center;font-size:30px">
-              <span><label>Scope of Work</label></span>
-              <div class="controls col-sm-12" style="width:auto;">
+        <div class="" style="border:1px solid; width:80%;" >
+          <div class="label">
+              <span><label>Scope of Work</label></span> 
+            </div>
+              <!-- <div class="controls col-sm-12" style="width:auto;">
             <button id="addMore" style="padding:10px;background-color:#293756;color:white;border-radius:20px; ">Add more fields</button> 
-            <button id="deleteField" style="padding:10px;background-color:#293756;color:white;border-radius:20px; ">Delete fields</button>
+            <button id="deleteField" style="padding:10px;background-color:#293756;color:white;border-radius:20px; ">Delete fields</button> -->
               <!-- <a href="#" id="add_more_fields" class=""><i class="fa fa-plus"></i>Add</a>
               <a href="#" id="remove_fields" style="float:right;"><i class="fa fa-minus" style="margin-right:5px;"></i>Remove</a> -->
-            </div> 
-            </div>
+              <label for="">A. General Requirements</label>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Mobilization/Demobilization" style="width:25px; "><span><label>  Mobilization/Demobilization</label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Project Management/Supervision" style="width:25px; "><span><label>  Project Management/Supervision</label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Housekeeping" style="width:25px; "><span><label>  Housekeeping</label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Material Delivery" style="width:25px; "><span><label>  Material Delivery</label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Miscellaneous" style="width:25px; "><span><label>  Miscellaneous</label></span> 
+              </div>
+              <label for="">B. Ceiling Works</label>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="False Ceiling" style="width:25px; "><span><label>False Ceiling </label></span> 
+              </div>
+
+              <label for="">C. Painting Works</label>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="False Ceiling" style="width:25px; "><span><label>False Ceiling </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Interior Wall" style="width:25px; "><span><label>Interior Wall </label></span> 
+              </div>
+
+              <label for=""> D. Electrical Works</label>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Electrical Conduiting" style="width:25px; "><span><label>Electrical Conduiting </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Wire Installation" style="width:25px; "><span><label>Wire Installation</label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Lighting Installation" style="width:25px; "><span><label>Lighting Installation </label></span> 
+              </div>
+
+              <label for="">E. Tile Works</label>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Demolition of Existing Tiles" style="width:25px; "><span><label>Demolition of Existing Tiles </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Installation of Tile. 60cm x 60cm" style="width:25px; "><span><label>Installation of Tile. 60cm x 60cm </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Backplash Installation" style="width:25px; "><span><label>Backplash Installation </label></span> 
+              </div>
+
+              <label for="">F. Flooring Works</label>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Laminated Planks Installation. 20cm x 120cm x 8mm" style="width:25px; "><span><label>Laminated Planks Installation. 20cm x 120cm x 8mm </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Installation of Laminated Planks including foam" style="width:25px; "><span><label>Installation of Laminated Planks including foam </label></span> 
+              </div>
+
+              <label for="">G. Others</label>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Baluster and Handrail Repaint" style="width:25px; "><span><label>Baluster and Handrail Repaint </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Demolition and Installation of 40x40 tiles @ balcony" style="width:25px; "><span><label>Demolition and Installation of 40x40 tiles @ balcony </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Aluminum Screen Door Installation. 2100mm x 900mm" style="width:25px; "><span><label>Aluminum Screen Door Installation. 2100mm x 900mm </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="False Wall,Modular Cabinet(Hanging and Under sink) Fabrication and Installation" style="width:25px; "><span><label>False Wall,Modular Cabinet(Hanging and Under sink) Fabrication and Installation </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]"  value="Installation of Shower Enclosure" style="width:25px; "><span><label>Installation of Shower Enclosure </label></span> 
+              </div>
+              <div class="">
+                <input type="checkbox" name="chkl[ ]" value="Laminated finish for Cabinet and Shelves" style="width:25px; "><span><label>Laminated finish for Cabinet and Shelves </label></span> 
+              </div>
+          </div>
 
             <div class="col-sm-12" style="text-align: center;">
-                <ul id="fieldList" style="">
+            
+                <!-- <ul id="fieldList" style="">
                   <li style="list-style:none;" id="list">
                   <select name="survey_options[]" class="survey_options" >
                     <optgroup label="A. General Requirements">
@@ -715,8 +797,7 @@ input[type=submit]:hover{
                   <li style="list-style:none;" id="list">
                     <input name="cost[]" type="number" placeholder="PRICE" id="price"  />
                   </li>
-                  
-              </ul>
+              </ul> -->
             </div>
                 
             
