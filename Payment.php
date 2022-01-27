@@ -171,7 +171,7 @@ $row4 = mysqli_fetch_array($paid_payments_result);
                       <label class="col-sm-12" style="padding: 0 ;font-size: 10px;margin:0;opacity: 0.8;"> All Balance </label>
                       </div>
                     </div> -->
-                    <div class="col-sm-4 " style="padding:0;margin-left:0px">
+                    <div class="col-sm-12" style="padding:0;margin-left:0px">
                       <div class="col-sm-12" style="height: auto;background-color: white;width:250px;border-radius:10px;box-shadow: 2px 2px 5px rgb(133, 131, 131)">
                       <label class="col-sm-12" style="margin:0;padding: 0;font-size:40px;color:#337ab7;">P <?php echo $row4['paid'] ?></label>
                       <label class="col-sm-12" style="padding: 0 ;font-size: 10px;margin:0;opacity: 0.8;"> Paid Payments </label>
@@ -195,9 +195,9 @@ $row4 = mysqli_fetch_array($paid_payments_result);
             <div class="col-sm-12" style="border-radius: 5px;box-shadow: 2px 2px 10px rgb(133, 131, 131);background-color:rgb(248, 245, 245);margin-bottom:25px;height: 900px;">
             <div class="content">
                 <h2 class="col-sm-9">Payment History</h2> <br>
-                <div>
+                <div style="height: 35px; width: 100px; margin-left: auto; text-align: center; background: #055C9D; border-radius: 3px; cursor: pointer; text-decoration: none;padding: 5px">
             <!-- <input type="button" value="print" onclick="PrintDiv();" /> -->
-            <a href="generatepdf.php" style="height: 35px; width: 350; margin-right: auto; margin-left: auto; text-align: center; background: #055C9D; color: white; border-radius: 3px; cursor: pointer; text-decoration: none; line-height: 2.3; padding: 10px;">Print</a>
+                  <a href="generatepdf.php" style="color: white;;font-size:15px;">Print Payment</a>
                 </div>
                 
                 <table   class="table table-hover my-1 caption-top table-borderless">

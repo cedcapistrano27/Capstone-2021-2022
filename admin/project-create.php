@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
 
     <style>
 body{
@@ -659,9 +659,9 @@ input[type=submit]:hover{
 
         </div>
 
-        <div class="" style="border:1px solid; width:80%;" >
+        <div class="" style=" width:100%;" >
           <div class="label">
-              <span><label>Scope of Work</label></span> 
+              <span><label>Scope of Work</label></span>
             </div>
               <!-- <div class="controls col-sm-12" style="width:auto;">
             <button id="addMore" style="padding:10px;background-color:#293756;color:white;border-radius:20px; ">Add more fields</button> 
@@ -669,7 +669,7 @@ input[type=submit]:hover{
               <!-- <a href="#" id="add_more_fields" class=""><i class="fa fa-plus"></i>Add</a>
               <a href="#" id="remove_fields" style="float:right;"><i class="fa fa-minus" style="margin-right:5px;"></i>Remove</a> -->
               <label for="">A. General Requirements</label>
-              <div class="">
+              <div class="" >
                 <input type="checkbox" name="chkl[ ]" value="Mobilization/Demobilization" style="width:25px; "><span><label>  Mobilization/Demobilization</label></span> 
               </div>
               <div class="">

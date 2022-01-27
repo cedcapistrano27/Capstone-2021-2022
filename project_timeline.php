@@ -49,6 +49,7 @@
       background-color:rgb(242, 242, 242);
       height: 1350px;
       padding: 0px 35px 0px 35px;
+      overflow: scroll;
     }
     .module,
     .module-small {
@@ -171,6 +172,8 @@
                               $Pinfo = $row['ProjectInfo'];
                               $Dissued = $row['DateIssued'];
                               $Remarks = $row['Remarks'];
+                              $picture = $row['picpath'];
+
 
                               echo 
 
@@ -181,8 +184,9 @@
                                   <p>
                                       $Pinfo
                                   </p>
-                                  $Remarks
-                                </div>
+                                  $Remarks <br>
+                                  <img src='admin/$picture' style='height:150px;width:200px;'></img>
+                                  </div>
                               </div>";
                             }
                         }
