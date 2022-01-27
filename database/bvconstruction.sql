@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2022 at 02:48 AM
+-- Generation Time: Jan 27, 2022 at 05:21 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -160,26 +160,29 @@ CREATE TABLE `timeline` (
   `Uscope` varchar(250) NOT NULL,
   `ProjectInfo` text NOT NULL,
   `DateIssued` date NOT NULL,
-  `Remarks` text NOT NULL
+  `Remarks` text NOT NULL,
+  `picpath` text NOT NULL,
+  `filename` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `timeline`
 --
 
-INSERT INTO `timeline` (`TimeID`, `PID`, `UID`, `Uscope`, `ProjectInfo`, `DateIssued`, `Remarks`) VALUES
-(1, 10, 3022, 'Estimation', 'Landfill and lot ', '2022-01-06', 'Ongoing'),
-(2, 11, 3022, 'Ceiling Works', 'False Ceiling', '2022-01-06', 'Complete'),
-(3, 11, 3022, 'Electrical Works', 'Wire Installation\r\n', '2022-01-07', 'Ongoing'),
-(4, 0, 3005, 'Reconstruction Of Bedroom', 'nasira yung double deck', '2022-01-07', ''),
-(29, 0, 3010, 'Pag gawa ng bubong', 'nagawa po ng bubong ng bahay. lahat ng lumang yero tinunaw para makagawa ng bago at mas pinatibay na bubong.', '2022-01-05', 'Finished'),
-(30, 0, 3010, 'Door Making', 'Puputol ng sampung puno galing sa Palawan para gawing pintuan.', '2022-01-05', 'Ongoing'),
-(31, 12, 3022, 'Floor Polishing', 'Aarkila ng mga bata para magbunot ng sahig at ng kumintab ito.', '2022-01-05', 'Finished'),
-(32, 0, 3010, 'Room Making', 'building new room from scratch', '2022-01-07', 'Ongoing'),
-(34, 14, 3005, 'Electrical Works', 'D pa tapos', '2022-01-21', 'Ongoing'),
-(35, 14, 3005, 'Electrical Works', 'tapos na', '2022-01-21', 'Completed'),
-(36, 11, 3022, 'Electrical Works', 'Lighting Installation\r\n', '2022-01-08', 'Completed'),
-(37, 11, 3022, 'Flooring Works', 'finish cements', '2022-01-25', 'Ongoing');
+INSERT INTO `timeline` (`TimeID`, `PID`, `UID`, `Uscope`, `ProjectInfo`, `DateIssued`, `Remarks`, `picpath`, `filename`) VALUES
+(1, 10, 3022, 'Estimation', 'Landfill and lot ', '2022-01-06', 'Ongoing', '', ''),
+(2, 11, 3022, 'Ceiling Works', 'False Ceiling', '2022-01-06', 'Complete', '', ''),
+(3, 11, 3022, 'Electrical Works', 'Wire Installation\r\n', '2022-01-07', 'Ongoing', '', ''),
+(4, 0, 3005, 'Reconstruction Of Bedroom', 'nasira yung double deck', '2022-01-07', '', '', ''),
+(29, 0, 3010, 'Pag gawa ng bubong', 'nagawa po ng bubong ng bahay. lahat ng lumang yero tinunaw para makagawa ng bago at mas pinatibay na bubong.', '2022-01-05', 'Finished', '', ''),
+(30, 0, 3010, 'Door Making', 'Puputol ng sampung puno galing sa Palawan para gawing pintuan.', '2022-01-05', 'Ongoing', '', ''),
+(31, 12, 3022, 'Floor Polishing', 'Aarkila ng mga bata para magbunot ng sahig at ng kumintab ito.', '2022-01-05', 'Finished', '', ''),
+(32, 0, 3010, 'Room Making', 'building new room from scratch', '2022-01-07', 'Ongoing', '', ''),
+(34, 14, 3005, 'Electrical Works', 'D pa tapos', '2022-01-21', 'Ongoing', '', ''),
+(35, 14, 3005, 'Electrical Works', 'tapos na', '2022-01-21', 'Completed', '', ''),
+(36, 11, 3022, 'Electrical Works', 'Lighting Installation\r\n', '2022-01-08', 'Completed', '', ''),
+(37, 11, 3022, 'Flooring Works', 'finish cements', '2022-01-25', 'Ongoing', '', ''),
+(39, 23, 3010, 'General Works', 'demobilization', '2022-01-27', 'Ongoing', 'uploads/4.jpg', '4.jpg');
 
 -- --------------------------------------------------------
 
@@ -318,7 +321,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT for table `timeline`
 --
 ALTER TABLE `timeline`
-  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `web_images`
