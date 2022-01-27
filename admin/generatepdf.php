@@ -14,14 +14,14 @@ session_start();
           while($row = mysqli_fetch_assoc($result))    
       {         
       $output .= '<tr>    
-                          <td>'.$row["PayID"].'</td>    
-                          <td>'.$row["UID"].'</td>     
-                          <td>'.$row["project_name"].'</td>
-                          <td>'.$row["payment_type"].'</td>
-                          <td>'.$row["downpayment"].'</td>
-                          <td>'.$row["total_cost"].'</td>
-                          <td>'.$row["payment_issued"].'</td>  
-                     </tr>    
+                         <td>'.$row["PayID"].'</td>    
+                         <td>'.$row["UID"].'</td>     
+                         <td>'.$row["project_name"].'</td>
+                         <td>'.$row["payment_type"].'</td>
+                         <td>'.$row["reference_no"].'</td>
+                         <td>'.$row["amount"].'</td>
+                         <td>'.$row["payment_issued"].'</td>   
+                    </tr>    
                           ';    
       }  
       return $output;    
@@ -54,13 +54,13 @@ session_start();
     
      <table border="1" cellspacing="0" cellpadding="3" >    
            <tr>    
-                <th width="10%">TRANSACTION ID</th>    
-                <th width="10%">CLIENT ID</th>       
-                <th width="20%">PROJECT NAME</th>
-                <th width="20%">PAYMENT TYPE</th>
-                <th width="15%">DOWNPAYMENT</th>       
-                <th width="10%">TOTAL COST</th>
-                <th width="15%">TRANSACTION DATE ISSUE</th>     
+               <th width="10%">TRANSACTION ID</th>    
+               <th width="10%">CLIENT ID</th>       
+               <th width="20%">PROJECT NAME</th>
+               <th width="20%">PAYMENT TYPE</th>
+               <th width="15%">REFERENCE NUMBER</th>       
+               <th width="10%">TOTAL COST</th>
+               <th width="15%">TRANSACTION DATE ISSUE</th>   
            </tr>    
       ';    
       $content .= fetch_data();    
