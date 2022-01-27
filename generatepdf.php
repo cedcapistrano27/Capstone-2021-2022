@@ -48,7 +48,7 @@ session_start();
       return $output;    
           }    
      
-        
+         
  }    
  if(isset($_POST["generate_pdf"]))    
  {    
