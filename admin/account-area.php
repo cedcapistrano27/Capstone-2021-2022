@@ -513,7 +513,7 @@ table tbody tr td,tr{
 
       
  
-      $result = mysqli_query($conn, "SELECT * FROM user");
+      $result = mysqli_query($conn, "SELECT * FROM user WHERE remarks=''");
 
       if ($result->num_rows > 0) {
         
@@ -540,6 +540,21 @@ table tbody tr td,tr{
           </table>
           
         </div>
+
+         <a href='account-pdf.php' style='
+            font-size: 1rem; 
+            flex: 1;
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center; 
+            background: #131313; 
+            color: #E1E1E1; 
+            border-radius: 3px; 
+            cursor: pointer; 
+            text-decoration: none; 
+            padding: 10px;
+            border: 2px white solid;
+            '>ARCHIVED ACCOUNTS</a>
         
 
         

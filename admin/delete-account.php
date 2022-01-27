@@ -5,7 +5,7 @@ include 'connection.php';
 error_reporting(0);
 
 $acc = $_GET['id'];
-$acc_sql = "DELETE FROM user WHERE UID = '$acc'";
+$acc_sql = "UPDATE user SET remarks='ARCHIVED' WHERE UID = '$acc'";
 
 $res_acc = mysqli_query($conn, $acc_sql);
 
