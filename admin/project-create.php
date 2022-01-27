@@ -710,14 +710,12 @@ input[type=submit]:hover{
                   </select>
                   </li>
                   <li style="list-style:none;" id="list">
-                    <input name="qty[]" type="number" placeholder="QTY" id="qty" onkeyup="total()" />
+                    <input name="qty[]" type="number" placeholder="QTY" id="qty"  />
                   </li>
                   <li style="list-style:none;" id="list">
-                    <input name="cost[]" type="number" placeholder="PRICE" id="price" onkeyup="total()" />
+                    <input name="cost[]" type="number" placeholder="PRICE" id="price"  />
                   </li>
-                  <li style="list-style:none;" id="list">
-                    <input class="form-control" type="number" id="show_result" placeholder="TOTAL" readonly> 
-                  </li>
+                  
               </ul>
             </div>
                 
@@ -821,16 +819,16 @@ input[type=submit]:hover{
         }
       }
 
-      function total() {
-      var quantity = parseInt(document.getElementById('qty').value);
+    //   function total() {
+    //   var quantity = parseInt(document.getElementById('qty').value);
 
-      var price = parseInt(document.getElementById('price').value);
+    //   var price = parseInt(document.getElementById('price').value);
 
-      var total = price * quantity;
+    //   var total = price * quantity;
 
-      document.getElementById('show_result').value = total;
-      document.getElementById('result').value = total;
-    }
+    //   document.getElementById('show_result').value = total;
+    //   document.getElementById('result').value = total;
+    // }
 
       // var add_more_fields = document.getElementById('add_more_fields');
    

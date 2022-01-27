@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2022 at 06:52 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Jan 27, 2022 at 02:48 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -49,13 +48,37 @@ INSERT INTO `appointment` (`APPID`, `UID`, `date`, `atype`, `a_details`, `status
 (11, 3010, '2022-01-07 04:40:00', '', 'unang una dapat to', 'Approved'),
 (12, 3010, '2022-01-14 04:40:00', '', 'kasunod ng 13 po', 'Approved'),
 (13, 3010, '2022-01-20 02:08:00', '', 'Nasira ang double deck', 'pending'),
-(14, 3024, '2022-01-12 00:38:00', '', 'kakakakakakakakakakakakakkakaka\r\nlalalalalalalallalalala\r\nhahahahahhahaha\r\npapapappaa', 'pending'),
-(15, 3010, '2022-01-19 06:14:00', '', 'hahahaha hatdog na may cheese', 'pending'),
+(14, 3024, '2022-01-12 00:38:00', '', 'kakakakakakakakakakakakakkakaka\r\nlalalalalalalallalalala\r\nhahahahahhahaha\r\npapapappaa', 'Approved'),
+(15, 3010, '2022-01-19 06:14:00', '', 'hahahaha hatdog na may cheese', 'Approved'),
 (23, 0, '0000-00-00 00:00:00', '', 'appoinment ako', 'Approved'),
 (24, 3023, '2022-01-12 05:37:00', '', 'appoinment ako', 'Approved'),
 (25, 3022, '2022-01-05 05:34:00', 'New Project', 'flooring and tiles', 'pending'),
 (27, 3022, '2022-01-20 21:00:00', 'Follow-up', 'Demon slayer season 2', 'Approved'),
 (28, 3022, '2022-01-26 00:00:00', '', 'home and design', 'Approved');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `inID` int(11) NOT NULL,
+  `UID` int(11) NOT NULL,
+  `project_name` varchar(250) COLLATE latin1_general_ci NOT NULL,
+  `payment_type` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `balance` int(11) NOT NULL,
+  `reference_no` int(11) NOT NULL,
+  `remarks` varchar(11) COLLATE latin1_general_ci NOT NULL,
+  `targetdate` varchar(255) COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`inID`, `UID`, `project_name`, `payment_type`, `balance`, `reference_no`, `remarks`, `targetdate`) VALUES
+(2, 3010, 'Sample', 'Downpayment', 10000, 78434337, 'Ongoing', '2028-11-29');
 
 -- --------------------------------------------------------
 
@@ -70,24 +93,21 @@ CREATE TABLE `payment` (
   `project_name` text NOT NULL,
   `payment_type` varchar(255) NOT NULL,
   `reference_no` int(11) NOT NULL,
-  `downpayment` int(11) NOT NULL,
-  `balance` decimal(65,2) NOT NULL,
-  `total_cost` int(11) NOT NULL
+  `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`PayID`, `UID`, `payment_issued`, `project_name`, `payment_type`, `reference_no`, `downpayment`, `balance`, `total_cost`) VALUES
-(2, 3005, '2022-01-06', 'Reconstruction Of Bedroom', 'Fully-paid', 0, 0, '120000.00', 120000),
-(3, 3022, '2022-01-06', 'teres ni marites', 'Downpayment ', 0, 5000, '32450.00', 32450),
-(4, 3022, '2022-01-06', 'sample', 'Downpayment ', 0, 7700, '77000.00', 15000),
-(5, 3005, '2022-01-21', 'motor chris', 'Fully-Paid', 0, 0, '190000.00', 190000),
-(6, 3005, '2022-01-21', 'motor chris', 'Fully-Paid', 0, 0, '190000.00', 190000),
-(7, 3022, '2022-01-22', 'Paa ni Ben', 'Downpayment', 0, 5000, '120000.00', 120000),
-(8, 0, '2022-01-25', '', 'Downpayment', 16798527, 0, '0.00', 0),
-(9, 3022, '2022-01-25', 'ben project', 'Downpayment', 7502740, 5000, '30000.00', 30000);
+INSERT INTO `payment` (`PayID`, `UID`, `payment_issued`, `project_name`, `payment_type`, `reference_no`, `amount`) VALUES
+(3, 3022, '2022-01-06', 'teres ni marites', 'Downpayment ', 0, 32450),
+(4, 3022, '2022-01-06', 'sample', 'Downpayment ', 0, 15000),
+(7, 3022, '2022-01-22', 'Paa ni Ben', 'Downpayment', 0, 120000),
+(9, 3022, '2022-01-25', 'ben project', 'Downpayment', 7502740, 30000),
+(16, 3010, '2022-01-26', 'Sample', 'Balance', 78434337, 12000),
+(17, 3010, '2022-01-26', 'Sample', 'Partial Payment', 78434337, 4000),
+(18, 3010, '2022-01-26', 'Sample', 'Partial Payment', 78434337, 2000);
 
 -- --------------------------------------------------------
 
@@ -117,7 +137,15 @@ INSERT INTO `project` (`PID`, `UID`, `project_name`, `Location`, `scope`, `proje
 (11, 3022, 'ceiling and Electrical improvements', '', 'build and repair', 'Project Name : sample\nAdditional Request : \nsample\nsample\nsample\nsample\nsample\nsample\nsample', 'Completed', '', '2022-01-06'),
 (12, 3010, 'Dream house of Henry Sy', '', 'design and build', 'Creating foundations in a 3000 acres and checking all of the possible builds we can provide to the client.', 'Ongoing', '', '0000-00-00'),
 (14, 3005, 'motor chris', 'makati', 'Build', '', 'Processed', '2022-01-16', '2022-01-21'),
-(15, 3022, 'ben project', 'manila', 'Build', '', 'Processed', '2022-02-23', '2022-01-25');
+(15, 3022, 'ben project', 'manila', 'Build', '', 'Processed', '2022-02-23', '2022-01-25'),
+(16, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
+(17, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
+(18, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
+(19, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
+(20, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
+(21, 3005, 'moy NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
+(22, 3024, 'motor ni ben', 'makati', 'Design', '', 'Processed', '2026-11-24', '2022-01-26'),
+(23, 3010, 'Sample', 'sample', 'Design', '', 'Completed', '2028-11-29', '2022-01-26');
 
 -- --------------------------------------------------------
 
@@ -172,19 +200,20 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `usertype` varchar(255) NOT NULL,
   `picpath` text NOT NULL,
-  `pic_filename` mediumtext NOT NULL
+  `pic_filename` mediumtext NOT NULL,
+  `remarks` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumber`, `ID_proof`, `username`, `password`, `usertype`, `picpath`, `pic_filename`) VALUES
-(0, '', '', '', '', 'benbendict08@gmail.com', 0, '', 'bagonguser1', '12345678', 'common', '', ''),
-(3005, 'chris', 'g', 'cullados', 'tanzang luma 6', 'gogo@gmail.com', 922278489, 'sss id, umid id, philhealth id, national id', 'xtianpuh', '12345678', 'admin', '', ''),
-(3010, 'Danielle', 'P', 'Capistrano', 'imus', 'maosdu@gmail.com', 102884, '', 'user3', 'qwerty', 'common', '', ''),
-(3023, '', '', '', '', 'christiancullados73@gmail.com', 0, '', 'newuser2', '12345678', 'common', '', ''),
-(3024, 'Mukbang', 'H', 'Pamore', 'Imus meow', 'test@gmail.com', 977283731, 'SSS ID', 'newuser', 'Manila123', 'common', '', '');
+INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumber`, `ID_proof`, `username`, `password`, `usertype`, `picpath`, `pic_filename`, `remarks`) VALUES
+(0, '', '', '', '', 'benbendict08@gmail.com', 0, '', 'bagonguser1', '12345678', 'common', '', '', 'ARCHIVED'),
+(3005, 'chris', 'g', 'cullados', 'tanzang luma 6', 'gogo@gmail.com', 922278489, 'sss id, umid id, philhealth id, national id', 'xtianpuh', '12345678', 'admin', '', '', ''),
+(3010, 'Danielle', 'P', 'Capistrano', 'imus', 'maosdu@gmail.com', 102884, '', 'user3', 'qwerty', 'common', '', '', ''),
+(3023, '', '', '', '', 'christiancullados73@gmail.com', 0, '', 'newuser2', '12345678', 'common', '', '', 'ARCHIVED'),
+(3024, 'Mukbang', 'H', 'Pamore', 'Imus meow', 'test@gmail.com', 977283731, 'SSS ID', 'newuser', 'Manila123', 'common', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -220,6 +249,12 @@ INSERT INTO `web_images` (`ImgID`, `filename`, `image_info`, `picpath`, `status`
 --
 ALTER TABLE `appointment`
   ADD PRIMARY KEY (`APPID`);
+
+--
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`inID`);
 
 --
 -- Indexes for table `payment`
@@ -262,16 +297,22 @@ ALTER TABLE `appointment`
   MODIFY `APPID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
+-- AUTO_INCREMENT for table `invoice`
+--
+ALTER TABLE `invoice`
+  MODIFY `inID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `timeline`
