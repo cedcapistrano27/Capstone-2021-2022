@@ -9,6 +9,10 @@ use PHPMailer\PHPMailer\PHPMailer;
   
 if(isset($_POST["signup-btn"]))
 {
+  $Fname = $_POST["fname"];
+  $Mname = $_POST["mname"];
+  $Lname = $_POST["lname"];
+  $C_number = $_POST["telNo"];
   $username = $_POST["uname"];
   $email = $_POST["email"];
   $password = $_POST["pass"];
@@ -22,7 +26,7 @@ if(isset($_POST["signup-btn"]))
       echo "<script>alert('Password should be 8 characters long.')</script>";
     }
   }
-  elseif($confirm_pass != $password){
+  else if($confirm_pass != $password){
     echo "<script>alert('Password does not match!')</script>"; 
   }
   else{
@@ -56,7 +60,7 @@ if(isset($_POST["signup-btn"]))
             // $email=$_SESSION['email'];
           // $querymail = "UPDATE account SET created_at='$currentDate', expiration ='$packageEndDate' WHERE email='$myemail'";  
           //      $run1 = mysqli_query($con,$querymail) or die(mysqli_error($con));
-               $sql = "INSERT INTO user (username, email, password, usertype) VALUES ('$username', '$email', '$password', 'common')";
+               $sql = "INSERT INTO user (fname,mname,lname,cnumber,username, email, password, usertype) VALUES ('$Fname','$Mname','$Lname','$C_number','$username', '$email', '$password', 'common')";
                $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
                 if($result){
                   echo "<script>alert('Your account has been created. Check your email for validation. Redirecting to login page...')</script>"; 
@@ -97,16 +101,46 @@ if(isset($_POST["signup-btn"]))
     <!--<title> Registration or Sign Up form in HTML CSS | CodingLab </title>-->
     <link rel="stylesheet" href="signupstyle.css">
 
+    <style>
+      input[type="number"] {
+        width: 100px;
+      }
+
+      input:invalid+span:after {
+        position: absolute; content: '✖';
+        padding-left: 5px;
+        color: #8b0000;
+      }
+
+      input:valid+span:after {
+        position: absolute;
+        content: '✓';
+        padding-left: 5px;
+        color: #009000;
+      }
+    </style>
    </head>
 <body>
   <div class="wrapper">
     <h2>Registration</h2>
     <form  method="post">
+    <div class="input-box">
+        <input type="text" placeholder="First Name" name="fname" required>
+      </div>
       <div class="input-box">
-        <input type="text" placeholder="Enter your username" name="uname" required>
+        <input type="text" placeholder="Middle Initial" name="mname" required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Last Name" name="lname" required>
+      </div>
+      <div class="input-box" style=" display:flex;">
+        <input type="text" name="" id="" value="+63" readonly style="width:85px;"> <input type="number" style="width:250px:" name="telNo" id="quantity" size="20"  maxlength="10" placeholder="Enter 10 digit number" required> <span class="validity"></span>
       </div>
       <div class="input-box">
         <input type="email" placeholder="Enter your email" name="email" required >
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Enter your username" name="uname" required>
       </div>
       <div class="input-box">
         <input type="password" placeholder="Create password" name="pass" required>
@@ -132,4 +166,22 @@ if(isset($_POST["signup-btn"]))
   
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+  //called when key is pressed in textbox
+  $("#quantity").keypress(function (e) {
+     
+     var maxlengthNumber = parseInt($('#quantity').attr('maxlength'));
+     var inputValueLength = $('#quantity').val().length + 1;
+     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        
+               return false;
+    }
+    if(maxlengthNumber < inputValueLength) {
+    	return false;
+    }
+   });
+});
+</script>
 </html>

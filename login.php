@@ -161,19 +161,20 @@ if ($result->num_rows > 0)
 						<span class="txt1">
 							Forgot
 						</span>
-						<a class="txt2" href="#">
+						<a class="txt2" href="#" style="font-size:16px;">
 							Username / Password?
 						</a> 
 
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="signup.php">
-							Create your Account
+						<a class="txt2" href="signup.php" style="font-size:18px;">
+						
+							Create an Account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 						<br>
-						<a class="txt2" href="index.php">
+						<a class="txt2" href="index.php" style="font-size:18px;">
 							Go to homepage
 							<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 						</a>
