@@ -71,7 +71,7 @@ session_start();
                <th width="20%">PAYMENT TYPE</th>
                <th width="15%">REFERENCE NUMBER</th>       
                <th width="10%">TOTAL COST</th>
-               <th width="15%">TRANSACTION DATE ISSUE</th>   
+                 
            </tr>    
       ';    
       $content .= fetch_data();    
