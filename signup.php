@@ -134,7 +134,7 @@ if(isset($_POST["signup-btn"]))
         <input type="text" placeholder="Last Name" name="lname" required>
       </div>
       <div class="input-box" style=" display:flex;">
-        <input type="text" name="" id="" value="+63" readonly style="width:85px;"> <input type="number" style="width:250px:" name="telNo" id="quantity" size="20"  maxlength="10" placeholder="Enter 10 digit number" required> <span class="validity"></span>
+        <input type="text" name="" id="" value="+63" readonly style="width:85px;"> <input type="text" style="width:250px:" name="telNo" id="quantity" size="20"  maxlength="10" placeholder="Enter 10 digit number" required> <span class="validity"></span>
       </div>
       <div class="input-box">
         <input type="email" placeholder="Enter your email" name="email" required >

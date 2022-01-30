@@ -209,8 +209,8 @@ if (isset($_POST['request'])) {
                       <input type="text" id="time" placeholder="Select Time">
                     </div> -->
                     <label for=""> Type :
-                      <select name="atype" id="" style="height:35px; width: 150px;" aria-placeholder="Select appointment">
-                        <option value="--"></option>
+                      <select name="atype" id="" style="height:35px; width: 150px;" aria-placeholder="Select appointment" required>
+                        <option value="">Please select</option>
                         <option value="Follow-up">Follow up</option>
                         <option value="New Project">New Project</option>
                       </select>
