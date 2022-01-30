@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2022 at 05:21 AM
+-- Generation Time: Jan 30, 2022 at 05:46 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -78,7 +78,9 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`inID`, `UID`, `project_name`, `payment_type`, `balance`, `reference_no`, `remarks`, `targetdate`) VALUES
-(2, 3010, 'Sample', 'Downpayment', 10000, 78434337, 'Ongoing', '2028-11-29');
+(2, 3010, 'Sample', 'Downpayment', 10000, 78434337, 'Ongoing', '2028-11-29'),
+(3, 0, 'SAMPLE', '', 0, 67210424, 'Fully-Paid', '2022-01-29'),
+(4, 0, 'SAMPLE', '', 0, 63224274, 'Fully-Paid', '2022-01-29');
 
 -- --------------------------------------------------------
 
@@ -107,7 +109,13 @@ INSERT INTO `payment` (`PayID`, `UID`, `payment_issued`, `project_name`, `paymen
 (9, 3022, '2022-01-25', 'ben project', 'Downpayment', 7502740, 30000),
 (16, 3010, '2022-01-26', 'Sample', 'Balance', 78434337, 12000),
 (17, 3010, '2022-01-26', 'Sample', 'Partial Payment', 78434337, 4000),
-(18, 3010, '2022-01-26', 'Sample', 'Partial Payment', 78434337, 2000);
+(18, 3010, '2022-01-26', 'Sample', 'Partial Payment', 78434337, 2000),
+(19, 0, '2022-01-30', 'SAMPLE', '', 67210424, 0),
+(20, 0, '2022-01-30', 'SAMPLE', '', 63224274, 0),
+(21, 0, '2022-01-30', 'SAMPLE', '', 31267448, 0),
+(22, 0, '2022-01-30', 'SAMPLE', '', 78068439, 0),
+(23, 0, '2022-01-30', 'SAMPLE', '', 88282849, 0),
+(24, 0, '2022-01-30', 'SAMPLE', '', 95979797, 0);
 
 -- --------------------------------------------------------
 
@@ -116,36 +124,86 @@ INSERT INTO `payment` (`PayID`, `UID`, `payment_issued`, `project_name`, `paymen
 --
 
 CREATE TABLE `project` (
-  `PID` int(255) NOT NULL,
+  `PID` int(11) NOT NULL,
   `UID` int(11) NOT NULL,
   `project_name` varchar(250) NOT NULL,
-  `Location` text NOT NULL,
-  `scope` varchar(255) NOT NULL,
-  `project_info` text NOT NULL,
-  `remarks` text NOT NULL,
-  `TargetDate` varchar(250) NOT NULL,
-  `Pdate` date NOT NULL
+  `Location` varchar(250) NOT NULL,
+  `scope` varchar(250) NOT NULL,
+  `remarks` varchar(250) NOT NULL,
+  `TargetDate` date NOT NULL,
+  `Pdate` date NOT NULL DEFAULT current_timestamp(),
+  `MD_quantity` int(11) NOT NULL,
+  `MD_cost` decimal(15,2) NOT NULL,
+  `MD_total` decimal(15,2) NOT NULL,
+  `PM_quantity` int(11) NOT NULL,
+  `PM_cost` decimal(15,2) NOT NULL,
+  `PM_total` decimal(15,2) NOT NULL,
+  `HK_quantity` int(11) NOT NULL,
+  `HK_cost` decimal(15,2) NOT NULL,
+  `HK_total` decimal(15,2) NOT NULL,
+  `delivery_quantity` int(11) NOT NULL,
+  `delivery_cost` decimal(15,2) NOT NULL,
+  `delivery_total` decimal(15,2) NOT NULL,
+  `MISC_quantity` int(11) NOT NULL,
+  `MISC_cost` decimal(15,2) NOT NULL,
+  `MISC_total` decimal(15,2) NOT NULL,
+  `noteGR` text NOT NULL,
+  `totalGR` decimal(15,2) NOT NULL,
+  `FC_quanity` int(11) NOT NULL,
+  `FC_cost` decimal(15,2) NOT NULL,
+  `FC_total` decimal(15,2) NOT NULL,
+  `totalCW` decimal(15,2) NOT NULL,
+  `PFC_quantity` int(11) NOT NULL,
+  `PFC_cost` decimal(15,2) NOT NULL,
+  `PFC_total` decimal(15,2) NOT NULL,
+  `WALL_quantity` int(11) NOT NULL,
+  `WALL_cost` decimal(15,2) NOT NULL,
+  `WALL_total` decimal(15,2) NOT NULL,
+  `notePW` text NOT NULL,
+  `totalPW` decimal(15,2) NOT NULL,
+  `EW_quantity` int(11) NOT NULL,
+  `EW_cost` decimal(15,2) NOT NULL,
+  `EW_total` decimal(15,2) NOT NULL,
+  `noteEW` int(11) NOT NULL,
+  `totalEW` decimal(15,2) NOT NULL,
+  `TWD_quantity` int(11) NOT NULL,
+  `TWD_cost` decimal(15,2) NOT NULL,
+  `TWD_total` decimal(15,2) NOT NULL,
+  `TWB_quantity` int(11) NOT NULL,
+  `TWB_cost` decimal(15,2) NOT NULL,
+  `TWB_total` decimal(15,2) NOT NULL,
+  `noteTW` int(11) NOT NULL,
+  `totalTW` decimal(15,2) NOT NULL,
+  `FWL_quantity` int(11) NOT NULL,
+  `FWL_cost` decimal(15,2) NOT NULL,
+  `FWL_total` decimal(15,2) NOT NULL,
+  `totalFW` decimal(15,2) NOT NULL,
+  `OtherA_quantity` int(11) NOT NULL,
+  `OtherA_cost` decimal(15,2) NOT NULL,
+  `OtherA_total` decimal(15,2) NOT NULL,
+  `OtherB_quantity` int(11) NOT NULL,
+  `OtherB_cost` decimal(15,2) NOT NULL,
+  `OtherB_total` decimal(15,2) NOT NULL,
+  `OtherC_quantity` int(11) NOT NULL,
+  `OtherC_cost` decimal(15,2) NOT NULL,
+  `OtherC_total` decimal(15,2) NOT NULL,
+  `OtherD_quantity` int(11) NOT NULL,
+  `OtherD_cost` decimal(15,2) NOT NULL,
+  `OtherD_total` decimal(15,2) NOT NULL,
+  `OtherE_quantity` int(11) NOT NULL,
+  `OtherE_cost` decimal(15,2) NOT NULL,
+  `OtherE_total` decimal(15,2) NOT NULL,
+  `totalOther` decimal(15,2) NOT NULL,
+  `totalAmount` decimal(15,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`PID`, `UID`, `project_name`, `Location`, `scope`, `project_info`, `remarks`, `TargetDate`, `Pdate`) VALUES
-(9, 3005, 'Reconstruction Of Bedroom', '', 'build', ' Project Name : Reconstruction Of Bedroom\n        Additional Request : - may sealing fan\n- mataas kama\n- d na alog kama\n', 'Completed', '', '2022-01-06'),
-(10, 3022, 'Renovation', '', 'design and build', ' Project Name : teres ni marites\r\n        Additional Request :\r\n        - sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample\r\n- sample', 'completed', '', '2022-01-06'),
-(11, 3022, 'ceiling and Electrical improvements', '', 'build and repair', 'Project Name : sample\nAdditional Request : \nsample\nsample\nsample\nsample\nsample\nsample\nsample', 'Completed', '', '2022-01-06'),
-(12, 3010, 'Dream house of Henry Sy', '', 'design and build', 'Creating foundations in a 3000 acres and checking all of the possible builds we can provide to the client.', 'Ongoing', '', '0000-00-00'),
-(14, 3005, 'motor chris', 'makati', 'Build', '', 'Processed', '2022-01-16', '2022-01-21'),
-(15, 3022, 'ben project', 'manila', 'Build', '', 'Processed', '2022-02-23', '2022-01-25'),
-(16, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
-(17, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
-(18, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
-(19, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
-(20, 3005, 'Chris NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
-(21, 3005, 'moy NI motor', 'Makati', 'Design & Build', '', 'Processed', '2026-11-25', '2022-01-26'),
-(22, 3024, 'motor ni ben', 'makati', 'Design', '', 'Processed', '2026-11-24', '2022-01-26'),
-(23, 3010, 'Sample', 'sample', 'Design', '', 'Completed', '2028-11-29', '2022-01-26');
+INSERT INTO `project` (`PID`, `UID`, `project_name`, `Location`, `scope`, `remarks`, `TargetDate`, `Pdate`, `MD_quantity`, `MD_cost`, `MD_total`, `PM_quantity`, `PM_cost`, `PM_total`, `HK_quantity`, `HK_cost`, `HK_total`, `delivery_quantity`, `delivery_cost`, `delivery_total`, `MISC_quantity`, `MISC_cost`, `MISC_total`, `noteGR`, `totalGR`, `FC_quanity`, `FC_cost`, `FC_total`, `totalCW`, `PFC_quantity`, `PFC_cost`, `PFC_total`, `WALL_quantity`, `WALL_cost`, `WALL_total`, `notePW`, `totalPW`, `EW_quantity`, `EW_cost`, `EW_total`, `noteEW`, `totalEW`, `TWD_quantity`, `TWD_cost`, `TWD_total`, `TWB_quantity`, `TWB_cost`, `TWB_total`, `noteTW`, `totalTW`, `FWL_quantity`, `FWL_cost`, `FWL_total`, `totalFW`, `OtherA_quantity`, `OtherA_cost`, `OtherA_total`, `OtherB_quantity`, `OtherB_cost`, `OtherB_total`, `OtherC_quantity`, `OtherC_cost`, `OtherC_total`, `OtherD_quantity`, `OtherD_cost`, `OtherD_total`, `OtherE_quantity`, `OtherE_cost`, `OtherE_total`, `totalOther`, `totalAmount`) VALUES
+(1, 3010, 'SAMPLE', 'SAMPLE', 'Design', 'Contract', '2022-01-29', '2022-01-30', 311, '12.00', '3732.00', 2121, '222.00', '470862.00', 466, '65.00', '30290.00', 766, '55.00', '42130.00', 21321, '3131.00', '66756051.00', 'none', '67303065.00', 55, '222.00', '12210.00', '12210.00', 311, '787.00', '244757.00', 66, '778.00', '51348.00', '', '296105.00', 998, '154.00', '153692.00', 0, '153692.00', 223, '344.00', '76712.00', 122, '444.00', '54168.00', 0, '130880.00', 312, '1122.00', '350064.00', '350064.00', 121, '22.00', '2662.00', 234, '11.00', '2574.00', 455, '556.00', '252980.00', 112, '77.00', '8624.00', 222, '899.00', '199578.00', '466418.00', '68712434.00'),
+(2, 3010, 'SAMPLE', 'SAMPLE', 'Design', 'Contract', '2022-01-29', '2022-01-30', 311, '12.00', '3732.00', 2121, '222.00', '470862.00', 466, '65.00', '30290.00', 766, '55.00', '42130.00', 21321, '3131.00', '66756051.00', 'none', '67303065.00', 55, '222.00', '12210.00', '12210.00', 311, '787.00', '244757.00', 66, '778.00', '51348.00', '', '296105.00', 998, '154.00', '153692.00', 0, '153692.00', 223, '344.00', '76712.00', 122, '444.00', '54168.00', 0, '130880.00', 312, '1122.00', '350064.00', '350064.00', 121, '22.00', '2662.00', 234, '11.00', '2574.00', 455, '556.00', '252980.00', 112, '77.00', '8624.00', 222, '899.00', '199578.00', '466418.00', '68712434.00');
 
 -- --------------------------------------------------------
 
@@ -303,19 +361,19 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `inID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `inID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `PID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `timeline`
