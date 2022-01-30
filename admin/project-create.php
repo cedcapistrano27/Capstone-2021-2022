@@ -1,4 +1,4 @@
-
+0
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -429,99 +429,99 @@
 
 ///GENERAL REQUIREMENTS
 
-      $MD_quantity ="";
-      $MD_cost ="";
-      $MD_total ="";
-      $PM_quantity ="";
-      $PM_cost ="";
-      $PM_total ="";
-      $HK_quantity ="";
-      $HK_cost ="";
-      $HK_total ="";
-      $delivery_quantity ="";
-      $delivery_cost ="";
-      $delivery_total ="";
-      $Mis_quantity ="";
-      $Mis_cost ="";
-      $Mis_total ="";
+      $MD_quantity ="0";
+      $MD_cost ="0";
+      $MD_total ="0";
+      $PM_quantity ="0";
+      $PM_cost ="0";
+      $PM_total ="0";
+      $HK_quantity ="0";
+      $HK_cost ="0";
+      $HK_total ="0";
+      $delivery_quantity ="0";
+      $delivery_cost ="0";
+      $delivery_total ="0";
+      $Misc_quantity ="0";
+      $Misc_cost ="0";
+      $Misc_total ="0";
       $noteGR ="";
 
 ///CELING WORKS 
 
-    $FC_quantity = "";
-    $FC_cost = "";
-    $FC_total = "";
+    $FC_quantity = "0";
+    $FC_cost = "0";
+    $FC_total = "0";
 
 ///PAINTING WORKS
 
-    $PFC_quantity ="";
-    $PFC_cos ="";
-    $PFC_total ="";
+    $PFC_quantity ="0";
+    $PFC_cost ="0";
+    $PFC_total ="0";
 
-    $WALL_quantity ="";
-    $WALL_cost ="";
-    $WALL_total ="";
+    $WALL_quantity ="0";
+    $WALL_cost ="0";
+    $WALL_total ="0";
 
     $notePW ="";
 
 ///ELECTRICAL WORKS
 
-    $EW_quantity ="";
-    $EW_cost ="";
-    $EW_total ="";
+    $EW_quantity ="0";
+    $EW_cost ="0";
+    $EW_total ="0";
     $noteEW ="";
 
 ///TILE WORKS
 
-    $TWD_quantity ="";
-    $TWD_cost ="";
-    $TWD_total =""; 
+    $TWD_quantity ="0";
+    $TWD_cost ="0";
+    $TWD_total ="0"; 
 
-    $TWB_quantity ="";
-    $TWB_cost ="";
-    $TWB_total ="";
+    $TWB_quantity ="0";
+    $TWB_cost ="0";
+    $TWB_total ="0";
 
     $noteTW ="";
 
 ///FLOORING WORKS
 
-    $FWL_quantity ="";
-    $FWL_cost ="";
-    $FWL_total ="";
+    $FWL_quantity ="0";
+    $FWL_cost ="0";
+    $FWL_total ="0";
 
 ///OTHERS
 
-    $otherA_quantity ="";
-    $otherA_cost ="";
-    $otherA_total ="";
+    $otherA_quantity ="0";
+    $otherA_cost ="0";
+    $otherA_total ="0";
 
-    $otherB_quantity ="";
-    $otherB_cost ="";
-    $otherB_total ="";
+    $otherB_quantity ="0";
+    $otherB_cost ="0";
+    $otherB_total ="0";
 
-    $otherC_quantity ="";
-    $otherC_cost ="";
-    $otherC_total ="";
+    $otherC_quantity ="0";
+    $otherC_cost ="0";
+    $otherC_total ="0";
 
-    $otherD_quantity ="";
-    $otherD_cost ="";
-    $otherD_total ="";
+    $otherD_quantity ="0";
+    $otherD_cost ="0";
+    $otherD_total ="0";
 
-    $otherE_quantity ="";
-    $otherE_cost ="";
-    $otherE_total ="";
+    $otherE_quantity ="0";
+    $otherE_cost ="0";
+    $otherE_total ="0";
 
-    $totalGR="";
-    $totalPW ="";
-    $totalTW ="";
-    $totalOther ="";
-    $totalAmount="";
+    $totalGR="0";
+    $totalPW ="0";
+    $totalTW ="0";
+    $totalOther ="0";
+    $totalAmount="0";
 
    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['calculate'])) {
 
-            $ProjectName = $_POST['projname'];
+       $ProjectName = $_POST['projname'];
        $target = $_POST['targetdate'];
        $scope = $_POST['scope'];
        $Location = $_POST['location'];
@@ -546,13 +546,13 @@
       $delivery_cost = $_POST['delivery_cost'];
       $delivery_total = $delivery_quantity * $delivery_cost;
 
-      $Mis_quantity = $_POST['Mis_quantity'];
-      $Mis_cost = $_POST['Mis_cost'];
-      $Mis_total = $Mis_quantity * $Mis_cost;
+      $Misc_quantity = $_POST['Mis_quantity'];
+      $Misc_cost = $_POST['Mis_cost'];
+      $Misc_total = $Misc_quantity * $Misc_cost;
 
       $noteGR = $_POST['noteA'];
 
-      $totalGR = $MD_total + $PM_total + $HK_total + $delivery_total + $Mis_total;
+      $totalGR = $MD_total + $PM_total + $HK_total + $delivery_total + $Misc_total;
 
 ///CEILING WORKS
 
@@ -632,8 +632,8 @@
 
       
     }
-
-    if (isset($_POST['create'])) {
+    elseif (isset($_POST['create'])) {
+ 
 
        
        $ProjectName = $_POST['projname'];
@@ -661,9 +661,9 @@
       $delivery_cost = $_POST['delivery_cost'];
       $delivery_total = $_POST['delivery_total'];
 
-      $Mis_quantity = $_POST['Mis_quantity'];
-      $Mis_cost = $_POST['Mis_cost'];
-      $Mis_total = $_POST['Mis_total'];
+      $Misc_quantity = $_POST['Mis_quantity'];
+      $Misc_cost = $_POST['Mis_cost'];
+      $Misc_total = $_POST['Mis_total'];
 
       $noteGR = $_POST['noteA'];
 
@@ -733,45 +733,205 @@
       $otherE_cost = $_POST['otherE_cost'];
       $otherE_total = $_POST['otherE_total'];
 
-       $reference = rand(10000,100000000);
+
+///mga total ng sub totals
+       $totalGR = $_POST['totalGR'];
+       $totalCW = $_POST['totalCW'];
+       $totalPW = $_POST['totalPW'];
+       $totalEW = $_POST['totalEW'];
+       $totalTW = $_POST['totalTW'];
+       $totalFW = $_POST['totalFW'];
+       $totalOther = $_POST['totalOther'];
+
+       $totalAmount = $_POST['all'];
+
+       //$reference = rand(10000,100000000);
       
 
-      $sql_create = "INSERT INTO project(UID, project_name,Location,scope, remarks,TargetDate, Pdate) VALUES (
-      '$clientName',
-      '$ProjectName',
-      '$Location',
-      '$scope',
-      'Ongoing','$target', current_timestamp())";
+      $sql_create = "INSERT INTO project( UID, 
+        project_name, 
+        Location, 
+        scope, 
+        remarks, 
+        TargetDate, 
+        Pdate, 
+        MD_quantity, 
+        MD_cost, 
+        MD_total, 
+        PM_quantity, 
+        PM_cost, 
+        PM_total, 
+        HK_quantity, 
+        HK_cost, 
+        HK_total, 
+        delivery_quantity, 
+        delivery_cost, 
+        delivery_total, 
+        MISC_quantity, 
+        MISC_cost, 
+        MISC_total, 
+        noteGR, 
+        totalGR, 
+        FC_quanity, 
+        FC_cost, 
+        FC_total, 
+        totalCW, 
+        PFC_quantity, 
+        PFC_cost, 
+        PFC_total, 
+        WALL_quantity, 
+        WALL_cost, 
+        WALL_total, 
+        notePW, 
+        totalPW, 
+        EW_quantity, 
+        EW_cost, 
+        EW_total, 
+        noteEW, 
+        totalEW, 
+        TWD_quantity, 
+        TWD_cost, 
+        TWD_total, 
+        TWB_quantity, 
+        TWB_cost, 
+        TWB_total, 
+        noteTW, 
+        totalTW, 
+        FWL_quantity, 
+        FWL_cost, 
+        FWL_total, 
+        totalFW, 
+        OtherA_quantity, 
+        OtherA_cost, 
+        OtherA_total, 
+        OtherB_quantity, 
+        OtherB_cost, 
+        OtherB_total, 
+        OtherC_quantity, 
+        OtherC_cost, 
+        OtherC_total, 
+        OtherD_quantity, 
+        OtherD_cost, 
+        OtherD_total, 
+        OtherE_quantity, 
+        OtherE_cost, 
+        OtherE_total, 
+        totalOther, 
+        totalAmount) VALUES (
+        '$clientName',
+        '$ProjectName',
+        '$Location',
+        '$scope',
+        'Contract',
+        '$target',
+        current_timestamp(),
+        '$MD_quantity',
+        '$MD_cost',
+        '$MD_total',
+        '$PM_quantity',
+        '$PM_cost',
+        '$PM_total',
+        '$HK_quantity',
+        '$HK_cost',
+        '$HK_total',
+        '$delivery_quantity',
+        '$delivery_cost',
+        '$delivery_total',
+        '$Misc_quantity',
+        '$Misc_cost',
+        '$Misc_total',
+        '$noteGR',
+        '$totalGR',
+        '$FC_quantity',
+        '$FC_cost',
+        '$FC_total',
+        '$totalCW',
+        '$PFC_quantity',
+        '$PFC_cost',
+        '$PFC_total',
+        '$WALL_quantity',
+        '$WALL_cost',
+        '$WALL_total',
+        '$notePW',
+        '$totalPW',
+        '$EW_quantity',
+        '$EW_cost',
+        '$EW_total',
+        '$noteEW',
+        '$totalEW',
+        '$TWD_quantity',
+        '$TWD_cost',
+        '$TWD_total',
+        '$TWB_quantity',
+        '$TWB_cost',
+        '$TWB_total',
+        '$noteTW',
+        '$totalTW',
+        '$FWL_quantity',
+        '$FWL_cost',
+        '$FWL_total',
+        '$totalFW',
+        '$otherA_quantity',
+        '$otherA_cost',
+        '$otherA_total',
+        '$otherB_quantity',
+        '$otherB_cost',
+        '$otherB_total',
+        '$otherC_quantity',
+        '$otherC_cost',
+        '$otherC_total',
+        '$otherD_quantity',
+        '$otherD_cost',
+        '$otherD_total',
+        '$otherE_quantity',
+        '$otherE_cost',
+        '$otherE_total',
+        '$totalOther',
+        '$totalAmount')";
 
       
 
-      $sql_payment = "INSERT INTO payment(UID, payment_issued, project_name, payment_type, reference_no, amount) 
-      VALUES (
-      '$clientName', current_timestamp(),'$ProjectName','$Paytype','$reference', '$TotalAmount')";
+      //$sql_payment = "INSERT INTO payment(UID, payment_issued, project_name, payment_type, reference_no, amount) 
+     //VALUES (
+      //'$clientName', current_timestamp(),'$ProjectName','$Paytype','$reference', '$TotalAmount')";
 
       $result_insert = mysqli_query($conn, $sql_create);
-      $result_pay = mysqli_query($conn, $sql_payment);
+      //$result_pay = mysqli_query($conn, $sql_payment);
     
 
-      if ($result_insert == true) {
+      if ($result_insert) {
         echo "<script> alert('You have Created a New Contract!') </script>";
   echo "<script> window.location.href='project-area.php' </script>";
       }
 
-      if ($Paytype == "Downpayment") {
+include 'connection.php';
+
+      if ($conn -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $conn -> connect_error;
+  exit();
+}
+
+// Perform a query, check for error
+if (!$conn -> query($sql_create)) {
+  echo("Error description: " . $conn -> error);
+}
+
+$conn -> close();
+
+      //if ($Paytype == "Downpayment") {
         
 
-        mysqli_query($conn, "INSERT INTO invoice(UID, project_name, payment_type, reference_no, balance, remarks, targetdate) 
-      VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$TotalAmount', 'Ongoing', '$target')");
+       // mysqli_query($conn, "INSERT INTO invoice(UID, project_name, payment_type, reference_no, balance, remarks, targetdate) 
+      //VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$TotalAmount', 'Ongoing', '$target')");
 
-      }else{
+      ///}else{
 
-        $sql_invoice2 = "INSERT INTO invoice(UID, project_name, payment_type, reference_no, balance, remarks, targetdate) 
-      VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$TotalAmount', 'Fully-Paid', '$target')";
+        //$sql_invoice2 = "INSERT INTO invoice(UID, project_name, payment_type, reference_no, balance, remarks, targetdate) 
+      //VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$TotalAmount', 'Fully-Paid', '$target')";
 
-        mysqli_query($conn, $sql_invoice2);
+        //mysqli_query($conn, $sql_invoice2);
 
-      }
+      //}
 
 }
 
@@ -805,7 +965,7 @@
              <tr>
               <td>Client Name:</td>
               <td colspan="4">
-                <select name="client" value="<?php echo $clientName; ?>">
+                <select name="client" id="client" value="<?php echo $clientName; ?>">
                   <option>Select Client</option>
 
                   <?php 
@@ -909,10 +1069,10 @@
 
             <tr>
               <td><label>Miscellaneous</label></td>
-              <td><input type="number" name="Mis_quantity" min="0" value="<?php echo $Mis_quantity; ?>"></td>
+              <td><input type="number" name="Mis_quantity" min="0" value="<?php echo $Misc_quantity; ?>"></td>
               <td><label>lot</label></td>
-              <td><input type="number" name="Mis_cost" min="0" value="<?php echo $Mis_cost; ?>"></td>
-              <td><input type="text" name="Mis_total" id="total" value="<?php echo $Mis_total; ?>" readonly=""></td>
+              <td><input type="number" name="Mis_cost" min="0" value="<?php echo $Misc_cost; ?>"></td>
+              <td><input type="text" name="Mis_total" id="total" value="<?php echo $Misc_total; ?>" readonly=""></td>
             </tr>
 
             <tr>
@@ -1057,7 +1217,7 @@
 
              <tr>
               <td colspan="3"><label>Sub Total(F) :</label></td>
-              <td colspan="2"><input type="text" name="totalFW" value="<?php $FWL_total; ?>" readonly></td>
+              <td colspan="2"><input type="text" name="totalFW" value="<?php echo $FWL_total; ?>" readonly></td>
             </tr>
 
 <!-----G---->

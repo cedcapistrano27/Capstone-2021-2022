@@ -421,7 +421,6 @@ textarea{
           $ProjectID = $row['PID'];
           $ClientID = $row['UID'];
           $ProjectName = $row['project_name'];
-          $ProjectInfo = $row['project_info'];
           $Remarks = $row['remarks'];
           $DateIssue = $row['Pdate'];
 
@@ -510,7 +509,12 @@ textarea{
             <div class="createBtn" style="flex:1;">
                 <a href="payment_reciept.php?PayId=<?php echo $ClientID; ?>&&Projname=<?php echo $ProjectName ?>">Generate Receipt</a>
                 
-              </div>       
+              </div> 
+
+            <div class="createBtn" style="flex:1;">
+                <a href="contractpdf.php?clientID=<?php echo $ClientID; ?>&&projectID=<?php echo $ProjectID ?>">View Contract</a>
+                
+              </div>          
         
       </div>
 
