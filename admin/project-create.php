@@ -426,6 +426,7 @@
       $scope ="";
       $Location ="";
       $clientName ="";
+      $Paytype ="";
 
 ///GENERAL REQUIREMENTS
 
@@ -526,6 +527,7 @@
        $scope = $_POST['scope'];
        $Location = $_POST['location'];
        $clientName = $_POST['client'];
+       $Paytype = $_POST['paytype'];
 
        ///table 
 
@@ -641,6 +643,8 @@
        $scope = $_POST['scope'];
        $Location = $_POST['location'];
        $clientName = $_POST['client'];
+         $Paytype = $_POST['paytype'];
+
 
        ///table 
 
@@ -745,7 +749,7 @@
 
        $totalAmount = $_POST['all'];
 
-       //$reference = rand(10000,100000000);
+       $reference = rand(10000,100000000);
       
 
       $sql_create = "INSERT INTO project( UID, 
@@ -891,47 +895,56 @@
 
       
 
-      //$sql_payment = "INSERT INTO payment(UID, payment_issued, project_name, payment_type, reference_no, amount) 
-     //VALUES (
-      //'$clientName', current_timestamp(),'$ProjectName','$Paytype','$reference', '$TotalAmount')";
+    $sql_payment = "INSERT INTO payment(UID, payment_issued, project_name, payment_type, reference_no, amount) 
+        VALUES (
+      '$clientName', 
+      current_timestamp(),
+      '$ProjectName',
+      '$Paytype',
+      '$reference',
+      '$totalAmount'
+    )";
+
+    if ($Paytype == "Downpayment") {
+        
+
+       mysqli_query($conn, "INSERT INTO invoice(UID, project_name, payment_type, reference_no, balance, remarks, targetdate) 
+      VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$totalAmount', 'Ongoing', '$target')");
+
+      }else{
+
+        $sql_invoice2 = "INSERT INTO invoice(UID, project_name, payment_type, reference_no, balance, remarks, targetdate) 
+      VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$totalAmount', 'Fully-Paid', '$target')";
+
+        mysqli_query($conn, $sql_invoice2);
+
+      }
 
       $result_insert = mysqli_query($conn, $sql_create);
-      //$result_pay = mysqli_query($conn, $sql_payment);
+      $result_pay = mysqli_query($conn, $sql_payment);
     
 
       if ($result_insert) {
         echo "<script> alert('You have Created a New Contract!') </script>";
-  echo "<script> window.location.href='project-area.php' </script>";
+        echo"<script> window.location.href='http://localhost/Capstone-2021-2022/admin/project-area.php' </script>";
+ 
       }
 
-include 'connection.php';
+
 
       if ($conn -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $conn -> connect_error;
+ echo "Failed to connect to MySQL: " . $conn -> connect_error;
   exit();
 }
 
 // Perform a query, check for error
-if (!$conn -> query($sql_create)) {
-  echo("Error description: " . $conn -> error);
-}
+//if (!$conn -> query($sql_create)) {
+  //echo("Error description: " . $conn -> error);
+//}
 
 $conn -> close();
 
-      //if ($Paytype == "Downpayment") {
-        
-
-       // mysqli_query($conn, "INSERT INTO invoice(UID, project_name, payment_type, reference_no, balance, remarks, targetdate) 
-      //VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$TotalAmount', 'Ongoing', '$target')");
-
-      ///}else{
-
-        //$sql_invoice2 = "INSERT INTO invoice(UID, project_name, payment_type, reference_no, balance, remarks, targetdate) 
-      //VALUES('$clientName', '$ProjectName', '$Paytype','$reference', '$TotalAmount', 'Fully-Paid', '$target')";
-
-        //mysqli_query($conn, $sql_invoice2);
-
-      //}
+      
 
 }
 
@@ -965,9 +978,9 @@ $conn -> close();
              <tr>
               <td>Client Name:</td>
               <td colspan="4">
-                <select name="client" id="client" value="<?php echo $clientName; ?>">
-                  <option>Select Client</option>
-
+                <select name="client" id="client" value="<?php echo $clientName; ?>" required="">
+                  <optgroup label="Select Client">
+                    
                   <?php 
 
                 include 'connection.php';
@@ -984,6 +997,7 @@ $conn -> close();
                       $clientID = $row['UID'];
 
                       echo "
+
                       <option value='$clientID'>$clientF $clientM $clientL</option>
                       ";
 
@@ -991,6 +1005,8 @@ $conn -> close();
                 }
 
                  ?>
+
+               </optgroup>
                   
                </select>
                 
@@ -1006,6 +1022,19 @@ $conn -> close();
               <option value="Design">Design</option>
               <option value="Build">Build</option>
               <option value="Design&Build">Design & Build</option>
+        
+            </select>
+          </td>
+            </tr>
+
+             <tr>
+              <td>Project Payment Type :</td>
+              <td colspan="4">
+                <select name="paytype" id="paytype" value="<?php echo $Paytype; ?>">
+
+              <option value="Downpayment">Downpayment</option>
+              <option value="Fully-Paid">Fully-Paid</option>
+            
         
             </select>
           </td>
