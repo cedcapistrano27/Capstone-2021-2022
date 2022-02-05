@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2022 at 05:46 PM
+-- Generation Time: Feb 05, 2022 at 04:05 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -67,20 +67,11 @@ CREATE TABLE `invoice` (
   `UID` int(11) NOT NULL,
   `project_name` varchar(250) COLLATE latin1_general_ci NOT NULL,
   `payment_type` varchar(255) COLLATE latin1_general_ci NOT NULL,
-  `balance` int(11) NOT NULL,
+  `balance` decimal(15,2) NOT NULL,
   `reference_no` int(11) NOT NULL,
   `remarks` varchar(11) COLLATE latin1_general_ci NOT NULL,
   `targetdate` varchar(255) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Dumping data for table `invoice`
---
-
-INSERT INTO `invoice` (`inID`, `UID`, `project_name`, `payment_type`, `balance`, `reference_no`, `remarks`, `targetdate`) VALUES
-(2, 3010, 'Sample', 'Downpayment', 10000, 78434337, 'Ongoing', '2028-11-29'),
-(3, 0, 'SAMPLE', '', 0, 67210424, 'Fully-Paid', '2022-01-29'),
-(4, 0, 'SAMPLE', '', 0, 63224274, 'Fully-Paid', '2022-01-29');
 
 -- --------------------------------------------------------
 
@@ -95,27 +86,8 @@ CREATE TABLE `payment` (
   `project_name` text NOT NULL,
   `payment_type` varchar(255) NOT NULL,
   `reference_no` int(11) NOT NULL,
-  `amount` int(11) NOT NULL
+  `amount` decimal(15,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`PayID`, `UID`, `payment_issued`, `project_name`, `payment_type`, `reference_no`, `amount`) VALUES
-(3, 3022, '2022-01-06', 'teres ni marites', 'Downpayment ', 0, 32450),
-(4, 3022, '2022-01-06', 'sample', 'Downpayment ', 0, 15000),
-(7, 3022, '2022-01-22', 'Paa ni Ben', 'Downpayment', 0, 120000),
-(9, 3022, '2022-01-25', 'ben project', 'Downpayment', 7502740, 30000),
-(16, 3010, '2022-01-26', 'Sample', 'Balance', 78434337, 12000),
-(17, 3010, '2022-01-26', 'Sample', 'Partial Payment', 78434337, 4000),
-(18, 3010, '2022-01-26', 'Sample', 'Partial Payment', 78434337, 2000),
-(19, 0, '2022-01-30', 'SAMPLE', '', 67210424, 0),
-(20, 0, '2022-01-30', 'SAMPLE', '', 63224274, 0),
-(21, 0, '2022-01-30', 'SAMPLE', '', 31267448, 0),
-(22, 0, '2022-01-30', 'SAMPLE', '', 78068439, 0),
-(23, 0, '2022-01-30', 'SAMPLE', '', 88282849, 0),
-(24, 0, '2022-01-30', 'SAMPLE', '', 95979797, 0);
 
 -- --------------------------------------------------------
 
@@ -164,7 +136,7 @@ CREATE TABLE `project` (
   `EW_quantity` int(11) NOT NULL,
   `EW_cost` decimal(15,2) NOT NULL,
   `EW_total` decimal(15,2) NOT NULL,
-  `noteEW` int(11) NOT NULL,
+  `noteEW` text NOT NULL,
   `totalEW` decimal(15,2) NOT NULL,
   `TWD_quantity` int(11) NOT NULL,
   `TWD_cost` decimal(15,2) NOT NULL,
@@ -172,7 +144,7 @@ CREATE TABLE `project` (
   `TWB_quantity` int(11) NOT NULL,
   `TWB_cost` decimal(15,2) NOT NULL,
   `TWB_total` decimal(15,2) NOT NULL,
-  `noteTW` int(11) NOT NULL,
+  `noteTW` text NOT NULL,
   `totalTW` decimal(15,2) NOT NULL,
   `FWL_quantity` int(11) NOT NULL,
   `FWL_cost` decimal(15,2) NOT NULL,
@@ -196,14 +168,6 @@ CREATE TABLE `project` (
   `totalOther` decimal(15,2) NOT NULL,
   `totalAmount` decimal(15,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `project`
---
-
-INSERT INTO `project` (`PID`, `UID`, `project_name`, `Location`, `scope`, `remarks`, `TargetDate`, `Pdate`, `MD_quantity`, `MD_cost`, `MD_total`, `PM_quantity`, `PM_cost`, `PM_total`, `HK_quantity`, `HK_cost`, `HK_total`, `delivery_quantity`, `delivery_cost`, `delivery_total`, `MISC_quantity`, `MISC_cost`, `MISC_total`, `noteGR`, `totalGR`, `FC_quanity`, `FC_cost`, `FC_total`, `totalCW`, `PFC_quantity`, `PFC_cost`, `PFC_total`, `WALL_quantity`, `WALL_cost`, `WALL_total`, `notePW`, `totalPW`, `EW_quantity`, `EW_cost`, `EW_total`, `noteEW`, `totalEW`, `TWD_quantity`, `TWD_cost`, `TWD_total`, `TWB_quantity`, `TWB_cost`, `TWB_total`, `noteTW`, `totalTW`, `FWL_quantity`, `FWL_cost`, `FWL_total`, `totalFW`, `OtherA_quantity`, `OtherA_cost`, `OtherA_total`, `OtherB_quantity`, `OtherB_cost`, `OtherB_total`, `OtherC_quantity`, `OtherC_cost`, `OtherC_total`, `OtherD_quantity`, `OtherD_cost`, `OtherD_total`, `OtherE_quantity`, `OtherE_cost`, `OtherE_total`, `totalOther`, `totalAmount`) VALUES
-(1, 3010, 'SAMPLE', 'SAMPLE', 'Design', 'Contract', '2022-01-29', '2022-01-30', 311, '12.00', '3732.00', 2121, '222.00', '470862.00', 466, '65.00', '30290.00', 766, '55.00', '42130.00', 21321, '3131.00', '66756051.00', 'none', '67303065.00', 55, '222.00', '12210.00', '12210.00', 311, '787.00', '244757.00', 66, '778.00', '51348.00', '', '296105.00', 998, '154.00', '153692.00', 0, '153692.00', 223, '344.00', '76712.00', 122, '444.00', '54168.00', 0, '130880.00', 312, '1122.00', '350064.00', '350064.00', 121, '22.00', '2662.00', 234, '11.00', '2574.00', 455, '556.00', '252980.00', 112, '77.00', '8624.00', 222, '899.00', '199578.00', '466418.00', '68712434.00'),
-(2, 3010, 'SAMPLE', 'SAMPLE', 'Design', 'Contract', '2022-01-29', '2022-01-30', 311, '12.00', '3732.00', 2121, '222.00', '470862.00', 466, '65.00', '30290.00', 766, '55.00', '42130.00', 21321, '3131.00', '66756051.00', 'none', '67303065.00', 55, '222.00', '12210.00', '12210.00', 311, '787.00', '244757.00', 66, '778.00', '51348.00', '', '296105.00', 998, '154.00', '153692.00', 0, '153692.00', 223, '344.00', '76712.00', 122, '444.00', '54168.00', 0, '130880.00', 312, '1122.00', '350064.00', '350064.00', 121, '22.00', '2662.00', 234, '11.00', '2574.00', 455, '556.00', '252980.00', 112, '77.00', '8624.00', 222, '899.00', '199578.00', '466418.00', '68712434.00');
 
 -- --------------------------------------------------------
 
@@ -256,7 +220,6 @@ CREATE TABLE `user` (
   `address` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `cnumber` int(255) NOT NULL,
-  `ID_proof` varchar(255) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `usertype` varchar(255) NOT NULL,
@@ -269,12 +232,16 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumber`, `ID_proof`, `username`, `password`, `usertype`, `picpath`, `pic_filename`, `remarks`) VALUES
-(0, '', '', '', '', 'benbendict08@gmail.com', 0, '', 'bagonguser1', '12345678', 'common', '', '', 'ARCHIVED'),
-(3005, 'chris', 'g', 'cullados', 'tanzang luma 6', 'gogo@gmail.com', 922278489, 'sss id, umid id, philhealth id, national id', 'xtianpuh', '12345678', 'admin', '', '', ''),
-(3010, 'Danielle', 'P', 'Capistrano', 'imus', 'maosdu@gmail.com', 102884, '', 'user3', 'qwerty', 'common', '', '', ''),
-(3023, '', '', '', '', 'christiancullados73@gmail.com', 0, '', 'newuser2', '12345678', 'common', '', '', 'ARCHIVED'),
-(3024, 'Mukbang', 'H', 'Pamore', 'Imus meow', 'test@gmail.com', 977283731, 'SSS ID', 'newuser', 'Manila123', 'common', '', '', '');
+INSERT INTO `user` (`UID`, `fname`, `mname`, `lname`, `address`, `email`, `cnumber`, `username`, `password`, `usertype`, `picpath`, `pic_filename`, `remarks`) VALUES
+(3005, 'chris', 'g', 'cullados', 'tanzang luma 6', 'gogo@gmail.com', 922278489, 'xtianpuh', '12345678', 'admin', '', '', ''),
+(3010, 'Danielle', 'P', 'Capistrano', 'imus', 'maosdu@gmail.com', 2147483647, 'user3', 'qwerty', 'common', 'uploads/profic1.jpg', '', ''),
+(3022, 'benedict', 'gutierrez', 'bautista', 'Springville Ave', 'bbendict08@gmail.com', 2147483647, 'bagonguser', '12345678', 'common', 'uploads/appoinmetheader.png', '', ''),
+(3024, 'Mukbang', 'H', 'Pamore', 'Imus meow', 'test@gmail.com', 977283731, 'newuser', 'Manila123', 'common', '', '', ''),
+(3026, 'Nelson', 'G', 'Canlas', 'Imus Cavite', 'icebuko781@gmail.com', 2147483647, 'nelson', '12345678', 'common', '', '', ''),
+(3027, 'Mike', 'G', 'Enriquez', 'GMA Cavite', 'icebuko781@gmail.com', 2147483647, 'mikeGMA7', '12345678', 'common', '', '', ''),
+(3028, 'Piolo', 'L', 'Pascual', 'Tondo, Manila', 'icebuko781@gmail.com', 2147483647, 'piolo', '12345678', 'common', '', '', ''),
+(3029, 'Andrea', 'L', 'Aquino', 'Tarlac City', 'icebuko781@gmail.com', 2147483647, 'andrea', '12345678', 'common', '', '', ''),
+(3030, 'Narah', 'g', 'Geronimo', 'Alfonso, Cavite', 'icebuko781@gmail.com', 2147483647, 'maria', '12345678', 'common', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -361,19 +328,19 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `inID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `inID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `timeline`
