@@ -970,6 +970,8 @@ $conn -> close();
               <td colspan="4"><input type="text" name="projname" value="<?php echo $ProjectName;?>"></td>
             </tr>
 
+           
+
              <tr>
               <td>Project Location :</td>
               <td colspan="4"><input type="text" name="location" value="<?php echo $Location; ?>"></td>

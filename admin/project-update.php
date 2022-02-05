@@ -569,7 +569,7 @@ input[type=submit]:hover, .createBtn a:hover{
              // Upload file
              if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name)){
                 // Insert record
-                $section = $_POST['section'];
+               
                 $query = "INSERT INTO timeline(PID, UID, Uscope, ProjectInfo, DateIssued, Remarks, picpath,filename) 
             VALUES ('$proj','$CID','$scope','$info',current_timestamp(), '$remark', '$target_file', '$name')";
                 $result = mysqli_query($conn,$query);

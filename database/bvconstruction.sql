@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2022 at 04:05 PM
+-- Generation Time: Feb 05, 2022 at 04:24 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -73,6 +73,13 @@ CREATE TABLE `invoice` (
   `targetdate` varchar(255) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`inID`, `UID`, `project_name`, `payment_type`, `balance`, `reference_no`, `remarks`, `targetdate`) VALUES
+(9, 3005, 'Sample01', 'Downpayment', '292400.00', 88841339, 'Ongoing', '2026-11-26');
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +95,13 @@ CREATE TABLE `payment` (
   `reference_no` int(11) NOT NULL,
   `amount` decimal(15,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`PayID`, `UID`, `payment_issued`, `project_name`, `payment_type`, `reference_no`, `amount`) VALUES
+(36, 3005, '2022-02-05', 'Sample01', 'Downpayment', 88841339, '292400.00');
 
 -- --------------------------------------------------------
 
@@ -169,6 +183,13 @@ CREATE TABLE `project` (
   `totalAmount` decimal(15,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`PID`, `UID`, `project_name`, `Location`, `scope`, `remarks`, `TargetDate`, `Pdate`, `MD_quantity`, `MD_cost`, `MD_total`, `PM_quantity`, `PM_cost`, `PM_total`, `HK_quantity`, `HK_cost`, `HK_total`, `delivery_quantity`, `delivery_cost`, `delivery_total`, `MISC_quantity`, `MISC_cost`, `MISC_total`, `noteGR`, `totalGR`, `FC_quanity`, `FC_cost`, `FC_total`, `totalCW`, `PFC_quantity`, `PFC_cost`, `PFC_total`, `WALL_quantity`, `WALL_cost`, `WALL_total`, `notePW`, `totalPW`, `EW_quantity`, `EW_cost`, `EW_total`, `noteEW`, `totalEW`, `TWD_quantity`, `TWD_cost`, `TWD_total`, `TWB_quantity`, `TWB_cost`, `TWB_total`, `noteTW`, `totalTW`, `FWL_quantity`, `FWL_cost`, `FWL_total`, `totalFW`, `OtherA_quantity`, `OtherA_cost`, `OtherA_total`, `OtherB_quantity`, `OtherB_cost`, `OtherB_total`, `OtherC_quantity`, `OtherC_cost`, `OtherC_total`, `OtherD_quantity`, `OtherD_cost`, `OtherD_total`, `OtherE_quantity`, `OtherE_cost`, `OtherE_total`, `totalOther`, `totalAmount`) VALUES
+(21, 3005, 'Sample01', 'Sample01', 'Design', 'Contract', '2026-11-26', '2022-02-05', 10, '10.00', '100.00', 20, '20.00', '400.00', 40, '30.00', '1200.00', 50, '440.00', '22000.00', 60, '10.00', '600.00', 'Sample01', '24300.00', 10, '20.00', '200.00', '200.00', 220, '150.00', '33000.00', 240, '120.00', '28800.00', 'Sample01', '61800.00', 170, '110.00', '18700.00', 'Sample01', '18700.00', 1700, '20.00', '34000.00', 510, '220.00', '112200.00', 'Sample01', '146200.00', 120, '20.00', '2400.00', '2400.00', 440, '40.00', '17600.00', 220, '30.00', '6600.00', 110, '20.00', '2200.00', 140, '10.00', '1400.00', 550, '20.00', '11000.00', '38800.00', '292400.00');
+
 -- --------------------------------------------------------
 
 --
@@ -204,7 +225,11 @@ INSERT INTO `timeline` (`TimeID`, `PID`, `UID`, `Uscope`, `ProjectInfo`, `DateIs
 (35, 14, 3005, 'Electrical Works', 'tapos na', '2022-01-21', 'Completed', '', ''),
 (36, 11, 3022, 'Electrical Works', 'Lighting Installation\r\n', '2022-01-08', 'Completed', '', ''),
 (37, 11, 3022, 'Flooring Works', 'finish cements', '2022-01-25', 'Ongoing', '', ''),
-(39, 23, 3010, 'General Works', 'demobilization', '2022-01-27', 'Ongoing', 'uploads/4.jpg', '4.jpg');
+(39, 23, 3010, 'General Works', 'demobilization', '2022-01-27', 'Ongoing', 'uploads/4.jpg', '4.jpg'),
+(40, 21, 3005, 'General Works', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2022-02-05', 'Ongoing', 'uploads/5.jpg', '5.jpg'),
+(41, 21, 3005, 'General Works', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2022-02-05', 'Completed', 'uploads/3.jpg', '3.jpg'),
+(42, 21, 3005, 'Ceiling Works', 'ffffffff', '2022-02-05', 'Ongoing', 'uploads/2.jpg', '2.jpg'),
+(43, 21, 3005, 'Electrical Works', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2022-02-05', 'Ongoing', 'uploads/anime-naruto-itachi-uchiha-madara-uchiha-wallpaper-preview.jpg', 'anime-naruto-itachi-uchiha-madara-uchiha-wallpaper-preview.jpg');
 
 -- --------------------------------------------------------
 
@@ -328,25 +353,25 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `inID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `inID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `PayID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `timeline`
 --
 ALTER TABLE `timeline`
-  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `TimeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `web_images`
