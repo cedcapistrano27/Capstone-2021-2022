@@ -2,7 +2,7 @@
 session_start();
 include 'connection.php';
 use PHPMailer\PHPMailer\PHPMailer;
-  use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\Exception;
   require 'PHPMailers/src/Exception.php';
   require 'PHPMailers/src/PHPMailer.php';
   require 'PHPMailers/src/SMTP.php';
@@ -52,12 +52,12 @@ if(isset($_POST["signup-btn"]))
               //Content
               $mail->IsHTML(true);
               $mail->Subject='Confirmation OTP Code';
-              $mail->Body='<h1 align-center>Your Account has Been Veryfied</h1><br><a href="localhost/login.php?email='.$email.'">Click here to login</a>';
+              $mail->Body='<h1 align-center>Your Account has Been Verified</h1><br><a href="localhost/login.php?email='.$email.'">Click here to login</a>';
 
               //icomment mo nalang tong $mail ben pag ayaw pa din. para sa presentation ok muna.
 
           if($mail->send()){
-            // $email=$_SESSION['email'];
+          $email=$_SESSION['email'];
           // $querymail = "UPDATE account SET created_at='$currentDate', expiration ='$packageEndDate' WHERE email='$myemail'";  
           //      $run1 = mysqli_query($con,$querymail) or die(mysqli_error($con));
                $sql = "INSERT INTO user (fname,mname,lname,cnumber,username, email, password, usertype) VALUES ('$Fname','$Mname','$Lname','$C_number','$username', '$email', '$password', 'common')";
@@ -66,19 +66,18 @@ if(isset($_POST["signup-btn"]))
                   echo "<script>alert('Your account has been created. Check your email for validation. Redirecting to login page...')</script>"; 
                   echo "<script> window.location.href='login.php' </script>  ";
                   // header("Location: {'$url'}");
-                  exit;
-                }
-
-
+                  exit;}
             }
           
-    // $sql = "INSERT INTO user (username, email, password, usertype) VALUES ('$username', '$email', '$password', 'common')";
-    // $result = $conn->query($sql);
-    // echo "<script>alert('Your account has been created. Redirecting to login page...')</script>"; 
-    // echo "<script> window.location.href='login.php' </script>  ";
-    // header("Location: {.$url.}");
-    // exit;
-    // $conn->close();
+            $sql = "INSERT INTO user (fname,mname,lname,cnumber,username, email, password, usertype) VALUES ('$Fname','$Mname','$Lname','$C_number','$username', '$email', '$password', 'common')";
+            $result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+             if($result){
+               echo "<script>alert('Your account has been created. Check your email for validation. Redirecting to home page...')</script>"; 
+               echo "<script> window.location.href='index.php' </script>  ";
+               // header("Location: {'$url'}");
+               exit;
+             }
+    $conn->close();
 
   }
   
